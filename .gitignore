@@ -1,0 +1,4 @@
+.project
+media/cache/*
+application/logs/
+application/config/secrets.php

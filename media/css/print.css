@@ -1,0 +1,34 @@
+#bg
+{
+	display:none;
+}
+#header
+{
+	margin-top:20px;
+	width:100%;
+}
+.breadcrumb
+{
+	display:none;
+}
+#writeform
+{
+	display:none;
+}
+#main
+{
+	box-shadow:none;
+	width:100%;
+}
+	#main #content
+	{
+		width:100%;
+	}
+#sidebar
+{
+	display:none;
+}
+#footer
+{
+	display:none;
+}

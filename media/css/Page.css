@@ -1,0 +1,36 @@
+#writeform
+{
+	margin-top:30px;
+}
+	#writeform .autosave
+	{
+		font-style:italic;
+		font-size:0.8em;
+		color:#666;
+		font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+	}
+#dummy-content
+{
+	display:none;
+}
+#morningpage
+{
+	width:100%;
+	/*min-height:300px;*/
+	border:0;
+}
+.pagedate
+{
+	border-left:0;
+	font-size:1.2em;
+	padding-left:0;
+}
+h1
+{
+	font-style: italic;
+	font-size:32px;
+}
+.quote
+{
+	text-transform:none;
+}

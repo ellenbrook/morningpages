@@ -1,0 +1,2 @@
+<?php defined('SYSPATH') or die('No direct script access.');
+class Controller_Ajax_JS extends Controller {		public function action_vars()	{		$this->response->headers('Content-Type', 'application/javascript; charset=utf-8');		echo 'url = "' . URL::site('/', true) . '";';		echo 'ajaxurl = "' . URL::site('ajax/', true) . '";';		echo 'cronurl = "' . URL::site('cron/', true) . '";';	}	}
