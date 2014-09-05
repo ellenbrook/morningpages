@@ -19,9 +19,9 @@ return array
 			 * Ports and sockets may be appended to the hostname.
 			 */
 			'hostname'   => 'localhost',
-			'database'   => '750words',
-			'username'   => 'root',
-			'password'   => FALSE,
+			'database'   => Kohana::$config->load('secrets')->get('dbname'),
+			'username'   => Kohana::$config->load('secrets')->get('dbuser'),
+			'password'   => Kohana::$config->load('secrets')->get('dbpass'),
 			'persistent' => FALSE,
 		),
 		'table_prefix' => '',

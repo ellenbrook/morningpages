@@ -12,7 +12,7 @@ return array(
 		 */
 		'cipher' => MCRYPT_RIJNDAEL_128,
 		'mode'   => MCRYPT_MODE_NOFB,
-		'key'	=> 'Toffee dragée brownie. Cheesecake candy canes donut jelly-o applicake danish sugar plum icing.'
+		'key'	=> Kohana::$config->load('secrets')->get('encrypt_key')
 	),
 
 );
