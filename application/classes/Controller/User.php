@@ -72,7 +72,7 @@ class Controller_User extends Controller_Project {
 			}
 			else
 			{
-				notes::error('Wrong username or password. Please try again.');
+				//notes::error('Wrong username or password. Please try again.');
 				$error = true;
 			}
 		}
