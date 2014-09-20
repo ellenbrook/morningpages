@@ -30,7 +30,6 @@ class Controller_Ajax_Pages extends Controller {
 		try
 		{
 			$autosave->autosave();
-			//user::update_stats($content, $page);
 			ajax::success('Page saved!');
 		}
 		catch(ORM_Validation_Exception $e)
