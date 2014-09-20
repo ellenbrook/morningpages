@@ -14,7 +14,6 @@ class Controller_Page extends Controller_Project {
 	{
 		$errors = false;
 		$page = $this->request->param('page');
-		
 		if($_POST && strlen(arr::get($_POST, 'morningpage',''))>0)
 		{
 			$content = arr::get($_POST, 'morningpage','');
@@ -22,14 +21,17 @@ class Controller_Page extends Controller_Project {
 			try
 			{
 				$page->update();
-				
 				$autosave = $page->get_autosave();
 				if($autosave)
 				{
 					$autosave->delete();
 				}
-				
-				user::update_stats($content, $page);
+				if(!(bool)$page->counted)
+				{
+					user::update_stats($content, $page);
+					$page->counted = 1;
+					$page->save();
+				}
 				notes::success('Your page has been saved!');
 				site::redirect('write/'.$page->day);
 			}
