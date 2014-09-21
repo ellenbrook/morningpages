@@ -1,5 +1,5 @@
 <?php
- mail('saktomail@gmail.com', 'testing mails');
+ mail('saktomail@gmail.com', 'testing mails', 'works');
 ?>
 
 <div class="row-fluid">
