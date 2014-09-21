@@ -168,11 +168,11 @@
 	$js[] = 'media/js/' . $controller . '.js';
 	$js[] = 'media/js/' . $controller . '/' . $action . '.js';
 	
-	if(!Session::instance()->get('cron',false))
-	{
-		$js[] = 'media/js/cron.js';
-		Session::instance()->set('cron',true);
-	}
+	//if(!Session::instance()->get('cron',false))
+	//{
+		//$js[] = 'media/js/cron.js';
+		//Session::instance()->set('cron',true);
+	//}
 	
 	echo site::js($js);
 ?>
