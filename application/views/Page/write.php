@@ -1,7 +1,3 @@
-<?php
-	mail('saktomail@gmail.com', 'testing mails');
-?>
-
 <div class="row-fluid">
 	<div class="span12">
 		<ul class="breadcrumb">
