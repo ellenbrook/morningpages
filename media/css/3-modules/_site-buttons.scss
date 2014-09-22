@@ -1,3 +1,7 @@
+.btn-disabled {
+	background-color: #999999;
+}
+
 button, .btn {
 	padding: 7px 10px;
 	border: none;
@@ -12,8 +16,12 @@ button, .btn {
   &:hover {
   	background: none repeat scroll 0 0 #999999;
   }
-
+	
+  &:disabled {
+  	@extend .btn-disabled;
+  }
 }
+
 
 .btn-bad {
 	background-color: $bad-color;
