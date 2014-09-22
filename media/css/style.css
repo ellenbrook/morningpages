@@ -181,6 +181,9 @@ a {
 a:hover {
   color: #A5CC82;
 }
+a:visited {
+  color: #95B37B;
+}
 
 header {
   position: relative;
@@ -190,6 +193,9 @@ header {
 }
 header h1, header h2 {
   margin: 0;
+  color: #fff;
+}
+header h1.logo a {
   color: #fff;
 }
 
