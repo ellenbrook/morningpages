@@ -110,7 +110,7 @@
 			<div class="container" id="writing-container">
 				<form role="form" action="<?php echo URL::site('write/'.$page->day); ?>" method="post" id="writeform">
 					<textarea name="morningpage" autofocus data-bind="value:writtenwords,valueUpdate:'keyup',autogrow:''"></textarea>
-					<button class="btn-good pull-right" data-bind="disable:totalwords()<750">Submit</button>
+					<button class="btn-good pull-right" data-bind="disable:totalwords()<750,css:{'btn-disabled':totalwords()<750}">Submit</button>
 					<p class="subtext pull-left">
 					      <span data-bind="text:wordcount()">0</span> / 750
                     </p>

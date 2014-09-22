@@ -2,3 +2,4 @@
 media/cache/*
 application/logs/
 application/config/secrets.php
+.sass-cache

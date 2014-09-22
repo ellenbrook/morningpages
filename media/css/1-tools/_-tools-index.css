@@ -1,0 +1,20 @@
+/*
+Sass::SyntaxError: Error generating source map: couldn't determine public URL for the source stylesheet.
+  No filename is available so there's nothing for the source map to link to.
+
+
+Backtrace:
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/engine.rb:350:in `_render_with_sourcemap'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/engine.rb:285:in `render_with_sourcemap'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/exec/sass_scss.rb:396:in `run'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/exec/sass_scss.rb:62:in `process_result'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/exec/base.rb:52:in `parse'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/exec/base.rb:19:in `parse!'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/bin/sass:13:in `<top (required)>'
+/usr/local/bin/sass:23:in `load'
+/usr/local/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Sass::SyntaxError: Error generating source map: couldn't determine public URL for the source stylesheet.\A   No filename is available so there's nothing for the source map to link to.\A "; }
