@@ -1,0 +1,35 @@
+.user-options {
+	position: relative;
+	display: none;
+	margin: 0;
+	padding: .5em 0;
+	background-color: #F2F1EF;
+	z-index: 5;
+	overflow: none;
+
+	.triangle {
+		margin-top: -29px;
+		@include triangle(40px, #F2F1EF, up);
+	}
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+
+	li {
+		display: inline-block;
+		padding: 15px;
+		height: 90px;
+		border-right: 1px solid #BFBFBF;
+		text-align: center;
+		font-family: $header-text;
+		font-weight: 100;
+		color: #6C7A89;
+		vertical-align: middle;
+
+		&:last-child {
+			border: none;
+		}
+	}
+}

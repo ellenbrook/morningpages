@@ -1,0 +1,49 @@
+button, .btn {
+	padding: 7px 10px;
+	border: none;
+	border-radius: 4px;
+	color: #FFFFFF;
+  	transition: background-color 0.3s ease 0s;
+	font-family: $header-text;
+	font-size: $base-font-size;
+	text-decoration: none;
+	cursor: pointer; 
+
+  &:hover {
+  	background: none repeat scroll 0 0 #999999;
+  }
+
+}
+
+.btn-bad {
+	background-color: $bad-color;
+
+	&:hover {
+		background-color: $bad-color-hover;
+		color: $light-color;
+	}
+}
+
+.btn-good {
+	background-color: $good-color;
+
+	&:hover {
+		background-color: $good-color-hover;
+		color: #fff;
+	}
+}
+
+.btn-hamburger {
+	padding: 0 7px;
+	background-color: transparent;
+	font-size: $h2-font-size;
+
+	&:hover {
+		background-color: $good-color-hover;
+	}
+}
+
+.btn-close {
+	@extend .btn-hamburger;
+	font-size: $h3-font-size;
+}

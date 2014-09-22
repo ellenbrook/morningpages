@@ -1,0 +1,25 @@
+section {
+	padding-bottom: $h1-line-height;
+
+	.date {
+		margin-top: $h2-margin-top / 2;
+	}
+
+	form {
+		width: 100%;
+	}
+
+	textarea {
+		width: 100%;
+		
+		border: none;
+
+		font-family: $body-text;
+		font-size: $base-font-size;
+
+		outline: none;
+		box-shadow: none;
+
+		resize: none;
+	}
+}

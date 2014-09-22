@@ -1,0 +1,39 @@
+select, input {
+	display: block;
+	margin: .25em 0;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	font-family: $header-text;
+	font-size: $base-font-size;
+	color: #6C7A89;
+	padding: .5em .6em;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-shadow: inset 0 1px 3px #ddd;
+	border-radius: 4px;
+}
+
+select {
+	height: 41px;
+}
+select, input, textarea, button {
+	outline: none;
+}
+
+textarea {
+	margin-bottom: $h2-margin-top;
+}
+
+label {
+	display: block;
+}
+
+input[type="checkbox"] {
+	margin-left: .5em;
+}
+
+.form-group {
+	padding-top: 1em;
+	padding-bottom: 1em;
+	@include span-columns(6);
+}
