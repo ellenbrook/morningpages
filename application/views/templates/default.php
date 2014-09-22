@@ -11,7 +11,7 @@
 	<link rel="apple-touch-icon" href="<?php echo URL::site('media/img/favicon.png'); ?>"/>
 <?php
 	$styles = array(
-		'media/css/bootstrap.min.css',
+		'media/css/vendor/bootstrap.min.css',
 		'media/css/global.css',
 	);
 	if(isset($css) && is_array($css)) foreach($css as $c)
@@ -147,7 +147,7 @@
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo URL::site('media/js/bootstrap.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo URL::site('media/js/vendor/bootstrap.min.js'); ?>"></script>
 <?php
 	$notes = notes::fetch();
 	if($notes)

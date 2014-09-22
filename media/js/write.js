@@ -3,13 +3,17 @@ require.config({
 		'knockout':'vendor/knockout',
 		'jquery':'//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min',
 		'autogrow':'vendor/jquery.autosize',
-		'validate':'vendor/jquery.validate.min'
+		'validate':'vendor/jquery.validate.min',
+		'jgrowl':'vendor/jgrowl.min'
 	},
 	'shim':{
 		'autogrow':{
 			'deps':['jquery']
 		},
 		'validate':{
+			'deps':['jquery']
+		},
+		'jgrowl':{
 			'deps':['jquery']
 		}
 	}
@@ -20,8 +24,9 @@ define([
 	'jquery',
 	'bindings',
 	'models/user',
-	'models/modal'
-], function(ko, $, bindings, user, modal){
+	'models/modal',
+	'site'
+], function(ko, $, bindings, user, modal,site){
 	
 	var writeModel = function(){
 		var self = this;
@@ -43,6 +48,8 @@ define([
 			return total;
 		}, this);
 		
+		
+		
 		self.hamburgerClick = function(){
 			$( ".user-options" ).slideToggle( "slow", function() {
 				// Animation complete.
@@ -52,6 +59,7 @@ define([
 		self.saveUserInfo = function(){
 			self.user.saveInfo().then(function(data){
 				self.optionsmodal.hide();
+				site.say('Your settings have been saved.');
 			});
 		};
 		
