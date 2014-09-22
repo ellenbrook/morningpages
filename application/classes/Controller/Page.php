@@ -2,6 +2,8 @@
 
 class Controller_Page extends Controller_Project {
 	
+	public $template = 'templates/write';
+	
 	public function before()
 	{
 		$this->require_login();
@@ -14,12 +16,14 @@ class Controller_Page extends Controller_Project {
 	{
 		$errors = false;
 		$page = $this->request->param('page');
+		
 		if($_POST && strlen(arr::get($_POST, 'morningpage',''))>0)
 		{
 			$content = arr::get($_POST, 'morningpage','');
 			$page->content = $page->content().$content;
 			try
 			{
+			    $page->wordcount = str_word_count(strip_tags($page->content()));
 				$page->update();
 				$autosave = $page->get_autosave();
 				if($autosave)
@@ -42,6 +46,7 @@ class Controller_Page extends Controller_Project {
 		}
 		$this->bind('errors', $errors);
 		$this->bind('page', $page);
+        $this->template->daystamp = $this->request->param('daystamp');
 		$this->template->page = $page;
 	}
 	

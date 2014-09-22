@@ -60,7 +60,8 @@ abstract class site {
 					return array(
 						'controller' => 'Page',
 						'action' => 'write',
-						'page' => $page
+						'page' => $page,
+						'daystamp' => $action
 					);
 				}
 				else

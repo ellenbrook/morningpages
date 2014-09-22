@@ -118,6 +118,7 @@ class Model_Page extends ORM {
 		uasort($words, create_function('$a, $b', 'if($a == $b){return 0;}return ($a > $b) ? -1 : 1;'));
 		$words = array_slice($words, 0, $wordlimit, true);
 		$words = $this->shuffle_assoc($words);
+		$classes = array('orange','red','brown','green');
 		foreach($words as $word => $count)
 		{
 			$size = floor(75 * ($count / $max));
@@ -125,7 +126,7 @@ class Model_Page extends ORM {
 			{
 				$size = 10;
 			}
-			$html .= '<span style="font-size:' . $size . 'px;">'.$word.'</span> ';
+			$html .= '<span style="font-size:' . $size . 'px;" class="'.$classes[rand(0,count($classes)-1)].'">'.$word.'</span> ';
 		}
 		return $html;
 	}
@@ -146,9 +147,10 @@ class Model_Page extends ORM {
 	
 	public function wordcount()
 	{
-		$content = explode(' ', $this->content());
-		$count = count($content);
-		if(empty($this->content)) $count = 0;
+		$content = strip_tags($this->content);
+        $replace = array("\r\n", "\n", "\r", "\t", '.', ',', ';', "'", '@');
+        $content = str_replace($replace, ' ', $content);
+        $count = str_word_count($content);
 		return $count;
 	}
 	

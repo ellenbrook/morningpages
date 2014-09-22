@@ -20,7 +20,6 @@
 	</div>
 <?php endif; ?>
 
-
 <?php if($page->content != ''): ?>
 	<div class="wordcloud col-xs-5 pull-right">
 		<h3>Today's Words</h3>
