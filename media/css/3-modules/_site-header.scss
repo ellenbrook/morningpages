@@ -8,4 +8,9 @@ header {
 		margin: 0;
 		color: $light-color;
 	}
+	h1.logo {
+		a {
+			color: $light-color;
+		}
+	}
 }

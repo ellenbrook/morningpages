@@ -71,4 +71,8 @@ a {
 	&:hover {
 		color: $good-color-hover;
 	}
+
+	&:visited {
+		color: $good-color;
+	}
 }
