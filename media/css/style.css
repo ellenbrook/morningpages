@@ -354,8 +354,13 @@ select {
 select, input, textarea, button {
   outline: none; }
 
+textarea:focus {
+  background-color: #fff; }
+
 textarea {
-  margin-bottom: 60px; }
+  margin-bottom: 60px;
+  background-color: #F2F1EF;
+  border-radius: 4px; }
 
 label {
   display: block; }

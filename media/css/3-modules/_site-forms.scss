@@ -20,8 +20,14 @@ select, input, textarea, button {
 	outline: none;
 }
 
+textarea:focus {
+	background-color: $light-color;
+}
+
 textarea {
 	margin-bottom: $h2-margin-top;
+	background-color: $subtle-accent;
+	border-radius: 4px;
 }
 
 label {
