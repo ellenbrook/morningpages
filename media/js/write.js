@@ -26,7 +26,7 @@ define([
 	'models/user',
 	'models/modal',
 	'site'
-], function(ko, $, bindings, user, modal,site){
+], function(ko, $, bindings, user, modal, site){
 	
 	var writeModel = function(){
 		var self = this;
@@ -35,6 +35,7 @@ define([
 		self.user.wakeUp().then(function(){
 			self.writtenwords('');
 		});
+		
 		self.optionsmodal = new modal($('#user-options-modal'));
 		self.shortcutsmodal = new modal($('#shortcuts-modal'));
 		
