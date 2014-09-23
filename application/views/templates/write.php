@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" id="mainstyles" href="<?php echo URL::site('media/css/style.css'); ?>" />
 </head>
 <body>
-	
+
 	<header id="header">
 		<div class="container">
 			<h1 class="logo pull-left">
@@ -29,7 +29,7 @@
 
 	<section id="user-options" class="user-options">
 		<div class="container">
-			<ul>
+			<ul class="user-menu">
 				<li>Words written<br><?php echo user::get()->all_time_words; ?></li>
 				<li>Current streak<br><?php echo user::get()->current_streak; ?></li>
 				<li>Longest streak<br><?php echo user::get()->longest_streak; ?></li>
@@ -182,8 +182,14 @@
 			<button data-bind="hideModal:'shortcuts-modal'" class="btn-close pull-right">&#x2715</button>
 		</header>
 		<div class="shortcuts-modal-body">
-			<h3>This is a heading</h3>
-			<p>this is a tip and a trick</p>
+			<h3>Privacy Mode</h3>
+			<dl class="modal-list">
+				<dt>Ctrl/Cmd + Spacebar<dt> - <dd>We take privacy very seriously. Use this shortcut if you're in the middle of writing and somebody walks into the room, begins to peer over your shoulder, or tries to see what you're writing. This will bring up the text from a random Wikipedia article.</dd>
+			</dl>
+			<h3>Markdown</h3>
+			<p>What is markdown? Markdown is simply a text-formatting syntax used to format text on the web without having to worry about HTML. Think of it as an easy and natural way to to format your text without the need of using learning code.</p>
+			<p>Although the idea behind Morning Pages is stream of consciousness thoughts, sometimes those thoughts would be better off with a bit of organization and that's where Markdown comes in handy.</p>
+			<p>For an in-depth listing of all of Markdown's features, check out <a href="http://daringfireball.net/projects/markdown/syntax" rel="nofollow">Markdown Syntax Basics</a>.</p>
 		</div>
 	</section>
 	<script src="<?php echo URL::site('media/js/require.js'); ?>" data-main="/media/js/write" type="text/javascript"></script>

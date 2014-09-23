@@ -4,7 +4,7 @@ abbr, address, cite, code,
 del, dfn, em, img, ins, kbd, q, samp,
 small, strong, sub, sup, var,
 b, i,
-dl, dt, dd, ol, ul, li,
+dl, dt, .shortcuts-modal .modal-list dd, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figcaption, figure,
@@ -190,10 +190,10 @@ header {
   z-index: 5;
   overflow: none; }
 
-ul {
+ul.user-menu {
   margin: 0;
   padding: 0; }
-  ul li {
+  ul.user-menu li {
     display: inline-block;
     padding: 15px;
     height: 90px;
@@ -203,7 +203,7 @@ ul {
     font-weight: 100;
     color: #6C7A89;
     vertical-align: middle; }
-    ul li:last-child {
+    ul.user-menu li:last-child {
       border: none; }
 
 .user-options-modal, .shortcuts-modal {
@@ -233,6 +233,12 @@ ul {
       color: #fff; }
   .user-options-modal-body {
     margin: 30px 0; }
+
+.shortcuts-modal .modal-list dt, .shortcuts-modal .modal-list dd {
+  display: inline;
+  font-weight: bold; }
+.shortcuts-modal .modal-list dd {
+  font-weight: normal; }
 
 .form-container {
   width: 100%;
@@ -366,5 +372,3 @@ input[type="checkbox"] {
   width: 48.82117%; }
   .form-group:last-child {
     margin-right: 0; }
-
-/*# sourceMappingURL=style.css.map */
