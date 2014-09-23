@@ -189,7 +189,7 @@
 			<h3>Markdown</h3>
 			<p>What is markdown? Markdown is simply a text-formatting syntax used to format text on the web without having to worry about HTML. Think of it as an easy and natural way to to format your text without the need of using learning code.</p>
 			<p>Although the idea behind Morning Pages is stream of consciousness thoughts, sometimes those thoughts would be better off with a bit of organization and that's where Markdown comes in handy.</p>
-			<p>For an in-depth listing of all of Markdown's features, check out <a href="http://daringfireball.net/projects/markdown/syntax" rel="nofollow">Markdown Syntax Basics</a>.</p>
+			<p>For an in-depth listing of all of Markdown's features, check out <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="nofollow">Markdown Syntax Basics</a>.</p>
 		</div>
 	</section>
 	<script src="<?php echo URL::site('media/js/require.js'); ?>" data-main="/media/js/write" type="text/javascript"></script>

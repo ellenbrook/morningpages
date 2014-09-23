@@ -18,10 +18,10 @@ header {
 		position:relative;
 		
 		.triangle {
-			#margin-top: -29px;
-			@include triangle(40px, #F2F1EF, up);
+			margin-top: -29px;
+			@include triangle(44px, $subtle-accent, up);
 			position:absolute;
-			bottom:-15px;
+			bottom:-20px;
 			right:0;
 			display:none;
 		}
