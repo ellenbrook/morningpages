@@ -32,7 +32,7 @@ define([
 		var self = this;
 		
 		self.user = new user();
-		self.user.wakeUp().then(function(){
+		self.user.getInfo().then(function(){
 			self.writtenwords('');
 		});
 		
@@ -86,6 +86,19 @@ define([
 				window.location.href = '/write/'+date;
 			}
 		};
+		
+		/*var savetimer = setInterval(function(){
+			$.post(ajaxurl+'/pages/autosave', {
+				'id':$('#page-content').data('id'),
+				'content':$('#morningpage').val()
+			}, function(reply){
+				if(!reply.success)
+				{
+					// Do something?
+					console.log(reply);
+				}
+			}, 'json');
+		}, 10000);*/
 		
 	};
 	

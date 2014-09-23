@@ -10,8 +10,8 @@ define(['knockout', 'jquery'],function(ko, $){
 		self.passconfirm = ko.observable('');
 		self.wordcount = ko.observable(0);
 		
-		self.wakeUp = function(){
-			return $.post('/ajax/User/info',function(reply){
+		self.getInfo = function(){
+			return $.get('/ajax/User/info',function(reply){
 				if(reply.success)
 				{
 					self.email(reply.email);

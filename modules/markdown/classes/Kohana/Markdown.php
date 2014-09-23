@@ -95,7 +95,7 @@ class Kohana_Markdown
 		/* Process anchor and image tags. Images must come first, because
 		 * ![foo][f] looks like an anchor.
 		 */
-		"do_images"				=> 10,
+		//"do_images"				=> 10,
 		"do_anchors"			=> 20,
 
 		/* Make links out of things like `<http://example.com/>`. Must come
@@ -718,7 +718,7 @@ class Kohana_Markdown
 			}
 
 			$link_text = $this->run_span_gamut($link_text);
-			$result .= ">$link_text</a>";
+			$result .= " rel=\"nofollow\">$link_text</a>";
 			$result = $this->hash_part($result);
 		} else {
 			$result = $whole_match;
@@ -742,7 +742,7 @@ class Kohana_Markdown
 		}
 
 		$link_text = $this->run_span_gamut($link_text);
-		$result .= ">$link_text</a>";
+		$result .= " rel=\"nofollow\">$link_text</a>";
 
 		return $this->hash_part($result);
 	}
@@ -1393,7 +1393,7 @@ class Kohana_Markdown
 	protected function _doAutoLinks_url_callback($matches)
 	{
 		$url = $this->encode_attribute($matches[1]);
-		$link = "<a href=\"$url\">$url</a>";
+		$link = "<a href=\"$url\" rel=\"nofollow\">$url</a>";
 		return $this->hash_part($link);
 	}
 
@@ -1439,7 +1439,7 @@ class Kohana_Markdown
 
 		$addr = implode('', $chars);
 		$text = implode('', array_slice($chars, 7)); # text without `mailto:`
-		$addr = "<a href=\"$addr\">$text</a>";
+		$addr = "<a href=\"$addr\" rel=\"nofollow\">$text</a>";
 
 		return $addr;
 	}

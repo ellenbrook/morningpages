@@ -24,22 +24,22 @@ class Controller_Page extends Controller_Project {
 			try
 			{
 			    $page->wordcount = str_word_count(strip_tags($page->content()));
+                if($page->type == 'autosave')
+                {
+                    $page->type = 'page';
+                }
 				$page->update();
 				/*$autosave = $page->get_autosave();
 				if($autosave)
 				{
 					$autosave->delete();
-				}*/
-				if($page->type == 'autosave')
-                {
-                    $page->type = 'page';
-                }
+				}				
 				if(!(bool)$page->counted)
 				{
 					user::update_stats($content, $page);
 					$page->counted = 1;
-					$page->save();
 				}
+                $page->save();*/
 				notes::success('Your page has been saved!');
 				site::redirect('write/'.$page->day);
 			}
