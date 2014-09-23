@@ -25,11 +25,15 @@ class Controller_Page extends Controller_Project {
 			{
 			    $page->wordcount = str_word_count(strip_tags($page->content()));
 				$page->update();
-				$autosave = $page->get_autosave();
+				/*$autosave = $page->get_autosave();
 				if($autosave)
 				{
 					$autosave->delete();
-				}
+				}*/
+				if($page->type == 'autosave')
+                {
+                    $page->type = 'page';
+                }
 				if(!(bool)$page->counted)
 				{
 					user::update_stats($content, $page);

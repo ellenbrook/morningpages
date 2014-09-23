@@ -57,6 +57,7 @@ define([
 				$('#dummy-content').toggle();
 				$('#sidebar').toggle();
 				$('#header').toggle();
+				$('#user-options').hide();
 			}
 		});
 		
