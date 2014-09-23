@@ -86,6 +86,23 @@ define([
 				window.location.href = '/write/'+date;
 			}
 		};
+
+		$('.modal-tabbed-nav ul li').click(function(e){
+			e.preventDefault();
+			$('.modal-tabbed-nav ul li.active-tab').removeClass('active-tab');
+			$(this).addClass('active-tab');
+			$('.user-options-modal-body').hide();
+
+			//gross and hacky but it works for now
+			if ($('.active-tab a').attr('href') == "personal-settings") {
+				$('.personal-settings').show();
+			} else if ($('.active-tab a').attr('href') == "change-password") {
+				$('.change-password').show();
+			} else if ($('.active-tab a').attr('href') == "delete-account") {
+				$('.delete-account').show();
+			}
+
+		});
 		
 		/*var savetimer = setInterval(function(){
 			$.post(ajaxurl+'/pages/autosave', {

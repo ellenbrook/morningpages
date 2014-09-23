@@ -74,9 +74,14 @@ a {
 
 	&:hover {
 		color: $good-color-hover;
+		text-decoration: none;
 	}
 
 	&:visited {
 		color: $good-color;
+	}
+
+	&:link, &:active {
+		@extend a;
 	}
 }

@@ -119,14 +119,21 @@
 			</div>
 		</section>
 	<?php endif; ?>
-	<div class="modal-overlay"></div>	
+	<div class="modal-overlay"></div>
 	<section id="user-options-modal" class="user-options-modal">
 		<header>
 			<h3 class="pull-left">User Options</h3>
 			<button data-bind="hideModal:'user-options-modal'" class="btn-close pull-right">&#x2715</button>
 		</header>
-		<div class="user-options-modal-body">
-			<form action="/user" data-bind="validateForm:saveUserInfo" method="post" role="form">
+		<nav class="modal-tabbed-nav">
+			<ul>
+				<li class="active-tab"><a href="personal-settings">Personal Settings</a></li>
+				<li><a href="change-password">Password</a></li>
+				<li><a href="delete-account">Delete Account</a></li>
+			</ul>
+		</nav>
+			<div class="user-options-modal-body personal-settings">
+				<form action="/user" data-bind="validateForm:saveUserInfo" method="post" role="form">
 				<div class="form-container">
 					<div class="form-group">
 						<label for="account-email">Your E-mail:</label>
@@ -143,18 +150,7 @@
 						</select>
 					</div>
 				</div>
-	
-					<div class="form-container">				
-						<div class="form-group">
-							<label for="account-password">New password:</label>
-							<input type="password" minlength="5" data-bind="value:user.password" equalto="#account-password-confirm" placeholder="Your new password" name="password" id="account-password" class="form-control">
-						</div>
-						
-						<div class="form-group">
-							<label for="account-password-confirm">Confirm new password:</label>
-							<input type="password" minlength="5" equalto="#account-password" data-bind="value:user.passconfirm" placeholder="Confirm your new password" name="password_confirm" id="account-password-confirm" class="form-control">
-						</div>
-					</div>	
+
 	
 					<div class="form-container">
 						<div class="form-group">
@@ -162,17 +158,30 @@
 							<input type="checkbox" data-bind="checked:user.reminder" name="reminder" id="account-reminder" class="inline">
 						</div>
 					</div>
-	
-					<div class="form-group pull-left">
-						<a href="/user/delete" title="Delete your account" class="btn btn-bad">Delete account</a>
+				</form>
+			</div>
+			<div class="user-options-modal-body change-password">
+				<div class="form-container">				
+					<div class="form-group">
+						<label for="account-password">New password:</label>
+						<input type="password" minlength="5" data-bind="value:user.password" equalto="#account-password-confirm" placeholder="Your new password" name="password" id="account-password" class="form-control">
 					</div>
 					
-					<div class="form-group pull-right">
-						<button name="account-deletion" class="btn-good pull-right">Save info</button>
+					<div class="form-group">
+						<label for="account-password-confirm">Confirm new password:</label>
+						<input type="password" minlength="5" equalto="#account-password" data-bind="value:user.passconfirm" placeholder="Confirm your new password" name="password_confirm" id="account-password-confirm" class="form-control">
 					</div>
-				</form>
-		</div>
-	</section>
+				</div>	
+			</div>
+			<div class="user-options-modal-body delete-account">
+				<a href="/user/delete" title="Delete your account" class="btn btn-bad">Delete account</a>
+			</div>
+
+			<!--modal footer -->
+			<div class="form-group pull-right">
+				<button name="account-deletion" class="btn-good pull-right">Save info</button>
+			</div>
+	</section> <!-- options modal -->
 
 	<section id="shortcuts-modal" class="shortcuts-modal">
 		<header>
