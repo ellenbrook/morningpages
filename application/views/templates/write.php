@@ -61,7 +61,7 @@
 					}
 					
 					echo '<select data-bind="event:{change:goToPreviousPage}" id="pastposts" class="form-control" >';
-					echo '<option value="">Previous pages</option>';
+					echo '<option value="0">Previous pages</option>';
 					foreach($years as $year => $month)
 					{
 						foreach($month as $monthname => $days)

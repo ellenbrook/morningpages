@@ -75,7 +75,10 @@ define([
 		
 		self.goToPreviousPage = function(obg, ev){
 			var date = $(ev.target).val();
-			window.location.href = '/write/'+date;
+			if($(ev.target).val() != 0)
+			{
+				window.location.href = '/write/'+date;
+			}
 		};
 		
 	};
