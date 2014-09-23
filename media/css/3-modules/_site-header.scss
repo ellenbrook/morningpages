@@ -13,4 +13,17 @@ header {
 			color: $light-color;
 		}
 	}
+	.container
+	{
+		position:relative;
+		
+		.triangle {
+			#margin-top: -29px;
+			@include triangle(40px, #F2F1EF, up);
+			position:absolute;
+			bottom:-15px;
+			right:0;
+			display:none;
+		}
+	}
 }

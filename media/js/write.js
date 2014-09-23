@@ -61,8 +61,13 @@ define([
 		});
 		
 		self.hamburgerClick = function(){
-			$( ".user-options" ).slideToggle( "slow", function() {
+			$('#user-options-triangle').show();
+			$( "#user-options" ).slideToggle( "slow", function() {
 				// Animation complete.
+				if(!$('#user-options').is(':visible'))
+				{
+					$('#user-options-triangle').hide();
+				}
 			});
 		};
 		

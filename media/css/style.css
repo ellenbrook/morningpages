@@ -167,6 +167,19 @@ header {
     color: #fff; }
   header h1.logo a {
     color: #fff; }
+  header .container {
+    position: relative; }
+    header .container .triangle {
+      #margin-top: -29px;
+      height: 0;
+      width: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-bottom: 20px solid #F2F1EF;
+      position: absolute;
+      bottom: -15px;
+      right: 0;
+      display: none; }
 
 .user-options {
   position: relative;
@@ -176,13 +189,6 @@ header {
   background-color: #F2F1EF;
   z-index: 5;
   overflow: none; }
-  .user-options .triangle {
-    margin-top: -29px;
-    height: 0;
-    width: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-bottom: 20px solid #F2F1EF; }
 
 ul {
   margin: 0;

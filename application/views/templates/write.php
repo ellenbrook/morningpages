@@ -20,15 +20,15 @@
 			<h1 class="logo pull-left">
 				<a href="<?php echo URL::site(); ?>" title="Morning pages">Morning Pages</a>
 			</h1>
-			<nav class="pull-right">
+			<div class="pull-right">
 				<button class="btn-hamburger" data-bind="click:hamburgerClick">&#9776;</button>
 			</div>
+			<div id="user-options-triangle" class="triangle pull-right"></div>
 		</div>
 	</header>
 
 	<section id="user-options" class="user-options">
 		<div class="container">
-			<div class="triangle pull-right"></div>
 			<ul>
 				<li>Words written<br><?php echo user::get()->all_time_words; ?></li>
 				<li>Current streak<br><?php echo user::get()->current_streak; ?></li>

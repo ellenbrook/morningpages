@@ -7,10 +7,6 @@
 	z-index: 5;
 	overflow: none;
 
-	.triangle {
-		margin-top: -29px;
-		@include triangle(40px, #F2F1EF, up);
-	}
 }
 
 ul {
