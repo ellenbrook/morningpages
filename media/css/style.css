@@ -4,7 +4,7 @@ abbr, address, cite, code,
 del, dfn, em, img, ins, kbd, q, samp,
 small, strong, sub, sup, var,
 b, i,
-dl, dt, dd, ol, ul, li,
+dl, dt, .shortcuts-modal .modal-list dd, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figcaption, figure,
@@ -170,14 +170,14 @@ header {
   header .container {
     position: relative; }
     header .container .triangle {
-      #margin-top: -29px;
+      margin-top: -29px;
       height: 0;
       width: 0;
-      border-left: 20px solid transparent;
-      border-right: 20px solid transparent;
-      border-bottom: 20px solid #F2F1EF;
+      border-left: 22px solid transparent;
+      border-right: 22px solid transparent;
+      border-bottom: 22px solid #F2F1EF;
       position: absolute;
-      bottom: -15px;
+      bottom: -20px;
       right: 0;
       display: none; }
 
@@ -190,10 +190,10 @@ header {
   z-index: 5;
   overflow: none; }
 
-ul {
+ul.user-menu {
   margin: 0;
   padding: 0; }
-  ul li {
+  ul.user-menu li {
     display: inline-block;
     padding: 15px;
     height: 90px;
@@ -203,7 +203,7 @@ ul {
     font-weight: 100;
     color: #6C7A89;
     vertical-align: middle; }
-    ul li:last-child {
+    ul.user-menu li:last-child {
       border: none; }
 
 .user-options-modal, .shortcuts-modal {
@@ -233,6 +233,12 @@ ul {
       color: #fff; }
   .user-options-modal-body {
     margin: 30px 0; }
+
+.shortcuts-modal .modal-list dt, .shortcuts-modal .modal-list dd {
+  display: inline;
+  font-weight: bold; }
+.shortcuts-modal .modal-list dd {
+  font-weight: normal; }
 
 .form-container {
   width: 100%;
@@ -348,8 +354,13 @@ select {
 select, input, textarea, button {
   outline: none; }
 
+textarea:focus {
+  background-color: #fff; }
+
 textarea {
-  margin-bottom: 60px; }
+  margin-bottom: 60px;
+  background-color: #F2F1EF;
+  border-radius: 4px; }
 
 label {
   display: block; }
@@ -366,5 +377,3 @@ input[type="checkbox"] {
   width: 48.82117%; }
   .form-group:last-child {
     margin-right: 0; }
-
-/*# sourceMappingURL=style.css.map */

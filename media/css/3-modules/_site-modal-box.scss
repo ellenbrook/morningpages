@@ -28,6 +28,18 @@
 
 .shortcuts-modal {
   @extend .user-options-modal;
+
+  .modal-list {
+     dt {
+     	display: inline;
+     	font-weight: bold;
+     }
+
+     dd {
+     	@extend dt;
+		font-weight: normal;
+     }
+  }
 }
 
 .form-container {
