@@ -6,7 +6,8 @@ return array
 		'type'				=> 'xhtml',		// html or xhtml
 		'tab_width'			=> 4,			// Tab width for output
 		'no_entities'		=> FALSE,
-		'no_markup'			=> FALSE
+		'no_markup'			=> FALSE,
+		'no_images'         => true
 	)
 );
 ?>

@@ -15,8 +15,8 @@ class Model_Page extends ORM {
 		return array(
 			'content' => array(
 				array('trim'),
-				//array(array($this, 'add_paragraphs'), array(':value')),
-				array(array($this, 'encrypt_content'), array(':value'))
+				array('Security::xss_clean', array(':value')),
+				array(array($this, 'encrypt_content'), array(':value')),
 			)
 		);
 	}
@@ -69,8 +69,8 @@ class Model_Page extends ORM {
 	
 	public function verify_word_count($field, $value)
 	{
-		$numwords = str_word_count($value);
-		return $numwords >= 750;
+		$numwords = str_word_count(strip_tags($value));
+		return $numwords >= 1;
 	}
 	
 	public function date()

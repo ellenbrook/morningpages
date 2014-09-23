@@ -95,7 +95,7 @@ class Kohana_Markdown
 		/* Process anchor and image tags. Images must come first, because
 		 * ![foo][f] looks like an anchor.
 		 */
-		"do_images"				=> 10,
+		//"do_images"				=> 10,
 		"do_anchors"			=> 20,
 
 		/* Make links out of things like `<http://example.com/>`. Must come

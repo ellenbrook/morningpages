@@ -48,14 +48,22 @@ abstract class site {
 				$page = ORM::factory('Page')
 					->where('user_id','=',user::get()->id)
 					->where('type','=','page')
-                    ->or_where('type','=','autosave')
-					->and_where('day','=',$action)
+					->where('day','=',$action)
 					->find();
 				if(!$page->loaded() && $action == self::today_slug())
 				{
-					// It's today, but that todays page doesn't exist yet. Create it
-					$page->type = 'autosave';
-					$page->save();
+				    
+				    $page = ORM::factory('Page')
+                        ->where('user_id','=',user::get()->id)
+                        ->where('type','=','autosave')
+                        ->where('day','=',$action)
+                        ->find();
+					// It's today, but todays page doesn't exist yet. Create it
+					if(!$page->loaded())
+                    {
+                        $page->type = 'autosave';
+                        $page->save();
+                    }
 				}
 				if($page->loaded())
 				{

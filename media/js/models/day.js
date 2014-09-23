@@ -1,7 +1,9 @@
-define([],function(){
+define(['knockout', 'jquery'],function(ko, $){
 	
 	var day = function(){
 		var self = this;
+		
+		self.content = ko.observable('');
 		
 		self.savetimer = setInterval(function(){
 			$.post(ajaxurl+'/pages/autosave', {
@@ -15,6 +17,10 @@ define([],function(){
 				}
 			}, 'json');
 		}, 10000);
+		
+		self.autosave = function(){
+			
+		};
 		
 	};
 	
