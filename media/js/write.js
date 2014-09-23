@@ -49,7 +49,16 @@ define([
 			return total;
 		}, this);
 		
-		
+		$(document).on("keydown", function(e){
+			if(e.ctrlKey && e.keyCode == 32)
+			{
+				$('#page-content').toggle();
+				$('#writeform').toggle();
+				$('#dummy-content').toggle();
+				$('#sidebar').toggle();
+				$('#header').toggle();
+			}
+		});
 		
 		self.hamburgerClick = function(){
 			$( ".user-options" ).slideToggle( "slow", function() {

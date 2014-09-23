@@ -89,6 +89,9 @@
 	</section>
 	
 	<article>
+	    <div id="dummy-content" class="hidden">
+            <?php echo ORM::factory('Dummytext')->order_by(DB::expr('RAND()'))->limit(1)->find()->text(); ?>
+        </div>
 		<div id="page-content" data-wordcount="<?php echo $page->wordcount(); ?>" class="container" data-id="<?php echo $page->id; ?>">
 			<h2 class="date"><?php echo date('F d, Y', $page->created) ?></h2>
 			<?php if($page->content != ''): ?>

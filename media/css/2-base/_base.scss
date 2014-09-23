@@ -64,6 +64,10 @@ p {
 	float: right
 }
 
+.hidden {
+	display:none;
+}
+
 a {
 	color: $good-color;
 	text-decoration: none;

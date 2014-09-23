@@ -146,6 +146,9 @@ p, .subtext {
 .pull-right {
   float: right; }
 
+.hidden {
+  display: none; }
+
 a {
   color: #95B37B;
   text-decoration: none; }
