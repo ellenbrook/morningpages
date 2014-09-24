@@ -64,5 +64,8 @@ class Controller_Page extends Controller_Project {
         $this->template->daystamp = $this->request->param('daystamp');
 		$this->template->page = $page;
 	}
-	
+	public function action_options()
+	{
+		
+	}
 }
