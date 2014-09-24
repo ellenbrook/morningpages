@@ -1,0 +1,31 @@
+.options-page {
+	@include outer-container;
+	margin-top: $h1-margin-top;
+	display: block;
+	background-color: $light-color;
+}
+
+.user-options-nav {
+	border-bottom: 5px solid $good-color;
+}
+
+.tab {
+	@include border-top-radius(4px);
+	display: inline-block;
+	background-color: #999999;
+	padding: 7px 10px;
+	transition: background-color 0.3s ease 0s;
+
+	&:hover {
+		background-color: $good-color-hover;
+	}
+
+	a {
+		font-family: $header-text;
+		color: $light-color;
+	}
+}
+
+.active-tab {
+	background-color: $good-color;
+}
