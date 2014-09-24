@@ -63,6 +63,10 @@ define([
 			return total;
 		}, this);
 		
+		self.switchTheme = function(obj, ev){
+			$('#csstheme').attr('href','media/css/themes/'+$(ev.target).val()+'.css');
+		};
+		
 		$(document).on("keydown", function(e){
 			if(e.ctrlKey && e.keyCode == 32)
 			{

@@ -11,6 +11,14 @@
 	<link href="<?php echo URL::site('media/img/favicon.ico'); ?>" rel="shortcut icon" />
 	<link rel="apple-touch-icon" href="<?php echo URL::site('media/img/favicon.png'); ?>" />
 	<link rel="stylesheet" type="text/css" id="mainstyles" href="<?php echo URL::site('media/css/style.css'); ?>" />
+<?php
+		$theme = 'standard';
+		if(user::logged())
+		{
+			$theme = user::get()->theme;
+		}
+		echo HTML::style('media/css/themes/'.$theme.'.css', array('id' => 'csstheme'));
+?>
 </head>
 <body>
 
@@ -183,7 +191,7 @@
 	
 					<div class="form-group">
 						<label for="account-email">Your theme:</label>
-						<select id="pastposts" data-bind="value:user.theme" class="form-control" name="theme">
+						<select id="pastposts" data-bind="value:user.theme,event:{change:switchTheme}" class="form-control" name="theme">
 							<option value="standard">Standard</option>
 							<option value="future">Future</option>
 							<option value="trendy">Trendy Name</option>
