@@ -92,7 +92,7 @@
 	                    </select>
 					</li>
 					<li><a href="#" data-bind="showModal:'shortcuts-modal'" id="js-show-tips">Shortcuts</a></li>
-					<li><a href="#">Edit user options</a></li>
+					<li><a href="<?php echo URL::site('options'); ?>">Edit user options</a></li>
 				<?php else: ?>
 					<li>Words written<br>0</li>
 					<li>Current streak<br>0</li>
