@@ -2,8 +2,6 @@
 
 class Controller_Page extends Controller_Project {
 	
-	public $template = 'templates/write';
-	
 	public function action_daynotfound() {}
 	
 	public function action_anonymouswriting()
