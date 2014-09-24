@@ -6,7 +6,7 @@ class Controller_Page extends Controller_Project {
 	
 	public function action_anonymouswriting()
 	{
-		
+		$this->template->view = View::factory('Page/write');
 	}
 	
 	public function action_write()

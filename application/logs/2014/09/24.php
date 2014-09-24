@@ -37,6 +37,7 @@
 #15 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
 #16 /Users/ericellenbrook/Sites/morningpages/index.php(119): Kohana_Request->execute()
 #17 {main} in /Users/ericellenbrook/Sites/morningpages/modules/database/classes/Kohana/Database/MySQL.php:171
+<<<<<<< HEAD
 2014-09-24 16:19:53 --- EMERGENCY: ErrorException [ 8 ]: Undefined variable: view ~ APPPATH/views/templates/default.php [ 107 ] in /home/forge/dev.morningpages.net/application/views/templates/default.php:107
 2014-09-24 16:19:53 --- DEBUG: #0 /home/forge/dev.morningpages.net/application/views/templates/default.php(107): Kohana_Core::error_handler(8, 'Undefined varia...', '/home/forge/dev...', 107, Array)
 #1 /home/forge/dev.morningpages.net/system/classes/Kohana/View.php(61): include('/home/forge/dev...')
@@ -843,3 +844,83 @@
 #9 /home/forge/dev.morningpages.net/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
 #10 /home/forge/dev.morningpages.net/index.php(119): Kohana_Request->execute()
 #11 {main} in /home/forge/dev.morningpages.net/application/views/templates/default.php:84
+=======
+2014-09-24 16:25:50 --- EMERGENCY: ErrorException [ 8 ]: Undefined variable: daystamp ~ APPPATH/views/templates/default.php [ 84 ] in /Users/ericellenbrook/Sites/morningpages/application/views/templates/default.php:84
+2014-09-24 16:25:50 --- DEBUG: #0 /Users/ericellenbrook/Sites/morningpages/application/views/templates/default.php(84): Kohana_Core::error_handler(8, 'Undefined varia...', '/Users/ericelle...', 84, Array)
+#1 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/View.php(61): include('/Users/ericelle...')
+#2 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/View.php(348): Kohana_View::capture('/Users/ericelle...', Array)
+#3 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Controller/Template.php(44): Kohana_View->render()
+#4 /Users/ericellenbrook/Sites/morningpages/application/classes/Controller/Project.php(40): Kohana_Controller_Template->after()
+#5 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Controller.php(87): Controller_Project->after()
+#6 [internal function]: Kohana_Controller->execute()
+#7 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Page))
+#8 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#9 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#10 /Users/ericellenbrook/Sites/morningpages/index.php(119): Kohana_Request->execute()
+#11 {main} in /Users/ericellenbrook/Sites/morningpages/application/views/templates/default.php:84
+2014-09-24 16:27:27 --- EMERGENCY: ErrorException [ 8 ]: Undefined variable: daystamp ~ APPPATH/views/templates/default.php [ 84 ] in /Users/ericellenbrook/Sites/morningpages/application/views/templates/default.php:84
+2014-09-24 16:27:27 --- DEBUG: #0 /Users/ericellenbrook/Sites/morningpages/application/views/templates/default.php(84): Kohana_Core::error_handler(8, 'Undefined varia...', '/Users/ericelle...', 84, Array)
+#1 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/View.php(61): include('/Users/ericelle...')
+#2 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/View.php(348): Kohana_View::capture('/Users/ericelle...', Array)
+#3 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Controller/Template.php(44): Kohana_View->render()
+#4 /Users/ericellenbrook/Sites/morningpages/application/classes/Controller/Project.php(40): Kohana_Controller_Template->after()
+#5 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Controller.php(87): Controller_Project->after()
+#6 [internal function]: Kohana_Controller->execute()
+#7 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Page))
+#8 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#9 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#10 /Users/ericellenbrook/Sites/morningpages/index.php(119): Kohana_Request->execute()
+#11 {main} in /Users/ericellenbrook/Sites/morningpages/application/views/templates/default.php:84
+2014-09-24 16:29:07 --- EMERGENCY: ErrorException [ 8 ]: Undefined variable: daystamp ~ APPPATH/views/templates/default.php [ 84 ] in /Users/ericellenbrook/Sites/morningpages/application/views/templates/default.php:84
+2014-09-24 16:29:07 --- DEBUG: #0 /Users/ericellenbrook/Sites/morningpages/application/views/templates/default.php(84): Kohana_Core::error_handler(8, 'Undefined varia...', '/Users/ericelle...', 84, Array)
+#1 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/View.php(61): include('/Users/ericelle...')
+#2 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/View.php(348): Kohana_View::capture('/Users/ericelle...', Array)
+#3 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Controller/Template.php(44): Kohana_View->render()
+#4 /Users/ericellenbrook/Sites/morningpages/application/classes/Controller/Project.php(40): Kohana_Controller_Template->after()
+#5 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Controller.php(87): Controller_Project->after()
+#6 [internal function]: Kohana_Controller->execute()
+#7 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Page))
+#8 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#9 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#10 /Users/ericellenbrook/Sites/morningpages/index.php(119): Kohana_Request->execute()
+#11 {main} in /Users/ericellenbrook/Sites/morningpages/application/views/templates/default.php:84
+2014-09-24 16:32:08 --- EMERGENCY: ErrorException [ 8 ]: Undefined variable: daystamp ~ APPPATH/views/templates/default.php [ 84 ] in /Users/ericellenbrook/Sites/morningpages/application/views/templates/default.php:84
+2014-09-24 16:32:08 --- DEBUG: #0 /Users/ericellenbrook/Sites/morningpages/application/views/templates/default.php(84): Kohana_Core::error_handler(8, 'Undefined varia...', '/Users/ericelle...', 84, Array)
+#1 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/View.php(61): include('/Users/ericelle...')
+#2 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/View.php(348): Kohana_View::capture('/Users/ericelle...', Array)
+#3 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Controller/Template.php(44): Kohana_View->render()
+#4 /Users/ericellenbrook/Sites/morningpages/application/classes/Controller/Project.php(40): Kohana_Controller_Template->after()
+#5 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Controller.php(87): Controller_Project->after()
+#6 [internal function]: Kohana_Controller->execute()
+#7 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Page))
+#8 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#9 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#10 /Users/ericellenbrook/Sites/morningpages/index.php(119): Kohana_Request->execute()
+#11 {main} in /Users/ericellenbrook/Sites/morningpages/application/views/templates/default.php:84
+2014-09-24 16:32:10 --- EMERGENCY: ErrorException [ 8 ]: Undefined variable: daystamp ~ APPPATH/views/templates/default.php [ 84 ] in /Users/ericellenbrook/Sites/morningpages/application/views/templates/default.php:84
+2014-09-24 16:32:10 --- DEBUG: #0 /Users/ericellenbrook/Sites/morningpages/application/views/templates/default.php(84): Kohana_Core::error_handler(8, 'Undefined varia...', '/Users/ericelle...', 84, Array)
+#1 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/View.php(61): include('/Users/ericelle...')
+#2 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/View.php(348): Kohana_View::capture('/Users/ericelle...', Array)
+#3 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Controller/Template.php(44): Kohana_View->render()
+#4 /Users/ericellenbrook/Sites/morningpages/application/classes/Controller/Project.php(40): Kohana_Controller_Template->after()
+#5 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Controller.php(87): Controller_Project->after()
+#6 [internal function]: Kohana_Controller->execute()
+#7 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Page))
+#8 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#9 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#10 /Users/ericellenbrook/Sites/morningpages/index.php(119): Kohana_Request->execute()
+#11 {main} in /Users/ericellenbrook/Sites/morningpages/application/views/templates/default.php:84
+2014-09-24 16:32:43 --- EMERGENCY: ErrorException [ 8 ]: Undefined variable: daystamp ~ APPPATH/views/templates/default.php [ 84 ] in /Users/ericellenbrook/Sites/morningpages/application/views/templates/default.php:84
+2014-09-24 16:32:43 --- DEBUG: #0 /Users/ericellenbrook/Sites/morningpages/application/views/templates/default.php(84): Kohana_Core::error_handler(8, 'Undefined varia...', '/Users/ericelle...', 84, Array)
+#1 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/View.php(61): include('/Users/ericelle...')
+#2 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/View.php(348): Kohana_View::capture('/Users/ericelle...', Array)
+#3 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Controller/Template.php(44): Kohana_View->render()
+#4 /Users/ericellenbrook/Sites/morningpages/application/classes/Controller/Project.php(40): Kohana_Controller_Template->after()
+#5 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Controller.php(87): Controller_Project->after()
+#6 [internal function]: Kohana_Controller->execute()
+#7 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Page))
+#8 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#9 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#10 /Users/ericellenbrook/Sites/morningpages/index.php(119): Kohana_Request->execute()
+#11 {main} in /Users/ericellenbrook/Sites/morningpages/application/views/templates/default.php:84
+>>>>>>> c76758da7b1139e09a8ec916b04d6997574eacf7
