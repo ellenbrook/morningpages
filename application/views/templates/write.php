@@ -35,6 +35,7 @@
 				<li>
 				    <select data-bind="event:{change:goToPreviousPage}" id="pastposts" class="form-control">
 				        <option value="0">Previous pages</option>
+				        <option value="/">Today</option>
 <?php
     					$pages = user::get()
     						->pages
@@ -68,11 +69,12 @@
     							foreach($days as $day)
     							{
     							    $dayname = date('l ',$day->created).' the '.date('jS',$day->created);
-                                    if($day->day == site::today_slug())
+                                    if($day->day != site::today_slug())
                                     {
-                                        $dayname = 'Today';
+                                        //$dayname = 'Today';
+                                        echo '<option value="'.$day->day.'"'.($daystamp==$day->day?' selected="selected"':'').'>'.$dayname.'</option>';
                                     }
-    								echo '<option value="'.$day->day.'"'.($daystamp==$day->day?' selected="selected"':'').'>'.$dayname.'</option>';
+    								
     							}
     							echo '<optgroup>';
     						}
