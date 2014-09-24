@@ -85,14 +85,19 @@ class Model_Page extends ORM {
 		{
 			$this->day = site::today_slug();
 		}
-		list($month, $day, $year) = explode('-',$this->day);
-		$daystamp = mktime(0,0,0,$month,$day,$year);
-		$today = mktime(0,0,0,date('n'),date('j'),date('Y'));
 		$today = site::today_slug();
 		if($today == $this->day)
 		{
 			return 'Today';
 		}
+		return $this->daystamp();
+		
+	}
+	
+	public function daystamp()
+	{
+		list($month, $day, $year) = explode('-',$this->day);
+		$daystamp = mktime(0,0,0,$month,$day,$year);
 		return date('F d, Y', $daystamp);
 	}
     
