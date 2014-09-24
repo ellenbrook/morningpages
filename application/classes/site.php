@@ -85,8 +85,8 @@ abstract class site {
 			else
 			{
 				return array(
-					'controller' => 'User',
-					'action' => 'login'
+					'controller' => 'Page',
+					'action' => 'anonymouswriting'
 				);
 			}
 		}

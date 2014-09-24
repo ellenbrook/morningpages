@@ -42,6 +42,16 @@ define([
 			self.autosaver.element.val(reply.content);
 		});
 		
+		self.submitPage = function(){
+			console.log('the fuck');
+			if(!self.user.logged())
+			{
+				alert('Log in asshole');
+				return false;
+			}
+			return false;
+		};
+		
 		self.optionsmodal = new modal($('#user-options-modal'));
 		self.shortcutsmodal = new modal($('#shortcuts-modal'));
 		

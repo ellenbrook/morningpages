@@ -9,6 +9,7 @@ define(['knockout', 'jquery'],function(ko, $){
 		self.password = ko.observable('');
 		self.passconfirm = ko.observable('');
 		self.wordcount = ko.observable(0);
+		self.logged = ko.observable(false);
 		
 		self.getInfo = function(){
 			return $.get('/ajax/User/info',function(reply){
