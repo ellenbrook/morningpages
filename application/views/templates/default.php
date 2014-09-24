@@ -186,6 +186,11 @@
 			<p>For an in-depth listing of all of Markdown's features, check out <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="nofollow">Markdown Syntax Basics</a>.</p>
 		</div>
 	</section>
-	<script src="<?php echo URL::site('media/js/require.js'); ?>" data-main="/media/js/write" type="text/javascript"></script>
+	<script src="<?php echo URL::site('media/js/require.js'); ?>" type="text/javascript"></script>
+	<script>
+		require(['media/js/project'],function(){
+			require(['viewModels/<?php echo $controller.'/'.$action; ?>']);
+		})
+	</script>
 </body>
 </html>

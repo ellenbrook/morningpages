@@ -1,25 +1,22 @@
-requirejs.config({
+require.config({
+	'baseUrl':'media/js',
 	'paths':{
-		'jquery':'vendor/jquery.2.1.1',
 		'knockout':'vendor/knockout',
-		'autosize':'vendor/autosize',
+		'jquery':'//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min',
+		'autogrow':'vendor/jquery.autosize',
+		'validate':'vendor/jquery.validate.min',
+		'jgrowl':'vendor/jgrowl.min'
 	},
 	'shim':{
-		'autosize':{
+		'autogrow':{
+			'deps':['jquery']
+		},
+		'validate':{
+			'deps':['jquery']
+		},
+		'jgrowl':{
 			'deps':['jquery']
 		}
 	}
 });
-
-require([
-	'knockout',
-	'jquery',
-], function(ko, $){
-	
-	var project = function(){
-		
-	};
-	
-	new project();
-	
-});
+require(['knockout','jquery','bindings']);

@@ -1,24 +1,3 @@
-require.config({
-	'paths':{
-		'knockout':'vendor/knockout',
-		'jquery':'//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min',
-		'autogrow':'vendor/jquery.autosize',
-		'validate':'vendor/jquery.validate.min',
-		'jgrowl':'vendor/jgrowl.min'
-	},
-	'shim':{
-		'autogrow':{
-			'deps':['jquery']
-		},
-		'validate':{
-			'deps':['jquery']
-		},
-		'jgrowl':{
-			'deps':['jquery']
-		}
-	}
-});
-
 define([
 	'knockout',
 	'jquery',
@@ -122,19 +101,6 @@ define([
 			}
 
 		});
-		
-		/*var savetimer = setInterval(function(){
-			$.post(ajaxurl+'/pages/autosave', {
-				'id':$('#page-content').data('id'),
-				'content':$('#morningpage').val()
-			}, function(reply){
-				if(!reply.success)
-				{
-					// Do something?
-					console.log(reply);
-				}
-			}, 'json');
-		}, 10000);*/
 		
 	};
 	
