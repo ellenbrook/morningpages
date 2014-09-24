@@ -115,3 +115,4 @@
 #9 /Users/ericellenbrook/Sites/morningpages/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
 #10 /Users/ericellenbrook/Sites/morningpages/index.php(119): Kohana_Request->execute()
 #11 {main} in /Users/ericellenbrook/Sites/morningpages/application/views/templates/default.php:84
+>>>>>>> c76758da7b1139e09a8ec916b04d6997574eacf7

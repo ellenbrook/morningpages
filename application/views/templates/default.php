@@ -92,12 +92,12 @@
 	                    </select>
 					</li>
 					<li><a href="#" data-bind="showModal:'shortcuts-modal'" id="js-show-tips">Shortcuts</a></li>
-					<li><a href="#" data-bind="showModal:'user-options-modal'" id="js-edit-profile">Edit user options</a></li>
+					<li><a href="#">Edit user options</a></li>
 				<?php else: ?>
 					<li>Words written<br>0</li>
 					<li>Current streak<br>0</li>
 					<li>Longest streak<br>0</li>
-					<li><a href="#" data-bind="showModal:'shortcuts-modal'" id="js-show-tips">Shortcuts</a></li>
+					<li><a href="<?php echo URL::site('options'); ?>" data-bind="showModal:'shortcuts-modal'" id="js-show-tips">Shortcuts</a></li>
 					<li>Log in</li>
 				<?php endif; ?>
 			</ul>
@@ -105,71 +105,7 @@
 	</section>
 	
 	<?php echo $view; ?>
-	
-	<div class="modal-overlay"></div>
-	<section id="user-options-modal" class="user-options-modal">
-		<header>
-			<h3 class="pull-left">User Options</h3>
-			<button data-bind="hideModal:'user-options-modal'" class="btn-close pull-right">&#x2715</button>
-		</header>
-		<nav class="modal-tabbed-nav">
-			<ul>
-				<li class="active-tab"><a href="personal-settings">Personal Settings</a></li>
-				<li><a href="change-password">Password</a></li>
-				<li><a href="delete-account">Delete Account</a></li>
-			</ul>
-		</nav>
-		<div class="user-options-modal-body personal-settings">
-			<form action="/user" data-bind="validateForm:saveUserInfo" method="post" role="form">
-				<div class="form-container">
-					<div class="form-group">
-						<label for="account-email">Your E-mail:</label>
-						<input type="email" placeholder="Your e-mail" name="email" id="account-email" class="form-control" data-bind="value:user.email" required>
-					</div>
-	
-					<div class="form-group">
-						<label for="account-email">Your theme:</label>
-						<select id="pastposts" data-bind="value:user.theme,event:{change:switchTheme}" class="form-control" name="theme">
-							<option value="standard">Standard</option>
-							<option value="future">Future</option>
-							<option value="trendy">Trendy Name</option>
-							<option value="calm">Calm</option>	
-						</select>
-					</div>
-				</div>
-
-
-				<div class="form-container">
-					<div class="form-group">
-						<label for="reminder" class="inline">Daily reminders?</label>
-						<input type="checkbox" data-bind="checked:user.reminder" name="reminder" id="account-reminder" class="inline">
-					</div>
-				</div>
-			</form>
-		</div>
-		<div class="user-options-modal-body change-password">
-			<div class="form-container">				
-				<div class="form-group">
-					<label for="account-password">New password:</label>
-					<input type="password" minlength="5" data-bind="value:user.password" equalto="#account-password-confirm" placeholder="Your new password" name="password" id="account-password" class="form-control">
-				</div>
-				
-				<div class="form-group">
-					<label for="account-password-confirm">Confirm new password:</label>
-					<input type="password" minlength="5" equalto="#account-password" data-bind="value:user.passconfirm" placeholder="Confirm your new password" name="password_confirm" id="account-password-confirm" class="form-control">
-				</div>
-			</div>	
-		</div>
-		<div class="user-options-modal-body delete-account">
-			<a href="/user/delete" title="Delete your account" class="btn btn-bad">Delete account</a>
-		</div>
-
-		<!--modal footer -->
-		<div class="form-group pull-right">
-			<button name="account-deletion" class="btn-good pull-right">Save info</button>
-		</div>
-	</section> <!-- options modal -->
-
+<div class="modal-overlay"></div>
 	<section id="shortcuts-modal" class="shortcuts-modal">
 		<header>
 			<h3 class="pull-left">Tips and tricks</h3>

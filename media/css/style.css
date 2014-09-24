@@ -621,3 +621,42 @@ input[type="checkbox"] {
 .form-group:last-child {
   margin-right: 0;
 }
+
+.options-page {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  display: block;
+  background-color: #fff;
+}
+.options-page:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.user-options-nav {
+  border-bottom: 5px solid #95B37B;
+}
+
+.tab {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  display: inline-block;
+  background-color: #999999;
+  padding: 7px 10px;
+  -webkit-transition: background-color 0.3s ease 0s;
+          transition: background-color 0.3s ease 0s;
+}
+.tab:hover {
+  background-color: #A5CC82;
+}
+.tab a {
+  font-family: "futura-pt", sans-serif;
+  color: #fff;
+}
+
+.active-tab {
+  background-color: #95B37B;
+}
