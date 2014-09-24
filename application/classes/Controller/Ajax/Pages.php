@@ -49,7 +49,7 @@ class Controller_Ajax_Pages extends Controller {
             ->where('type','=','autosave')
             ->find();
 		$content = '';
-		if($autosave->loaded())
+		if($autosave->loaded() && $content != '')
 		{
 			$content = $autosave->decode($autosave->content);
 		}

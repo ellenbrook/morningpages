@@ -20,7 +20,10 @@ class Controller_Page extends Controller_Project {
 		if($_POST && strlen(arr::get($_POST, 'morningpage',''))>0)
 		{
 			$content = arr::get($_POST, 'morningpage','');
-			$page->content = $page->content().$content;
+			if($page->type == 'page')
+			{
+				$page->content = $page->content().$content;
+			}
 			try
 			{
 			    $page->wordcount = str_word_count(strip_tags($page->content()));
@@ -28,6 +31,11 @@ class Controller_Page extends Controller_Project {
                 {
                     $page->type = 'page';
                 }
+				if($page->wordcount > 750 && !(bool)$page->counted())
+				{
+					user::update_stats($content, $page);
+					$page->counted = 1;
+				}
 				$page->update();
 				/*$autosave = $page->get_autosave();
 				if($autosave)
@@ -36,8 +44,7 @@ class Controller_Page extends Controller_Project {
 				}				
 				if(!(bool)$page->counted)
 				{
-					user::update_stats($content, $page);
-					$page->counted = 1;
+					
 				}
                 $page->save();*/
 				notes::success('Your page has been saved!');
