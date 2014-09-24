@@ -81,7 +81,7 @@
 	                                    if($day->day != site::today_slug())
 	                                    {
 	                                        //$dayname = 'Today';
-	                                        echo '<option value="'.$day->day.'"'.($daystamp==$day->day?' selected="selected"':'').'>'.$dayname.'</option>';
+	                                        echo '<option value="'.$day->day.'"'.($dayname==$day->day?' selected="selected"':'').'>'.$dayname.'</option>';
 	                                    }
 	    								
 	    							}
