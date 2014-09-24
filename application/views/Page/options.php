@@ -6,8 +6,12 @@
 			<li class="tab"><a href="account-settings">Account Settings</a></li>
 		</ul>
 	</nav>
-	<!--modal footer -->
-	<div class="pull-right">
-		<button name="account-deletion" class="btn-good pull-right">Save info</button>
-	</div>
+	
+	<form>
+
+		<div class="pull-right">
+			<button name="account-deletion" class="btn-good pull-right">Save info</button>
+		</div>
+
+	</form>
 </section> <!-- options modal -->

@@ -434,15 +434,6 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/application\/views\/templates\/default.php": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/application\/views\/templates\/default.php",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
 	"\/application\/views\/templates\/frontpage.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -2379,28 +2370,6 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/media\/js\/cron.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/media\/js\/cron.js",
-		"outputAbbreviatedPath": "\/media\/js\/min\/cron-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/media\/js\/global.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/media\/js\/global.js",
-		"outputAbbreviatedPath": "\/media\/js\/min\/global-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
 	"\/media\/js\/min\/write-min.js": {
 		"fileType": 64,
 		"ignore": 1,
@@ -2445,50 +2414,6 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/media\/js\/Page.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/media\/js\/Page.js",
-		"outputAbbreviatedPath": "\/media\/js\/min\/Page-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/media\/js\/Page\/read.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/media\/js\/Page\/read.js",
-		"outputAbbreviatedPath": "\/media\/js\/Page\/min\/read-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/media\/js\/Page\/write.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/media\/js\/Page\/write.js",
-		"outputAbbreviatedPath": "\/media\/js\/Page\/min\/write-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/media\/js\/project.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/media\/js\/project.js",
-		"outputAbbreviatedPath": "\/media\/js\/min\/project-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
 	"\/media\/js\/require.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -2506,17 +2431,6 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/media\/js\/site.js",
 		"outputAbbreviatedPath": "\/media\/js\/min\/site-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/media\/js\/User.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/media\/js\/User.js",
-		"outputAbbreviatedPath": "\/media\/js\/min\/User-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -2583,17 +2497,6 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/media\/js\/vendor\/knockout.js",
 		"outputAbbreviatedPath": "\/media\/js\/vendor\/min\/knockout-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/media\/js\/write.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/media\/js\/write.js",
-		"outputAbbreviatedPath": "\/media\/js\/min\/write-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
