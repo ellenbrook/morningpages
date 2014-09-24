@@ -1,6 +1,4 @@
 .project
-media/cache/*
-application/logs/
 application/config/secrets.php
 .sass-cache/*
 media/css/.sass-cache/*

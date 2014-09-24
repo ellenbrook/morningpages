@@ -40,10 +40,16 @@ class Model_Page extends ORM {
 	
 	public function content()
 	{
-		$enc = Encrypt::instance();
-		$cont = $enc->decode($this->content);
+		$cont = $this->content;
+		$cont = $this->decode($cont);
 		$cont = $this->markdown($cont);
 		return $cont;
+	}
+	
+	public function decode($content)
+	{
+		$enc = Encrypt::instance();
+		return $enc->decode($content);
 	}
 	
 	public function textarea_content()

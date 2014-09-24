@@ -92,7 +92,7 @@
         </div>
 		<div id="page-content" data-wordcount="<?php echo $page->wordcount(); ?>" class="container" data-id="<?php echo $page->id; ?>">
 			<h2 class="date"><?php echo date('F d, Y', $page->created) ?></h2>
-			<?php if($page->content != ''): ?>
+			<?php if($page->type == 'page' && $page->content != ''): ?>
 				<figure class="wordcloud pull-right">
 					<div class="wordcloud-heading">
 						<h3 class="wordcloud-title">Today's Words</h3>
@@ -102,7 +102,13 @@
 					</div>
 				</figure>
 			<?php endif; ?>
-			<?php echo $page->content(); ?>
+			
+<?php
+			if($page->type == 'page')
+			{
+				echo $page->content();
+			}
+?>
 		</div>
 	</article>
 
@@ -132,8 +138,8 @@
 				<li><a href="delete-account">Delete Account</a></li>
 			</ul>
 		</nav>
-			<div class="user-options-modal-body personal-settings">
-				<form action="/user" data-bind="validateForm:saveUserInfo" method="post" role="form">
+		<div class="user-options-modal-body personal-settings">
+			<form action="/user" data-bind="validateForm:saveUserInfo" method="post" role="form">
 				<div class="form-container">
 					<div class="form-group">
 						<label for="account-email">Your E-mail:</label>
@@ -151,36 +157,36 @@
 					</div>
 				</div>
 
-	
-					<div class="form-container">
-						<div class="form-group">
-							<label for="reminder" class="inline">Daily reminders?</label>
-							<input type="checkbox" data-bind="checked:user.reminder" name="reminder" id="account-reminder" class="inline">
-						</div>
-					</div>
-				</form>
-			</div>
-			<div class="user-options-modal-body change-password">
-				<div class="form-container">				
-					<div class="form-group">
-						<label for="account-password">New password:</label>
-						<input type="password" minlength="5" data-bind="value:user.password" equalto="#account-password-confirm" placeholder="Your new password" name="password" id="account-password" class="form-control">
-					</div>
-					
-					<div class="form-group">
-						<label for="account-password-confirm">Confirm new password:</label>
-						<input type="password" minlength="5" equalto="#account-password" data-bind="value:user.passconfirm" placeholder="Confirm your new password" name="password_confirm" id="account-password-confirm" class="form-control">
-					</div>
-				</div>	
-			</div>
-			<div class="user-options-modal-body delete-account">
-				<a href="/user/delete" title="Delete your account" class="btn btn-bad">Delete account</a>
-			</div>
 
-			<!--modal footer -->
-			<div class="form-group pull-right">
-				<button name="account-deletion" class="btn-good pull-right">Save info</button>
-			</div>
+				<div class="form-container">
+					<div class="form-group">
+						<label for="reminder" class="inline">Daily reminders?</label>
+						<input type="checkbox" data-bind="checked:user.reminder" name="reminder" id="account-reminder" class="inline">
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="user-options-modal-body change-password">
+			<div class="form-container">				
+				<div class="form-group">
+					<label for="account-password">New password:</label>
+					<input type="password" minlength="5" data-bind="value:user.password" equalto="#account-password-confirm" placeholder="Your new password" name="password" id="account-password" class="form-control">
+				</div>
+				
+				<div class="form-group">
+					<label for="account-password-confirm">Confirm new password:</label>
+					<input type="password" minlength="5" equalto="#account-password" data-bind="value:user.passconfirm" placeholder="Confirm your new password" name="password_confirm" id="account-password-confirm" class="form-control">
+				</div>
+			</div>	
+		</div>
+		<div class="user-options-modal-body delete-account">
+			<a href="/user/delete" title="Delete your account" class="btn btn-bad">Delete account</a>
+		</div>
+
+		<!--modal footer -->
+		<div class="form-group pull-right">
+			<button name="account-deletion" class="btn-good pull-right">Save info</button>
+		</div>
 	</section> <!-- options modal -->
 
 	<section id="shortcuts-modal" class="shortcuts-modal">

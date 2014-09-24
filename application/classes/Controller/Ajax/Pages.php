@@ -9,27 +9,23 @@ class Controller_Ajax_Pages extends Controller {
 			ajax::error('User not logged in');
 		}
 		
-		$page = ORM::factory('Page', arr::get($_POST, 'id',''));
-		if(!$page->loaded() || user::get()->id != $page->user_id)
+        $user = user::get();
+		$autosave = ORM::factory('Page')
+            ->where('user_id','=', $user->id)
+            ->where('type','=','autosave')
+            ->find();
+		if(!$autosave->loaded())
 		{
-			ajax::error('Page not found');
+			$autosave->user_id = $user->id;
+            $autosave->type = 'autosave';
 		}
 		
 		$content = arr::get($_POST, 'content','');
-		
-		$autosave = $page->get_autosave();
-		if(!$autosave)
-		{
-			$autosave = ORM::factory('Page');
-			$autosave->user_id = user::get()->id;
-			$autosave->parent = $page->id;
-			$autosave->type = 'autosave';
-		}
 		$autosave->content = $content;
 		
 		try
 		{
-			$autosave->autosave();
+			$autosave->save();
 			ajax::success('Page saved!');
 		}
 		catch(ORM_Validation_Exception $e)
@@ -39,6 +35,27 @@ class Controller_Ajax_Pages extends Controller {
 		}
 		
 		ajax::info('Nothing to do');
+	}
+	
+	public function action_getautosave()
+	{
+		if(!user::logged())
+		{
+			ajax::error('User not logged in');
+		}
+		$user = user::get();
+		$autosave = ORM::factory('Page')
+            ->where('user_id','=', $user->id)
+            ->where('type','=','autosave')
+            ->find();
+		$content = '';
+		if($autosave->loaded())
+		{
+			$content = $autosave->decode($autosave->content);
+		}
+		ajax::success('',array(
+			'content' => $content
+		));
 	}
 	
 }

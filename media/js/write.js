@@ -23,10 +23,11 @@ define([
 	'knockout',
 	'jquery',
 	'bindings',
+	'site',
 	'models/user',
 	'models/modal',
-	'site'
-], function(ko, $, bindings, user, modal, site){
+	'models/autosave'
+], function(ko, $, bindings, site, user, modal, autosave){
 	
 	var writeModel = function(){
 		var self = this;
@@ -34,6 +35,11 @@ define([
 		self.user = new user();
 		self.user.getInfo().then(function(){
 			self.writtenwords('');
+		});
+		
+		self.autosaver = new autosave();
+		self.autosaver.get().then(function(reply){
+			self.autosaver.element.val(reply.content);
 		});
 		
 		self.optionsmodal = new modal($('#user-options-modal'));
@@ -73,6 +79,7 @@ define([
 		};
 		
 		self.saveUserInfo = function(){
+			console.log('save');
 			self.user.saveInfo().then(function(data){
 				self.optionsmodal.hide();
 				site.say('Your settings have been saved.');
