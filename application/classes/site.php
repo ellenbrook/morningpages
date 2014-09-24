@@ -90,6 +90,13 @@ abstract class site {
 				);
 			}
 		}
+		if($controller == 'options')
+		{
+			return array(
+				'controller' => 'Page',
+				'action' => 'options'
+			);
+		}
 		if($controller == 'read')
 		{
 			return array(
