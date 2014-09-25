@@ -19,4 +19,32 @@ require.config({
 		}
 	}
 });
-require(['knockout','jquery','bindings']);
+define(['knockout','jquery','bindings'], function(ko, $){
+	
+	var project = function(){
+		var self = this;
+		
+		self.hamburgerClick = function(){
+			$('#user-options-triangle').show();
+			$( "#user-options" ).slideToggle( "slow", function() {
+				// Animation complete.
+				if(!$('#user-options').is(':visible'))
+				{
+					$('#user-options-triangle').hide();
+				}
+			});
+		};
+		
+		self.goToPreviousPage = function(obg, ev){
+			var date = $(ev.target).val();
+			if($(ev.target).val() != 0)
+			{
+				window.location.href = '/write/'+date;
+			}
+		};
+		
+	};
+	
+	ko.applyBindings(new project());
+	
+});

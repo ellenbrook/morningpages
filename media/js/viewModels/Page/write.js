@@ -58,31 +58,12 @@ define([
 			}
 		});
 		
-		self.hamburgerClick = function(){
-			$('#user-options-triangle').show();
-			$( "#user-options" ).slideToggle( "slow", function() {
-				// Animation complete.
-				if(!$('#user-options').is(':visible'))
-				{
-					$('#user-options-triangle').hide();
-				}
-			});
-		};
-		
 		self.saveUserInfo = function(){
 			console.log('save');
 			self.user.saveInfo().then(function(data){
 				self.optionsmodal.hide();
 				site.say('Your settings have been saved.');
 			});
-		};
-		
-		self.goToPreviousPage = function(obg, ev){
-			var date = $(ev.target).val();
-			if($(ev.target).val() != 0)
-			{
-				window.location.href = '/write/'+date;
-			}
 		};
 
 		$('.modal-tabbed-nav ul li').click(function(e){
