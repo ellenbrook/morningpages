@@ -660,3 +660,7 @@ input[type="checkbox"] {
 .active-tab {
   background-color: #95B37B;
 }
+
+#site-settings, #account-settings {
+  display: none;
+}

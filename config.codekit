@@ -497,15 +497,6 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/application\/views\/User\/signup.php": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/application\/views\/User\/signup.php",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
 	"\/Gruntfile.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -2370,6 +2361,17 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/media\/js\/min\/bindings-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/media\/js\/min\/bindings-min.js",
+		"outputAbbreviatedPath": "\/media\/js\/min\/min\/bindings-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/media\/js\/min\/write-min.js": {
 		"fileType": 64,
 		"ignore": 1,
@@ -2497,6 +2499,28 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/media\/js\/vendor\/knockout.js",
 		"outputAbbreviatedPath": "\/media\/js\/vendor\/min\/knockout-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/media\/js\/viewModels\/Page\/options.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/media\/js\/viewModels\/Page\/options.js",
+		"outputAbbreviatedPath": "\/media\/js\/viewModels\/Page\/min\/options-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/media\/js\/viewModels\/Page\/write.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/media\/js\/viewModels\/Page\/write.js",
+		"outputAbbreviatedPath": "\/media\/js\/viewModels\/Page\/min\/write-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
