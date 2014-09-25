@@ -29,3 +29,11 @@
 .active-tab {
 	background-color: $good-color;
 }
+
+#site-settings {
+	display: none;
+}
+
+#account-settings {
+	@extend #site-settings;
+}
