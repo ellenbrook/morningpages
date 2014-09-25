@@ -63,6 +63,11 @@
 						<a href="<?php echo user::url('signup'); ?>" title="Sign up">Sign up</a> - <a href="<?php echo user::url('help') ?>" title="Click here if you need help accessing your account">Forgot your password</a>?
 					</p>
 				</form>
+				<p>
+					<a href="<?php echo URL::site('auth/twitter'); ?>" title="Sign in with Twitter">
+						<img src="<?php echo URL::site('media/img/sign-in-with-twitter-gray.png'); ?>" alt="Sign in with Twitter" />
+					</a>
+				</p>
 			<?php else: ?>
 				<p>
 					<em>Logged in as <a href="<?php echo user::url(); ?>" title="Your profile"><?php echo user::get()->username; ?></a></em>
