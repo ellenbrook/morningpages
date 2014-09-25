@@ -1,5 +1,5 @@
 require.config({
-	'baseUrl':'media/js',
+	'baseUrl':'/media/js',
 	'paths':{
 		'knockout':'vendor/knockout',
 		'jquery':'//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min',
@@ -25,6 +25,7 @@ define(['knockout','jquery','bindings'], function(ko, $){
 		var self = this;
 		
 		self.hamburgerClick = function(){
+			console.log('click');
 			$('#user-options-triangle').show();
 			$( "#user-options" ).slideToggle( "slow", function() {
 				// Animation complete.

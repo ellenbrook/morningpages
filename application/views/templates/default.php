@@ -123,9 +123,9 @@
 		</div>
 	</section>
 	<script src="<?php echo URL::site('media/js/require.js'); ?>" type="text/javascript"></script>
-	<script>
-		require(['media/js/project'],function(){
-			require(['viewModels/<?php echo $controller.'/'.$action; ?>']);
+	<script type="text/javascript">
+		require(['<?php echo URL::site('media/js/project.js'); ?>'],function(){
+			require(['<?php echo URL::site('media/js/viewModels/'.$controller.'/'.$action); ?>.js']);
 		})
 	</script>
 </body>
