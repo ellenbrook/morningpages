@@ -34,9 +34,19 @@
 		</div>
 		<div class="tab-container" id="site-settings">
 			<fieldset>
+				<div class="form-group">
+					<label for="site-theme">Theme</label>
+						<select id="site-theme" name="site-theme">
+							<option value="0">Current Theme</option>
+							<option value="1">Name of theme</option>
+							<option value="2">A secondary theme option</option>
+							<option value="3">Third theme!</option>
+						</select>
+				</div>
 				<div class="form-group button-group">
-				<input type="checkbox" class="checkbox-button" name="writing-reminders-button" id="writing-reminders-button">
-				<label for="writing-reminders-button" class="button" id="writing-reminders-label">Receive daily reminder e-mails at the time that you specify.</label>
+					<label for="writing-reminders-button">Receive daily reminder e-mails at the time that you specify.</label>
+					<button id="writing-reminders-button" class="btn btn-bad">Daily reminder e-mails off</button>
+					
 					<div class="time-container">
 						<select name="hour" id="reminder-hour">
 							<option>1</option>
@@ -65,35 +75,32 @@
 					</div>
 				</div>
 				<div class="form-group button-group">
-					<input id="privacy-mode" name="privacy-mode" type="checkbox" class="checkbox-button">
-					<label for="privacy-mode" class="button" id="privacy-mode-label">Privacy mode logs you out after 1, 5, or 10 minutes.</label>
+					<label for="privacy-mode">Privacy mode logs you out after 1, 5, or 10 minutes.</label>
+					<button id="privacy-mode" class="btn btn-bad">Privacy mode off</button>
 				</div>
 				<div class="form-group button-group">
-					<input id="hemingway-mode" id="hemingway-mode" type="checkbox" class="checkbox-button">
-					<label for="hemingway-mode" class="button" id="hemingway-mode-label">Hemingway mode disables the use of the backspace key, keeping your writing pure.</label>
+					<label for="hemingway-mode">Hemingway mode disables the use of the backspace key, keeping your writing pure.</label>
+					<button id="hemingway-mode" class="btn btn-bad">Hemingway mode off</button>
 				</div>
 				<div class="form-group button-group">
-					<input id="public-profile" type="checkbox" name="public-profile" class="checkbox-button">
-					<label for="public-profile" class="button" id="public-profile-label">Turn this on in order to allow others to view your profile that includes your username, badges, and stats.</label>
-				</div>
-				<div class="form-group">
-					<label for="site-theme">Theme</label>
-						<select id="site-theme" name="site-theme">
-							<option value="1">Theme 1</option>
-							<option value="2">Theme 2</option>
-							<option value="3">Theme 3</option>
-						</select>
+					<label for="public-profile">Turn this on in order to allow others to view your profile that includes your username, badges, and stats.</label>
+					<button id="public-profile" class="btn btn-bad">Public profile off</button>
 				</div>
 			</fieldset>
 		</div>
 		<div class="tab-container" id="account-settings">
 			<fieldset>
-				<label for="file">Filename:</label>
+				<div class="form-group">
+					<label for="file" class="file">Import posts</label>
 					<input type="file" name="file" id="file">
-				<br>
-				<button class="btn btn-good">Export Posts (XML format)</button> 
-				<br>
-				<a href="#">Delete Account</a>
+				</div>
+				<div class="form-group">
+					<label for="export-posts" class="hidden">Export in XML format</label>
+					<button id="export-posts" class="btn btn-good">Export Posts</button> 
+				</div>
+				<div class="form-group">
+					<a href="#" id="delete-account">Delete Account (REPLACE THE SAVE BUTTON WITH THIS SOME HOW)</a>
+				</div>
 			</fieldset>
 		</div>
 

@@ -17,9 +17,15 @@ select, input {
 	border-radius: 4px;
 }
 
-input:not([type="checkbox"]) {
+input:not([type="checkbox"]){
 	@extend .no-outline;
 	width: 40%;
+}
+
+input[type="file"] {
+	position: fixed;
+	top: -999em;
+	left: -999em;
 }
 
 select {
@@ -30,58 +36,10 @@ select {
 
 label.button {
 	margin-bottom: 1em;
-	cursor: pointer;
-
-	&:before {
-		margin-right: 1em;
-		@extend .btn; 
-	}
 }
 
 .checkbox-button {
 	margin-left: -999em;
-
-	&:checked + label.button:before {
-		@extend .btn-good;
-		content:"\00000A on";
-	}
-		
-	&+ label.button:before {
-		@extend .btn-bad;
-		content:"\00000A off";
-	}
-
-	&:checked + #writing-reminders-label:before {
-		content: "Reminder e-mails on"
-	}
-	
-	&+ #writing-reminders-label:before {
-		content: "Reminder e-mails off";
-	}
-
-	&:checked + #privacy-mode-label:before {
-		content: "Privacy mode on"
-	}
-	
-	&+ #privacy-mode-label:before {
-		content: "Privacy mode off";
-	}
-
-	&:checked + #hemingway-mode-label:before {
-		content: "Hemingway mode on"
-	}
-	
-	&+ #hemingway-mode-label:before {
-		content: "Hemingway mode off";
-	}
-
-	&:checked + #public-profile-label:before {
-		content: "Public profile on"
-	}
-	
-	&+ #public-profile-label:before {
-		content: "Public profile off";
-	}
 }
 
 textarea:focus {
@@ -98,12 +56,22 @@ textarea {
 
 label {
 	display: block;
-	font-family: $header-text;
 	font-size: $base-font-size;
 }
 
+label.file {
+	display: inline-block;
+	@extend .btn;
+	@extend .btn-good;
+}
+
 .form-group {
-	padding: 1em;
-	padding-bottom: 1em;
+	padding: 1em 0;
 	@include span-columns(12);
+}
+
+.half-form-group {
+	padding: 1em 0;
+	@include span-columns(6);
+	@include omega();
 }
