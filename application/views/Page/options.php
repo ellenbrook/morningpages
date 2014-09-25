@@ -35,7 +35,7 @@
 		<div class="tab-container" id="site-settings">
 			<fieldset>
 				<div class="form-group">
-					<label for="site-theme">Theme</label>
+					<label for="site-theme" class="hidden">Theme</label>
 						<select id="site-theme" name="site-theme">
 							<option value="0">Current Theme</option>
 							<option value="1">Name of theme</option>

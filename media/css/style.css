@@ -315,7 +315,7 @@ header {
   position: relative;
   width: 100%;
   padding: 15px 0;
-  background-color: #A5CC82;
+  background-color: #95B37B;
 }
 header h1, header h2 {
   margin: 0;
@@ -535,6 +535,7 @@ button, .btn, label.file {
   font-family: "futura-pt", sans-serif;
   font-size: 18px;
   text-decoration: none;
+  outline: none;
   cursor: pointer;
 }
 button:hover, .btn:hover, label.file:hover {
