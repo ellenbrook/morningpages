@@ -43,7 +43,8 @@
 }
 
 .button-group {
-	@include span-columns(3);
+	padding: 0;
+	margin-left: 1em;
 }
 
 .time-container {

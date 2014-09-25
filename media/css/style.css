@@ -517,14 +517,14 @@ article .wordcloud .green {
   color: #8ba61f;
 }
 
-.btn-disabled, button:disabled, .btn:disabled, label.button:disabled:after, .btn-bad:disabled, .btn-good:disabled, .checkbox-button:checked + label.button:disabled:after {
+.btn-disabled, button:disabled, .btn:disabled, label.button:disabled:before, .btn-bad:disabled, .btn-good:disabled, .checkbox-button:checked + label.button:disabled:before {
   background-color: #999999;
 }
-.btn-disabled:hover, button:hover:disabled, .btn:hover:disabled, label.button:hover:disabled:after, .btn-bad:hover:disabled, .btn-good:hover:disabled {
+.btn-disabled:hover, button:hover:disabled, .btn:hover:disabled, label.button:hover:disabled:before, .btn-bad:hover:disabled, .btn-good:hover:disabled {
   background-color: #999999;
 }
 
-button, .btn, label.button:after {
+button, .btn, label.button:before {
   padding: 7px 10px;
   border: none;
   border-radius: 4px;
@@ -536,22 +536,22 @@ button, .btn, label.button:after {
   text-decoration: none;
   cursor: pointer;
 }
-button:hover, .btn:hover, label.button:hover:after {
+button:hover, .btn:hover, label.button:hover:before {
   background: none repeat scroll 0 0 #999999;
 }
 
-.btn-bad, .checkbox-button + label.button:after {
+.btn-bad, .checkbox-button + label.button:before {
   background-color: #CF8A80;
 }
-.btn-bad:hover, .checkbox-button + label.button:hover:after {
+.btn-bad:hover, .checkbox-button + label.button:hover:before {
   background-color: #FFC3BA;
   color: #fff;
 }
 
-.btn-good, .checkbox-button:checked + label.button:after {
+.btn-good, .checkbox-button:checked + label.button:before {
   background-color: #95B37B;
 }
-.btn-good:hover, .checkbox-button:checked + label.button:hover:after {
+.btn-good:hover, .checkbox-button:checked + label.button:hover:before {
   background-color: #A5CC82;
   color: #fff;
 }
@@ -600,42 +600,42 @@ label.button {
   margin-bottom: 1em;
   cursor: pointer;
 }
-label.button:after {
+label.button:before {
   margin-right: 1em;
 }
 
 .checkbox-button {
   margin-left: -999em;
 }
-.checkbox-button:checked + label.button:after {
+.checkbox-button:checked + label.button:before {
   content: "\00000A on";
 }
-.checkbox-button + label.button:after {
+.checkbox-button + label.button:before {
   content: "\00000A off";
 }
-.checkbox-button:checked + #writing-reminders-label:after {
+.checkbox-button:checked + #writing-reminders-label:before {
   content: "Reminder e-mails on";
 }
-.checkbox-button + #writing-reminders-label:after {
+.checkbox-button + #writing-reminders-label:before {
   content: "Reminder e-mails off";
 }
-.checkbox-button:checked + #privacy-mode-label:after {
+.checkbox-button:checked + #privacy-mode-label:before {
   content: "Privacy mode on";
 }
-.checkbox-button + #privacy-mode-label:after {
+.checkbox-button + #privacy-mode-label:before {
   content: "Privacy mode off";
 }
-.checkbox-button:checked + #hemingway-mode-label:after {
+.checkbox-button:checked + #hemingway-mode-label:before {
   content: "Hemingway mode on";
 }
-.checkbox-button + #hemingway-mode-label:after {
+.checkbox-button + #hemingway-mode-label:before {
   content: "Hemingway mode off";
 }
-.checkbox-button:checked + #public-profile-label:after {
+.checkbox-button:checked + #public-profile-label:before {
   content: "Public profile on";
 }
-.checkbox-button + #public-profile-label:after {
-  content: "Privacy profile off";
+.checkbox-button + #public-profile-label:before {
+  content: "Public profile off";
 }
 
 textarea:focus {
@@ -714,13 +714,8 @@ label {
 }
 
 .button-group {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 23.23176%;
-}
-.button-group:last-child {
-  margin-right: 0;
+  padding: 0;
+  margin-left: 1em;
 }
 
 .time-container {

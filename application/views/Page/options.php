@@ -34,17 +34,9 @@
 		</div>
 		<div class="tab-container" id="site-settings">
 			<fieldset>
-				<div class="form-group">
-					<label for="site-theme">Theme</label>
-						<select id="site-theme" name="site-theme">
-							<option value="1">Theme 1</option>
-							<option value="2">Theme 2</option>
-							<option value="3">Theme 3</option>
-						</select>
-				</div>
 				<div class="form-group button-group">
 				<input type="checkbox" class="checkbox-button" name="writing-reminders-button" id="writing-reminders-button">
-				<label for="writing-reminders-button" class="button" id="writing-reminders-label"></label>
+				<label for="writing-reminders-button" class="button" id="writing-reminders-label">Receive daily reminder e-mails at the time that you specify.</label>
 					<div class="time-container">
 						<select name="hour" id="reminder-hour">
 							<option>1</option>
@@ -74,15 +66,23 @@
 				</div>
 				<div class="form-group button-group">
 					<input id="privacy-mode" name="privacy-mode" type="checkbox" class="checkbox-button">
-					<label for="privacy-mode" class="button" id="privacy-mode-label"></label>
+					<label for="privacy-mode" class="button" id="privacy-mode-label">Privacy mode logs you out after 1, 5, or 10 minutes.</label>
 				</div>
 				<div class="form-group button-group">
 					<input id="hemingway-mode" id="hemingway-mode" type="checkbox" class="checkbox-button">
-					<label for="hemingway-mode" class="button" id="hemingway-mode-label"></label>
+					<label for="hemingway-mode" class="button" id="hemingway-mode-label">Hemingway mode disables the use of the backspace key, keeping your writing pure.</label>
 				</div>
 				<div class="form-group button-group">
 					<input id="public-profile" type="checkbox" name="public-profile" class="checkbox-button">
-					<label for="public-profile" class="button" id="public-profile-label"></label>
+					<label for="public-profile" class="button" id="public-profile-label">Turn this on in order to allow others to view your profile that includes your username, badges, and stats.</label>
+				</div>
+				<div class="form-group">
+					<label for="site-theme">Theme</label>
+						<select id="site-theme" name="site-theme">
+							<option value="1">Theme 1</option>
+							<option value="2">Theme 2</option>
+							<option value="3">Theme 3</option>
+						</select>
 				</div>
 			</fieldset>
 		</div>
