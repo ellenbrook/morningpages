@@ -25,6 +25,7 @@ class Controller_Auth extends Controller {
 		catch(exception $e)
 		{
 			ajax::error('Oh no! Something went wrong and we couldn\'t get a hold of Twitter! They might be too busy right now. You can either wait a bit and see if Twitter wakes up or use another way of logging in.');
+			site::redirect();
 		}
 		site::redirect($redirect);
 	}
