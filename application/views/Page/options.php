@@ -42,45 +42,47 @@
 							<option value="3">Theme 3</option>
 						</select>
 				</div>
-				<div class="form-group">
+				<div class="form-group button-group">
 				<input type="checkbox" class="checkbox-button" name="writing-reminders-button" id="writing-reminders-button">
-				<label for="writing-reminders-button" class="button">Daily e-mail reminders</label>
-					 <br>
-					<select name="hour" id="reminder-hour">
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-						<option>6</option>
-						<option>7</option>
-						<option>8</option>
-						<option>9</option>
-						<option>10</option>
-						<option>11</option>
-						<option>12</option>
-					</select>:<select name="minute" id="reminder-minute">
-						<option>00</option>
-						<option>15</option>
-						<option>30</option>
-						<option>45</option>
-					</select>
-					<select name="day-night" id="reminder-day-night">
-						<option>AM</option>
-						<option>PM</option>
-					</select>
+				<label for="writing-reminders-button" class="button" id="writing-reminders-label"></label>
+					<div class="time-container">
+						<select name="hour" id="reminder-hour">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+							<option>8</option>
+							<option>9</option>
+							<option>10</option>
+							<option>11</option>
+							<option>12</option>
+						</select>
+						<select name="minute" id="reminder-minute">
+							<option>00</option>
+							<option>15</option>
+							<option>30</option>
+							<option>45</option>
+						</select>
+						<select name="day-night" id="reminder-day-night">
+							<option>AM</option>
+							<option>PM</option>
+						</select>
+					</div>
 				</div>
-				<div class="form-group">
-				<label for="privacy-mode">Enable Privacy Mode</label>
-					<input id="privacy-mode" name="privacy-mode" type="checkbox">
+				<div class="form-group button-group">
+					<input id="privacy-mode" name="privacy-mode" type="checkbox" class="checkbox-button">
+					<label for="privacy-mode" class="button" id="privacy-mode-label"></label>
 				</div>
-				<div class="form-group">
-				<label for="hemingway-mode">Enable Hemingway Mode</label>
-					<input id="hemingway-mode" id="hemingway-mode" type="checkbox">
+				<div class="form-group button-group">
+					<input id="hemingway-mode" id="hemingway-mode" type="checkbox" class="checkbox-button">
+					<label for="hemingway-mode" class="button" id="hemingway-mode-label"></label>
 				</div>
-				<div class="form-group">
-				<label for="public-profile">Make my profile public</label>
-					<input id="public-profile" type="checkbox" name="public-profile">
+				<div class="form-group button-group">
+					<input id="public-profile" type="checkbox" name="public-profile" class="checkbox-button">
+					<label for="public-profile" class="button" id="public-profile-label"></label>
 				</div>
 			</fieldset>
 		</div>

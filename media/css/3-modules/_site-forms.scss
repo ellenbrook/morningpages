@@ -30,11 +30,15 @@ select {
 
 label.button {
 	margin-bottom: 1em;
+	cursor: pointer;
 
 	&:after {
-		margin-left: 1em;
-		@extend .btn;
-		 
+		margin-right: 1em;
+		@extend .btn; 
+	}
+
+	&:before {
+
 	}
 }
 
@@ -43,12 +47,44 @@ label.button {
 
 	&:checked + label.button:after {
 		@extend .btn-good;
-		content:"\00000A On";
+		content:"\00000A on";
 	}
-
+		
 	&+ label.button:after {
 		@extend .btn-bad;
-		content:"\00000A Off";
+		content:"\00000A off";
+	}
+
+	&:checked + #writing-reminders-label:after {
+		content: "Reminder e-mails on"
+	}
+	
+	&+ #writing-reminders-label:after {
+		content: "Reminder e-mails off";
+	}
+
+	&:checked + #privacy-mode-label:after {
+		content: "Privacy mode on"
+	}
+	
+	&+ #privacy-mode-label:after {
+		content: "Privacy mode off";
+	}
+
+	&:checked + #hemingway-mode-label:after {
+		content: "Hemingway mode on"
+	}
+	
+	&+ #hemingway-mode-label:after {
+		content: "Hemingway mode off";
+	}
+
+	&:checked + #public-profile-label:after {
+		content: "Public profile on"
+	}
+	
+	&+ #public-profile-label:after {
+		content: "Privacy profile off";
 	}
 }
 

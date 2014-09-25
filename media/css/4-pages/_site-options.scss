@@ -41,3 +41,11 @@
 #account-settings {
 	@extend #site-settings;
 }
+
+.button-group {
+	@include span-columns(3);
+}
+
+.time-container {
+	display: none;
+}

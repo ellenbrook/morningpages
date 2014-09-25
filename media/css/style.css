@@ -598,19 +598,44 @@ select {
 
 label.button {
   margin-bottom: 1em;
+  cursor: pointer;
 }
 label.button:after {
-  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .checkbox-button {
   margin-left: -999em;
 }
 .checkbox-button:checked + label.button:after {
-  content: "\00000A On";
+  content: "\00000A on";
 }
 .checkbox-button + label.button:after {
-  content: "\00000A Off";
+  content: "\00000A off";
+}
+.checkbox-button:checked + #writing-reminders-label:after {
+  content: "Reminder e-mails on";
+}
+.checkbox-button + #writing-reminders-label:after {
+  content: "Reminder e-mails off";
+}
+.checkbox-button:checked + #privacy-mode-label:after {
+  content: "Privacy mode on";
+}
+.checkbox-button + #privacy-mode-label:after {
+  content: "Privacy mode off";
+}
+.checkbox-button:checked + #hemingway-mode-label:after {
+  content: "Hemingway mode on";
+}
+.checkbox-button + #hemingway-mode-label:after {
+  content: "Hemingway mode off";
+}
+.checkbox-button:checked + #public-profile-label:after {
+  content: "Public profile on";
+}
+.checkbox-button + #public-profile-label:after {
+  content: "Privacy profile off";
 }
 
 textarea:focus {
@@ -685,5 +710,19 @@ label {
 }
 
 #site-settings, #account-settings {
+  display: none;
+}
+
+.button-group {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%;
+}
+.button-group:last-child {
+  margin-right: 0;
+}
+
+.time-container {
   display: none;
 }
