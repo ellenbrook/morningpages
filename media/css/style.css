@@ -517,14 +517,14 @@ article .wordcloud .green {
   color: #8ba61f;
 }
 
-.btn-disabled, button:disabled, .btn:disabled, .btn-bad:disabled, .btn-good:disabled {
+.btn-disabled, button:disabled, .btn:disabled, label.button:disabled:after, .btn-bad:disabled, .btn-good:disabled, .checkbox-button:checked + label.button:disabled:after {
   background-color: #999999;
 }
-.btn-disabled:hover, button:hover:disabled, .btn:hover:disabled, .btn-bad:hover:disabled, .btn-good:hover:disabled {
+.btn-disabled:hover, button:hover:disabled, .btn:hover:disabled, label.button:hover:disabled:after, .btn-bad:hover:disabled, .btn-good:hover:disabled {
   background-color: #999999;
 }
 
-button, .btn {
+button, .btn, label.button:after {
   padding: 7px 10px;
   border: none;
   border-radius: 4px;
@@ -536,22 +536,22 @@ button, .btn {
   text-decoration: none;
   cursor: pointer;
 }
-button:hover, .btn:hover {
+button:hover, .btn:hover, label.button:hover:after {
   background: none repeat scroll 0 0 #999999;
 }
 
-.btn-bad {
+.btn-bad, .checkbox-button + label.button:after {
   background-color: #CF8A80;
 }
-.btn-bad:hover {
+.btn-bad:hover, .checkbox-button + label.button:hover:after {
   background-color: #FFC3BA;
   color: #fff;
 }
 
-.btn-good {
+.btn-good, .checkbox-button:checked + label.button:after {
   background-color: #95B37B;
 }
-.btn-good:hover {
+.btn-good:hover, .checkbox-button:checked + label.button:hover:after {
   background-color: #A5CC82;
   color: #fff;
 }
@@ -569,6 +569,10 @@ button:hover, .btn:hover {
   font-size: 24px;
 }
 
+.no-outline, select, input, input:not([type="checkbox"]), textarea:focus, textarea {
+  outline: none;
+}
+
 select, input {
   display: block;
   margin: .25em 0;
@@ -584,12 +588,29 @@ select, input {
   border-radius: 4px;
 }
 
+input:not([type="checkbox"]) {
+  width: 40%;
+}
+
 select {
   height: 41px;
 }
 
-select, input, textarea, button {
-  outline: none;
+label.button {
+  margin-bottom: 1em;
+}
+label.button:after {
+  margin-left: 1em;
+}
+
+.checkbox-button {
+  margin-left: -999em;
+}
+.checkbox-button:checked + label.button:after {
+  content: "\00000A On";
+}
+.checkbox-button + label.button:after {
+  content: "\00000A Off";
 }
 
 textarea:focus {
@@ -604,19 +625,17 @@ textarea {
 
 label {
   display: block;
-}
-
-input[type="checkbox"] {
-  margin-left: .5em;
+  font-family: "futura-pt", sans-serif;
+  font-size: 18px;
 }
 
 .form-group {
-  padding-top: 1em;
+  padding: 1em;
   padding-bottom: 1em;
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 48.82117%;
+  width: 100%;
 }
 .form-group:last-child {
   margin-right: 0;
@@ -655,6 +674,10 @@ input[type="checkbox"] {
 .tab a {
   font-family: "futura-pt", sans-serif;
   color: #fff;
+}
+
+.tab-container {
+  margin: 30px 0;
 }
 
 .active-tab {

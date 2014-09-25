@@ -1,4 +1,8 @@
+.no-outline {
+	outline: none;
+}
 select, input {
+	@extend .no-outline;
 	display: block;
 	margin: .25em 0;
 	border: 1px solid #ccc;
@@ -12,18 +16,49 @@ select, input {
 	box-shadow: inset 0 1px 3px #ddd;
 	border-radius: 4px;
 }
+
+input:not([type="checkbox"]) {
+	@extend .no-outline;
+	width: 40%;
+}
+
 select {
+	@extend .no-outline;
 	height: 41px;
 }
-select, input, textarea, button {
-	outline: none;
+
+
+label.button {
+	margin-bottom: 1em;
+
+	&:after {
+		margin-left: 1em;
+		@extend .btn;
+		 
+	}
+}
+
+.checkbox-button {
+	margin-left: -999em;
+
+	&:checked + label.button:after {
+		@extend .btn-good;
+		content:"\00000A On";
+	}
+
+	&+ label.button:after {
+		@extend .btn-bad;
+		content:"\00000A Off";
+	}
 }
 
 textarea:focus {
+	@extend .no-outline;
 	background-color: $light-color;
 }
 
 textarea {
+	@extend .no-outline;
 	margin-bottom: $h2-margin-top;
 	background-color: $subtle-accent;
 	border-radius: 4px;
@@ -31,14 +66,12 @@ textarea {
 
 label {
 	display: block;
-}
-
-input[type="checkbox"] {
-	margin-left: .5em;
+	font-family: $header-text;
+	font-size: $base-font-size;
 }
 
 .form-group {
-	padding-top: 1em;
+	padding: 1em;
 	padding-bottom: 1em;
-	@include span-columns(6);
+	@include span-columns(12);
 }

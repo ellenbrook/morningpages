@@ -8,42 +8,45 @@
 		       <a href="#site-settings">Site Settings</a>
 		   </li>
 		   <li class="tab">
-		       <a href="#account-settings">Account Settings</a>
+		       <a href="#account-settings">Account Details</a>
 		   </li>
 		</ul>
 
 	</nav>
 
-	<form>
+	<form class="user-options-form">
 		<div class="tab-container" id="personal-settings">
 			<fieldset>
-				<legend>User Options</legend>
-
-				<label for="email">Email</label>
+				<div class="form-group">
+					<label for="email">Email</label>
 					<input type="text" id="email" name="email">
+				</div>
 
-				<label for="new-password">New Password</label>
+				<div class="form-group">
+					<label for="new-password">New Password</label>
 					<input type="password" id="new-password" name="new-password">
-
-				<label for="confirm-new-password">New Password Confirm</label>
+				</div>
+				<div class="form-group">
+					<label for="confirm-new-password">New Password Confirm</label>
 					<input type="password" id="confirm-new-password" name="confirm-new-password">
+				</div>
 			</fieldset>
 		</div>
 		<div class="tab-container" id="site-settings">
 			<fieldset>
-				<legend>Site Options</legend>
-
-				<label for="site-theme">Theme</label>
-					<select id="site-theme" name="site-theme">
-						<option value="1">Theme 1</option>
-						<option value="2">Theme 2</option>
-						<option value="3">Theme 3</option>
-					</select>
-
-				<label for="reminder-email">Daily email reminder</label>
-					<input id="reminder-email" type="checkbox" name="reminder-email">
-					 at 
-					<select>
+				<div class="form-group">
+					<label for="site-theme">Theme</label>
+						<select id="site-theme" name="site-theme">
+							<option value="1">Theme 1</option>
+							<option value="2">Theme 2</option>
+							<option value="3">Theme 3</option>
+						</select>
+				</div>
+				<div class="form-group">
+				<input type="checkbox" class="checkbox-button" name="writing-reminders-button" id="writing-reminders-button">
+				<label for="writing-reminders-button" class="button">Daily e-mail reminders</label>
+					 <br>
+					<select name="hour" id="reminder-hour">
 						<option>1</option>
 						<option>2</option>
 						<option>3</option>
@@ -56,29 +59,33 @@
 						<option>10</option>
 						<option>11</option>
 						<option>12</option>
-					</select>:<select>
+					</select>:<select name="minute" id="reminder-minute">
 						<option>00</option>
 						<option>15</option>
 						<option>30</option>
 						<option>45</option>
 					</select>
-					<select>
+					<select name="day-night" id="reminder-day-night">
 						<option>AM</option>
 						<option>PM</option>
 					</select>
-
-				<label for="privacy-mode">Privacy Mode</label>
+				</div>
+				<div class="form-group">
+				<label for="privacy-mode">Enable Privacy Mode</label>
 					<input id="privacy-mode" name="privacy-mode" type="checkbox">
-
-				<label for="hemingway-mode">Hemingway Mode</label>
+				</div>
+				<div class="form-group">
+				<label for="hemingway-mode">Enable Hemingway Mode</label>
 					<input id="hemingway-mode" id="hemingway-mode" type="checkbox">
-
+				</div>
+				<div class="form-group">
+				<label for="public-profile">Make my profile public</label>
+					<input id="public-profile" type="checkbox" name="public-profile">
+				</div>
 			</fieldset>
 		</div>
 		<div class="tab-container" id="account-settings">
 			<fieldset>
-				<legend>User Options</legend>
-
 				<label for="file">Filename:</label>
 					<input type="file" name="file" id="file">
 				<br>
@@ -91,6 +98,5 @@
 		<div class="pull-right">
 			<button name="account-deletion" class="btn-good pull-right">Save info</button>
 		</div>
-
 	</form>
 </section> <!-- options modal -->

@@ -26,6 +26,10 @@
 	}
 }
 
+.tab-container {
+	margin: $h3-margin-top 0;
+}
+
 .active-tab {
 	background-color: $good-color;
 }
