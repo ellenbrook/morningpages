@@ -6,3 +6,4 @@ application/config/secrets.php
 media/css/.sass-cache/*
 .settings
 .settings/*
+config.codekit
