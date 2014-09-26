@@ -1,0 +1,52 @@
+/* Notes */
+#jGrowl
+{
+	div.jGrowl
+	{
+		font-size:14px;
+		
+		.jGrowl-message
+		{
+			a
+			{
+				color:#FFF;
+			}
+		}
+	}
+	div.growl-success
+	{
+		background-color:$good-color;
+		/*color:#468847;*/
+		border:1px solid #6ca632;
+		
+		&:hover
+		{
+			background-color:$good-color-hover;
+		}
+	}
+	div.growl-info
+	{
+		background-color:#556b8d;
+		/*color:#3a87ad;*/
+		border:1px solid #42536d;
+	}
+	div.growl-warning
+	{
+		background-color:#EFA131;
+		/*color:#c09853;*/
+		border:1px solid #EFA131;
+	}
+	div.growl-danger,
+	div.growl-error
+	{
+		background-color:$bad-color;
+		/*color:#b94a48;*/
+		border:1px solid #d62c1a;
+		
+			&:hover
+			{
+				background-color:$bad-color-hover;
+			}
+	}
+}
+

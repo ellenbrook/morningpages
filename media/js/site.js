@@ -7,7 +7,7 @@ define(['jquery', 'jgrowl'],function($,grr){
 		{
 			if(typeof data == "object")
 			{
-				var message = data.message;
+				var message = data.note;
 				var noteclass = data.type ? 'growl-'+data.type : '';
 				$.jGrowl(message, {
 					position:'bottom-right',
@@ -39,6 +39,6 @@ define(['jquery', 'jgrowl'],function($,grr){
 		
 	};
 	
-	return site;
+	return new site();
 	
 });
