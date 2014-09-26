@@ -2,8 +2,9 @@ define([
 	'knockout',
 	'jquery',
 	'bindings',
-	'site'
-], function(ko, $, bindings, site){
+	'site',
+	'models/popnotes'
+], function(ko, $, bindings, site, popnotes){
 	
 	var headerModel = function(){
 		var self = this;
