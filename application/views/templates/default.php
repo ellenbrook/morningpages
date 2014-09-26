@@ -11,16 +11,15 @@
 	<link href="<?php echo URL::site('media/img/favicon.ico'); ?>" rel="shortcut icon" />
 	<link rel="apple-touch-icon" href="<?php echo URL::site('media/img/favicon.png'); ?>" />
 	<link rel="stylesheet" type="text/css" id="mainstyles" href="<?php echo URL::site('media/css/style.css'); ?>" />
+</head>
 <?php
-		$theme = 'standard';
+		$theme = '';
 		if(user::logged())
 		{
 			$theme = user::get()->theme;
 		}
-		echo HTML::style('media/css/themes/'.$theme.'.css', array('id' => 'csstheme'));
 ?>
-</head>
-<body>
+<body class="<?php echo $theme; ?>">
 
 	<header id="header">
 		<div class="container">
