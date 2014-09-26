@@ -37,6 +37,7 @@ class Controller_Page extends Controller_Project {
 						{
 							user::update_stats($content, $page);
 							$page->counted = 1;
+							achievement::check(user::get(), achievement::FIRST_POST);
 						}
 						$page->update();
 						/*$autosave = $page->get_autosave();
