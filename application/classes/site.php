@@ -43,6 +43,7 @@ abstract class site {
 			{
 				$action = self::today_slug();
 			}
+			$page = false;
 			if(user::logged())
 			{
 				$page = ORM::factory('Page')
@@ -65,28 +66,21 @@ abstract class site {
                         $page->save();
                     }
 				}
-				if($page->loaded())
-				{
-					return array(
-						'controller' => 'Page',
-						'action' => 'write',
-						'page' => $page,
-						'daystamp' => $action
-					);
-				}
-				else
-				{
-					return array(
-						'controller' => 'Page',
-						'action' => 'daynotfound'
-					);
-				}
+			}
+			if((user::logged() && $page->loaded()) || !user::logged())
+			{
+				return array(
+					'controller' => 'Page',
+					'action' => 'write',
+					'page' => $page,
+					'daystamp' => $action
+				);
 			}
 			else
 			{
 				return array(
 					'controller' => 'Page',
-					'action' => 'anonymouswriting'
+					'action' => 'daynotfound'
 				);
 			}
 		}

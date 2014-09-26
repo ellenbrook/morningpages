@@ -123,10 +123,11 @@
 		</div>
 	</section>
 	<script src="<?php echo URL::site('media/js/require.js'); ?>" type="text/javascript"></script>
-	<script type="text/javascript">
-		require(['<?php echo URL::site('media/js/project.js'); ?>'],function(){
-			require(['<?php echo URL::site('media/js/viewModels/'.$controller.'/'.$action); ?>.js']);
-		})
+	<script src="<?php echo URL::site('media/js/config.js'); ?>" type="text/javascript"></script>
+	<script>
+		require(['project'], function(){
+			require(['viewModels/<?php echo $controller.'/'.$action; ?>']);
+		});
 	</script>
 </body>
 </html>

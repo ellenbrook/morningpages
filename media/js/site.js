@@ -39,6 +39,6 @@ define(['jquery', 'jgrowl'],function($,grr){
 		
 	};
 	
-	return new site();
+	return site;
 	
 });

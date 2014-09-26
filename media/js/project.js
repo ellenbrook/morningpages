@@ -1,31 +1,13 @@
-require.config({
-	'baseUrl':'/media/js',
-	'paths':{
-		'knockout':'vendor/knockout',
-		'jquery':'//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min',
-		'autogrow':'vendor/jquery.autosize',
-		'validate':'vendor/jquery.validate.min',
-		'jgrowl':'vendor/jgrowl.min'
-	},
-	'shim':{
-		'autogrow':{
-			'deps':['jquery']
-		},
-		'validate':{
-			'deps':['jquery']
-		},
-		'jgrowl':{
-			'deps':['jquery']
-		}
-	}
-});
-define(['knockout','jquery','bindings'], function(ko, $){
+define([
+	'knockout',
+	'jquery',
+	'bindings',
+	'site'
+], function(ko, $, bindings, site){
 	
-	var project = function(){
+	var headerModel = function(){
 		var self = this;
-		
 		self.hamburgerClick = function(){
-			console.log('click');
 			$('#user-options-triangle').show();
 			$( "#user-options" ).slideToggle( "slow", function() {
 				// Animation complete.
@@ -35,6 +17,11 @@ define(['knockout','jquery','bindings'], function(ko, $){
 				}
 			});
 		};
+	};
+	ko.applyBindings(new headerModel(), $('#header')[0]);
+	
+	var useroptionsModel = function(){
+		var self = this;
 		
 		self.goToPreviousPage = function(obg, ev){
 			var date = $(ev.target).val();
@@ -43,9 +30,8 @@ define(['knockout','jquery','bindings'], function(ko, $){
 				window.location.href = '/write/'+date;
 			}
 		};
-		
 	};
+	ko.applyBindings(new useroptionsModel(), $('#user-options')[0]);
 	
-	ko.applyBindings(new project());
 	
 });
