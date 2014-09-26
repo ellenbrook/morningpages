@@ -100,35 +100,33 @@ input, select {
 .ie6.top-right {
   right: auto;
   bottom: auto;
-  left: expression( ( 0 - jGrowl.offsetWidth + ( document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth ) + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
-  top: expression( ( 0 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+  left: expression((0-jGrowl.offsetWidth+(document.documentElement.clientWidth?document.documentElement.clientWidth:document.body.clientWidth) 0 (ignoreMe2=document.documentElement.scrollLeft?document.documentElement.scrollLeft:document.body.scrollLeft) ) 0 px );
+  top: expression((0+(ignoreMe=document.documentElement.scrollTop?document.documentElement.scrollTop:document.body.scrollTop) ) 0 px );
 }
 
 .ie6.top-left {
-  left: expression( ( 0 + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
-  top: expression( ( 0 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+  left: expression((0+(ignoreMe2=document.documentElement.scrollLeft?document.documentElement.scrollLeft:document.body.scrollLeft) ) 0 px );
+  top: expression((0+(ignoreMe=document.documentElement.scrollTop?document.documentElement.scrollTop:document.body.scrollTop) ) 0 px );
 }
 
 .ie6.bottom-right {
-  left: expression( ( 0 - jGrowl.offsetWidth + ( document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth ) + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
-  top: expression( ( 0 - jGrowl.offsetHeight + ( document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight ) + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+  left: expression((0-jGrowl.offsetWidth+(document.documentElement.clientWidth?document.documentElement.clientWidth:document.body.clientWidth) 0 (ignoreMe2=document.documentElement.scrollLeft?document.documentElement.scrollLeft:document.body.scrollLeft) ) 0 px );
+  top: expression((0-jGrowl.offsetHeight+(document.documentElement.clientHeight?document.documentElement.clientHeight:document.body.clientHeight) 0 (ignoreMe=document.documentElement.scrollTop?document.documentElement.scrollTop:document.body.scrollTop) ) 0 px );
 }
 
 .ie6.bottom-left {
-  left: expression( ( 0 + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
-  top: expression( ( 0 - jGrowl.offsetHeight + ( document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight ) + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+  left: expression((0+(ignoreMe2=document.documentElement.scrollLeft?document.documentElement.scrollLeft:document.body.scrollLeft) ) 0 px );
+  top: expression((0-jGrowl.offsetHeight+(document.documentElement.clientHeight?document.documentElement.clientHeight:document.body.clientHeight) 0 (ignoreMe=document.documentElement.scrollTop?document.documentElement.scrollTop:document.body.scrollTop) ) 0 px );
 }
 
 .ie6.center {
-  left: expression( ( 0 + ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
-  top: expression( ( 0 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+  left: expression((0+(ignoreMe2=document.documentElement.scrollLeft?document.documentElement.scrollLeft:document.body.scrollLeft) ) 0 px );
+  top: expression((0+(ignoreMe=document.documentElement.scrollTop?document.documentElement.scrollTop:document.body.scrollTop) ) 0 px );
   width: 100%;
 }
 
 .jGrowl {
   z-index: 9999;
-  color: #fff;
-  font-size: 12px;
   position: fixed;
 }
 
@@ -166,35 +164,31 @@ input, select {
 .jGrowl .jGrowl-closer, .jGrowl .jGrowl-notification {
   background-color: #000;
   opacity: .85;
-  -ms-filter: "alpha(Opacity=85)";
+  -ms-filter: alpha(Opacity=85);
   filter: alpha(Opacity=85);
   zoom: 1;
-  width: 235px;
-  padding: 10px;
-  font-family: Tahoma,Arial,Helvetica,sans-serif;
-  font-size: 1em;
+  width: 300px;
+  color: #fff;
   text-align: left;
+  font-size: 18px;
   display: none;
   border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
 }
 
 .jGrowl .jGrowl-notification {
   min-height: 40px;
 }
 
-.jGrowl .jGrowl-closer, .jGrowl .jGrowl-notification {
-  margin: 10px;
-}
-
 .jGrowl .jGrowl-notification .jGrowl-header {
-  font-weight: 700;
-  font-size: .85em;
+  font-weight: normal;
 }
 
 .jGrowl .jGrowl-notification .jGrowl-close {
   z-index: 99;
   float: right;
-  font-weight: 700;
+  font-weight: normal;
   font-size: 1em;
   cursor: pointer;
 }
@@ -203,8 +197,8 @@ input, select {
   padding-top: 4px;
   padding-bottom: 4px;
   cursor: pointer;
-  font-size: .9em;
-  font-weight: 700;
+  font-size: 1em;
+  font-weight: normal;
   text-align: center;
 }
 
@@ -648,37 +642,57 @@ label.file {
   display: block;
   margin-right: 2.35765%;
   width: 48.82117%;
-  margin-right: 0; }
-  .half-form-group:last-child {
-    margin-right: 0; }
+  margin-right: 0;
+}
+.half-form-group:last-child {
+  margin-right: 0;
+}
 
 /* Notes */
 #jGrowl div.jGrowl {
-  font-size: 14px; }
-  #jGrowl div.jGrowl .jGrowl-message a {
-    color: #FFF; }
+  font-family: "futura-pt", sans-serif;
+  color: #fff;
+  font-size: 18px;
+}
 #jGrowl div.growl-success {
   background-color: #95B37B;
   /*color:#468847;*/
-  border: 1px solid #6ca632; }
-  #jGrowl div.growl-success:hover {
-    background-color: #A5CC82; }
+  border: none;
+}
+#jGrowl div.growl-success:hover {
+  background-color: #A5CC82;
+}
 #jGrowl div.growl-info {
   background-color: #556b8d;
   /*color:#3a87ad;*/
-  border: 1px solid #42536d; }
+  border: none;
+}
 #jGrowl div.growl-warning {
   background-color: #EFA131;
   /*color:#c09853;*/
-  border: 1px solid #EFA131; }
+  border: none;
+}
 #jGrowl div.growl-danger,
 #jGrowl div.growl-error {
   background-color: #CF8A80;
   /*color:#b94a48;*/
-  border: 1px solid #d62c1a; }
-  #jGrowl div.growl-danger:hover,
-  #jGrowl div.growl-error:hover {
-    background-color: #FFC3BA; }
+  border: none;
+}
+#jGrowl div.growl-danger:hover,
+#jGrowl div.growl-error:hover {
+  background-color: #FFC3BA;
+}
+
+.jGrowl-message {
+  font-family: "futura-pt", sans-serif;
+  font-size: 18px;
+  color: #fff;
+}
+.jGrowl-message a {
+  font-family: "futura-pt", sans-serif;
+  font-size: 18px;
+  color: #fff;
+}
 
 .options-page {
   max-width: 960px;

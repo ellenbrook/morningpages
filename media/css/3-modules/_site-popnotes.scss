@@ -3,21 +3,16 @@
 {
 	div.jGrowl
 	{
-		font-size:14px;
-		
-		.jGrowl-message
-		{
-			a
-			{
-				color:#FFF;
-			}
-		}
+		font-family: $header-text;
+		color: $light-color;
+		font-size: modular-scale($base-font-size, 0, 1.618);
 	}
+
 	div.growl-success
 	{
 		background-color:$good-color;
 		/*color:#468847;*/
-		border:1px solid #6ca632;
+		border: none;
 		
 		&:hover
 		{
@@ -28,25 +23,39 @@
 	{
 		background-color:#556b8d;
 		/*color:#3a87ad;*/
-		border:1px solid #42536d;
+		border: none;
 	}
 	div.growl-warning
 	{
 		background-color:#EFA131;
 		/*color:#c09853;*/
-		border:1px solid #EFA131;
+		border:none;
 	}
 	div.growl-danger,
 	div.growl-error
 	{
 		background-color:$bad-color;
 		/*color:#b94a48;*/
-		border:1px solid #d62c1a;
+		border:none;
 		
 			&:hover
 			{
 				background-color:$bad-color-hover;
 			}
+	}
+}
+
+.jGrowl-message
+{
+	font-family: $header-text;
+	font-size: modular-scale($base-font-size, 0, 1.618);
+	color:$light-color;
+	
+	a
+	{
+		font-family: $header-text;
+		font-size: modular-scale($base-font-size, 0, 1.618);
+		color:$light-color;
 	}
 }
 
