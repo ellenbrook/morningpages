@@ -26,6 +26,10 @@
 	}
 }
 
+.tab-container {
+	margin: $h3-margin-top 0;
+}
+
 .active-tab {
 	background-color: $good-color;
 }
@@ -36,4 +40,12 @@
 
 #account-settings {
 	@extend #site-settings;
+}
+
+.button-group {
+	padding: 1em 0;
+}
+
+.time-container {
+	display: none;
 }

@@ -15,6 +15,7 @@ button, .btn {
 	font-family: $header-text;
 	font-size: $base-font-size;
 	text-decoration: none;
+	outline: none;
 	cursor: pointer; 
 
   &:hover {
