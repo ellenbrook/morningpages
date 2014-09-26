@@ -13,11 +13,11 @@
 	<link rel="stylesheet" type="text/css" id="mainstyles" href="<?php echo URL::site('media/css/style.css'); ?>" />
 </head>
 <?php
-		$theme = '';
-		if(user::logged())
-		{
-			$theme = user::get()->theme;
-		}
+	$theme = '';
+	if(user::logged())
+	{
+		$theme = user::get()->theme;
+	}
 ?>
 <body class="<?php echo $theme; ?>">
 
@@ -124,8 +124,18 @@
 	<script src="<?php echo URL::site('media/js/require.js'); ?>" type="text/javascript"></script>
 	<script src="<?php echo URL::site('media/js/config.js'); ?>" type="text/javascript"></script>
 	<script>
+<?php
+		$filename = 'media/js/viewModels/'.$controller.'/'.$action.'.js';
+		$include_viewmodel = false;
+		if(file_exists($filename))
+		{
+			$include_viewmodel = true;
+		}
+?>
 		require(['project'], function(){
-			require(['viewModels/<?php echo $controller.'/'.$action; ?>']);
+			<?php if($include_viewmodel): ?>
+				require(['viewModels/<?php echo $controller.'/'.$action; ?>']);
+			<?php endif; ?>
 		});
 	</script>
 </body>
