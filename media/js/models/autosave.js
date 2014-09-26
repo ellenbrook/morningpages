@@ -1,9 +1,9 @@
 define(['jquery'],function($){
 	
-	var autosave = function(){
+	var autosave = function(element){
 		var self = this;
 		
-		self.element = $('textarea[name="morningpage"]');
+		self.element = element;
 		self.content = self.element.val();
 		
 		self.get = function(){

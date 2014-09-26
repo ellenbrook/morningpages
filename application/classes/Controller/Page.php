@@ -17,29 +17,30 @@ class Controller_Page extends Controller_Project {
 		{
 			$page = $this->request->param('page');
 			
-			if($_POST && strlen(arr::get($_POST, 'morningpage',''))>0)
+			if($_POST && strlen(arr::get($_POST, 'content',''))>0)
 			{
 				if(user::logged())
 				{
-					$content = arr::get($_POST, 'morningpage','');
+					$content = arr::get($_POST, 'content','');
 					if($page->type == 'page')
 					{
 						$page->content = $page->content().$content;
 					}
 					try
 					{
-					    $page->wordcount = str_word_count(strip_tags($page->content()));
 		                if($page->type == 'autosave')
 		                {
 		                    $page->type = 'page';
+							$page->content = $content;
 		                }
+						$page->wordcount = str_word_count(strip_tags($page->content()));
 						if($page->wordcount > 750 && !(bool)$page->counted)
 						{
 							user::update_stats($content, $page);
 							$page->counted = 1;
-							achievement::check(user::get(), achievement::FIRST_POST);
 						}
 						$page->update();
+						achievement::check(user::get(), achievement::FIRST_POST);
 						/*$autosave = $page->get_autosave();
 						if($autosave)
 						{
@@ -55,6 +56,9 @@ class Controller_Page extends Controller_Project {
 					}
 					catch(ORM_Validation_Exception $e)
 					{
+						var_dump($_POST);
+						var_dump($e->errors());
+						die();
 						$errors = $e->errors('models');
 					}
 				}

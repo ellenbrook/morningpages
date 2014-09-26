@@ -7,17 +7,11 @@ abstract class achievement {
 	
 	public static function add(Model_User $user, Model_Achievement $achievement)
 	{
-		switch($type)
-		{
-			case self::FIRST_POST:
-				$userachievement = ORM::factory('Userachievement');
-				$userachievement->user_id = $user->id;
-				$userachievement->achievement_id = $achievement->id;
-				$userachievement->created = time();
-				$userachievement->save();
-			default:
-				return;
-		}
+		$userachievement = ORM::factory('Userachievement');
+		$userachievement->user_id = $user->id;
+		$userachievement->achievement_id = $achievement->id;
+		$userachievement->created = time();
+		$userachievement->save();
 	}
 	
 	public static function check(Model_User $user, $type, $value = false)
@@ -25,11 +19,14 @@ abstract class achievement {
 		switch($type)
 		{
 			case self::FIRST_POST:
-				$pages = $user->pages->where('wordcount','>=',750)->count_all();
+				$pages = $user->pages
+					->where('type','=','page')
+					->where('wordcount','>=',750)
+					->count_all();
 				if($pages == 1)
 				{
 					$achievement = ORM::factory('Achievement')
-						->where('type', '='. self::FIRST_POST)
+						->where('type', '=', self::FIRST_POST)
 						->find();
 					self::add($user, $achievement);
 					self::announce($achievement->triggertext);
@@ -56,9 +53,9 @@ abstract class achievement {
 		$notes = $session->get('achievement_notes');
 		if(!$notes)
 			$notes = array();
-		$content = Array('type' => $type, 'note' => $message);
+		$content = Array('type' => 'achievement', 'note' => $message);
 		$notes[] = $content;
-		$session->set('achievement_notes', $popnotes);
+		$session->set('achievement_notes', $notes);
 	}
 	
 	public static function get_announcements()

@@ -179,13 +179,6 @@ class Model_Page extends ORM {
 		$this->created = time();
 		$this->day = site::today_slug();
 		
-		/*$user->current_streak += 1;
-		if($user->current_streak > $user->longest_streak)
-		{
-			$user->longest_streak = $user->current_streak;
-		}
-		$user->save();*/
-		
 		return parent::create($validation);
 	}
 	

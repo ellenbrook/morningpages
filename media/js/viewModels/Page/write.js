@@ -16,7 +16,7 @@ define([
 			self.writtenwords('');
 		});
 		
-		self.autosaver = new autosave();
+		self.autosaver = new autosave($('#morningpage-content'));
 		self.autosaver.get().then(function(reply){
 			self.autosaver.element.val(reply.content);
 		});
@@ -46,7 +46,7 @@ define([
 			$('#csstheme').attr('href','media/css/themes/'+$(ev.target).val()+'.css');
 		};
 		
-		/*$(document).on("keydown", function(e){
+		$(document).on("keydown", function(e){
 			if(e.ctrlKey && e.keyCode == 32)
 			{
 				$('#page-content').toggle();
@@ -56,7 +56,7 @@ define([
 				$('#header').toggle();
 				$('#user-options').hide();
 			}
-		});*/
+		});
 		
 		self.saveUserInfo = function(){
 			console.log('save');
