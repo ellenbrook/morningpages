@@ -1,3 +1,8 @@
+// Break Points
+$large-screen: 1024px;
+$medium-screen: 960px;
+$small-screen: 768px;
+
 // Typography
 $sans-serif: $helvetica;
 $serif: $georgia;
@@ -79,3 +84,7 @@ $text-color: #333;
 
 $body-text: "ff-tisa-web-pro";
 $header-text: "futura-pt",sans-serif;
+
+.hidden {
+	display: none;
+}
