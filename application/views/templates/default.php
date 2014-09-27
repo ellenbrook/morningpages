@@ -20,19 +20,17 @@
 	}
 ?>
 <body class="<?php echo $theme; ?>">
-	<header id="header">
+	<header id="header" class="site-header">
 		<div class="container">
 			<h1 class="logo pull-left">
 				<a href="<?php echo URL::site(); ?>" title="Morning pages">Morning Pages</a>
 			</h1>
-			<div class="pull-right">
-				<button class="btn-hamburger" data-bind="click:hamburgerClick">&#9776;</button>
-			</div>
+				<button class="navigation-trigger" data-bind="click:hamburgerClick">&#9776;</button>
 			<div id="user-options-triangle" class="triangle pull-right"></div>
 		</div>
 	</header>
 
-	<section id="user-options" class="user-options">
+	<section id="user-options" class="hidden-menu">
 		<div class="container">
 			<ul>
 				<?php if(user::logged()): ?>
@@ -124,8 +122,10 @@
 		</div>
 	</section>
 	
-	<section>
+	<section class="main">
+		<div class="container">
 	<?php echo $view; ?>
+		</div>
 	</section>
 
 	<script src="<?php echo URL::site('media/js/require.js'); ?>" type="text/javascript"></script>

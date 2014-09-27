@@ -512,6 +512,33 @@ input[type="submit"] {
   clear: both;
 }
 
+.site-header {
+  padding: 1em 0;
+  background-color: #2c5999;
+}
+.site-header .logo {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 91.4702%;
+}
+.site-header .logo:last-child {
+  margin-right: 0;
+}
+.site-header .logo a {
+  color: #fff;
+}
+.site-header .navigation-trigger {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 6.17215%;
+  margin-right: 0;
+}
+.site-header .navigation-trigger:last-child {
+  margin-right: 0;
+}
+
 .modal label {
   cursor: pointer;
   margin-bottom: 0;
@@ -711,4 +738,23 @@ input[type="submit"] {
 }
 .modal .modal-state:checked + .modal-window .modal-inner {
   top: 0;
+}
+
+.hidden-menu {
+  display: block;
+  background-color: #F2F1EF;
+}
+.hidden-menu ul li {
+  display: inline-block;
+  padding: 1em;
+  text-align: center;
+  vertical-align: middle;
+  border-right: 1px solid #333;
+}
+
+.main {
+  padding: 1em 0;
+}
+.main h2 {
+  margin-bottom: 1em;
 }
