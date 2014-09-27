@@ -52,6 +52,11 @@ p {
 	color: $dark-color;
 }
 
+.page-header
+{
+	border-bottom:1px solid #EEE;
+}
+
 .subtext {
 	@extend p;
 	font-family: $header-text;
