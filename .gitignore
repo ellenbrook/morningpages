@@ -1,4 +1,5 @@
 .project
+.npm-debug.log
 application/config/secrets.php
 .sass-cache/*
 .settings
