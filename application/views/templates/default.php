@@ -34,9 +34,9 @@
 		<div class="container">
 			<ul>
 				<?php if(user::logged()): ?>
-					<li>Words written<br><?php echo user::get()->all_time_words; ?></li>
-					<li>Current streak<br><?php echo user::get()->current_streak; ?></li>
-					<li>Longest streak<br><?php echo user::get()->longest_streak; ?></li>
+					<li><a href="<?php echo URL::site('write'); ?>">Write</a></li>
+					<li><a href="<?php echo URL::site('me'); ?>">Me</a></li>
+					<li>Current streak <?php echo user::get()->current_streak; ?></li>
 					<li>
 				    	<select data-bind="event:{change:goToPreviousPage}" id="pastposts" class="form-control">
 				        	<option value="0">Previous pages</option>
@@ -97,20 +97,21 @@
 		<div class="modal-inner">
 			<label class="modal-close" for="modal-1"></label>
 			<h3>Tips and tricks</h3>
-			<p class="body">
 			<dl>
-			<dt>Ctrl/Cmd + Spacebar<dt> - <dd>We take privacy very seriously. Use this shortcut if you're in the middle of writing and somebody walks into the room, begins to peer over your shoulder, or tries to see what you're writing. This will bring up the text from a random Wikipedia article.</dd>
+				<dt>Ctrl/Cmd + Spacebar</dt>
+				<dd>We take privacy very seriously. Use this shortcut if you're in the middle of writing and somebody walks into the room, begins to peer over your shoulder, or tries to see what you're writing. This will bring up the text from a random Wikipedia article.</dd>
+
+				<dt>Markdown</dt>
+				<dd>What is markdown? Markdown is simply a text-formatting syntax used to format text on the web without having to worry about HTML. Think of it as an easy and natural way to to format your text without the need of using learning code.</dd>
+				<dd>Although the idea behind Morning Pages is stream of consciousness thoughts, sometimes those thoughts would be better off with a bit of organization and that's where Markdown comes in handy.</dd>
+				<dd>For an in-depth listing of all of Markdown's features, check out <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="nofollow">Markdown Syntax Basics</a>.</dd>
+				</dd>
 			</dl>
-			<h4>Markdown</h4>
-			<p>What is markdown? Markdown is simply a text-formatting syntax used to format text on the web without having to worry about HTML. Think of it as an easy and natural way to to format your text without the need of using learning code.</p>
-			<p>Although the idea behind Morning Pages is stream of consciousness thoughts, sometimes those thoughts would be better off with a bit of organization and that's where Markdown comes in handy.</p>
-			<p>For an in-depth listing of all of Markdown's features, check out <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="nofollow">Markdown Syntax Basics</a>.</p>
-			</p>
 			</div>
 		</div>
 	</div>
 					</li>
-					<li><a href="<?php echo URL::site('options'); ?>">Edit user options</a></li>
+					<li><a href="<?php echo URL::site('options'); ?>">User options</a></li>
 				<?php else: ?>
 					<li>Words written<br>0</li>
 					<li>Current streak<br>0</li>
