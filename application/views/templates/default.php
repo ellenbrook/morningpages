@@ -20,7 +20,6 @@
 	}
 ?>
 <body class="<?php echo $theme; ?>">
-
 	<header id="header">
 		<div class="container">
 			<h1 class="logo pull-left">
