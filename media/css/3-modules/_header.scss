@@ -1,0 +1,17 @@
+.site-header {
+	padding: 1em 0;
+	background-color: $good-color-hover;
+
+	.logo {
+		@include span-columns(11);
+
+		a {
+			color: $light-color;
+		}
+	}
+
+	.navigation-trigger {
+		@include span-columns(1);
+		@include omega();
+	}
+}
