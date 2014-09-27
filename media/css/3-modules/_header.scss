@@ -13,5 +13,6 @@
 	.navigation-trigger {
 		@include span-columns(1);
 		@include omega();
+		
 	}
 }
