@@ -4,4 +4,23 @@
 	h2 {
 		margin-bottom: 1em;
 	}
+
+	.subtext {
+		float: left;
+	}
+
+	.writing-submit {
+		float: right;
+	}
+
+	textarea {
+		outline: 0;
+		border: 0;
+		box-shadow: none;
+		resize: none;
+	}
+
+	textarea:not(:focus) {
+		border: 1px solid shade($light-color, 10%);
+	}
 }

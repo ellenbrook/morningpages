@@ -34,6 +34,7 @@
     @include transition(opacity .25s ease);
     @include position(fixed, 0px 0px 0px 0px);
     background: rgba(0,0,0, .85);
+    color: #262120;
     opacity: 0;
     text-align: left;
     visibility: hidden;
@@ -101,6 +102,14 @@
       margin-bottom: .6em;
       text-align: left;
       text-transform: capitalize;
+    }
+    
+    a {
+      color: $good-color;
+
+      &:hover {
+        color: $good-color-hover;
+      }
     }
 
     p {

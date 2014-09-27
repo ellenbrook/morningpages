@@ -9,6 +9,7 @@ input,
 label,
 select {
   display: block;
+  outline: none;
   font-family: $form-font-family;
   font-size: $form-font-size;
 }

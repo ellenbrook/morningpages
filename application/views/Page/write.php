@@ -66,7 +66,7 @@
 		<?php if($page->open()): ?>
 					<form role="form" action="<?php echo URL::site('write/'.$page->day); ?>" method="post" id="writeform">
 						<textarea id="morningpage-content" name="content" autofocus data-bind="value:writtenwords,valueUpdate:'keyup',autogrow:''"></textarea>
-						<button data-bind="disable:totalwords()<1,css:{'btn-disabled':totalwords()<1}">Submit</button>
+						<button data-bind="disable:totalwords()<1,css:{'btn-disabled':totalwords()<1}" class="writing-submit">Submit</button>
 						<p class="subtext">
 						      <span data-bind="text:wordcount()">0</span> / 750
 	                    </p>
@@ -75,8 +75,8 @@
 	<?php else: ?>
 				<form role="form" action="<?php echo URL::site('write/'); ?>" method="post" id="writeform" data-bind="submit:submitPage">
 					<textarea name="morningpage" autofocus data-bind="value:writtenwords,valueUpdate:'keyup',autogrow:''"></textarea>
-					<button class="btn-good pull-right" data-bind="disable:totalwords()<1,css:{'btn-disabled':totalwords()<1}">Submit</button>
-					<p class="subtext pull-left">
+					<button data-bind="disable:totalwords()<1,css:{'btn-disabled':totalwords()<1}"  class="writing-submit">Submit</button>
+					<p class="subtext">
 					      <span data-bind="text:wordcount()">0</span> / 750
 	                </p>
 				</form>
