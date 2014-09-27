@@ -4,6 +4,7 @@
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-contrib-sass": "~0.8.1",
-    "grunt-contrib-watch": "~0.4.4"
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-bg-shell": "~2.3.1"
   }
 }
