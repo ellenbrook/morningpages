@@ -4,5 +4,5 @@ application/config/secrets.php
 .settings
 .settings/*
 config.codekit
-media/css/style.css
-media/css/style.css.map
+media/css/*.css
+media/css/*.css.map
