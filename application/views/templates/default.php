@@ -90,7 +90,7 @@
 					<li>
 						<div class="modal">
 	  <label for="modal-1">
-	    <div class="btn js-btn">Tips and Tricks</div>
+	    <div class="js-btn btn">Tips and Tricks</div>
 	  </label>
 	  <input class="modal-state" id="modal-1" type="checkbox" />
 		<div class="modal-window">

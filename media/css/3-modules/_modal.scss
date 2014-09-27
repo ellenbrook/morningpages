@@ -22,9 +22,8 @@
   }
 
   .btn {
-    @include button(simple, $base-background-color);
-    font-size: $base-font-size;
-    margin-bottom: $base-line-height;
+    @extend a;
+    font-weight: 400;
   }
 
   .modal-open {
