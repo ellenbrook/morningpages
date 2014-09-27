@@ -1,105 +1,68 @@
-@charset "UTF-8";
-html, body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-abbr, address, cite, code,
-del, dfn, em, img, ins, kbd, q, samp,
-small, strong, sub, sup, var,
-b, i,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
-}
+/*
+Error: File to import not found or unreadable: container.
+       Load path: /home/daniel/Web/www/morningpages
+        on line 1 of media/css/3-modules/_-modules-index.scss
+        from line 5 of media/css/style.scss
 
-body {
-  line-height: 1;
-}
+1: @charset "utf-8";
+2: 
+3: @import "1-tools/-tools-index";
+4: @import "2-base/-base-index";
+5: @import "3-modules/-modules-index";
+6: @import "4-pages/-pages-index";
 
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-nav ul {
-  list-style: none;
-}
-
-blockquote, q {
-  quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-
-a {
-  margin: 0;
-  padding: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
-}
-
-/* change colours to suit your needs */
-ins {
-  background-color: #ff9;
-  color: #000;
-  text-decoration: none;
-}
-
-/* change colours to suit your needs */
-mark {
-  background-color: #ff9;
-  color: #000;
-  font-style: italic;
-  font-weight: bold;
-}
-
-del {
-  text-decoration: line-through;
-}
-
-abbr[title], dfn[title] {
-  border-bottom: 1px dotted;
-  cursor: help;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* change border colour to suit your needs */
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #cccccc;
-  margin: 1em 0;
-  padding: 0;
-}
-
-input, select {
-  vertical-align: middle;
-}
-
-* {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
+Backtrace:
+media/css/3-modules/_-modules-index.scss:1
+media/css/style.scss:5
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/import_node.rb:66:in `rescue in import'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/import_node.rb:45:in `import'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/import_node.rb:28:in `imported_file'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/import_node.rb:37:in `css_import?'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:301:in `visit_import'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:36:in `visit'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/stack.rb:79:in `block in with_base'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/stack.rb:115:in `with_frame'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/stack.rb:79:in `with_base'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:315:in `block (2 levels) in visit_import'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:315:in `map'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:315:in `block in visit_import'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/stack.rb:88:in `block in with_import'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/stack.rb:115:in `with_frame'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/stack.rb:88:in `with_import'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:312:in `visit_import'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:36:in `visit'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/stack.rb:79:in `block in with_base'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/stack.rb:115:in `with_frame'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/stack.rb:79:in `with_base'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:52:in `map'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:36:in `visit'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/root_node.rb:36:in `css_tree'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/engine.rb:368:in `_render_with_sourcemap'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/engine.rb:285:in `render_with_sourcemap'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/exec/sass_scss.rb:396:in `run'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/exec/sass_scss.rb:62:in `process_result'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/exec/base.rb:52:in `parse'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/lib/sass/exec/base.rb:19:in `parse!'
+/var/lib/gems/1.9.1/gems/sass-3.4.5/bin/sass:13:in `<top (required)>'
+/usr/local/bin/sass:23:in `load'
+/usr/local/bin/sass:23:in `<main>'
+*/
 body:before {
+<<<<<<< HEAD
   content: '';
   display: inline-block;
   background-image: deprecated-webkit-gradient(linear, left top, left bottom, transparent 0, #EEE 0, #EEE 6.17215%, transparent 6.17215%, transparent 8.5298%, #EEE 8.5298%, #EEE 14.70196%, transparent 14.70196%, transparent 17.05961%, #EEE 17.05961%, #EEE 23.23176%, transparent 23.23176%, transparent 25.58941%, #EEE 25.58941%, #EEE 31.76157%, transparent 31.76157%, transparent 34.11922%, #EEE 34.11922%, #EEE 40.29137%, transparent 40.29137%, transparent 42.64902%, #EEE 42.64902%, #EEE 48.82117%, transparent 48.82117%, transparent 51.17883%, #EEE 51.17883%, #EEE 57.35098%, transparent 57.35098%, transparent 59.70863%, #EEE 59.70863%, #EEE 65.88078%, transparent 65.88078%, transparent 68.23843%, #EEE 68.23843%, #EEE 74.41059%, transparent 74.41059%, transparent 76.76824%, #EEE 76.76824%, #EEE 82.94039%, transparent 82.94039%, transparent 85.29804%, #EEE 85.29804%, #EEE 91.4702%, transparent 91.4702%, transparent 93.82785%, #EEE 93.82785%, #EEE 100.0%, transparent 100.0%);
@@ -758,3 +721,8 @@ input[type="submit"] {
 .main h2 {
   margin-bottom: 1em;
 }
+=======
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: container.\A        Load path: /home/daniel/Web/www/morningpages\A         on line 1 of media/css/3-modules/_-modules-index.scss\A         from line 5 of media/css/style.scss\A \A 1: @charset \"utf-8\";\A 2: \A 3: @import \"1-tools/-tools-index\";\A 4: @import \"2-base/-base-index\";\A 5: @import \"3-modules/-modules-index\";\A 6: @import \"4-pages/-pages-index\";"; }
+>>>>>>> cdcdba07b701805af4f2f19a6e5e2efb091b7fe0

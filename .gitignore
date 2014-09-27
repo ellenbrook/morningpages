@@ -1,7 +1,8 @@
 .project
 application/config/secrets.php
 .sass-cache/*
-media/css/.sass-cache/*
 .settings
 .settings/*
 config.codekit
+media/css/style.css
+media/css/style.css.map
