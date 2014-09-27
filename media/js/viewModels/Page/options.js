@@ -1,4 +1,4 @@
-define(['bindings'],function(){
+define([],function(){
 	
 	return {};
 	

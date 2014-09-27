@@ -1,12 +1,11 @@
 define([
 	'knockout',
 	'jquery',
-	'bindings',
 	'site',
 	'models/user',
 	'models/modal',
 	'models/autosave'
-], function(ko, $, bindings, site, user, modal, autosave){
+], function(ko, $, site, user, modal, autosave){
 	
 	var writeModel = function(){
 		var self = this;

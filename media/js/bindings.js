@@ -21,19 +21,6 @@ define([
 	    }
 	};
 
-	ko.bindingHandlers.tabs = {
-        init:function(element, targets){
-            $(element).find('a').each(function(){
-                $(this).on('click', function(){
-                    var $targets = $('.'+targets()).hide();
-                    $(element).find('.active-tab').removeClass('active-tab');
-                    $(this).parent().addClass('active-tab');
-                    $($(this).attr('href')).show();
-                });
-            });
-        }
-    };
-
 	ko.bindingHandlers.showModal = {
 		init:function(element, valueAccessor){
 			$(element).on('click',function(){
