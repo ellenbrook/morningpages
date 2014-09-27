@@ -38,7 +38,7 @@
 					<li><a href="<?php echo URL::site('me'); ?>">Me</a></li>
 					<li>Current streak <?php echo user::get()->current_streak; ?></li>
 					<li>
-				    	<select data-bind="event:{change:goToPreviousPage}" id="pastposts" class="form-control">
+				    	<select data-bind="event:{change:goToPreviousPage}" id="pastposts">
 				        	<option value="0">Previous pages</option>
 				        	<option value="/">Today</option>
 <?php
