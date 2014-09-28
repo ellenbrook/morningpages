@@ -71,12 +71,15 @@
     border-radius: $base-border-radius $base-border-radius 0 0;
     font-weight: bold;
     padding: $base-spacing/3 $gutter/2;
+    color:$base-font-color;
+    text-transform:capitalize;
   }
 
   .card-copy {
     padding: $base-spacing/2 $gutter/2;
     font-size: .9em;
     line-height: 1.5em;
+    color:$base-font-color;
   }
 
   .card-stats {

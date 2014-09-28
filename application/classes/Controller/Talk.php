@@ -4,11 +4,6 @@ class Controller_Talk extends Controller_Project {
 	
 	public function action_index()
 	{
-		$this->bind('tags', ORM::factory('Talktag')->find_all());
-	}
-	
-	public function action_tag()
-	{
 		$tag = $this->request->param('tag');
 		$errors = false;
 		
@@ -32,15 +27,43 @@ class Controller_Talk extends Controller_Project {
 			}
 		}
 		
+		$talks = ORM::factory('Talk');
+		if($tag && $tag->loaded())
+		{
+			$talks = $talks->where('talktag_id','=',$tag->id);
+		}
+		$talks = $talks->find_all();
 		$this->bind('tag', $tag);
 		$this->bind('errors', $errors);
 		$this->bind('tags', ORM::factory('Talktag')->find_all());
+		$this->bind('talks',$talks);
+	}
+	
+	public function action_talknotfound()
+	{
+		$tag = $this->request->param('tag');
+		notes::error('We couldnt find that discussion. Sorry!');
+		site::redirect($tag->url());
+	}
+	
+	public function action_tagnotfound()
+	{
+		notes::error('We couldnt find that topic. Sorry!');
+		site::redirect('talk');
 	}
 	
 	public function action_talk()
 	{
 		$tag = $this->request->param('tag');
 		$talk = $this->request->param('talk');
+		if(user::logged())
+		{
+			if($talk->user_id != user::get()->id)
+			{
+				$talk->views = $talk->views+1;
+				$talk->save();
+			}
+		}
 		
 		if($_POST)
 		{
@@ -64,6 +87,7 @@ class Controller_Talk extends Controller_Project {
 		
 		$this->bind('tag', $tag);
 		$this->bind('talk', $talk);
+		$this->bind('replies', $talk->replies->find_all());
 		$this->bind('tags', ORM::factory('Talktag')->find_all());
 	}
 

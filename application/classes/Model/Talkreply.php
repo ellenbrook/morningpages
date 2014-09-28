@@ -46,4 +46,10 @@ class Model_Talkreply extends ORM {
 		);
 	}
 	
+	public function create(Validation $validation = NULL)
+	{
+		$this->created = time();
+		return parent::create($validation);
+	}
+	
 }

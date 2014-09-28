@@ -100,6 +100,7 @@ abstract class site {
 			);
 		}
 		
+		// Messageboard
 		if($controller == 'talk')
 		{
 			if(empty($action) || $action == 'index')
@@ -129,19 +130,27 @@ abstract class site {
 					else
 					{
 						notes::error('We couldnt find that discussion. Sorry!');
-						site::redirect('talk');
+						// This is stupid, but Kohana throws an unavoidable exception if I do the redirect from here
+						return array(
+							'controller' => 'Talk',
+							'action' => 'talknotfound',
+							'tag' => $talktag
+						);
 					}
 				}
 				return array(
 					'controller' => 'Talk',
-					'action' => 'tag',
-					'tag' => $tag
+					'action' => 'index',
+					'tag' => $talktag
 				);
 			}
 			else
 			{
-				notes::error('We couldnt find that topic. Sorry!');
-				site::redirect('talk');
+				// This is stupid, but Kohana throws an unavoidable exception if I do the redirect from here
+				return array(
+					'controller' => 'Talk',
+					'action' => 'tagnotfound'
+				);
 			}
 		}
 		
@@ -241,7 +250,7 @@ abstract class site {
 	 */
 	public static function redirect($to = '')
 	{
-		http::redirect($to);
+		HTTP::redirect($to);
 		die();
 	}
 	

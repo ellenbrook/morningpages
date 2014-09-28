@@ -59,9 +59,24 @@ class Model_Talk extends ORM {
 		);
 	}
 	
+	public function username()
+	{
+		return $this->user->username();
+	}
+	
+	public function hot()
+	{
+		return $this->replies->count_all()>3;
+	}
+	
+	public function excerpt()
+	{
+		return substr($this->content, 0, 200).(strlen($this->content)>200?'&hellip;':'');
+	}
+	
 	public function url()
 	{
-		return 'talk/'.$this->talktag->url().'/'.$this->id.'/'.$this->slug;
+		return $this->talktag->url().'/'.$this->id.'/'.$this->slug;
 	}
 	
 	public function create(Validation $validation = NULL)

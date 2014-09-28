@@ -1,3 +1,7 @@
+.comments
+{
+	margin-bottom:50px;
+}
 .comment {
   $comment-gutter: 1.4em;
   $comment-image-padding: .7em;
@@ -56,5 +60,12 @@
       color: $comment-detail-color;
     }
   }
+}
+.comment.op
+{
+	padding:20px;
+	padding-left:0;
+	margin-bottom:20px;
+	border-bottom:1px solid #999;
 }
 
