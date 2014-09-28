@@ -1,0 +1,60 @@
+.hero {
+  $hero-background-top: darken($base-accent-color, 25); 
+  $hero-background-bottom: adjust-hue($hero-background-top, -70);
+  $hero-color: $light-color;
+  $gradient-angle: 10deg;
+  $hero-image: '/media/img/heroes/hero-1.jpg';
+
+  @include background(url($hero-image), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 4em;
+
+  .hero-logo img {
+    height: 3em;
+    margin-bottom: 2.5em;
+  }
+
+  .hero-inner {
+    @include outer-container;
+    @include clearfix;
+    padding: 3em;
+    margin: auto;
+    text-align: center;
+    color: $hero-color;
+    text-shadow: 1px 1px 1px #333;
+
+    button {
+      font-size: $base-font-size * 2.5;
+      transition: background-color 0.5s ease;
+    }
+
+    .hero-copy {
+      text-align: center;
+      
+      h2 {
+        font-size: 1.8em;
+        margin-bottom: .5em;
+
+        @include media($large-screen) {
+          font-size: 2em;
+        }
+      }
+
+      p {
+        font-family: $serif;
+        margin: auto;
+        margin-bottom: 3em; 
+        font-weight: 200;
+        line-height: 1.5em;
+
+        @include media($large-screen) {
+          font-size: 1.5em;
+          max-width: 70%;
+        }
+      }
+    }
+  }
+}

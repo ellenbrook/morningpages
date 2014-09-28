@@ -15,3 +15,31 @@
 		@include omega();
 	}
 }
+
+.index-header {
+	padding: 1em 0;
+	background-color: $good-color-hover;
+
+	.logo {
+		@include span-columns(6);
+
+		a {
+			color: $light-color;
+		}
+	}
+
+	nav {
+		ul {
+			float: right;
+		}
+
+		li {
+			display: inline-block;
+			padding: 1em;
+		}
+
+		a {
+			color: $light-color;
+		}
+	}
+}
