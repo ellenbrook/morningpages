@@ -126,6 +126,8 @@
 		</div>
 	</section>
 
+<?php echo View::factory('templates/footer'); ?>
+
 	<script src="<?php echo URL::site('media/js/require.js'); ?>" type="text/javascript"></script>
 	<script src="<?php echo URL::site('media/js/config.js'); ?>" type="text/javascript"></script>
 	<script>
