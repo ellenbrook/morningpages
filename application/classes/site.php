@@ -265,7 +265,7 @@ abstract class site {
 		$slug = str_replace(array(' og ',' at ',' den ',' det ',' der ',' som '), ' ', $slug);
 		$slug = str_replace(array('æ', 'ø', 'å'), array('ae', 'o', 'aa'), $slug);
 		$slug = str_replace(array('/', '\\', '_', '&'), '-', $slug);
-		return url::title($slug, '-', true);
+		return URL::title($slug, '-', true);
 	}
 	
 	public static function markdown($text)

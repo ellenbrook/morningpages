@@ -75,26 +75,89 @@
 				</div>
 				<p>
 					<label for="new-talk-tag">Topic</label>
-					<select name="tag" id="new-talk-tag">
-						<option value="0">Select</option>
+					<select name="talktag_id" id="new-talk-tag" class="<?php echo (($errors&&arr::get($errors,'talktag_id',false))?'error':''); ?>">
+						<option value="0"<?php echo (!$tag?' selected="selected"':''); ?>>Select</option>
 <?php
 						if((bool)$tags->count())
 						{
-							foreach($tags as $tag)
+							foreach($tags as $t)
 							{
-								echo '<option value="'.$tag->id.'">'.$tag->title.'</option>';
+								echo '<option value="'.$t->id.'"'.(($tag&&$tag->id==$t->id)?' selected="selected"':'').'>'.$t->title.'</option>';
 							}
 						}
 ?>
 					</select>
+<?php
+					if($errors&&arr::get($errors,'talktag_id',false))
+					{
+						echo '<label for="new-talk-tag" class="error">';
+						$errs = arr::get($errors,'talktag_id');
+						if(is_array($errs))
+						{
+							echo '<ul>';
+							foreach($errs as $err)
+							{
+								echo '<li>'.$err.'</li>';
+							}
+							echo '</ul>';
+						}
+						else
+						{
+							echo $errs;
+						}
+						echo '</label>';
+					}
+?>
 				</p>
 				<p>
 					<label for="new-talk-title">Title</label>
-					<input required type="text" id="new-talk-title" name="title" placeholder="Title of your conversation" />
+					<input class="<?php echo (($errors&&arr::get($errors,'title',false))?'error':''); ?>" value="<?php echo arr::get($_POST, 'title',''); ?>" required type="text" id="new-talk-title" name="title" placeholder="Title of your conversation" />
+<?php
+					if($errors&&arr::get($errors,'title',false))
+					{
+						echo '<label for="new-talk-title" class="error">';
+						$errs = arr::get($errors,'title');
+						if(is_array($errs))
+						{
+							echo '<ul>';
+							foreach($errs as $err)
+							{
+								echo '<li>'.$err.'</li>';
+							}
+							echo '</ul>';
+						}
+						else
+						{
+							echo $errs;
+						}
+						echo '</label>';
+					}
+?>
 				</p>
 				<p>
 					<label for="new-talk-content">Content</label>
-					<textarea required data-bind="autogrow:true" name="content" placeholder="Your content here..." id="new-talk-content"></textarea>
+					<textarea class="<?php echo (($errors&&arr::get($errors,'content',false))?'error':''); ?>" required data-bind="autogrow:true" name="content" placeholder="Your content here..." id="new-talk-content"><?php echo arr::get($_POST, 'content',''); ?></textarea>
+<?php
+					if($errors&&arr::get($errors,'content',false))
+					{
+						echo '<label for="new-talk-content" class="error">';
+						$errs = arr::get($errors,'content');
+						if(is_array($errs))
+						{
+							echo '<ul>';
+							foreach($errs as $err)
+							{
+								echo '<li>'.$err.'</li>';
+							}
+							echo '</ul>';
+						}
+						else
+						{
+							echo $errs;
+						}
+						echo '</label>';
+					}
+?>
 				</p>
 				<p class="text-right">
 					<button class="button">Submit talk</button>
