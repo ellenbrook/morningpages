@@ -100,6 +100,51 @@ abstract class site {
 			);
 		}
 		
+		if($controller == 'talk')
+		{
+			if(empty($action) || $action == 'index')
+			{
+				return array(
+					'controller' => 'Talk',
+					'action' => 'index'
+				);
+			}
+			$talktag = ORM::factory('Talktag')
+				->where('slug','=',$action)
+				->find();
+			if($talktag->loaded())
+			{
+				if(!empty($slug))
+				{
+					$talk = ORM::factory('Talk',(int)$slug);
+					if($talk->loaded())
+					{
+						return array(
+							'controller' => 'Talk',
+							'action' => 'talk',
+							'tag' => $talktag,
+							'talk' => $talk
+						);
+					}
+					else
+					{
+						notes::error('We couldnt find that discussion. Sorry!');
+						site::redirect('talk');
+					}
+				}
+				return array(
+					'controller' => 'Talk',
+					'action' => 'tag',
+					'tag' => $tag
+				);
+			}
+			else
+			{
+				notes::error('We couldnt find that topic. Sorry!');
+				site::redirect('talk');
+			}
+		}
+		
 		// "Static" controllers
 		$file = 'application/classes/Controller/' . $controllerfile . '.php';
 		if(file_exists($file) && method_exists('Controller_'.ucfirst($controllerfile), 'action_'.$action))

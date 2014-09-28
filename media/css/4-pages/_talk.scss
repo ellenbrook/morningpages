@@ -1,0 +1,116 @@
+#talk
+{
+	.content
+	{
+		&::first-letter
+		{
+			text-transform:uppercase;
+			font-size:30px;
+			font-weight:bold;
+		}
+	}
+	.topic
+	{
+		.page-header
+		{
+			.back
+			{
+				@include span-columns(2);
+			}
+			.title
+			{
+				@include span-columns(10);
+				h2
+				{
+					margin-bottom:5px;
+					text-transform:capitalize;
+				}
+			}
+		}
+		.meta
+		{
+			margin-bottom:20px;
+			color:#999;
+			font-size: modular-scale($base-font-size, -1, $augmented-fourth);
+			font-family:$header-text;
+		}
+	}
+	.tags
+	{
+		overflow:hidden;
+		margin:0;
+		padding:0;
+		padding-bottom:20px;
+		list-style:none outside none;
+		margin-bottom:20px;
+		text-align:center;
+		
+			.tag
+			{
+				display:inline;
+				float:left;
+				position:relative;
+				
+				a
+				{
+					display:block;
+					padding:5px 10px;
+					background:$good-color;
+					color:$light-color;
+					font-family:$header-text;
+					text-transform:uppercase;
+					border-radius:3px;
+					
+					&:hover
+					{
+						background:$inactive-color;
+						
+						&:after
+						{
+							border-left:7px solid transparent;
+							border-right:7px solid transparent;
+							border-top:7px solid $inactive-color;
+							bottom:-7px;
+							content:"";
+							position:absolute;
+							left:50%;
+							margin-left:-7px;
+							color:red;
+						}
+					}
+				}
+			}
+			.tag:not(:first-child)
+			{
+				margin-left:30px;
+			}
+			.active
+			{
+				a
+				{
+					background:$inactive-color;
+					
+					&:hover
+					{
+						background:$inactive-color;
+					}
+					&:after
+					{
+						border-left:7px solid transparent;
+						border-right:7px solid transparent;
+						border-top:7px solid $inactive-color;
+						bottom:-7px;
+						content:"";
+						position:absolute;
+						left:50%;
+						margin-left:-7px;
+						color:red;
+					}
+				}
+			}
+	}
+	.replies
+	{
+		
+	}
+}
