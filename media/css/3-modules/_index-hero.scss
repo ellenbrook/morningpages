@@ -10,7 +10,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding-bottom: 4em;
+  padding: 4em 0;
 
   .hero-logo img {
     height: 3em;
@@ -27,8 +27,30 @@
     text-shadow: 1px 1px 1px #333;
 
     button {
-      font-size: $base-font-size * 2.5;
-      transition: background-color 0.5s ease;
+      border-top: 1px solid shade($good-color, 10%);
+      background: #65a9d7;
+      background: -webkit-gradient(linear, left top, left bottom, from($good-color), to($good-color-hover));
+      background: -webkit-linear-gradient(top, $good-color, $good-color-hover);
+      background: -moz-linear-gradient(top, $good-color, $good-color-hover);
+      background: -ms-linear-gradient(top, $good-color, $good-color-hover);
+      background: -o-linear-gradient(top, $good-color, $good-color-hover);
+      padding: 20px 40px;
+      border-radius: 8px;
+      box-shadow: shade($good-color, 30%) 0 1px 0;
+      text-shadow: rgba(0,0,0,.4) 0 1px 0;
+      color: white;
+      font-size: 24px;
+      text-decoration: none;
+      vertical-align: middle;
+
+      &:hover {
+      border-top-color: #28597a;
+      background: #28597a;
+      }
+      &:active {
+      border-top-color: #1b435e;
+      background: #1b435e;
+      }
     }
 
     .hero-copy {

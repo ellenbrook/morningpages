@@ -1,6 +1,6 @@
 .site-header {
 	padding: 1em 0;
-	background-color: $good-color-hover;
+	background-color: $good-color;
 
 	.logo {
 		@include span-columns(11);
@@ -18,7 +18,8 @@
 
 .index-header {
 	padding: 1em 0;
-	background-color: $good-color-hover;
+	background-color: $good-color;
+	color: $light-color;
 
 	.logo {
 		@include span-columns(6);

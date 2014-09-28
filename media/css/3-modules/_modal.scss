@@ -97,7 +97,7 @@
       margin-top: 10em;
     }
 
-    h1 {
+    h2 {
       color: $base-font-color;
       margin-bottom: .6em;
       text-align: left;
@@ -153,6 +153,19 @@
         padding: 0 2em;
       }
     }
+  }
+  .modal-left {
+    @include span-columns(8);
+  }
+
+  .modal-right {
+    text-align: right;
+    @include span-columns(4);
+    @include omega();
+  }
+
+  .modal-social {
+    margin-top: 1em;
   }
 
   .modal-state:checked + .modal-window {
