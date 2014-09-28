@@ -112,8 +112,7 @@
 <?php
 				}
 			}
+		echo '</div>';
+	}
 ?>
-
-		
-	</div>
-</section>
+</div>
