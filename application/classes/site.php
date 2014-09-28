@@ -100,6 +100,60 @@ abstract class site {
 			);
 		}
 		
+		// Messageboard
+		if($controller == 'talk')
+		{
+			if(empty($action) || $action == 'index')
+			{
+				return array(
+					'controller' => 'Talk',
+					'action' => 'index'
+				);
+			}
+			$talktag = ORM::factory('Talktag')
+				->where('slug','=',$action)
+				->find();
+			if($talktag->loaded())
+			{
+				if(!empty($slug))
+				{
+					$talk = ORM::factory('Talk',(int)$slug);
+					if($talk->loaded())
+					{
+						return array(
+							'controller' => 'Talk',
+							'action' => 'talk',
+							'tag' => $talktag,
+							'talk' => $talk
+						);
+					}
+					else
+					{
+						notes::error('We couldnt find that discussion. Sorry!');
+						// This is stupid, but Kohana throws an unavoidable exception if I do the redirect from here
+						return array(
+							'controller' => 'Talk',
+							'action' => 'talknotfound',
+							'tag' => $talktag
+						);
+					}
+				}
+				return array(
+					'controller' => 'Talk',
+					'action' => 'index',
+					'tag' => $talktag
+				);
+			}
+			else
+			{
+				// This is stupid, but Kohana throws an unavoidable exception if I do the redirect from here
+				return array(
+					'controller' => 'Talk',
+					'action' => 'tagnotfound'
+				);
+			}
+		}
+		
 		// "Static" controllers
 		$file = 'application/classes/Controller/' . $controllerfile . '.php';
 		if(file_exists($file) && method_exists('Controller_'.ucfirst($controllerfile), 'action_'.$action))
@@ -196,7 +250,7 @@ abstract class site {
 	 */
 	public static function redirect($to = '')
 	{
-		http::redirect($to);
+		HTTP::redirect($to);
 		die();
 	}
 	
