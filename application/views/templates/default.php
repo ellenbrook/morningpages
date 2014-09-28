@@ -25,7 +25,7 @@
 			<h1 class="logo pull-left">
 				<a href="<?php echo URL::site(); ?>" title="Morning pages">Morning Pages</a>
 			</h1>
-				<button class="navigation-trigger" data-bind="click:hamburgerClick">&#9776;</button>
+				<button class="navigation-trigger" data-bind="click:hamburgerClick"><span class="fa fa-bar-chart"></span></button>
 			<div id="user-options-triangle" class="triangle pull-right"></div>
 		</div>
 	</header>
