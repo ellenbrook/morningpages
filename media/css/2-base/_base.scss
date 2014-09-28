@@ -22,3 +22,18 @@
 @import "tables";
 @import "lists";
 @import "buttons";
+
+.page-header
+{
+	.seriffed
+	{
+		$serif: 'Lusitana', serif;
+		$serif-2: 'Merriweather', serif;
+		$sans-serif: 'Merriweather Sans', sans-serif;
+		font-family: $serif-2;
+		font-style: italic;	
+		font-weight:normal;
+		color:#333;
+		font-size:0.9em;
+	}
+}

@@ -1,9 +1,10 @@
 define([
 	'knockout',
 	'jquery',
+	'site',
 	'autogrow',
 	'validate'
-], function(ko, $){
+], function(ko, $, site){
 	
 	ko.bindingHandlers.autogrow = {
 	    init: function (element, valueAccessor, allBindingsAccessor) {
@@ -48,17 +49,61 @@ define([
 	
 	ko.bindingHandlers.validateForm = {
 		init:function(element, valueAccessor){
-			$(element).on('submit', function(){
-				if($(element).valid())
-				{
-					valueAccessor()();
+			
+			var arg = valueAccessor();
+			var argtype = typeof valueAccessor();
+			
+			$(element).validate({
+				invalidHandler:function(){
+					if(argtype == 'object')
+					{
+						if(typeof arg.failnote == 'string')
+						{
+							site.say({type:'error','note':arg.failnote});
+						}
+						if(typeof arg.fail == 'function')
+						{
+							return arg.fail();
+						}
+					}
+					return false;
+				},
+				submitHandler:function(){
+					if(argtype == 'function')
+					{
+						return arg();
+					}
+					else
+					{
+						if(argtype == 'object')
+						{
+							if(typeof arg.successnote == 'string')
+							{
+								site.say({type:'success','note':arg.successnote});
+							}
+							if(typeof arg.success == 'function')
+							{
+								return arg.success();
+							}
+						}
+					}
+					return true;
 				}
-				else
-				{
-					console.log('not valid');
-				}
-				return false;
 			});
+			
+			
+			if(argtype == 'object')
+			{
+				if(arg.rules && typeof arg.rules == 'object')
+				{
+					for(elem in arg.rules)
+					{
+						$(elem).rules('add', arg.rules[elem]);
+					}
+				}
+			}
+			return;
+			
 		}
 	};
 	
