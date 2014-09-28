@@ -120,7 +120,7 @@
 		</div>
 	</section>
 	
-	<section class="main" id="jsmain">
+	<section class="main">
 		<div class="container">
 	<?php echo $view; ?>
 		</div>

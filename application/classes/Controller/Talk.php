@@ -4,7 +4,7 @@ class Controller_Talk extends Controller_Project {
 	
 	public function action_index()
 	{
-		
+		$this->bind('tags', ORM::factory('Talktag')->find_all());
 	}
 	
 	public function action_tag()
@@ -34,6 +34,7 @@ class Controller_Talk extends Controller_Project {
 		
 		$this->bind('tag', $tag);
 		$this->bind('errors', $errors);
+		$this->bind('tags', ORM::factory('Talktag')->find_all());
 	}
 	
 	public function action_talk()
@@ -63,6 +64,7 @@ class Controller_Talk extends Controller_Project {
 		
 		$this->bind('tag', $tag);
 		$this->bind('talk', $talk);
+		$this->bind('tags', ORM::factory('Talktag')->find_all());
 	}
 
 }

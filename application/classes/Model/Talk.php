@@ -61,7 +61,7 @@ class Model_Talk extends ORM {
 	
 	public function url()
 	{
-		return 'talk/'.$this->talktag->slug.'/'.$this->id.'/'.$this->slug;
+		return 'talk/'.$this->talktag->url().'/'.$this->id.'/'.$this->slug;
 	}
 	
 	public function create(Validation $validation = NULL)

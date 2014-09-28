@@ -6,4 +6,9 @@ class Model_Talktag extends ORM {
 		'talks' => array()
 	);
 	
+	public function url()
+	{
+		return 'talk/'.$this->slug;
+	}
+	
 }
