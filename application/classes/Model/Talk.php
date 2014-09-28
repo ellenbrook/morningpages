@@ -19,6 +19,16 @@ class Model_Talk extends ORM {
 		);
 	}
 	
+	public function markdown($text)
+	{
+		return Markdown::instance()->transform($text);
+	}
+	
+	public function content()
+	{
+		return $this->markdown($this->content);
+	}
+	
 	public function filters()
 	{
 		return array(

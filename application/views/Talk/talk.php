@@ -27,7 +27,7 @@
 		</div>
 		<div class="comment-content">
 			<h3><?php echo $talk->title; ?></h3>
-			<?php echo $talk->content; ?>
+			<?php echo $talk->content(); ?>
 			<p class="comment-detail">
 				<?php echo Date::fuzzy_span($talk->created); ?>
 			</p>
@@ -44,7 +44,7 @@
 					<?php echo HTML::image($reply->user->gravatar(75)); ?>
 				</div>
 				<div class="comment-content">
-					<?php echo $reply->content; ?>
+					<?php echo $reply->content(); ?>
 					<p class="comment-detail">
 						<?php echo Date::fuzzy_span($reply->created); ?>
 					</p>

@@ -29,6 +29,16 @@ class Model_Talkreply extends ORM {
 		);
 	}
 	
+	public function markdown($text)
+	{
+		return Markdown::instance()->transform($text);
+	}
+	
+	public function content()
+	{
+		return $this->markdown($this->content);
+	}
+	
 	public function rules()
 	{
 		return array(
