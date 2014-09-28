@@ -2,6 +2,7 @@
 	<div class="container">
 		<div class="page-header">
 			<h2>Talk</h2>
+			<span class="fa fa-anchor"></span>
 		</div>
 		
 		<ul class="tag-nav">
