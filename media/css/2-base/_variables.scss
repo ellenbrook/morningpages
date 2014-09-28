@@ -74,8 +74,8 @@ $form-font-family: $base-font-family;
 /* Old  CSS Vars settings */
 $bad-color: #CF8A80;
 $bad-color-hover: #FFC3BA;
-$good-color: #477DCA;
-$good-color-hover: #2c5999;
+$good-color: #2c5999;
+$good-color-hover: shade(#2c5999, 10%);
 $header-color: $good-color;
 $light-color: #fff;
 $dark-color: #262120;

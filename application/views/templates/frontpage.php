@@ -28,12 +28,48 @@
 			<nav class="frontpage">
 				<ul>
 					<li><a href="#about">About</a></li>
+					<li><a href="<?php echo URL::site('write'); ?>" title="Write" class="btn btn-default<?php echo ($controller=='Page'?' active':''); ?>">Write</a></li>
 			<?php if(!user::logged()): ?>
-					<li><a href="#">Log in</a></li>
-					<li><a href="#">Register</a></li>
+					
 			<?php else: ?>
-			<!--logged in -->
-				<li><a href="<?php echo URL::site('write'); ?>" title="Write" class="btn btn-default<?php echo ($controller=='Page'?' active':''); ?>">Write</a></li>
+			<!--not logged in -->
+				<li>
+					<!-- Log in section -->
+					<div class="modal">
+					  <label for="modal-1">
+					    <a class="btn js-btn">Sign in</a> / <a href="#" class="btn js-btn">Register</a>
+					  </label>
+					  <input class="modal-state" id="modal-1" type="checkbox" />
+					  <div class="modal-window">
+					    <div class="modal-inner">
+					      <label class="modal-close" for="modal-1"></label>
+					      <h2>Sign in</h2>
+					      <form role="form" method="post" action="<?php echo user::url('login'); ?>">
+							<div class="form-group">
+								<input type="text" class="form-control" name="email" value="<?php echo arr::get($_POST, 'email',''); ?>" placeholder="E-mail or username" />
+							</div>
+							<div class="form-group">
+								<input type="password" class="form-control" value="" name="password" placeholder="Password" />
+							</div>
+							<p class="modal-left">
+								<a href="<?php echo user::url('signup'); ?>" title="Sign up">Register</a> - <a href="<?php echo user::url('help') ?>" title="Click here if you need help accessing your account">Forgot your password</a>?
+							</p>
+							<div class="form-group modal-right">
+								<button type="submit">Sign in</button>
+							</div>
+							</form>
+							<p class="modal-social">
+							<a href="<?php echo URL::site('auth/twitter'); ?>" title="Sign in with Twitter">
+								<img src="<?php echo URL::site('media/img/sign-in-with-twitter-gray.png'); ?>" alt="Sign in with Twitter" />
+							</a>
+							</p>
+					    </div>
+					  </div>
+					</div>
+					<!-- End login section -->
+
+
+				</li>
 			<?php endif; ?>
 				</ul>
 			</nav>
@@ -58,32 +94,31 @@
 	<ul class="bullets">
   <li class="bullet three-col-bullet">
     <div class="bullet-icon bullet-icon-1">
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_2.png
-" alt="">
+      <p><span class="fa fa-pencil"></span></p>
     </div>
     <div class="bullet-content">
       <h2>Write</h2>
       <p>The idea is simple. Write three pages per day about any topic that comes to mind. This is not blogging. This is for you and you alone. Write without thinking. Write for no one but you. A little bit more text right here to fill in the space.</p>
       </div>
-  </li>  
-  <li class="bullet three-col-bullet">
-    <div class="bullet-icon bullet-icon-2">
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3.png" alt="">
-    </div>
-    <div class="bullet-content">
-      <h2>Unlock Badges</h2>
-      <p>As you write and use the site like normal you'll be rewarded for completing streaks, being a member, and other fun and exciting examples. Focus on the writing but have fun with the badges. Ugly text. More text to fill the gaps!</p>
-    </div>
-  </li>
-  <li class="bullet three-col-bullet">
+  </li> 
+   <li class="bullet three-col-bullet">
     <div class="bullet-icon bullet-icon-3">
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_4.png" alt="">
+      <p><span class="fa fa-lightbulb-o"></span></p>
     </div>
     <div class="bullet-content">
       <h2>Discover yourself</h2>
       <p>Of course the biggest reward that is an outcome of writing your Morning Pages is  you learn about yourself. You learn what is on your mind, what is bothering you, and what your goals are. There's no better reward than that.</p>
     </div>
-  </li> 
+  </li>  
+  <li class="bullet three-col-bullet">
+    <div class="bullet-icon bullet-icon-2">
+       <p><span class="fa fa-shield"></span></p>
+    </div>
+    <div class="bullet-content">
+      <h2>Have fun</h2>
+      <p>As you write and use the site like normal you'll be rewarded for completing streaks, being a member, and other fun and exciting examples. Focus on the writing but have fun with the badges. Ugly text. More text to fill the gaps!</p>
+    </div>
+  </li>
 </ul>
 </div>
 </section>

@@ -3,7 +3,6 @@
 
 	.bullets {
 	  $icon-bullet-size: 3.5em;
-
 	  overflow: auto;
 	  margin-bottom: $base-line-height;
 
@@ -32,11 +31,21 @@
 
 	  .bullet-icon {
 	    float: left;
+	    position: relative;
 	    background: $base-accent-color;
-	    padding: $icon-bullet-size /4;
+	    // padding: .2em 1em;
 	    border-radius: 50%;
+	    color: $light-color;
 	    width: $icon-bullet-size;
 	    height: $icon-bullet-size;
+
+	    p {
+			font-size: 2em;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
 	  }
 
 	  .bullet-icon-1 {
@@ -44,11 +53,11 @@
 	  }
 
 	  .bullet-icon-2 {
-	    background: adjust-hue($base-accent-color, -50);
+	    background: adjust-hue($base-accent-color, -120);
 	  }
 
 	  .bullet-icon-3 {
-	    background: adjust-hue($base-accent-color, -140);
+	    background: adjust-hue($base-accent-color, -200);
 	  }
 
 	  .bullet-content {
