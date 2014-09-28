@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<title>Morning Pages :: Write</title>
-	<script src="//use.typekit.net/rod6iku.js"></script>
-	<script>try{Typekit.load();}catch(e){}</script>
+	<?php /* <script src="//use.typekit.net/rod6iku.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script> */ ?>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta content="Morning Pages" name="name">
