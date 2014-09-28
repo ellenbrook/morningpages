@@ -61,14 +61,21 @@
 
 </ul>
 
-<form action="<?php echo URL::site($talk->url()); ?>" method="post">
-	<fieldset>
-		<p>
-			<label for="new-reply-content">Post a reply</label>
-			<textarea name="content" placeholder="Type your reply here..." id="new-reply-content" id="content"></textarea>
-		</p>
-		<p class="text-right">
-			<button class="button">Submit reply</button>
-		</p>
-	</fieldset>
-</form>
+<?php if(user::logged()): ?>
+	<div class="talk-action">
+		<form action="<?php echo URL::site($talk->url()); ?>" method="post">
+			<fieldset>
+				<div class="action">
+					<h3>Submit new reply</h3>
+				</div>
+				<p>
+					<label for="new-reply-content">Post a reply</label>
+					<textarea name="content" placeholder="Type your reply here..." id="new-reply-content"></textarea>
+				</p>
+				<p class="text-right">
+					<button class="button">Submit reply</button>
+				</p>
+			</fieldset>
+		</form>
+	</div>
+<?php endif; ?>

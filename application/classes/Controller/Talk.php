@@ -13,7 +13,10 @@ class Controller_Talk extends Controller_Project {
 			$talk = ORM::factory('Talk');
 			$talk->values($_POST);
 			$talk->user_id = user::get()->id;
-			$talk->talktag_id = $tag->id;
+			if($tag && $tag->loaded())
+			{
+				$talk->talktag_id = $tag->id;
+			}
 			try
 			{
 				$talk->save();
@@ -23,7 +26,7 @@ class Controller_Talk extends Controller_Project {
 			catch(ORM_Validation_Exception $e)
 			{
 				notes::error('Whoops! Your submission contained errors. Please review it and submit again');
-				$errors = $e->errors();
+				$errors = $e->errors('models');
 			}
 		}
 		

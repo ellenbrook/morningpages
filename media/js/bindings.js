@@ -1,9 +1,10 @@
 define([
 	'knockout',
 	'jquery',
+	'site',
 	'autogrow',
 	'validate'
-], function(ko, $){
+], function(ko, $, site){
 	
 	ko.bindingHandlers.autogrow = {
 	    init: function (element, valueAccessor, allBindingsAccessor) {
@@ -48,17 +49,72 @@ define([
 	
 	ko.bindingHandlers.validateForm = {
 		init:function(element, valueAccessor){
-			$(element).on('submit', function(){
+			
+			var arg = valueAccessor();
+			var argtype = typeof valueAccessor();
+			
+			$(element).validate({
+				invalidHandler:function(){
+					if(argtype == 'object')
+					{
+						if(typeof arg.failnote == 'string')
+						{
+							site.say({type:'error','note':arg.failnote});
+						}
+						if(typeof arg.fail == 'function')
+						{
+							return arg.fail();
+						}
+					}
+					return false;
+				}
+			});
+			
+			
+			if(argtype == 'object')
+			{
+				if(arg.rules && typeof arg.rules == 'object')
+				{
+					for(elem in arg.rules)
+					{
+						$(elem).rules('add', arg.rules[elem]);
+					}
+				}
+			}
+			
+			$(element).on('submit',function(){
+				
 				if($(element).valid())
 				{
-					valueAccessor()();
+					console.log('1');
+					if(argtype == 'function')
+					{
+						console.log('2');
+						return arg();
+					}
+					else
+					{
+						console.log('3');
+						if(argtype == 'object')
+						{
+							console.log('4');
+							if(typeof arg.successnote == 'string')
+							{
+								site.say({type:'success','note':arg.successnote});
+							}
+							if(typeof arg.success == 'function')
+							{
+								console.log('5');
+								return arg.success();
+							}
+						}
+					}
+					console.log('');
+					return true;
 				}
-				else
-				{
-					console.log('not valid');
-				}
-				return false;
+				
 			});
+			
 		}
 	};
 	

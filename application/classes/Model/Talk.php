@@ -51,12 +51,19 @@ class Model_Talk extends ORM {
 				array('max_length', array(':value', 1000))
 			),
 			'talktag_id' => array(
-				array('not_empty')
+				array('not_empty'),
+				array('digit'),
+				array(array($this, 'validtagid'), array('talktag_id', ':value'))
 			),
 			'user_id' => array(
 				array('not_empty')
 			)
 		);
+	}
+	
+	public function validtagid($field, $value)
+	{
+		return (bool)ORM::factory('Talktag',(int)$value)->loaded();
 	}
 	
 	public function username()

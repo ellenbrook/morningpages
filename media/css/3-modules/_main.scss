@@ -13,13 +13,6 @@
 		float: right;
 	}
 
-	textarea {
-		outline: 0;
-		border: 0;
-		box-shadow: none;
-		resize: none;
-	}
-
 	textarea:not(:focus) {
 		border: 1px solid shade($light-color, 10%);
 	}

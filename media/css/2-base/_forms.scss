@@ -14,6 +14,32 @@ select {
   font-size: $form-font-size;
 }
 
+input[type="text"].error,
+input[type="email"].error,
+input[type="password"].error,
+input[type="date"].error,
+select.error,
+select[multiple="multiple"].error,
+textarea.error,
+textarea.error:focus
+textarea.error:not(:focus)
+{
+	border-color:darken($error-color, 60) !important;
+}
+
+input[type="text"].valid,
+input[type="email"].valid,
+input[type="password"].valid,
+input[type="date"].valid,
+select.valid,
+select[multiple="multiple"].valid,
+textarea.valid,
+textarea.valid:focus
+textarea.valid:not(:focus)
+{
+	border-color:darken($success-color, 60) !important;
+}
+
 label {
   font-weight: bold;
   margin-bottom: $base-spacing / 4;
@@ -25,6 +51,11 @@ label {
   abbr {
     display: none;
   }
+}
+label.error
+{
+	@extend %flash-base;
+	@include flash($error-color);
 }
 
 textarea,
