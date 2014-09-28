@@ -67,7 +67,6 @@
 </div>
 
 <?php if(user::logged()): ?>
-	<?php d::dump($errors); ?>
 	<div class="talk-action">
 		<form data-bind="validateForm:{rules:{'#new-talk-tag':{min:1,messages:{min:'Please select a topic'}}}}" action="<?php echo URL::site('talk'); ?>" method="post">
 			<fieldset>
