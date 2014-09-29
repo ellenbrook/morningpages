@@ -21,6 +21,17 @@ define([
 	        });
 	    }
 	};
+	
+	ko.bindingHandlers.fadeVisible = {
+		init: function (element, valueAccessor) {
+			var value = valueAccessor();
+			$(element).toggle(ko.utils.unwrapObservable(value));
+		},
+		update: function (element, valueAccessor) {
+			var value = valueAccessor();
+			ko.utils.unwrapObservable(value) ? $(element).slideDown() : $(element).slideUp();
+		}
+	};
 
 	ko.bindingHandlers.showModal = {
 		init:function(element, valueAccessor){

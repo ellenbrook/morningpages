@@ -1,11 +1,26 @@
-define(['knockout', 'jquery'],function(ko, $){
+define([
+	'knockout',
+	'jquery',
+	'site'
+],function(ko, $, site){
 	
 	var user = function(){
 		var self = this;
 	
 		self.email = ko.observable();
-		self.theme = ko.observable();
-		self.reminder = ko.observable();
+		self.options = {
+			reminder:ko.observable(false),
+			reminder_hour:ko.observable(8),
+			reminder_minute:ko.observable(0),
+			reminder_meridiem:ko.observable('am'),
+			theme_id:ko.observable(),
+			privacymode:ko.observable(false),
+			privacymode_minutes:ko.observable(5),
+			hemingwaymode:ko.observable(false),
+			public:ko.observable(false)
+		};
+		self.loaded = false;
+		
 		self.password = ko.observable('');
 		self.passconfirm = ko.observable('');
 		self.wordcount = ko.observable(0);
@@ -16,23 +31,151 @@ define(['knockout', 'jquery'],function(ko, $){
 				if(reply.success)
 				{
 					self.email(reply.email);
-					self.theme(reply.theme);
-					self.reminder(Boolean(parseInt(reply.reminder))); // Get your shit together javascript
 					self.wordcount(reply.wordcount);
+					
+					self.options.reminder(Boolean(reply.options.reminder));
+					self.options.reminder_hour(reply.options.reminder_hour);
+					self.options.reminder_minute(reply.options.reminder_minute);
+					self.options.reminder_meridiem(reply.options.reminder_meridiem);
+					self.options.theme_id(reply.options.theme_id);
+					self.options.privacymode(Boolean(reply.options.privacymode));
+					self.options.privacymode_minutes(reply.options.privacymode_minutes);
+					self.options.hemingwaymode(Boolean(reply.options.hemingwaymode));
+					self.options.public(Boolean(reply.options.public));
+					self.loaded = true;
 				}
 			},'json');
 		};
 		
-		self.saveInfo = function(){
-			var data = {
-				'email':self.email(),
-				'theme':self.theme(),
-				'reminder':self.reminder(),
-				'password':self.password(),
-				'password_confirm':self.passconfirm()
-			};
-			return $.post('/ajax/User/saveInfo',data,null,'json');
-		};
+		self.options.theme_id.subscribe(function(){
+			if(self.loaded)
+			{
+				$.post('/ajax/user/savetheme',{id:self.options.theme_id()},function(reply){
+					if(!reply.success)
+					{
+						site.say(reply);
+					}
+					else
+					{
+						site.theme(reply.theme);
+					}
+				},'json');
+			}
+		});
+		
+		self.options.reminder.subscribe(function(){
+			if(self.loaded)
+			{
+				$.post('/ajax/user/savesetting',{
+					'setting':'reminder',
+					'value':self.options.reminder()
+				},function(reply){
+					if(!reply.success)
+					{
+						site.say(reply);
+					}
+				},'json');
+			}
+		});
+		self.options.reminder_hour.subscribe(function(){
+			if(self.loaded)
+			{
+				$.post('/ajax/user/savesetting',{
+					'setting':'reminder_hour',
+					'value':self.options.reminder_hour()
+				},function(reply){
+					if(!reply.success)
+					{
+						site.say(reply);
+					}
+				},'json');
+			}
+		});
+		self.options.reminder_minute.subscribe(function(){
+			if(self.loaded)
+			{
+				$.post('/ajax/user/savesetting',{
+					'setting':'reminder_minute',
+					'value':self.options.reminder_minute()
+				},function(reply){
+					if(!reply.success)
+					{
+						site.say(reply);
+					}
+				},'json');
+			}
+		});
+		self.options.reminder_meridiem.subscribe(function(){
+			if(self.loaded)
+			{
+				$.post('/ajax/user/savesetting',{
+					'setting':'reminder_meridiem',
+					'value':self.options.reminder_meridiem()
+				},function(reply){
+					if(!reply.success)
+					{
+						site.say(reply);
+					}
+				},'json');
+			}
+		});
+		self.options.privacymode.subscribe(function(){
+			if(self.loaded)
+			{
+				$.post('/ajax/user/savesetting',{
+					'setting':'privacymode',
+					'value':self.options.privacymode()
+				},function(reply){
+					if(!reply.success)
+					{
+						site.say(reply);
+					}
+				},'json');
+			}
+		});
+		self.options.privacymode_minutes.subscribe(function(){
+			if(self.loaded)
+			{
+				$.post('/ajax/user/savesetting',{
+					'setting':'privacymode_minutes',
+					'value':self.options.privacymode_minutes()
+				},function(reply){
+					if(!reply.success)
+					{
+						site.say(reply);
+					}
+				},'json');
+			}
+		});
+		self.options.hemingwaymode.subscribe(function(){
+			if(self.loaded)
+			{
+				$.post('/ajax/user/savesetting',{
+					'setting':'hemingwaymode',
+					'value':self.options.hemingwaymode()
+				},function(reply){
+					if(!reply.success)
+					{
+						site.say(reply);
+					}
+				},'json');
+			}
+		});
+		self.options.public.subscribe(function(){
+			if(self.loaded)
+			{
+				$.post('/ajax/user/savesetting',{
+					'setting':'public',
+					'value':self.options.public()
+				},function(reply){
+					if(!reply.success)
+					{
+						site.say(reply);
+					}
+				},'json');
+			}
+		});
+		
 	};
 	
 	return user;

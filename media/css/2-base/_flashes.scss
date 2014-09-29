@@ -1,0 +1,27 @@
+%flash-base
+{
+	@extend %flash-base;
+	font-weight:normal;
+	
+	h4
+	{
+		display:inline;
+		font-size:1.1em;
+	}
+}
+.flash-alert
+{
+	@extend %flash-alert;
+}
+.flash-error
+{
+	@extend %flash-error;
+}
+.flash-notice
+{
+	@extend %flash-notice;
+}
+.flash-success
+{
+	@extend %flash-success;
+}

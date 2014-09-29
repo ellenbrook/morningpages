@@ -14,9 +14,9 @@
 </head>
 <?php
 	$theme = '';
-	if(user::logged())
+	if(user::logged() && user::get()->option->theme_id)
 	{
-		$theme = user::get()->theme;
+		$theme = ORM::factory('Theme',user::get()->option->theme_id)->name;
 	}
 ?>
 <body class="<?php echo $theme; ?>">
@@ -36,32 +36,32 @@
 				<?php if(user::logged()): ?>
 					<li><a href="<?php echo URL::site('write'); ?>">Write</a></li>
 					<li><a href="<?php echo URL::site('me'); ?>">Me</a></li>
-					<li><a href="<?php echo URL::site('me/options'); ?>">User options</a></li>
+					<li><a href="<?php echo URL::site('user/options'); ?>">User options</a></li>
 					<li>
 						<div class="modal">
-	  <label for="modal-1">
-	    <div class="js-btn btn">Tips and Tricks</div>
-	  </label>
-	  <input class="modal-state" id="modal-1" type="checkbox" />
-		<div class="modal-window">
-		<div class="modal-inner">
-			<label class="modal-close" for="modal-1"></label>
-			<h3>Tips and tricks</h3>
-			<dl>
-				<dt>Ctrl/Cmd + Spacebar</dt>
-				<dd>We take privacy very seriously. Use this shortcut if you're in the middle of writing and somebody walks into the room, begins to peer over your shoulder, or tries to see what you're writing. This will bring up the text from a random Wikipedia article.</dd>
-
-				<dt>Markdown</dt>
-				<dd>What is markdown? Markdown is simply a text-formatting syntax used to format text on the web without having to worry about HTML. Think of it as an easy and natural way to to format your text without the need of using learning code.</dd>
-				<dd>Although the idea behind Morning Pages is stream of consciousness thoughts, sometimes those thoughts would be better off with a bit of organization and that's where Markdown comes in handy.</dd>
-				<dd>For an in-depth listing of all of Markdown's features, check out <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="nofollow">Markdown Syntax Basics</a>.</dd>
-				</dd>
-			</dl>
-			</div>
-		</div>
-	</div>
+						  <label for="modal-1">
+						    <div class="js-btn btn">Tips and Tricks</div>
+						  </label>
+						  <input class="modal-state" id="modal-1" type="checkbox" />
+							<div class="modal-window">
+							<div class="modal-inner">
+								<label class="modal-close" for="modal-1"></label>
+								<h3>Tips and tricks</h3>
+								<dl>
+									<dt>Ctrl/Cmd + Spacebar</dt>
+									<dd>We take privacy very seriously. Use this shortcut if you're in the middle of writing and somebody walks into the room, begins to peer over your shoulder, or tries to see what you're writing. This will bring up the text from a random Wikipedia article.</dd>
+					
+									<dt>Markdown</dt>
+									<dd>What is markdown? Markdown is simply a text-formatting syntax used to format text on the web without having to worry about HTML. Think of it as an easy and natural way to to format your text without the need of using learning code.</dd>
+									<dd>Although the idea behind Morning Pages is stream of consciousness thoughts, sometimes those thoughts would be better off with a bit of organization and that's where Markdown comes in handy.</dd>
+									<dd>For an in-depth listing of all of Markdown's features, check out <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="nofollow">Markdown Syntax Basics</a>.</dd>
+									</dd>
+								</dl>
+								</div>
+							</div>
+						</div>
 					</li>
-										<li>
+					<li>
 				    	<select data-bind="event:{change:goToPreviousPage}" id="pastposts">
 				        	<option value="0">Previous pages</option>
 				        	<option value="/">Today</option>

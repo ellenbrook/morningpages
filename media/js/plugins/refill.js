@@ -2,7 +2,7 @@ define(['jquery'], function($){
 	
 	$.fn.tabs = function(){
 		var self = this;
-		$(self).children('li').first().children('a').addClass('is-active').next().addClass('is-open').show();
+		$(self).find('li > a.is-active').next().addClass('is-open').show();
 		$(self).on('click', 'li > a', function(event){
 			if (!$(this).hasClass('is-active'))
 			{

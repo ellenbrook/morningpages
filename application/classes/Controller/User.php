@@ -6,8 +6,6 @@ class Controller_User extends Controller_Project {
 	{
 		$this->require_login('');
 		
-		maintenance::deletions();
-		
 		$errors = false;
 		if($_POST)
 		{
@@ -26,6 +24,31 @@ class Controller_User extends Controller_Project {
 				$user->save();
 				notes::success('Your info has been updated!');
 				user::redirect();
+			}
+			catch(ORM_Validation_Exception $e)
+			{
+				$errors = $e->errors('models');
+			}
+		}
+		$this->bind('errors', $errors);
+	}
+	
+	public function action_options()
+	{
+		$this->require_login(true);
+		$errors = false;
+		if($_POST)
+		{
+			try
+			{
+				$user = user::get();
+				$user->update_user($_POST, array(
+					'email',
+					'password'
+				));
+				$user->save();
+				notes::success('Your info has been updated!');
+				user::redirect('options');
 			}
 			catch(ORM_Validation_Exception $e)
 			{

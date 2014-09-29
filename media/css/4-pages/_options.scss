@@ -1,0 +1,27 @@
+#site-options
+{
+	label.status
+	{
+		display:inline;
+		padding-left:10px;
+	}
+	label.on
+	{
+		color:green;
+	}
+	label.off
+	{
+		color:red;
+	}
+	.time-container
+	{
+		margin-top:10px;
+	}
+	.inline-form
+	{
+		select
+		{
+			display:inline;
+		}
+	}
+}

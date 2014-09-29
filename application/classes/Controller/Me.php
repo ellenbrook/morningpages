@@ -7,9 +7,4 @@ class Controller_Me extends Controller_Project {
 		$this->require_login();
 	}
 	
-	public function action_options()
-	{
-		
-	}
-	
 }

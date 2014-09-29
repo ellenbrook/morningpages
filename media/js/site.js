@@ -1,13 +1,22 @@
-define(['jquery', 'jgrowl'],function($,grr){
+define([
+	'knockout',
+	'jquery',
+	'jgrowl'
+],function(ko,$,grr){
 	
 	var site = function(){
 		var self = this;
+		
+		self.theme = ko.observable();
+		self.theme.subscribe(function(newclass){
+			$('body').removeClass().addClass(newclass);
+		});
 		
 		self.say = function(data, type)
 		{
 			if(typeof data == "object")
 			{
-				var message = data.note;
+				var message = data.note || data.message;
 				var noteclass = data.type ? 'growl-'+data.type : '';
 				$.jGrowl(message, {
 					position:'bottom-right',

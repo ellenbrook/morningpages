@@ -14,9 +14,9 @@
 </head>
 <?php
 	$theme = '';
-	if(user::logged())
+	if(user::logged() && user::get()->option->theme_id)
 	{
-		$theme = user::get()->theme;
+		$theme = ORM::factory('Theme',user::get()->option->theme_id)->name;
 	}
 ?>
 <body class="<?php echo $theme; ?>">
