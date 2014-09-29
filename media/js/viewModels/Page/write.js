@@ -15,7 +15,6 @@ define([
 			self.writtenwords('');
 			if(self.user.options.hemingwaymode())
 			{
-				console.log('hem');
 				$('#morningpage-content').on('keydown',function(e){
 					if(e.keyCode == 8 || e.keyCode == 46)
 					{
