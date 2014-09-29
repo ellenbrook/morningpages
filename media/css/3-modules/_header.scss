@@ -1,21 +1,3 @@
-.site-header {
-	padding: 1em 0;
-	background-color: $good-color;
-
-	.logo {
-		@include span-columns(11);
-
-		a {
-			color: $light-color;
-		}
-	}
-
-	.navigation-trigger {
-		@include span-columns(1);
-		@include omega();
-	}
-}
-
 .index-header {
 	padding: 1em 0;
 	background-color: $good-color;
@@ -42,5 +24,39 @@
 		a {
 			color: $light-color;
 		}
+	}
+}
+
+.site-header {
+	position: relative;
+	@extend .index-header;
+
+	.logo {
+		@include span-columns(4);
+
+		a {
+			color: $light-color;
+		}
+	}
+
+	.navigation-trigger {
+		outline: none;
+		border-radius: 4px;
+		background-color: $good-color;
+		transition: background-color 600ms ease-in;
+
+		&:hover {
+			background-color: $good-color-hover;
+		}
+	}
+
+	.navigation-trigger-clicked {
+		background-color: $good-color-hover;
+	}
+	
+	nav.default {
+		@include span-columns(8);
+		@include omega();
+		overflow: hidden;
 	}
 }

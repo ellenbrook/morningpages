@@ -1,9 +1,12 @@
 .hidden-menu {
+	position: relative;
 	display: none;
-	background-color: shade($subtle-accent, 10%);
+	background-color: $subtle-accent;
 	color: $dark-color;
 
 	ul {
+		float: right;
+
 		li {
 			display: inline-block;
 			padding: 1em;
@@ -33,4 +36,13 @@
 			color: shade($light-color, 10%);
 		}
 	}
+}
+
+/*This is actually located inside of _header.scss but makes more sense to put here */
+
+.triangle {
+	@include position(absolute, null 5px -16px null);
+	display: none;
+	@include triangle(40px, $subtle-accent, up);
+	transition: all 600ms ease-in;
 }
