@@ -7,3 +7,4 @@ application/config/secrets.php
 config.codekit
 media/css/*.css
 media/css/*.css.map
+phpmyadmin
