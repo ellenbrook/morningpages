@@ -29,47 +29,104 @@
 				<ul>
 					<li><a href="#about">About</a></li>
 					<li><a href="<?php echo URL::site('write'); ?>" title="Write" class="btn btn-default<?php echo ($controller=='Page'?' active':''); ?>">Write</a></li>
+					<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Porning Pages">Talk</a></li>
 			<?php if(!user::logged()): ?>
-					
+					<!-- Log in -->
+					<li>
+						<div class="modal">
+						  <label for="sign-in">
+						    <div class="btn js-btn">Log in</div>
+						  </label>
+						  <input class="modal-state" id="sign-in" type="checkbox" />
+						  <div class="modal-window">
+						    <div class="modal-inner">
+						      <label class="modal-close" for="sign-in"></label>
+						      <h2>Sign In</h2>
+						    	<div class="modal-left">	 
+						    	 <form role="form" method="post" action="<?php echo user::url('user/login'); ?>">
+									<div class="form-group">
+										<input type="text" class="form-control" name="email" value="<?php echo arr::get($_POST, 'email',''); ?>" placeholder="Email or Username" />
+									</div>
+									<div class="form-group">
+										<input type="password" class="form-control" value="" name="password" placeholder="Password" />
+									</div>
+									<div class="form-group">
+										<button type="submit">Sign In</button>
+									</div>
+								</form>
+								</div>
+								<div class="modal-right">
+									<ul class="social-buttons">
+										<li>
+											<a href="<?php echo URL::site('auth/twitter'); ?>" title="Sign in with Twitter">
+												<img src="<?php echo URL::site('media/img/sign-in-with-twitter-gray.png'); ?>" alt="Sign in with Twitter" />
+											</a>
+										</li>
+										<li>
+											<a href="<?php echo URL::site('auth/twitter'); ?>" title="Sign in with Twitter">
+												<img src="<?php echo URL::site('media/img/sign-in-with-twitter-gray.png'); ?>" alt="Sign in with Twitter" />
+											</a>
+										</li>
+									</ul>
+								</div>	
+						    </div>
+						  </div>
+						</div><!-- Registration -->
+					</li>
+
+					<li>
+						<!--begin registration -->
+						<div class="modal">
+						  <label for="registration">
+						    <div class="btn js-btn">Register</div>
+						  </label>
+						  <input class="modal-state" id="registration" type="checkbox" />
+						  <div class="modal-window">
+						    <div class="modal-inner">
+						      <label class="modal-close" for="registration"></label>
+						      <h2>Register</h2>
+						      <p class="intro">Registration is fast and simple!</p>
+						    	<div class="modal-left">	 
+						    	 <form role="form" method="post" action="<?php echo user::url('user/signup'); ?>">
+									<div class="form-group">
+										<input type="text" class="form-control" name="email" value="<?php echo arr::get($_POST, 'email',''); ?>" placeholder="E-mail" />
+									</div>
+									<div class="form-group">
+										<input type="text" class="form-control" name="username" value="<?php echo arr::get($_POST, 'username',''); ?>" placeholder="Username" />
+									</div>
+									<div class="form-group">
+										<input type="password" class="form-control" value="" name="password" placeholder="Password" />
+									</div>
+									<div class="form-group">
+										<input type="password" class="form-control" value="" name="password_confirm" placeholder="Password Confirm" />
+									</div>
+									<div class="form-group">
+										<button type="submit">Register</button>
+									</div>
+								</form>
+								</div>
+								<div class="modal-right">
+									<ul class="social-buttons">
+										<li>
+											<a href="<?php echo URL::site('auth/twitter'); ?>" title="Sign in with Twitter">
+												<img src="<?php echo URL::site('media/img/sign-in-with-twitter-gray.png'); ?>" alt="Sign in with Twitter" />
+											</a>
+										</li>
+										<li>
+											<a href="<?php echo URL::site('auth/twitter'); ?>" title="Sign in with Twitter">
+												<img src="<?php echo URL::site('media/img/sign-in-with-twitter-gray.png'); ?>" alt="Sign in with Twitter" />
+											</a>
+										</li>
+									</ul>
+								</div>	
+						    </div>
+						  </div>
+						</div><!-- Registration -->
+					</li>
 			<?php else: ?>
 			<!--not logged in -->
-				<li>
-					<!-- Log in section -->
-					<div class="modal">
-					  <label for="modal-1">
-					    <a class="btn js-btn">Sign in</a> / <a href="#" class="btn js-btn">Register</a>
-					  </label>
-					  <input class="modal-state" id="modal-1" type="checkbox" />
-					  <div class="modal-window">
-					    <div class="modal-inner">
-					      <label class="modal-close" for="modal-1"></label>
-					      <h2>Sign in</h2>
-					      <form role="form" method="post" action="<?php echo user::url('login'); ?>">
-							<div class="form-group">
-								<input type="text" class="form-control" name="email" value="<?php echo arr::get($_POST, 'email',''); ?>" placeholder="E-mail or username" />
-							</div>
-							<div class="form-group">
-								<input type="password" class="form-control" value="" name="password" placeholder="Password" />
-							</div>
-							<p class="modal-left">
-								<a href="<?php echo user::url('signup'); ?>" title="Sign up">Register</a> - <a href="<?php echo user::url('help') ?>" title="Click here if you need help accessing your account">Forgot your password</a>?
-							</p>
-							<div class="form-group modal-right">
-								<button type="submit">Sign in</button>
-							</div>
-							</form>
-							<p class="modal-social">
-							<a href="<?php echo URL::site('auth/twitter'); ?>" title="Sign in with Twitter">
-								<img src="<?php echo URL::site('media/img/sign-in-with-twitter-gray.png'); ?>" alt="Sign in with Twitter" />
-							</a>
-							</p>
-					    </div>
-					  </div>
-					</div>
-					<!-- End login section -->
-
-
-				</li>
+					<li><a href="<?php echo URL::site('me'); ?>" title="Your personal Morning Pages profile">Me</a></li>
+					<li><a href="<?php echo URL::site('user/logout'); ?>" title="Log out">Log out</a></li>
 			<?php endif; ?>
 				</ul>
 			</nav>
@@ -83,8 +140,8 @@
 				<h2>Welcome to Morning Pages</h2>
 				<p>You never know when you’ll find the time. You can’t predict when the mood will strike. That’s why we’re here.</p>	
 			</div>
-	    	<button>Begin Writing</button>
-	    		<p>(No registration required)</p>
+	    	<p><a href="<?php echo URL::site('write'); ?>" class="cta-button">Begin Writing</a></p>
+	    	<p class="subtext">(No registration required)</p>
 		</div>
 	</div>
 </section>

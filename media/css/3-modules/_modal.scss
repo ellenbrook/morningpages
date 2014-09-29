@@ -23,6 +23,7 @@
 
   .btn {
     @extend a;
+    height: 30px;
     font-weight: 400;
   }
 
@@ -155,17 +156,26 @@
     }
   }
   .modal-left {
-    @include span-columns(8);
+    float: left;
+    width: 50%;
   }
 
   .modal-right {
+    float: left;
     text-align: right;
-    @include span-columns(4);
+    width: 50%;
     @include omega();
   }
 
   .modal-social {
-    margin-top: 1em;
+    text-align: right;
+  }
+
+  .social-buttons {
+    li {
+      margin: 0;
+      padding: 0;
+    }
   }
 
   .modal-state:checked + .modal-window {

@@ -26,7 +26,7 @@
     color: $hero-color;
     text-shadow: 1px 1px 1px #333;
 
-    button {
+    .cta-button {
       border-top: 1px solid shade($good-color, 10%);
       background: #65a9d7;
       background: -webkit-gradient(linear, left top, left bottom, from($good-color), to($good-color-hover));
@@ -51,6 +51,10 @@
       border-top-color: #1b435e;
       background: #1b435e;
       }
+    }
+
+    .subtext {
+      margin-top: 1em;
     }
 
     .hero-copy {
