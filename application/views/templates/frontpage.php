@@ -43,7 +43,7 @@
 						      <label class="modal-close" for="sign-in"></label>
 						      <h2>Sign In</h2>
 						    	<div class="modal-left">	 
-						    	 <form role="form" method="post" action="<?php echo user::url('user/login'); ?>">
+						    	 <form role="form" method="post" action="<?php echo user::url('login'); ?>">
 									<div class="form-group">
 										<input type="text" class="form-control" name="email" value="<?php echo arr::get($_POST, 'email',''); ?>" placeholder="Email or Username" />
 									</div>
