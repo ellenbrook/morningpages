@@ -36,7 +36,7 @@
 				<?php if(user::logged()): ?>
 					<li><a href="<?php echo URL::site('write'); ?>">Write</a></li>
 					<li><a href="<?php echo URL::site('me'); ?>">Me</a></li>
-					<li><a href="<?php echo URL::site('options'); ?>">User options</a></li>
+					<li><a href="<?php echo URL::site('me/options'); ?>">User options</a></li>
 					<li>
 						<div class="modal">
 	  <label for="modal-1">

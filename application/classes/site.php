@@ -84,13 +84,13 @@ abstract class site {
 				);
 			}
 		}
-		if($controller == 'options')
+		/*if($controller == 'options')
 		{
 			return array(
-				'controller' => 'Page',
+				'controller' => 'Me',
 				'action' => 'options'
 			);
-		}
+		}*/
 		if($controller == 'read')
 		{
 			return array(
