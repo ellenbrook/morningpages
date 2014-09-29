@@ -4,7 +4,7 @@ class Controller_User extends Controller_Project {
 	
 	public function action_index()
 	{
-		$this->require_login();
+		$this->require_login('');
 		
 		maintenance::deletions();
 		

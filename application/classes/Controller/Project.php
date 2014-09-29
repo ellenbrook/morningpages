@@ -55,11 +55,18 @@ class Controller_Project extends Controller_Template {
 		$this->css[] = $file;
 	}
 	
-	public function require_login($msg = 'You must be logged in to see this page', $redirect = false)
+	public function require_login($msg = true, $redirect = false)
 	{
+		if($msg === true)
+		{
+			$msg = 'You must be logged in to see this page';
+		}
 		if(!user::logged())
 		{
-			notes::error($msg);
+			if($msg)
+			{
+				notes::error($msg);
+			}
 			if($redirect)
 			{
 				site::redirect($redirect);
