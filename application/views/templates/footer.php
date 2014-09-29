@@ -2,16 +2,16 @@
  <div class="container">
   <div class="footer-links">
     <ul>
-      <li><h3>Content</h3></li>
-      <li><a href="javascript:void(0)">About</a></li>
+      <li><h3>Site</h3></li>
+      <li><a href="/#about" title="About Morning Pages">About</a></li>
+       <li><a href="<?php echo URL::site('write'); ?>" title="Write">Write</a></li>
+      <li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
       <li><a href="javascript:void(0)">Contact</a></li>
-      <li><a href="javascript:void(0)">Products</a></li>
     </ul>
     <ul>
       <li><h3>Follow Us</h3></li>
-      <li><a href="javascript:void(0)">Facebook</a></li>
+      <li><a href="https://www.facebook.com/morningpages" target="_blank">Facebook</a></li>
       <li><a href="javascript:void(0)">Twitter</a></li>
-      <li><a href="javascript:void(0)">YouTube</a></li>
     </ul>
     <ul>
       <li><h3>Legal</h3></li>
