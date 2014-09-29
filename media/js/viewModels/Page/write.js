@@ -13,6 +13,15 @@ define([
 		self.user = new user();
 		self.user.getInfo().then(function(){
 			self.writtenwords('');
+			if(self.user.options.hemingwaymode())
+			{
+				$('#morningpage-content').on('keydown',function(e){
+					if(e.keyCode == 8 || e.keyCode == 46)
+					{
+						return false;
+					}
+				});
+			}
 		});
 		
 		self.autosaver = new autosave($('#morningpage-content'));
