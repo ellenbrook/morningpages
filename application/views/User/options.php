@@ -157,6 +157,17 @@
 							<option value="am">AM</option>
 							<option value="pm">PM</option>
 						</select>
+						
+						<select name="timezone" data-bind="value:user.options.timezone_id" id="reminder-timezone">
+<?php
+							$zones = ORM::factory('Timezone')->find_all();
+							foreach($zones as $zone)
+							{
+								echo '<option value="'.$zone->id.'">'.$zone->name.'</option>';
+							}
+?>
+						</select>
+						
 					</div>
 				</div>
 				<div class="form-group button-group">

@@ -13,6 +13,7 @@ define([
 			reminder_hour:ko.observable(8),
 			reminder_minute:ko.observable(0),
 			reminder_meridiem:ko.observable('am'),
+			timezone_id:ko.observable(0),
 			theme_id:ko.observable(),
 			privacymode:ko.observable(false),
 			privacymode_minutes:ko.observable(5),
@@ -37,6 +38,7 @@ define([
 					self.options.reminder_hour(reply.options.reminder_hour);
 					self.options.reminder_minute(reply.options.reminder_minute);
 					self.options.reminder_meridiem(reply.options.reminder_meridiem);
+					self.options.timezone_id(reply.options.timezone_id);
 					self.options.theme_id(reply.options.theme_id);
 					self.options.privacymode(Boolean(reply.options.privacymode));
 					self.options.privacymode_minutes(reply.options.privacymode_minutes);
@@ -111,6 +113,20 @@ define([
 				$.post('/ajax/user/savesetting',{
 					'setting':'reminder_meridiem',
 					'value':self.options.reminder_meridiem()
+				},function(reply){
+					if(!reply.success)
+					{
+						site.say(reply);
+					}
+				},'json');
+			}
+		});
+		self.options.timezone_id.subscribe(function(){
+			if(self.loaded)
+			{
+				$.post('/ajax/user/savesetting',{
+					'setting':'timezone_id',
+					'value':self.options.timezone_id()
 				},function(reply){
 					if(!reply.success)
 					{

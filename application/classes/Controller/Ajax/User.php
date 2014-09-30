@@ -24,6 +24,7 @@ class Controller_Ajax_User extends Controller {
 				'reminder_hour' => $user->option->reminder_hour,
 				'reminder_minute' => $user->option->reminder_minute,
 				'reminder_meridiem' => $user->option->reminder_meridiem,
+				'timezone_id' => $user->option->timezone_id,
 				'theme_id' => $user->option->theme_id,
 				'privacymode' => (bool)$user->option->privacymode,
 				'privacymode_minutes' => $user->option->privacymode_minutes,
@@ -67,7 +68,7 @@ class Controller_Ajax_User extends Controller {
 		$option = $user->option;
 		$setting = arr::get($_POST, 'setting',false);
 		$value = arr::get($_POST, 'value',false);
-		if(!$setting || !$value)
+		if(!$setting || $value === false)
 		{
 			ajax::error('Something wen\'t wrong and your setting couldn\'t be saved. I received no data!');
 		}
@@ -84,6 +85,9 @@ class Controller_Ajax_User extends Controller {
 				break;
 			case 'reminder_meridiem':
 				$option->reminder_meridiem = $value;
+				break;
+			case 'timezone_id':
+				$option->timezone_id = $value;
 				break;
 			case 'privacymode':
 				$option->privacymode = $value;

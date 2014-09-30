@@ -18,8 +18,8 @@ input[type="text"].error,
 input[type="email"].error,
 input[type="password"].error,
 input[type="date"].error,
-select.error,
 select[multiple="multiple"].error,
+select.error,
 textarea.error,
 textarea.error:focus
 textarea.error:not(:focus)
@@ -31,8 +31,8 @@ input[type="text"].valid,
 input[type="email"].valid,
 input[type="password"].valid,
 input[type="date"].valid,
-select.valid,
 select[multiple="multiple"].valid,
+select.valid,
 textarea.valid,
 textarea.valid:focus
 textarea.valid:not(:focus)
@@ -107,4 +107,9 @@ select {
   margin-bottom: $base-spacing;
   max-width: 100%;
   width: auto;
+  border:1px solid #DDD;
+  padding:5px;
+  background:#FFF;
+  border-radius:3px;
+  cursor:pointer;
 }

@@ -4,7 +4,8 @@ class Model_User_Option extends ORM {
 	
 	protected $_belongs_to = array(
 		'user' => array(),
-		'theme' => array()
+		'theme' => array(),
+		'timezone' => array()
 	);
 	
 	public function labels()
@@ -14,6 +15,7 @@ class Model_User_Option extends ORM {
 			'reminder_hour'			=> 'Reminder hour',
 			'reminder_minute'		=> 'Reminder minute',
 			'reminder_meridiem'		=> 'Reminder meridiem',
+			'timezone_id'			=> 'Timezone',
 			'theme_id'				=> 'Theme',
 			'privacymode'			=> 'Privacymode',
 			'privacymode_minutes'	=> 'Privacimode minutes',
@@ -39,6 +41,9 @@ class Model_User_Option extends ORM {
 				array('Security::xss_clean', array(':value'))
 			),
 			'reminder_meridiem' => array(
+				array('Security::xss_clean', array(':value'))
+			),
+			'timezone_id' => array(
 				array('Security::xss_clean', array(':value'))
 			),
 			'theme_id' => array(
@@ -100,6 +105,11 @@ class Model_User_Option extends ORM {
 				array('not_empty'),
 				array(array($this, 'verify_ampm'), array('reminder_meridiem',':value'))
 			),
+			'timezone_id' => array(
+				array('not_empty'),
+				array('numeric'),
+				array(array($this, 'verify_available_timezone'), array('timezone_id',':value'))
+			),
 			'theme_id' => array(
 				array('not_empty'),
 				array('numeric'),
@@ -133,6 +143,11 @@ class Model_User_Option extends ORM {
 			return true;
 		}
 		return (bool)ORM::factory('Theme',$value)->loaded();
+	}
+	
+	public function verify_available_timezone($field, $value)
+	{
+		return (bool)ORM::factory('Timezone',$value)->loaded();
 	}
 	
 	public function verify_ampm($field, $value)
