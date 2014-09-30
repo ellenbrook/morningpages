@@ -1,0 +1,20 @@
+input.modal-login {
+  @include border-left-radius(0);
+  margin-top: 0;
+  border-left: none;
+  width: calc(100% - 2em);
+  height: 2.5em;
+  float: left;
+}
+
+span.modal-login-icon {
+  @include border-left-radius(3px);
+  border: 1px solid #ccc;
+  width: 2em;
+  height: 2.5em;
+  text-align: center;
+  line-height: 2.5em;
+  float: left;
+  background-color: darken(#fff, 5);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+}

@@ -45,10 +45,12 @@
 						    	<div class="modal-left">	 
 						    	 <form role="form" method="post" action="<?php echo user::url('login'); ?>">
 									<div class="form-group">
-										<input type="text" class="form-control" name="email" value="<?php echo arr::get($_POST, 'email',''); ?>" placeholder="Email or Username" />
+										<span class="modal-login-icon fa fa-user"></span>
+										<input type="text" class="form-control modal-login" name="email" value="<?php echo arr::get($_POST, 'email',''); ?>" placeholder="Email or Username" />
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control" value="" name="password" placeholder="Password" />
+										<span class="modal-login-icon fa fa-lock"></span>
+										<input type="password" class="form-control modal-login" value="" name="password" placeholder="Password" />
 									</div>
 									<div class="form-group">
 										<button type="submit">Sign In</button>
@@ -89,16 +91,20 @@
 						    	<div class="modal-left">	 
 						    	 <form role="form" method="post" action="<?php echo user::url('user/signup'); ?>">
 									<div class="form-group">
-										<input type="text" class="form-control" name="email" value="<?php echo arr::get($_POST, 'email',''); ?>" placeholder="E-mail" />
+										<span class="modal-login-icon fa fa-envelope"></span>
+										<input type="text" class="form-control modal-login" name="email" value="<?php echo arr::get($_POST, 'email',''); ?>" placeholder="E-mail" />
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" name="username" value="<?php echo arr::get($_POST, 'username',''); ?>" placeholder="Username" />
+										<span class="modal-login-icon fa fa-user modal-login"></span>
+										<input type="text" class="form-control modal-login" name="username" value="<?php echo arr::get($_POST, 'username',''); ?>" placeholder="Username" />
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control" value="" name="password" placeholder="Password" />
+										<span class="modal-login-icon fa fa-lock"></span>
+										<input type="password" class="form-control modal-login" value="" name="password" placeholder="Password" />
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control" value="" name="password_confirm" placeholder="Password Confirm" />
+										<span class="modal-login-icon fa fa-lock"></span>
+										<input type="password" class="form-control modal-login" value="" name="password_confirm" placeholder="Password Confirm" />
 									</div>
 									<div class="form-group">
 										<button type="submit">Register</button>

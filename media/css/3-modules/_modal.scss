@@ -1,3 +1,8 @@
+.form-group {
+  display: block;
+  overflow: hidden;
+}
+
 .modal {
   $modal-padding: 3em;
   $modal-background: $base-background-color;
@@ -20,7 +25,7 @@
   input[type="checkbox"] {
     display: none;
   }
-
+  
   .btn {
     @extend a;
     // height: 30px;
@@ -155,6 +160,7 @@
       }
     }
   }
+
   .modal-left {
     float: left;
     width: 50%;
@@ -189,4 +195,4 @@
   }
 }
 
-// Based on code by Kasper Mikiewicz
+// For specialized inputs see _special-inputs.scss
