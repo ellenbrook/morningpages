@@ -32,21 +32,23 @@
 				<?php if($talk->hot()): ?>
 					<div class="ribbon-wrapper"><div class="ribbon">Popular</div></div>
 				<?php endif; ?>
-				<div class="card-header">
-					<?php echo $talk->title; ?>
+				<div class="card-icon">
+					<?php echo HTML::image($talk->user->gravatar('100')); ?>
+								<span><?php echo $talk->username(); ?></span>
 				</div>
-				<div class="card-copy">
-					<?php echo $talk->excerpt(); ?>
-				</div>
-				<div class="card-stats">
-					<ul>
-						<li>
-							<?php echo HTML::image($talk->user->gravatar('18')); ?>
-							<span><?php echo $talk->username(); ?></span>
-						</li>
-						<li><?php echo $replies; ?><span><?php echo ($replies==1?'Reply':'Replies'); ?></span></li>
-						<li><?php echo $views; ?><span>View<?php echo ($views==1?'':'s'); ?></span></li>
-					</ul>
+				<div class="card-content">
+					<div class="card-header">
+						<?php echo $talk->title; ?>
+					</div>
+					<div class="card-copy">
+						<?php echo $talk->excerpt(); ?>
+					</div> 
+					<div class="card-stats">
+						<ul>
+							<li><?php echo $views; ?><span>View<?php echo ($views==1?'':'s'); ?></span></li>
+							<li><?php echo $replies; ?><span><?php echo ($replies==1?'Reply':'Replies'); ?></span></li>
+						</ul>
+					</div>
 				</div>
 			</a>
 <?php
@@ -64,7 +66,7 @@
 <?php
 	}
 ?>
-</div>
+</div> <!-- end cards -->
 
 <?php if(user::logged()): ?>
 	<div class="talk-action">

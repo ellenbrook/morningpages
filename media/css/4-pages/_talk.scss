@@ -2,6 +2,14 @@
 {
 	margin-top:50px;
 	
+	label {
+		@include position(absolute, -999em -9999em null null);
+	}
+	
+	textarea {
+		margin-top: 1em;
+	}
+	
 	select
 	{
 		width:100%;

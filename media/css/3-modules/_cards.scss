@@ -11,6 +11,7 @@
   $card-image-background: #DBD199;
   $card-image-hover-background: lighten($card-image-background, 5);
   $card-stats-color: lighten($base-accent-color, 10);
+  $comment-background: lighten($base-accent-color, 15);
 
   @include transition (all 0.2s ease-in-out);
   background-color: $card-background;
@@ -22,13 +23,13 @@
   position: relative;
 
   @include media($large-screen) {
-    @include span-columns(4);  
-    @include omega(3n);
+    @include span-columns(12);  
   }
 
   .card-image {
     overflow: hidden;
     max-height: 150px;
+    text-align: center;
 
     img {
       width: 100%;
@@ -64,8 +65,30 @@
     }
   }
 
+  .card-icon {
+    @include span-columns(2);
+    padding: 10px;
+    text-align: center;
+
+      > img {
+        width: 100px;
+        height: auto;
+        margin: 0 auto 1em;
+        border-radius: 50%;
+        padding: 2px;
+        background: $comment-background;
+        display: block;
+        max-width: none;
+      }
+  }
+
+  .card-content {
+    @include span-columns(10);
+  }
+
   .card-header {
     @include transition (all 0.2s ease-in-out);
+    @include span-columns(10 of 10);
     background-color: $card-header-background;
     border-bottom: $card-border;
     border-radius: $base-border-radius $base-border-radius 0 0;
@@ -76,6 +99,7 @@
   }
 
   .card-copy {
+    @include span-columns(8 of 10);
     padding: $base-spacing/2 $gutter/2;
     font-size: .9em;
     line-height: 1.5em;
@@ -83,6 +107,8 @@
   }
 
   .card-stats {
+    @include span-columns(2 of 10);
+    margin-top: 3em;
     padding: $base-spacing/2 $gutter/2;
     overflow: auto;
 
