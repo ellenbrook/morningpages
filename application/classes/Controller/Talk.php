@@ -31,15 +31,31 @@ class Controller_Talk extends Controller_Project {
 		}
 		
 		$talks = ORM::factory('Talk');
+		$counter = ORM::factory('Talk');
 		if($tag && $tag->loaded())
 		{
 			$talks = $talks->where('talktag_id','=',$tag->id);
+			$counter = $counter->where('talktag_id','=',$tag->id);
+		}
+		$limit = 2;
+		$numtalks = $counter->count_all();
+		
+		$numpages = ceil($numtalks/$limit);
+		$page = (int)arr::get($_GET, 'page',0);
+		
+		$talks = $talks->limit($limit);
+		if($page-1 > 0)
+		{
+			$talks = $talks->offset($limit*($page-1));
 		}
 		$talks = $talks->find_all();
+		
 		$this->bind('tag', $tag);
 		$this->bind('errors', $errors);
 		$this->bind('tags', ORM::factory('Talktag')->find_all());
 		$this->bind('talks',$talks);
+		$this->bind('numpages', $numpages);
+		$this->bind('currentpage', $page);
 	}
 	
 	public function action_talknotfound()
