@@ -2,6 +2,8 @@
 
 class Controller_Talk extends Controller_Project {
 	
+	private $pagination_limit = 2;
+	
 	public function action_index()
 	{
 		$tag = $this->request->param('tag');
@@ -37,11 +39,19 @@ class Controller_Talk extends Controller_Project {
 			$talks = $talks->where('talktag_id','=',$tag->id);
 			$counter = $counter->where('talktag_id','=',$tag->id);
 		}
-		$limit = 2;
+		$limit = $this->pagination_limit;
 		$numtalks = $counter->count_all();
 		
 		$numpages = ceil($numtalks/$limit);
 		$page = (int)arr::get($_GET, 'page',0);
+		if($page < 1)
+		{
+			$page = 1;
+		}
+		if($page > $numpages)
+		{
+			$page = $numpages;
+		}
 		
 		$talks = $talks->limit($limit);
 		if($page-1 > 0)
@@ -103,11 +113,35 @@ class Controller_Talk extends Controller_Project {
 				$errors = $e->errors();
 			}
 		}
+		$replies = $talk->replies;
+		$counter = $talk->replies;
+		$limit = $this->pagination_limit;
+		$numreplies = $counter->count_all();
+		
+		$numpages = ceil($numreplies/$limit);
+		$page = (int)arr::get($_GET, 'page',0);
+		if($page < 1)
+		{
+			$page = 1;
+		}
+		if($page > $numpages)
+		{
+			$page = $numpages;
+		}
+		
+		$replies = $replies->limit($limit);
+		if($page-1 > 0)
+		{
+			$replies = $replies->offset($limit*($page-1));
+		}
+		$replies = $replies->find_all();
 		
 		$this->bind('tag', $tag);
 		$this->bind('talk', $talk);
-		$this->bind('replies', $talk->replies->find_all());
+		$this->bind('replies', $replies);
 		$this->bind('tags', ORM::factory('Talktag')->find_all());
+		$this->bind('numpages', $numpages);
+		$this->bind('currentpage', $page);
 	}
 
 }

@@ -88,13 +88,18 @@ if($numpages > 1)
 		{
 			$prevurl = $url.'?page='.$prevnum;
 		}
-		echo '<li class="page-prev"><a href="'.(URL::site($url)).'">Prev</a></li>';
+		echo '<li class="page-prev"><a href="'.(URL::site($prevurl)).'">Prev</a></li>';
 	}
 	echo '<li>';
 	echo '<ul>';
 	for($i=1;$i<=$numpages;$i++)
 	{
-		echo '<li class="'.($currentpage==$i?'active':'').'"><a href="'.URL::site($url.'?page='.$i).'">'.$i.'</a></li>';
+		$iurl = $url.'?page='.$i;
+		if($i==1)
+		{
+			$iurl = $url;
+		}
+		echo '<li class="'.($currentpage==$i?'active':'').'"><a href="'.URL::site($iurl).'">'.$i.'</a></li>';
 	}
 	if($currentpage < $numpages)
 	{
