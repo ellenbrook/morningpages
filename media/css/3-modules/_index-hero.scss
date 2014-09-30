@@ -6,12 +6,11 @@
   $hero-image: '/media/img/heroes/hero-1.jpg';
 
   @include background(url($hero-image), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
-
+  position: relative;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 4em 0;
-  min-height: 700px;
+  min-height: calc(100% - 88px);
 
   .hero-logo img {
     height: 3em;
@@ -21,46 +20,48 @@
   .hero-inner {
     @include outer-container;
     @include clearfix;
-    padding: 3em;
     margin: auto;
     text-align: center;
     color: $hero-color;
     text-shadow: 1px 1px 1px #333;
+    @include position(absolute, 50% null null 50%);
+    transform: translate(-50%, -50%);
 
     .cta-button {
+      @include linear-gradient($good-color, $good-color-hover);
       border-top: 1px solid shade($good-color, 10%);
-      background: #65a9d7;
-      background: -webkit-gradient(linear, left top, left bottom, from($good-color), to($good-color-hover));
-      background: -webkit-linear-gradient(top, $good-color, $good-color-hover);
-      background: -moz-linear-gradient(top, $good-color, $good-color-hover);
-      background: -ms-linear-gradient(top, $good-color, $good-color-hover);
-      background: -o-linear-gradient(top, $good-color, $good-color-hover);
       padding: 20px 40px;
       border-radius: 8px;
       box-shadow: shade($good-color, 30%) 0 1px 0;
       text-shadow: rgba(0,0,0,.4) 0 1px 0;
-      color: white;
-      font-size: 24px;
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 0;
       text-decoration: none;
       vertical-align: middle;
+      
+      @include media($large-screen) {
+        font-size: 24px;
+      }
 
       &:hover {
-      border-top-color: #28597a;
-      background: #28597a;
+        @include linear-gradient(shade($good-color, 10%), shade($good-color-hover, 10%));
+        border-top-color: shade($good-color, 10%);
       }
-      &:active {
-      border-top-color: #1b435e;
-      background: #1b435e;
-      }
-    }
 
-    .subtext {
-      margin-top: 1em;
+      &:active {
+        @include linear-gradient(shade($good-color, 20%), shade($good-color-hover, 20%));
+        border-top-color: shade($good-color, 20%);
+      }
     }
 
     .hero-copy {
       text-align: center;
       
+      .subtext {
+        font-size: .77em;
+      }
+
       h2 {
         font-size: 1.8em;
         margin-bottom: .5em;
@@ -79,7 +80,17 @@
 
         @include media($large-screen) {
           font-size: 1.5em;
-          max-width: 70%;
+          max-width: 100%;
+        }
+      }
+
+      .cta-p {
+        margin-bottom: 2em;
+        font-family: $sans-serif;
+
+        @include media($large-screen) {
+          font-size: 1.5em;
+          max-width: 100%;
         }
       }
     }

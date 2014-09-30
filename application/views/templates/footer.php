@@ -2,7 +2,7 @@
  <div class="container">
   <div class="footer-links">
     <ul>
-      <li><h3>Site</h3></li>
+      <li><h3>Navigation</h3></li>
       <li><a href="/#about" title="About Morning Pages">About</a></li>
        <li><a href="<?php echo URL::site('write'); ?>" title="Write">Write</a></li>
       <li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
@@ -22,6 +22,6 @@
 
   <hr>
 
-  <p>Disclaimer area lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, nostrum repudiandae saepe.</p>
+  <p>We take privacy very seriously. If you have specific questions, please don't hesitate to ask about them on <a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">our forum</a>.</p>
  </div>
 </footer>

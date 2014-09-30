@@ -133,16 +133,14 @@
 		</div>
 	</header>
 
-<section class="hero">
+<section class="hero full-height">
 	<div class="hero-inner">
-		<div class="container">
 			<div class="hero-copy">
 				<h2>Welcome to Morning Pages</h2>
 				<p>You never know when you’ll find the time. You can’t predict when the mood will strike. That’s why we’re here.</p>	
-			</div>
-	    	<p><a href="<?php echo URL::site('write'); ?>" class="cta-button">Begin Writing</a></p>
-	    	<p class="subtext">(No registration required)</p>
-		</div>
+	    	<p class="cta-p"><a href="<?php echo URL::site('write'); ?>" class="cta-button">Begin Writing</a></p>
+	    	<p class="subtext">(No registration required)</p> 
+	    	</div>
 	</div>
 </section>
 
