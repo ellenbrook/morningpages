@@ -61,6 +61,46 @@
 
 </ul>
 
+<?php
+
+if($numpages > 1)
+{
+	echo '<div class="pagination">';
+	echo '<ul>';
+	$url = $url = $talk->url();
+	if($currentpage > 1)
+	{
+		$prevnum = $currentpage - 1;
+		$prevurl = $url;
+		if($prevnum > 1)
+		{
+			$prevurl = $url.'?page='.$prevnum;
+		}
+		echo '<li class="page-prev"><a href="'.(URL::site($prevurl)).'">Prev</a></li>';
+	}
+	echo '<li>';
+	echo '<ul>';
+	for($i=1;$i<=$numpages;$i++)
+	{
+		$iurl = $url.'?page='.$i;
+		if($i==1)
+		{
+			$iurl = $url;
+		}
+		echo '<li class="'.($currentpage==$i?'active':'').'"><a href="'.URL::site($iurl).'">'.$i.'</a></li>';
+	}
+	if($currentpage < $numpages)
+	{
+		echo '<li class="page-next"><a href="'.URL::site($url.'?page='.($currentpage+1)).'">Next</a></li>';
+	}
+	echo '</ul>';
+	echo '</li>';
+	echo '</ul>';
+	echo '</div>';
+}
+
+?>
+
 <?php if(user::logged()): ?>
 	<div class="talk-action">
 		<form action="<?php echo URL::site($talk->url()); ?>" method="post">
