@@ -73,4 +73,9 @@
 	    display: inline-block;
 	  }
 	}
+
+	@include media-query($small-screen) {
+      padding: 1.5em 10px;
+      min-width: 100%;
+    }
 }

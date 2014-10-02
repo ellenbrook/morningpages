@@ -13,6 +13,10 @@
 		background-position: left center;
 		background-size: contain;
 
+		@include media-query($small-screen) {
+			margin-left: 10px;
+	  	}
+
 		a {
 			color: $light-color;
 		}
@@ -30,6 +34,9 @@
 
 		a {
 			color: $light-color;
+		}
+		@include media-query($small-screen) {
+		  display: none;
 		}
 	}
 }
@@ -72,5 +79,9 @@
 		@include span-columns(8);
 		@include omega();
 		overflow: hidden;
+
+		@include media-query($small-screen) {
+		  display: none;
+		}
 	}
 }
