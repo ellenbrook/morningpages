@@ -160,7 +160,7 @@
     </div>
     <div class="bullet-content">
       <h2>Write</h2>
-      <p>The idea is simple. Write three pages per day about any topic that comes to mind. This is not blogging. This is for you and you alone. Write without thinking. Write for no one but you. A little bit more text right here to fill in the space.</p>
+      <p>The idea is simple. Write three pages of stream of consciousness thought per day. Don't worry, your morning pages are always private so write anything you'd like.</p>
       </div>
   </li> 
    <li class="bullet three-col-bullet">
@@ -169,16 +169,16 @@
     </div>
     <div class="bullet-content">
       <h2>Discover yourself</h2>
-      <p>Of course the biggest reward that is an outcome of writing your Morning Pages is  you learn about yourself. You learn what is on your mind, what is bothering you, and what your goals are. There's no better reward than that.</p>
+      <p>You'll start to notice patterns and common topics. Use your writing as a cue make changes in your life or even as a worry-free way to blow off some steam.</p>
     </div>
   </li>  
   <li class="bullet three-col-bullet">
     <div class="bullet-icon bullet-icon-2">
-       <p><span class="fa fa-shield"></span></p>
+       <p><span class="fa fa-thumbs-up"></span></p>
     </div>
     <div class="bullet-content">
       <h2>Have fun</h2>
-      <p>As you write and use the site like normal you'll be rewarded for completing streaks, being a member, and other fun and exciting examples. Focus on the writing but have fun with the badges. Ugly text. More text to fill the gaps!</p>
+      <p>No matter the reason writing your morning pages will help you unlock badges, stats, and even win contests. So grab your cup of coffee and start writing today!</p>
     </div>
   </li>
 </ul>

@@ -11,7 +11,7 @@
     <ul>
       <li><h3>Follow Us</h3></li>
       <li><a href="https://www.facebook.com/morningpages" target="_blank">Facebook</a></li>
-      <li><a href="javascript:void(0)">Twitter</a></li>
+      <li><a href="https://twitter.com/morningpagesnet">Twitter</a></li>
     </ul>
     <ul>
       <li><h3>Legal</h3></li>

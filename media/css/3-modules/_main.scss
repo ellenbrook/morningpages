@@ -14,7 +14,11 @@
 		float: right;
 	}
 
-	textarea:not(:focus) {
+	textarea#morningpage-content {
+		resize: none;
+	}
+
+	textarea#morningpage-content:not(:focus) {
 		border: 1px solid shade($light-color, 10%);
 	}
 }
