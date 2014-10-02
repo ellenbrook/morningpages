@@ -27,10 +27,20 @@
     @include position(absolute, 50% null null 50%);
     transform: translate(-50%, -50%);
 
-    @include media-query($tiny-screen) {
-      padding: 0 10px;
-      min-width: 100%;
+    @include media-query($small-screen) {
+        position: relative;
+        top: 0; left: 0;
+        transform: none;
+        padding: 4em 10px;
     }
+
+    @include media-query($tiny-screen) {
+        position: relative;
+        top: 0; left: 0;
+        transform: none;
+        padding: 2em 10px;
+    }
+
 
     .cta-button {
       @include linear-gradient($good-color, $good-color-hover);
@@ -46,8 +56,11 @@
       vertical-align: middle;
       
       @include media-query($small-screen) {
-        font-size: 14px;
-        padding: 10px 20px;
+        font-size: 18px;
+      }
+
+      @include media-query($tiny-screen) {
+        padding: 15px 30px;
       }
       
       &:hover {
@@ -77,12 +90,16 @@
       p {
         font-family: $serif;
         margin: auto;
-        margin-bottom: 3em; 
+        margin-bottom: 1em;
         font-weight: 200;
         line-height: 1.5em;
+        font-size: 1.5em;
+
+        @include media($small-screen) {
+          margin-bottom: 3em;
+        }
 
         @include media($large-screen) {
-          font-size: 1.5em;
           max-width: 100%;
         }
       }
@@ -92,13 +109,5 @@
         font-family: $sans-serif;
       }
     }
-  }
-  @include media-query($small-screen) {
-      min-width: 100%;
-      min-height: calc(100% * 1.5);
-  }
-    @include media-query($tiny-screen) {
-      min-width: 100%;
-      min-height: calc(100% - 88px);
   }
 }
