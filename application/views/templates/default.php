@@ -22,9 +22,9 @@
 <body class="<?php echo $theme; ?>">
 <header id="header" class="site-header">
 		<div class="container">
-			<h1 class="logo pull-left">
-				<a href="<?php echo URL::site(); ?>" title="Morning pages">Morning Pages</a>
-			</h1>
+			<a href="<?php echo URL::site(); ?>" title="Morning pages"><h1 class="logo pull-left">
+				Morning Pages
+			</h1></a>
 			<nav class="default">
 				<ul>
 					<li><a href="<?php echo URL::site('write'); ?>" title="Write" class="btn btn-default<?php echo ($controller=='Page'?' active':''); ?>">Write</a></li>

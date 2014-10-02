@@ -5,6 +5,13 @@
 
 	.logo {
 		@include span-columns(6);
+		text-indent: -999em;
+		width: 236px;
+		height: 56px;
+		// margin-top: 10px;
+		background: url('/media/img/logo.png') no-repeat;
+		background-position: left center;
+		background-size: contain;
 
 		a {
 			color: $light-color;
@@ -32,7 +39,14 @@
 	@extend .index-header;
 
 	.logo {
-		@include span-columns(4);
+		@include span-columns(6);
+		text-indent: -999em;
+		width: 236px;
+		height: 56px;
+		// margin-top: 10px;
+		background: url('/media/img/logo.png') no-repeat;
+		background-position: left center;
+		background-size: contain;
 
 		a {
 			color: $light-color;
