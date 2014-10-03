@@ -137,6 +137,11 @@
 			<?php endif; ?>
 				</ul>
 			</nav>
+			<div class="hamburger-container">
+			  <div class="hamburger-line"></div>
+			  <div class="hamburger-line"></div>
+			  <div class="hamburger-line"></div>
+			</div>
 		</div>
 	</header>
 

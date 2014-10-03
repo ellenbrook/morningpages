@@ -129,6 +129,11 @@
 			<?php endif; ?>
 				</ul>
 			</nav>
+			<div class="hamburger-container">
+			  <div class="hamburger-line"></div>
+			  <div class="hamburger-line"></div>
+			  <div class="hamburger-line"></div>
+			</div>
 			<div id="user-options-triangle" class="triangle pull-right"></div>
 		</div>
 	</header>
