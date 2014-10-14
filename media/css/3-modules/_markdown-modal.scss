@@ -1,0 +1,32 @@
+.md-group {
+  width: 100%;
+  ul > li {
+    display: block;
+  }
+  
+  p.md-inline {
+    display: inline;
+
+    &:nth-child(2n+1):before {
+      content: " ";
+      display: block;
+    }
+  }
+
+  .psuedo-h1 {
+    font-size: 2.25em;
+  }
+
+  .psuedo-h2 {
+    font-size: 2em;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .italic {
+    font-style: italic;
+  }
+
+}

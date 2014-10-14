@@ -22,9 +22,10 @@
 <body class="<?php echo $theme; ?>">
 	<header id="header" class="index-header">
 		<div class="container">
-			<h1 class="logo pull-left">
-				<a href="<?php echo URL::site(); ?>" title="Morning pages">Morning Pages</a>
-			</h1>
+			<a href="<?php echo URL::site(); ?>" title="Morning pages">
+				<h1 class="logo pull-left">
+				Morning Pages
+			</h1></a>
 			<nav class="frontpage">
 				<ul>
 					<li><a href="#about">About</a></li>
@@ -45,10 +46,12 @@
 						    	<div class="modal-left">	 
 						    	 <form role="form" method="post" action="<?php echo user::url('login'); ?>">
 									<div class="form-group">
-										<input type="text" class="form-control" name="email" value="<?php echo arr::get($_POST, 'email',''); ?>" placeholder="Email or Username" />
+										<span class="modal-login-icon fa fa-user"></span>
+										<input type="text" class="form-control modal-login" name="email" value="<?php echo arr::get($_POST, 'email',''); ?>" placeholder="Email or Username" />
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control" value="" name="password" placeholder="Password" />
+										<span class="modal-login-icon fa fa-lock"></span>
+										<input type="password" class="form-control modal-login" value="" name="password" placeholder="Password" />
 									</div>
 									<div class="form-group">
 										<button type="submit">Sign In</button>
@@ -89,16 +92,20 @@
 						    	<div class="modal-left">	 
 						    	 <form role="form" method="post" action="<?php echo user::url('user/signup'); ?>">
 									<div class="form-group">
-										<input type="text" class="form-control" name="email" value="<?php echo arr::get($_POST, 'email',''); ?>" placeholder="E-mail" />
+										<span class="modal-login-icon fa fa-envelope"></span>
+										<input type="text" class="form-control modal-login" name="email" value="<?php echo arr::get($_POST, 'email',''); ?>" placeholder="E-mail" />
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" name="username" value="<?php echo arr::get($_POST, 'username',''); ?>" placeholder="Username" />
+										<span class="modal-login-icon fa fa-user modal-login"></span>
+										<input type="text" class="form-control modal-login" name="username" value="<?php echo arr::get($_POST, 'username',''); ?>" placeholder="Username" />
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control" value="" name="password" placeholder="Password" />
+										<span class="modal-login-icon fa fa-lock"></span>
+										<input type="password" class="form-control modal-login" value="" name="password" placeholder="Password" />
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control" value="" name="password_confirm" placeholder="Password Confirm" />
+										<span class="modal-login-icon fa fa-lock"></span>
+										<input type="password" class="form-control modal-login" value="" name="password_confirm" placeholder="Password Confirm" />
 									</div>
 									<div class="form-group">
 										<button type="submit">Register</button>
@@ -130,6 +137,11 @@
 			<?php endif; ?>
 				</ul>
 			</nav>
+			<div class="hamburger-container">
+			  <div class="hamburger-line"></div>
+			  <div class="hamburger-line"></div>
+			  <div class="hamburger-line"></div>
+			</div>
 		</div>
 	</header>
 
@@ -153,7 +165,7 @@
     </div>
     <div class="bullet-content">
       <h2>Write</h2>
-      <p>The idea is simple. Write three pages per day about any topic that comes to mind. This is not blogging. This is for you and you alone. Write without thinking. Write for no one but you. A little bit more text right here to fill in the space.</p>
+      <p>The idea is simple. Write three pages of stream of consciousness thought per day. Don't worry, your morning pages are always private so write anything you'd like.</p>
       </div>
   </li> 
    <li class="bullet three-col-bullet">
@@ -162,16 +174,16 @@
     </div>
     <div class="bullet-content">
       <h2>Discover yourself</h2>
-      <p>Of course the biggest reward that is an outcome of writing your Morning Pages is  you learn about yourself. You learn what is on your mind, what is bothering you, and what your goals are. There's no better reward than that.</p>
+      <p>You'll start to notice patterns and common topics. Use your writing as a cue make changes in your life or even as a worry-free way to blow off some steam.</p>
     </div>
   </li>  
   <li class="bullet three-col-bullet">
     <div class="bullet-icon bullet-icon-2">
-       <p><span class="fa fa-shield"></span></p>
+       <p><span class="fa fa-thumbs-up"></span></p>
     </div>
     <div class="bullet-content">
       <h2>Have fun</h2>
-      <p>As you write and use the site like normal you'll be rewarded for completing streaks, being a member, and other fun and exciting examples. Focus on the writing but have fun with the badges. Ugly text. More text to fill the gaps!</p>
+      <p>No matter the reason writing your morning pages will help you unlock badges, stats, and even win contests. So grab your cup of coffee and start writing today!</p>
     </div>
   </li>
 </ul>

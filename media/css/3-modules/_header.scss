@@ -5,6 +5,17 @@
 
 	.logo {
 		@include span-columns(6);
+		text-indent: -999em;
+		width: 236px;
+		height: 56px;
+		// margin-top: 10px;
+		background: url('/media/img/logo.png') no-repeat;
+		background-position: left center;
+		background-size: contain;
+
+		@include media-query($small-screen) {
+			margin-left: 10px;
+	  	}
 
 		a {
 			color: $light-color;
@@ -24,6 +35,9 @@
 		a {
 			color: $light-color;
 		}
+		@include media-query($small-screen) {
+		  display: none;
+		}
 	}
 }
 
@@ -32,7 +46,14 @@
 	@extend .index-header;
 
 	.logo {
-		@include span-columns(4);
+		@include span-columns(6);
+		text-indent: -999em;
+		width: 236px;
+		height: 56px;
+		// margin-top: 10px;
+		background: url('/media/img/logo.png') no-repeat;
+		background-position: left center;
+		background-size: contain;
 
 		a {
 			color: $light-color;
@@ -58,5 +79,9 @@
 		@include span-columns(8);
 		@include omega();
 		overflow: hidden;
+
+		@include media-query($small-screen) {
+		  display: none;
+		}
 	}
 }

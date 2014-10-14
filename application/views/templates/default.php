@@ -22,9 +22,9 @@
 <body class="<?php echo $theme; ?>">
 <header id="header" class="site-header">
 		<div class="container">
-			<h1 class="logo pull-left">
-				<a href="<?php echo URL::site(); ?>" title="Morning pages">Morning Pages</a>
-			</h1>
+			<a href="<?php echo URL::site(); ?>" title="Morning pages"><h1 class="logo pull-left">
+				Morning Pages
+			</h1></a>
 			<nav class="default">
 				<ul>
 					<li><a href="<?php echo URL::site('write'); ?>" title="Write" class="btn btn-default<?php echo ($controller=='Page'?' active':''); ?>">Write</a></li>
@@ -129,6 +129,11 @@
 			<?php endif; ?>
 				</ul>
 			</nav>
+			<div class="hamburger-container">
+			  <div class="hamburger-line"></div>
+			  <div class="hamburger-line"></div>
+			  <div class="hamburger-line"></div>
+			</div>
 			<div id="user-options-triangle" class="triangle pull-right"></div>
 		</div>
 	</header>
@@ -201,13 +206,14 @@
 								<label class="modal-close" for="tips-tricks"></label>
 								<h3>Tips and tricks</h3>
 								<dl>
-									<dt>Ctrl/Cmd + Spacebar</dt>
-									<dd>We take privacy very seriously. Use this shortcut if you're in the middle of writing and somebody walks into the room, begins to peer over your shoulder, or tries to see what you're writing. This will bring up the text from a random Wikipedia article.</dd>
+									<dt>Ctrl + Spacebar (both Mac and PC)</dt>
+									<dd>We take privacy very seriously. Use this shortcut if you're in the middle of writing and somebody walks into the room, begins to peer over your shoulder, or tries to see what you're writing. This replaces the text you've written with the text from a random Wikipedia article.</dd>
 					
 									<dt>Markdown</dt>
 									<dd>What is markdown? Markdown is simply a text-formatting syntax used to format text on the web without having to worry about HTML. Think of it as an easy and natural way to to format your text without the need of using learning code.</dd>
-									<dd>Although the idea behind Morning Pages is stream of consciousness thoughts, sometimes those thoughts would be better off with a bit of organization and that's where Markdown comes in handy.</dd>
-									<dd>For an in-depth listing of all of Markdown's features, check out <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="nofollow">Markdown Syntax Basics</a>.</dd>
+
+									<dt>Markdown Basics</dt>
+									<dd>For an in-depth listing of all of Markdown's features, check out <a href="#" rel="nofollow">our forum post</a>.</dd>
 									</dd>
 								</dl>
 								</div>
