@@ -23,7 +23,7 @@ class Model_Page extends ORM {
 	
 	public function markdown($text)
 	{
-		return Markdown::instance()->transform($text);
+		return markdown::instance()->convert($text);
 	}
 	
 	public function encrypt_content($content)

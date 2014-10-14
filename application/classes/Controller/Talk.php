@@ -2,7 +2,7 @@
 
 class Controller_Talk extends Controller_Project {
 	
-	private $pagination_limit = 2;
+	private $pagination_limit = 200;
 	
 	public function action_index()
 	{

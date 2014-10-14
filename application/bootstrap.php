@@ -131,7 +131,7 @@ Kohana::modules(array(
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
 	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
 	'htmlpurifier'	=> MODPATH.'htmlpurifier',
-	'markdown'		=> MODPATH.'markdown'
+	//'markdown'		=> MODPATH.'markdown'
 	));
 
 Cookie::$salt = Kohana::$config->load('secrets')->get('cookiesalt');

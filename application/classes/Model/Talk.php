@@ -21,7 +21,7 @@ class Model_Talk extends ORM {
 	
 	public function markdown($text)
 	{
-		return Markdown::instance()->transform($text);
+		return markdown::instance()->convert($text);
 	}
 	
 	public function content()

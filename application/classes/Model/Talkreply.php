@@ -14,6 +14,10 @@ class Model_Talkreply extends ORM {
 		);
 	}
 	
+	protected $sorting = array(
+		'created' => 'ASC'
+	);
+	
 	public function filters()
 	{
 		return array(
@@ -31,7 +35,7 @@ class Model_Talkreply extends ORM {
 	
 	public function markdown($text)
 	{
-		return Markdown::instance()->transform($text);
+		return markdown::instance()->convert($text);
 	}
 	
 	public function content()
