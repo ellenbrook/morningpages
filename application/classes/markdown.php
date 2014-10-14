@@ -80,6 +80,7 @@ class markdown extends Parsedown {
                 'name' => 'img',
                 'attributes' => array(
                     'alt' => $Link['text'],
+                    'class' => '',
                     'src' => $url,
                 ),
             );

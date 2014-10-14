@@ -11,6 +11,10 @@ class Model_Talk extends ORM {
 		'replies' => array('model' => 'Talkreply')
 	);
 	
+	protected $_sorting = array(
+		'created' => 'DESC'
+	);
+	
 	public function labels()
 	{
 		return array(

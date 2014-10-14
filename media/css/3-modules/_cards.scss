@@ -18,9 +18,9 @@
   border-radius: $base-border-radius;
   border: $card-border;
   margin-bottom: $base-spacing;
-  cursor: pointer;
   box-shadow: 0 2px 4px darken($base-background-color, 10);
   position: relative;
+
 
   @include media($large-screen) {
     @include span-columns(12);  

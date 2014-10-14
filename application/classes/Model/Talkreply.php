@@ -14,7 +14,7 @@ class Model_Talkreply extends ORM {
 		);
 	}
 	
-	protected $sorting = array(
+	protected $_sorting = array(
 		'created' => 'ASC'
 	);
 	

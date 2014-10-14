@@ -28,29 +28,30 @@
 			$replies = $talk->replies->count_all();
 			$views = $talk->views;
 ?>
-			<a href="<?php echo URL::site($talk->url()); ?>" class="card">
+			<div class="card">
 				<?php if($talk->hot()): ?>
 					<div class="ribbon-wrapper"><div class="ribbon">Popular</div></div>
 				<?php endif; ?>
 				<div class="card-icon">
 					<?php echo HTML::image($talk->user->gravatar('100')); ?>
-								<span><?php echo $talk->username(); ?></span>
+					<span><?php echo $talk->username(); ?></span>
 				</div>
 				<div class="card-content">
 					<div class="card-header">
-						<?php echo $talk->title; ?>
+						<a href="<?php echo URL::site($talk->url()); ?>"><?php echo $talk->title; ?></a>
 					</div>
 					<div class="card-copy">
 						<?php echo $talk->excerpt(); ?>
 					</div> 
 					<div class="card-stats">
 						<ul>
+							<li><?php echo date('d/m/Y h:i:s', $talk->created); ?></li>
 							<li><?php echo $views; ?><span>View<?php echo ($views==1?'':'s'); ?></span></li>
 							<li><?php echo $replies; ?><span><?php echo ($replies==1?'Reply':'Replies'); ?></span></li>
 						</ul>
 					</div>
 				</div>
-			</a>
+			</div>
 <?php
 		}
 	}
