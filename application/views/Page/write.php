@@ -1,12 +1,6 @@
-<?php
-
-echo markdown::instance()->convert('*hello*');
-
-?>
-
 <article>
 	<?php if(user::logged()): ?>
-	    <div id="dummy-content" class="hidden">
+	    <div id="dummy-content" style="display:none;" class="hidden">
             <?php echo ORM::factory('Dummytext')->order_by(DB::expr('RAND()'))->limit(1)->find()->text(); ?>
         </div>
 		<div id="page-content"class="container">
