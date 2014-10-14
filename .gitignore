@@ -8,5 +8,4 @@ config.codekit
 media/css/*.css
 media/css/*.css.map
 phpmyadmin
-vendor/*
 node_modules/*
