@@ -21,16 +21,23 @@
 </ul>
 
 <ul class="comments">
-	<li class="comment op">
-		<div class="comment-image">
-			<?php echo HTML::image($talk->user->gravatar(75)); ?>
+	<li class="comment">
+		<div class="comment-bio">
+			<?php echo HTML::image($talk->user->gravatar(120)); ?>
+			<p class="comment-detail">
+				<?php echo Date::fuzzy_span($talk->created); ?>
+			</p>
 		</div>
 		<div class="comment-content">
 			<h3><?php echo $talk->title; ?></h3>
 			<?php echo $talk->content(); ?>
-			<p class="comment-detail">
-				<?php echo Date::fuzzy_span($talk->created); ?>
-			</p>
+		</div>
+		<div class="comment-footer">
+			<div class="comment-actions">
+				<button>Comment</button>
+				<button>Reply</button>
+				<button>+1</button>
+			</div>
 		</div>
 	</li>
 <?php
@@ -40,14 +47,21 @@
 		{
 ?>
 			<li class="comment">
-				<div class="comment-image">
-					<?php echo HTML::image($reply->user->gravatar(75)); ?>
-				</div>
-				<div class="comment-content">
-					<?php echo $reply->content(); ?>
+				<div class="comment-bio">
+					<?php echo HTML::image($reply->user->gravatar(100)); ?>
 					<p class="comment-detail">
 						<?php echo Date::fuzzy_span($reply->created); ?>
 					</p>
+				</div>
+				<div class="comment-content">
+					<?php echo $reply->content(); ?>
+				</div>
+				<div class="comment-footer">
+					<div class="comment-actions">
+						<button>Comment</button>
+						<button>Reply</button>
+						<button>+1</button>
+					</div>
 				</div>
 			</li>
 <?php
