@@ -13,10 +13,19 @@ module.exports = function(grunt){
 				files: ['media/css/*.scss', 'media/css/*/*.scss'],
 				tasks: ['sass']
 			}
+		},
+		cssmin: {
+			css:{
+				files:{
+					'media/css/style.min.css':'media/css/style.css'
+				}
+			}
 		}
 	});
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.registerTask('minifycss', ['cssmin']);
 	grunt.registerTask('default', ['sass']);
 	//grunt.registerTask('default', ['watch']);
 };
