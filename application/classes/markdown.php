@@ -93,6 +93,7 @@ class markdown extends Parsedown {
                 'text' => $Link['text'],
                 'attributes' => array(
                     'href' => $url,
+                    'rel' => 'nofollow'
                 ),
             );
         }
@@ -110,7 +111,7 @@ class markdown extends Parsedown {
 	
 	public function convert($content = '')
 	{
-		return $this->text($content);
+		return $this->setBreaksEnabled(true)->text($content);
 	}
 	
 }

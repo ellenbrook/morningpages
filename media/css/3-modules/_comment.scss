@@ -67,6 +67,10 @@
       font-size: .9em;
       color: $comment-detail-color;
     }
+    img {
+    	max-width:300px;
+    	max-height:300px;
+    }
   }
 }
 .comment.op

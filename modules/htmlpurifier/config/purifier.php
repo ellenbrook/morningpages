@@ -4,6 +4,7 @@ return array(
 	'finalize' => TRUE,
 	'preload'  => FALSE,
 	'settings' => array(
+		'Attr.AllowedRel' => array('nofollow')
 		/**
 		 * Use the application cache for HTML Purifier
 		 */

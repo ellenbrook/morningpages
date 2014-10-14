@@ -21,9 +21,6 @@ class Model_Talkreply extends ORM {
 	public function filters()
 	{
 		return array(
-			'content' => array(
-				array('Security::xss_clean', array(':value'))
-			),
 			'talk_id' => array(
 				array('Security::xss_clean', array(':value'))
 			),
@@ -40,7 +37,10 @@ class Model_Talkreply extends ORM {
 	
 	public function content()
 	{
-		return $this->markdown($this->content);
+		$content = $this->content;
+		$content = $this->markdown($content);
+		$content = Security::xss_clean($content);
+		return $content;
 	}
 	
 	public function rules()

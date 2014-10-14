@@ -15,7 +15,7 @@ class Model_Page extends ORM {
 		return array(
 			'content' => array(
 				array('trim'),
-				array('Security::xss_clean', array(':value')),
+				//array('Security::xss_clean', array(':value')),
 				array(array($this, 'encrypt_content'), array(':value')),
 			)
 		);
@@ -43,6 +43,7 @@ class Model_Page extends ORM {
 		$cont = $this->content;
 		$cont = $this->decode($cont);
 		$cont = $this->markdown($cont);
+		$cont = Security::xss_clean($cont);
 		return $cont;
 	}
 	

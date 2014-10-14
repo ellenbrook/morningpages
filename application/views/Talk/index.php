@@ -45,7 +45,6 @@
 					</div> 
 					<div class="card-stats">
 						<ul>
-							<li><?php echo date('d/m/Y h:i:s', $talk->created); ?></li>
 							<li><?php echo $views; ?><span>View<?php echo ($views==1?'':'s'); ?></span></li>
 							<li><?php echo $replies; ?><span><?php echo ($replies==1?'Reply':'Replies'); ?></span></li>
 						</ul>

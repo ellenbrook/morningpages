@@ -2,6 +2,8 @@
 
 class Model_Talk extends ORM {
 	
+	private $hotlimit = 3;
+	
 	protected $_belongs_to = array(
 		'talktag' => array(),
 		'user' => array()
@@ -30,16 +32,16 @@ class Model_Talk extends ORM {
 	
 	public function content()
 	{
-		return $this->markdown($this->content);
+		$content = $this->content;
+		$content = $this->markdown($content);
+		$content = Security::xss_clean($content);
+		return $content;
 	}
 	
 	public function filters()
 	{
 		return array(
 			'title' => array(
-				array('Security::xss_clean', array(':value'))
-			),
-			'content' => array(
 				array('Security::xss_clean', array(':value'))
 			),
 			'talktag_id' => array(
@@ -87,12 +89,15 @@ class Model_Talk extends ORM {
 	
 	public function hot()
 	{
-		return $this->replies->count_all()>3;
+		return $this->replies->count_all()>$this->hotlimit;
 	}
 	
 	public function excerpt()
 	{
-		return substr($this->content, 0, 200).(strlen($this->content)>200?'&hellip;':'');
+		$content = $this->content;
+		$content = Security::xss_clean($content);
+		$content = strip_tags($content);
+		return substr($content, 0, 200).(strlen($content)>200?'&hellip;':'');
 	}
 	
 	public function url()
