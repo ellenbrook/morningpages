@@ -42,6 +42,10 @@
         margin-bottom: .5em;
       }
     }
+    .comment-content.editarea
+    {
+    	display:none;
+    }
 
     .comment-footer {
       @include clearfix;

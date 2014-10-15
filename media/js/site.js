@@ -12,6 +12,12 @@ define([
 			$('body').removeClass().addClass(newclass);
 		});
 		
+		self.scrollTo = function($element){
+			$('body, html').animate({
+				scrollTop:$element.offset().top
+			});
+		};
+		
 		self.say = function(data, type)
 		{
 			if(typeof data == "object")

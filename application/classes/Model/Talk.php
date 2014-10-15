@@ -10,8 +10,7 @@ class Model_Talk extends ORM {
 	);
 	
 	protected $_has_many = array(
-		'replies'	=> array('model' => 'Talkreply'),
-		'votes'		=> array('model' => 'User_Talkvote')
+		'replies'	=> array('model' => 'Talkreply')
 	);
 	
 	protected $_sorting = array(
@@ -28,7 +27,10 @@ class Model_Talk extends ORM {
 	
 	public function votes()
 	{
-		return $this->votes->count_all() + 1;
+		return ORM::factory('User_Talkvote')
+			->where('object_id','=',$this->opid())
+			->where('type','=','talkreply')
+			->count_all();
 	}
 	
 	public function markdown($text)
@@ -36,10 +38,63 @@ class Model_Talk extends ORM {
 		return markdown::instance()->convert($text);
 	}
 	
+	public function getop()
+	{
+		return $this->replies->where('op','=',1)->find();
+	}
+	
+	public function opid()
+	{
+		return $this->getop()->id;
+	}
+	
 	public function content()
 	{
-		$content = $this->content;
-		$content = $this->markdown($content);
+		$op = $this->getop();
+		$content = '';
+		if($op->loaded())
+		{
+			$content = $op->content();
+		}
+		return $content;
+	}
+	
+	public function rawcontent()
+	{
+		$op = $this->replies->where('op','=',1)->find();
+		$content = '';
+		if($op->loaded())
+		{
+			$content = $op->content;
+		}
+		return $content;
+	}
+	
+	public function quote()
+	{
+		$content = $this->rawcontent();
+		$content = Security::xss_clean($content);
+		$content = str_replace("\r\n", "\n", $content);
+		$newcontent = '';
+		$lines = explode("\n", $content);
+		if(is_array($lines))
+		{
+			foreach($lines as $line)
+			{
+				$newcontent .= '> '.$line."\r\n";
+			}
+		}
+		else
+		{
+			// Empty?
+			$newcontent = $content;
+		}
+		return $newcontent;
+	}
+	
+	public function raw()
+	{
+		$content = $this->rawcontent();
 		$content = Security::xss_clean($content);
 		return $content;
 	}
@@ -66,11 +121,6 @@ class Model_Talk extends ORM {
 				array('not_empty'),
 				array('min_length', array(':value', 2)),
 				array('max_length', array(':value', 100)),
-			),
-			'content' => array(
-				array('not_empty'),
-				array('min_length', array(':value', 1)),
-				array('max_length', array(':value', 1000))
 			),
 			'talktag_id' => array(
 				array('not_empty'),
@@ -100,8 +150,7 @@ class Model_Talk extends ORM {
 	
 	public function excerpt()
 	{
-		$content = $this->content;
-		$content = Security::xss_clean($content);
+		$content = $this->content();
 		$content = strip_tags($content);
 		return substr($content, 0, 200).(strlen($content)>200?'&hellip;':'');
 	}
