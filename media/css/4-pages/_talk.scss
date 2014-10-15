@@ -2,7 +2,7 @@
 {
 	margin-top:50px;
 	
-	label {
+	label:not(.error) {
 		@include position(absolute, -9999em null null -9999em);
 	}
 	
