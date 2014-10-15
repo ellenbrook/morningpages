@@ -3,7 +3,7 @@
 	margin-top:50px;
 	
 	label {
-		@include position(absolute, -9999em null -9999em null);
+		@include position(absolute, -9999em null null -9999em);
 	}
 	
 	textarea {
