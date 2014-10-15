@@ -50,13 +50,21 @@
       border-radius: 3px;
       padding: .5em;
       margin-top: 1em;
-
+			
+			.comment-meta {
+				float:left;
+			}
+			
       .comment-actions {
         float: right;
       }
 
       button {
         font-family: $helvetica;
+      }
+      .voted
+      {
+      	background-color:green;
       }
     }
   }

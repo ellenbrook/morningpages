@@ -21,7 +21,7 @@
 </ul>
 
 <ul class="comments">
-	<li class="comment">
+	<li class="comment op" data-id="<?php echo $talk->id; ?>">
 		<div class="comment-bio">
 			<?php echo HTML::image($talk->user->gravatar(120)); ?>
 			<p class="comment-detail">
@@ -33,11 +33,18 @@
 			<?php echo $talk->content(); ?>
 		</div>
 		<div class="comment-footer">
-			<div class="comment-actions">
-				<button>Comment</button>
-				<button>Reply</button>
-				<button>+1</button>
+			<div class="comment-meta">
+				<div class="votes">
+					<?php echo $talk->votes(); ?>
+				</div>
 			</div>
+			<?php if(user::logged()): ?>
+				<div class="comment-actions">
+					<button>Comment</button>
+					<button>Reply</button>
+					<button class="<?php echo (user::get()->votedon($talk->id)?'voted':''); ?>" data-bind="click:vote">+1</button>
+				</div>
+			<?php endif; ?>
 		</div>
 	</li>
 <?php
@@ -46,7 +53,7 @@
 		foreach($replies as $reply)
 		{
 ?>
-			<li class="comment">
+			<li class="comment" data-id="<?php echo $reply->id; ?>">
 				<div class="comment-bio">
 					<?php echo HTML::image($reply->user->gravatar(100)); ?>
 					<p class="comment-detail">
@@ -57,11 +64,16 @@
 					<?php echo $reply->content(); ?>
 				</div>
 				<div class="comment-footer">
-					<div class="comment-actions">
-						<button>Comment</button>
-						<button>Reply</button>
-						<button>+1</button>
+					<div class="comment-meta">
+						0f af asf af asf s
 					</div>
+					<?php if(user::logged()): ?>
+						<div class="comment-actions">
+							<button>Comment</button>
+							<button>Reply</button>
+							<button class="<?php echo (user::get()->votedon($talk->id, 'talkreply')?'voted':''); ?>" data-bind="click:vote">+1</button>
+						</div>
+					<?php endif; ?>
 				</div>
 			</li>
 <?php

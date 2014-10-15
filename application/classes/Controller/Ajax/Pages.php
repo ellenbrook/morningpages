@@ -6,7 +6,7 @@ class Controller_Ajax_Pages extends Controller {
 	{
 		if(!user::logged())
 		{
-			ajax::error('User not logged in');
+			ajax::error('You must be logged in');
 		}
 		
         $user = user::get();
@@ -41,7 +41,7 @@ class Controller_Ajax_Pages extends Controller {
 	{
 		if(!user::logged())
 		{
-			ajax::error('User not logged in');
+			ajax::error('You must be logged in');
 		}
 		$user = user::get();
 		$autosave = ORM::factory('Page')

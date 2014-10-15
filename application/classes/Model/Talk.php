@@ -10,7 +10,8 @@ class Model_Talk extends ORM {
 	);
 	
 	protected $_has_many = array(
-		'replies' => array('model' => 'Talkreply')
+		'replies'	=> array('model' => 'Talkreply'),
+		'votes'		=> array('model' => 'User_Talkvote')
 	);
 	
 	protected $_sorting = array(
@@ -23,6 +24,11 @@ class Model_Talk extends ORM {
 			'title'		=> 'Title',
 			'content'	=> 'Content'
 		);
+	}
+	
+	public function votes()
+	{
+		return $this->votes->count_all() + 1;
 	}
 	
 	public function markdown($text)
