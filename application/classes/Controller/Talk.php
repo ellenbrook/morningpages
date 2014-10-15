@@ -22,8 +22,27 @@ class Controller_Talk extends Controller_Project {
 			try
 			{
 				$talk->save();
-				notes::success('Your talk has been created.');
-				site::redirect($talk->url());
+				$reply = ORM::factory('Talkreply');
+				$reply->values($_POST);
+				$reply->user_id = user::get()->id;
+				$reply->talk_id = $talk->id;
+				$reply->op = 1;
+				try
+				{
+					$reply->save();
+					$vote = ORM::factory('User_Talkvote');
+					$vote->type = 'talkreply';
+					$vote->user_id = user::get()->id;
+					$vote->object_id = $reply->id;
+					$vote->save();
+					notes::success('Your talk has been created.');
+					site::redirect($talk->url());
+				}
+				catch(ORM_Validation_Exception $e)
+				{
+					notes::error('Whoops! Your submission contained errors. Please review it and submit again');
+					$errors = $e->errors('models');
+				}
 			}
 			catch(ORM_Validation_Exception $e)
 			{
@@ -104,6 +123,11 @@ class Controller_Talk extends Controller_Project {
 			try
 			{
 				$reply->save();
+				$vote = ORM::factory('User_Talkvote');
+				$vote->type = 'talkreply';
+				$vote->user_id = user::get()->id;
+				$vote->object_id = $reply->id;
+				$vote->save();
 				notes::success('Your reply has been posted.');
 				site::redirect($talk->url());
 			}
@@ -113,8 +137,10 @@ class Controller_Talk extends Controller_Project {
 				$errors = $e->errors();
 			}
 		}
-		$replies = $talk->replies;
-		$counter = $talk->replies;
+		$replies = $talk->replies
+			->where('op','!=',1);
+		$counter = $talk->replies
+			->where('op','!=',1);
 		$limit = $this->pagination_limit;
 		$numreplies = $counter->count_all();
 		

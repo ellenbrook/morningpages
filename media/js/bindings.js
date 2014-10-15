@@ -8,7 +8,6 @@ define([
 	
 	ko.bindingHandlers.autogrow = {
 	    init: function (element, valueAccessor, allBindingsAccessor) {
-	        //ko.applyBindingsToNode(element, { value: valueAccessor() });        
 	        
 	        ko.utils.domNodeDisposal.addDisposeCallback(element, function () {
 	            $(element).data('autosize').remove();

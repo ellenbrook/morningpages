@@ -25,7 +25,7 @@
 	{
 		foreach($talks as $talk)
 		{
-			$replies = $talk->replies->count_all();
+			$replies = $talk->replies->where('op','!=',1)->count_all();
 			$views = $talk->views;
 ?>
 			<div class="card">

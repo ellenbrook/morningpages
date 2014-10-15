@@ -48,7 +48,7 @@
     padding: $base-spacing/2 $gutter/2;
 
     @include media($tab-mode) {
-      @include inline-block;
+      display:inline-block;
       border-top: 0;
       border-top-right-radius: $base-border-radius;
       border-top-left-radius: $base-border-radius;

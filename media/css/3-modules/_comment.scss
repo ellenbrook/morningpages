@@ -1,80 +1,76 @@
-.comments
-{
+.comments {
 	margin-bottom:50px;
-}
-.comment {
-  $comment-gutter: 1.4em;
-  $comment-image-padding: .7em;
-  $comment-image-width: 100px;
-  $comment-color: $base-font-color;
-  $comment-background: lighten($base-accent-color, 15);
-  $comment-detail-color: transparentize($comment-color, .5);
-  $comment-image-vert-alignment: top;
 
-  display: table;
-  width: 100%;
-  padding: 1em;
-  border: 1px solid transparentize($comment-color, .9);
-  border-radius: 4px;
-  margin-bottom: 1em;
+  .comment {
+    @include outer-container;
+    border-radius: 3px;
+    padding: 1em;
+    margin-bottom: 1em;
+    box-shadow: 0 2px 4px #e6e6e6;
+    border: 1px solid #ccc;
 
-  &:nth-child(even) {
-    background-color: lighten($good-color, 60);
+    &:nth-child(odd) {
+      background-color: darken(#fff, 3%);
+    }
+
+    &:nth-child(1) {
+      background-color: lighten($good-color, 55%);
+      border-color: lighten($good-color, 50%);
+    }
+
+    .comment-bio {
+      @include span-columns(2);
+
+      > img {
+        border-radius: 50%;
+      }
+
+      .comment-detail {
+        font-size: .85em;
+        font-style: italic;
+        padding-top: .5em;
+      }
+    }
+
+    .comment-content {
+      @include span-columns(10);
+      @include omega();
+
+      h3 {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: .5em;
+        margin-bottom: .5em;
+      }
+    }
+    .comment-content.editarea
+    {
+    	display:none;
+    }
+
+    .comment-footer {
+      @include clearfix;
+      @include span-columns(12);
+      position: relative;
+      border-radius: 3px;
+      padding: .5em;
+      margin-top: 1em;
+			
+			.comment-meta {
+				float:left;
+			}
+			
+      .comment-actions {
+        float: right;
+      }
+
+      button {
+        font-family: $helvetica;
+      }
+      .voted
+      {
+      	background-color:green;
+      }
+    }
   }
-
-  .comment-image,
-  .comment-content {
-    display: table-cell;
-    vertical-align: $comment-image-vert-alignment;
-  }
-
-  .comment-image {
-    padding-right: $comment-gutter;
-
-    > img {
-      width: $comment-image-width;
-      height: auto;
-      border-radius: 50%;
-      padding: 2px;
-      background: $comment-background;
-      display: block;
-      max-width: none;
-    }
-
-    .comment-reverse-order & {
-      padding-right: 0;
-      padding-left: 10px;
-    }
-  }
-
-  .comment-content {
-    position: relative;
-    width: 100%;
-
-    h1 {
-      font-size: 1em;
-      margin-bottom: .5em;
-    }
-
-    p {
-      margin-bottom: .5em;
-    }
-
-    p.comment-detail {
-      @include position(absolute, null 0 0 null);
-      text-align: right;
-      font-style: italic;
-      font-size: .9em;
-      color: $comment-detail-color;
-    }
-    img {
-    	max-width:300px;
-    	max-height:300px;
-    }
-  }
-}
-.comment.op
-{
-  background-color: lighten($good-color, 55%);
 }
 
