@@ -38,7 +38,7 @@
 				</div>
 				<div class="card-content">
 					<div class="card-header">
-						<a href="<?php echo URL::site($talk->url()); ?>"><?php echo $talk->title; ?></a>
+						<h3><a href="<?php echo URL::site($talk->url()); ?>"><?php echo $talk->title; ?></a></h3>
 					</div>
 					<div class="card-copy">
 						<?php echo $talk->excerpt(); ?>
