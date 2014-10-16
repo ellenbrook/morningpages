@@ -19,7 +19,6 @@
 	}
 ?>
 </ul>
-<h3><?php echo $talk->title; ?></h3>
 <ul class="comments">
 	<li class="comment op" data-id="<?php echo $talk->opid(); ?>">
 		<div class="comment-bio">
@@ -30,8 +29,14 @@
 			<p class="comment-detail">
 				<?php echo Date::fuzzy_span($talk->created); ?>
 			</p>
+			<div class="comment-meta">
+				<div class="votes">
+					<?php echo $talk->votes(); ?> liked
+				</div>
+			</div>
 		</div>
 		<div class="comment-content completearea">
+			<h3><?php echo $talk->title; ?></h3>
 			<?php echo $talk->content(); ?>
 		</div>
 		<div class="comment-content editarea">
@@ -44,11 +49,6 @@
 			</div>
 		</div>
 		<div class="comment-footer">
-			<div class="comment-meta">
-				<div class="votes">
-					<?php echo $talk->votes(); ?>
-				</div>
-			</div>
 			<?php if(user::logged()): ?>
 				<div class="comment-actions">
 					<?php if(user::get()->id == $talk->user_id): ?>
@@ -78,6 +78,9 @@
 					<p class="comment-detail">
 						<?php echo Date::fuzzy_span($reply->created); ?>
 					</p>
+					<div class="comment-meta">
+						<div class="votes"><?php echo $reply->votes(); ?> liked</div>
+					</div>
 				</div>
 				<div class="comment-content completearea">
 					<p>
@@ -100,9 +103,6 @@
 					</div>
 				</div>
 				<div class="comment-footer">
-					<div class="comment-meta">
-						<div class="votes"><?php echo $reply->votes(); ?></div>
-					</div>
 					<?php if(user::logged()): ?>
 						<div class="comment-actions">
 							<?php if(user::get()->id == $reply->user_id): ?>

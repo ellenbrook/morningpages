@@ -4,11 +4,16 @@
   .comment {
     @include outer-container;
     border-radius: 3px;
-    padding: 1em;
+    padding: 1em 0;
     margin-bottom: 1em;
     box-shadow: 0 2px 4px #e6e6e6;
     border: 1px solid #ccc;
 
+    @include media($medium-screen)
+    {
+       padding: 1em;
+    }
+    
     &:nth-child(odd) {
       background-color: darken(#fff, 3%);
     }
@@ -19,7 +24,17 @@
     }
 
     .comment-bio {
-      @include span-columns(2);
+    @include fill-parent;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+
+      @include media($medium-screen)
+      {
+        @include span-columns(2);
+        text-align: left;
+        border-bottom: none;
+      }
+      
 
       > img {
         border-radius: 50%;
@@ -33,13 +48,24 @@
     }
 
     .comment-content {
-      @include span-columns(10);
-      @include omega();
+      @include fill-parent;
+      padding: 1em;
+
+      @include media($medium-screen)
+      {
+        @include span-columns(10);
+        @include omega;
+      }
 
       h3 {
-        border-bottom: 1px solid #ccc;
+       @include fill-parent;
         padding-bottom: .5em;
         margin-bottom: .5em;
+
+        @include media($medium-screen)
+        {
+           border-bottom: 1px solid #ccc;
+        }
       }
     }
     .comment-content.editarea

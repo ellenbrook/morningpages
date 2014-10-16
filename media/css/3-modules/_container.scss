@@ -2,4 +2,10 @@
 	position: relative;
 	margin: 0 auto;
 	@include outer-container();
+	padding: 0 1em;
+
+	@include media($medium-screen)
+	{
+		padding: 0;
+	}
 }

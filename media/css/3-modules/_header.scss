@@ -8,14 +8,9 @@
 		text-indent: -999em;
 		width: 236px;
 		height: 56px;
-		// margin-top: 10px;
 		background: url('/media/img/logo.png') no-repeat;
 		background-position: left center;
 		background-size: contain;
-
-		@include media-query($small-screen) {
-			margin-left: 10px;
-	  	}
 
 		a {
 			color: $light-color;
