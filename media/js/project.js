@@ -3,8 +3,9 @@ define([
     'jquery',
     'bindings',
     'site',
+    'models/modal', // correct path, relative to the js root dir
     'models/popnotes'
-], function(ko, $, bindings, site, popnotes){
+], function(ko, $, bindings, site, modal, popnotes){
     
     var headerModel = function(){
         var self = this;
@@ -32,6 +33,12 @@ define([
             {
                 window.location.href = '/write/'+date;
             }
+        };
+        
+        self.tipsModal = new modal( $('#tips-and-tricks') );
+
+        self.clickShowTipsAndTricks = function(elem, event){
+            self.tipsModal.show();
         };
     };
     ko.applyBindings(new useroptionsModel(), $('#user-options')[0]);
