@@ -10,22 +10,7 @@
   $modal-image-height: 135px;
   $modal-image-width: $modal-image-height;
   display: none;
-  label {
-    cursor: pointer;
-    margin-bottom: 0;
-  }
 
-  label img {
-    $img-width: 300px;
-    border-radius: $img-width/2;
-    display: block;
-    max-width: $img-width;
-  }
-
-  input[type="checkbox"] {
-    display: none;
-  }
-  
   .btn {
     @extend a;
     // height: 30px;
@@ -41,9 +26,7 @@
     @include position(fixed, 0px 0px 0px 0px);
     background: rgba(0,0,0, .85);
     color: #262120;
-    opacity: 0;
     text-align: left;
-    visibility: hidden;
     z-index: 99999999999;
 
     .modal-bg {

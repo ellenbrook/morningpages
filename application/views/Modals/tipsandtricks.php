@@ -1,10 +1,6 @@
 <div class="modal" id="tips-and-tricks">
-  <label for="tips-and-tricks-close">
-    <div class="js-btn btn">Tips and Tricks</div>
-  </label>
-  <input class="modal-state" id="tips-tricks" type="checkbox" />
 	<div class="modal-window">
-	<div class="modal-inner">
+		<div class="modal-inner">
 		<label class="modal-close" for="tips-tricks"></label>
 		<h3>Tips and tricks</h3>
 		<dl>
