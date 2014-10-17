@@ -1,5 +1,6 @@
 .hidden-menu {
-	position: relative;
+	position: absolute;
+	left: 0; right: 0;
 	display: none;
 	background-color: $subtle-accent;
 	color: $dark-color;
@@ -41,7 +42,7 @@
 /*This is actually located inside of _header.scss but makes more sense to put here */
 
 .triangle {
-	@include position(absolute, null 5px -16px null);
+	@include position(absolute, null 18px -16px null);
 	display: none;
 	@include triangle(40px, $subtle-accent, up);
 	transition: all 600ms ease-in;

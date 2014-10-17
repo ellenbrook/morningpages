@@ -8,11 +8,17 @@
 		text-indent: -999em;
 		width: 236px;
 		height: 56px;
-		background: url('/media/img/logo.png') no-repeat;
 		background-position: left center;
 		background-size: contain;
+		
 
-		a {
+		> a {
+			width: 236px;
+			height: 56px;
+			background: url('/media/img/logo.png') no-repeat;
+			background-position: left center;
+			background-size: contain;
+			display: block;
 			color: $light-color;
 		}
 	}
@@ -45,12 +51,17 @@
 		text-indent: -999em;
 		width: 236px;
 		height: 56px;
-		// margin-top: 10px;
-		background: url('/media/img/logo.png') no-repeat;
 		background-position: left center;
 		background-size: contain;
+		
 
-		a {
+		> a {
+			width: 236px;
+			height: 56px;
+			background: url('/media/img/logo.png') no-repeat;
+			background-position: left center;
+			background-size: contain;
+			display: block;
 			color: $light-color;
 		}
 	}
