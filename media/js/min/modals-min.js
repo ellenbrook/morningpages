@@ -1,0 +1,1 @@
+define(["jquery","knockout"],function($,o){var n=function(o){var n=this;n.modal=o,n.showModal=function(){n.modal.show()},n.hideModal=function(){n.modal.hide()}};return n});
