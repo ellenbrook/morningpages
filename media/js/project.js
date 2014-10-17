@@ -38,7 +38,7 @@ define([
         self.tipsModal = new modal( $('#tips-and-tricks') );
 
         self.clickShowTipsAndTricks = function(elem, event){
-            self.tipsModal.show();
+            self.tipsModal.showModal();
         };
     };
     ko.applyBindings(new useroptionsModel(), $('#user-options')[0]);
