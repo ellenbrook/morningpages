@@ -31,97 +31,9 @@
 					<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
 			<?php if(!user::logged()): ?>
 					<!-- Log in -->
-					<li>
-						<div class="modal">
-						  <label for="sign-in">
-						    <div class="btn js-btn">Log in</div>
-						  </label>
-						  <input class="modal-state" id="sign-in" type="checkbox" />
-						  <div class="modal-window">
-						    <div class="modal-inner">
-						      <label class="modal-close" for="sign-in"></label>
-						      <h2>Sign In</h2>
-						    	<div class="modal-left">	 
-						    	 <form role="form" method="post" action="<?php echo user::url('login'); ?>">
-									<div class="form-group">
-										<input type="text" class="form-control" name="email" value="<?php echo arr::get($_POST, 'email',''); ?>" placeholder="Email or Username" />
-									</div>
-									<div class="form-group">
-										<input type="password" class="form-control" value="" name="password" placeholder="Password" />
-									</div>
-									<div class="form-group">
-										<button type="submit">Sign In</button>
-									</div>
-								</form>
-								</div>
-								<div class="modal-right">
-									<ul class="social-buttons">
-										<li>
-											<a href="<?php echo URL::site('auth/twitter'); ?>" title="Sign in with Twitter">
-												<img src="<?php echo URL::site('media/img/sign-in-with-twitter-gray.png'); ?>" alt="Sign in with Twitter" />
-											</a>
-										</li>
-										<li>
-											<a href="<?php echo URL::site('auth/twitter'); ?>" title="Sign in with Twitter">
-												<img src="<?php echo URL::site('media/img/sign-in-with-twitter-gray.png'); ?>" alt="Sign in with Twitter" />
-											</a>
-										</li>
-									</ul>
-								</div>	
-						    </div>
-						  </div>
-						</div><!-- Registration -->
-					</li>
+					<li><a href="#">Login</a></li>
 
-					<li>
-						<!--begin registration -->
-						<div class="modal">
-						  <label for="registration">
-						    <div class="btn js-btn">Register</div>
-						  </label>
-						  <input class="modal-state" id="registration" type="checkbox" />
-						  <div class="modal-window">
-						    <div class="modal-inner">
-						      <label class="modal-close" for="registration"></label>
-						      <h2>Register</h2>
-						      <p class="intro">Registration is fast and simple!</p>
-						    	<div class="modal-left">	 
-						    	 <form role="form" method="post" action="<?php echo user::url('user/signup'); ?>">
-									<div class="form-group">
-										<input type="text" class="form-control" name="email" value="<?php echo arr::get($_POST, 'email',''); ?>" placeholder="E-mail" />
-									</div>
-									<div class="form-group">
-										<input type="text" class="form-control" name="username" value="<?php echo arr::get($_POST, 'username',''); ?>" placeholder="Username" />
-									</div>
-									<div class="form-group">
-										<input type="password" class="form-control" value="" name="password" placeholder="Password" />
-									</div>
-									<div class="form-group">
-										<input type="password" class="form-control" value="" name="password_confirm" placeholder="Password Confirm" />
-									</div>
-									<div class="form-group">
-										<button type="submit">Register</button>
-									</div>
-								</form>
-								</div>
-								<div class="modal-right">
-									<ul class="social-buttons">
-										<li>
-											<a href="<?php echo URL::site('auth/twitter'); ?>" title="Sign in with Twitter">
-												<img src="<?php echo URL::site('media/img/sign-in-with-twitter-gray.png'); ?>" alt="Sign in with Twitter" />
-											</a>
-										</li>
-										<li>
-											<a href="<?php echo URL::site('auth/twitter'); ?>" title="Sign in with Twitter">
-												<img src="<?php echo URL::site('media/img/sign-in-with-twitter-gray.png'); ?>" alt="Sign in with Twitter" />
-											</a>
-										</li>
-									</ul>
-								</div>	
-						    </div>
-						  </div>
-						</div><!-- Registration -->
-					</li>
+					<li><a href="#">Register</a></li>
 			<?php else: ?>
 			<!--not logged in -->
 					<li><a href="<?php echo URL::site('me'); ?>" title="Your personal Morning Pages profile">Me</a></li>
@@ -195,31 +107,7 @@
 	                    </select>
 					</li>
 					
-					<li>
-						<div class="modal">
-						  <label for="tips-tricks">
-						    <div class="js-btn btn">Tips and Tricks</div>
-						  </label>
-						  <input class="modal-state" id="tips-tricks" type="checkbox" />
-							<div class="modal-window">
-							<div class="modal-inner">
-								<label class="modal-close" for="tips-tricks"></label>
-								<h3>Tips and tricks</h3>
-								<dl>
-									<dt>Ctrl + Spacebar (both Mac and PC)</dt>
-									<dd>We take privacy very seriously. Use this shortcut if you're in the middle of writing and somebody walks into the room, begins to peer over your shoulder, or tries to see what you're writing. This replaces the text you've written with the text from a random Wikipedia article.</dd>
-					
-									<dt>Markdown</dt>
-									<dd>What is markdown? Markdown is simply a text-formatting syntax used to format text on the web without having to worry about HTML. Think of it as an easy and natural way to to format your text without the need of using learning code.</dd>
-
-									<dt>Markdown Basics</dt>
-									<dd>For an in-depth listing of all of Markdown's features, check out <a href="#" rel="nofollow">our forum post</a>.</dd>
-									</dd>
-								</dl>
-								</div>
-							</div>
-						</div>
-					</li>
+					<li><a href="#" data-bind="click:clickShowTipsAndTricks">Tips and Tricks</a></li>
 					<li><a href="<?php echo URL::site('user/logout'); ?>" title="Log out">Log out</a></li>
 				<?php else: ?>
 					<li><a href="<?php echo URL::site('options'); ?>" data-bind="showModal:'shortcuts-modal'" id="js-show-tips">Shortcuts</a></li>
