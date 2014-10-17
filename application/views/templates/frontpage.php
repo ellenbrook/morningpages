@@ -22,10 +22,9 @@
 <body class="<?php echo $theme; ?>">
 	<header id="header" class="index-header">
 		<div class="container">
-			<a href="<?php echo URL::site(); ?>" title="Morning pages">
-				<h1 class="logo pull-left">
-				Morning Pages
-			</h1></a>
+			<h1 class="logo pull-left">
+				<a href="<?php echo URL::site(); ?>" title="Morning pages">Morning Pages</a>
+			</h1>
 			<nav class="frontpage">
 				<ul>
 					<li><a href="#about">About</a></li>
