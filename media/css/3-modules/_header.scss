@@ -71,7 +71,7 @@
 	}
 	
 	nav.default {
-		@include span-columns(8);
+		@include span-columns(9);
 		@include omega();
 		overflow: hidden;
 
