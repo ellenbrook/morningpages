@@ -33,10 +33,8 @@
 					<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Porning Pages">Talk</a></li>
 			<?php if(!user::logged()): ?>
 					<li><a href="#about">Login</a></li>
-
 					<li><a href="#">Register</a></li>
 			<?php else: ?>
-			<!--not logged in -->
 					<li><a href="<?php echo URL::site('me'); ?>" title="Your personal Morning Pages profile">Me</a></li>
 					<li><a href="<?php echo URL::site('user/logout'); ?>" title="Log out">Log out</a></li>
 			<?php endif; ?>
