@@ -2,8 +2,9 @@ define([
 	'knockout',
 	'jquery',
 	'jgrowl',
-	'models/user'
-],function(ko, $, grr, user){
+	'models/user',
+	'models/modal'
+],function(ko, $, grr, user, modal){
 	
 	var site = function(){
 		var self = this;
@@ -14,6 +15,73 @@ define([
 		self.theme.subscribe(function(newclass){
 			$('body').removeClass().addClass(newclass);
 		});
+		
+		self.loginModal = ko.observable();
+		self.registerModal = ko.observable();
+		
+		self.init = function(userLogged, notes){
+			self.user.logged(userLogged);
+			self.showNotes(notes);
+			
+			if(!userLogged)
+			{
+				self.setupLoginModal();
+				self.setupRegisterModal();
+			}
+			
+		};
+		
+		self.setupLoginModal = function(){
+			self.loginModal(new modal($('#loginModal')));
+			ko.applyBindings(self.loginModal(), $('#loginModal')[0]);
+		};
+		
+		self.setupRegisterModal = function(){
+			self.registerModal(new modal($('#registerModal')));
+			ko.applyBindings(self.registerModal(), $('#registerModal')[0]);
+		};
+		
+		self.showLoginModal = function(){
+			return $.Deferred(function(defer){
+				if(self.user.logged())
+				{
+					defer.resolve();
+				}
+				else
+				{
+					self.loginModal.show()
+						.done(function(){
+							// User logged in successfully
+							defer.resolve();
+						})
+						.fail(function(){
+							// Modal closed. Do we care? Reject, I guess.
+							defer.reject();
+						});
+				}
+			});
+		};
+		
+		self.showRegisterModal = function(){
+			return $.Deferred(function(defer){
+				if(self.user.logged())
+				{
+					defer.resolve();
+				}
+				else
+				{
+					self.registerModal.show()
+						.done(function(){
+							// User registerred successfully
+							defer.resolve();
+						})
+						.fail(function(){
+							// Modal closed. Do we care? Reject, I guess.
+							defer.reject();
+						});
+				}
+			});
+		};
 		
 		self.scrollTo = function($element){
 			$('body, html').animate({
