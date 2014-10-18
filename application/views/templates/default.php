@@ -29,16 +29,13 @@
 				<ul>
 					<li><a href="<?php echo URL::site('write'); ?>" title="Write" class="btn btn-default<?php echo ($controller=='Page'?' active':''); ?>">Write</a></li>
 					<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
-			<?php if(!user::logged()): ?>
-					<!-- Log in -->
-					<li><a href="#">Login</a></li>
-
-					<li><a href="#">Register</a></li>
-			<?php else: ?>
-			<!--not logged in -->
-					<li><a href="<?php echo URL::site('me'); ?>" title="Your personal Morning Pages profile">Me</a></li>
+					<?php if(!user::logged()): ?>
+						<li><a href="#">Login</a></li>
+						<li><a href="#">Register</a></li>
+					<?php else: ?>
+						<li><a href="<?php echo URL::site('me'); ?>" title="Your personal Morning Pages profile">Me</a></li>
+					<?php endif; ?>
 					<button id="hidden-nav-trigger" class="navigation-trigger" data-bind="click:hamburgerClick"><span class="fa fa-cog"></span></button>
-			<?php endif; ?>
 				</ul>
 			</nav>
 			<div class="hamburger-container">
@@ -104,13 +101,12 @@
 	    						}
 	    					}
 ?>
-	                    </select>
+                   		</select>
 					</li>
-					
-					<li><a href="#" data-bind="click:clickShowTipsAndTricks">Tips and Tricks</a></li>
+				
 					<li><a href="<?php echo URL::site('user/logout'); ?>" title="Log out">Log out</a></li>
 				<?php else: ?>
-					<li><a href="<?php echo URL::site('options'); ?>" data-bind="showModal:'shortcuts-modal'" id="js-show-tips">Shortcuts</a></li>
+					<li><a href="#" data-bind="click:clickShowTipsAndTricks">Tips and Tricks</a></li>
 					<li>Log in</li>
 				<?php endif; ?>
 			</ul>
@@ -119,7 +115,7 @@
 	
 	<section class="main">
 		<div class="container">
-	<?php echo $view; ?>
+			<?php echo $view; ?>
 		</div>
 	</section>
 

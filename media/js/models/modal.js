@@ -11,15 +11,14 @@ define([
         self.showModal = function()
         {
             self.modal.show();
-        }
+        };
         
         self.hideModal = function()
         {
             self.modal.hide();
-        }
-    }
+        };
+    };
     
-    // And then
     return modalModel;
     
 });
