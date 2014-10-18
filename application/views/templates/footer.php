@@ -29,10 +29,10 @@
 
 if(!user::logged())
 {
-    echo View::factory('Modals/login');
-    echo View::factory('Modals/register');
+    echo View::factory('modals/login');
+    echo View::factory('modals/register');
 }
 
-echo View::factory('Modals/tipsandtricks');
+echo View::factory('modals/tipsandtricks');
 
 ?>

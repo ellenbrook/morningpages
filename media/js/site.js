@@ -1,11 +1,14 @@
 define([
 	'knockout',
 	'jquery',
-	'jgrowl'
-],function(ko,$,grr){
+	'jgrowl',
+	'models/user'
+],function(ko, $, grr, user){
 	
 	var site = function(){
 		var self = this;
+		
+		self.user = new user();
 		
 		self.theme = ko.observable();
 		self.theme.subscribe(function(newclass){
@@ -50,6 +53,17 @@ define([
 			message = String(message);
 			var duration = (message.split(' ').length) * 300;
 			return 4000+duration;
+		};
+		
+		self.showNotes = function(notes)
+		{
+			if(notes.length > 0)
+			{
+				for(var i=0;i<notes.length;i++)
+				{
+					self.say(notes[i]);
+				}
+			}
 		};
 		
 	};

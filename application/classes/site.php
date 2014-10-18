@@ -174,6 +174,16 @@ abstract class site {
 		);
 	}
 	
+	public static function notes()
+	{
+		$notes = notes::fetch();
+		if(!is_array($notes)) $notes = array();
+		$achievements = achievement::get_announcements();
+		if(!is_array($achievements)) $achievements = array();
+		$final = array_merge($notes, $achievements);
+		return json_encode($final);
+	}
+	
 	public static function today_slug()
 	{
 		return date('m-d-Y');

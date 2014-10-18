@@ -18,7 +18,7 @@ define(['jquery'],function($){
 		
 		self.save = function(){
 			var newcontent = self.element.val();
-			if(newcontent.length > 1 && newcontent != self.content)
+			if(newcontent && newcontent.length > 1 && newcontent != self.content)
 			{
 				self.content = newcontent;
 				$.post('/ajax/pages/autosave',{
