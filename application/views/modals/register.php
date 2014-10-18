@@ -1,4 +1,4 @@
-<div class="modal" id="register">
+<div class="modal" id="registerModal">
 	<div class="modal-window">
 		<div class="modal-inner">
 			<div class="modal-close" data-bind="click:hide"></div>

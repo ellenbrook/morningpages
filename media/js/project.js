@@ -13,11 +13,11 @@ define([
     		
     		return $.Deferred(function(defer){
     			
-    			site.user.logged(logged);
-    			site.showNotes(notes);
+    			site.init(logged, notes);
     			
     			var headerModel = function(){
 					var self = this;
+			        
 			        self.hamburgerClick = function(element, event){
 			            $('#hidden-nav-trigger').toggleClass('navigation-trigger-clicked');
 			            $('#user-options-triangle').show();
@@ -28,6 +28,15 @@ define([
 			                }
 			            });
 			        };
+			        
+					self.showLoginModal = function(){
+						site.showLoginModal();
+					};
+					
+					self.showRegisterModal = function(){
+						site.showRegisterModal();
+					};
+			        
 			    };
 			
 			    ko.applyBindings(new headerModel(), $('#header')[0]);
@@ -49,6 +58,7 @@ define([
 					self.showTipsAndTricks = function(elem, event){
 						self.tipsModal.show();
 					};
+					
 				};
 				ko.applyBindings(new useroptionsModel(), $('#user-options')[0]);
 				

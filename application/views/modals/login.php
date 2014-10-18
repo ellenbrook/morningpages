@@ -1,4 +1,4 @@
-<div class="modal" id="login">
+<div class="modal" id="loginModal">
 	<div class="modal-window">
 		<div class="modal-inner">
 			<div class="modal-close" data-bind="click:hide"></div>
@@ -14,7 +14,7 @@
 					<input type="password" class="form-control modal-login" value="" name="password" placeholder="Password" />
 				</div>
 				<div class="form-group">
-					<button type="submit">Sign In</button>
+					<button type="submit" data-bind="click:login">Sign In</button>
 				</div>
 			</form>
 			</div>
