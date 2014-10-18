@@ -1,7 +1,7 @@
 <div class="modal" id="login">
 	<div class="modal-window">
 		<div class="modal-inner">
-			<label class="modal-close" for="login"></label>
+			<div class="modal-close" data-bind="click:hide"></div>
 			<h2>Sign In</h2>
 			<div class="modal-left">	 
 			 <form role="form" method="post" action="<?php echo user::url('login'); ?>">

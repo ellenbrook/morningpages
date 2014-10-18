@@ -1,7 +1,7 @@
 <div class="modal" id="tips-and-tricks">
 	<div class="modal-window">
 		<div class="modal-inner">
-		<div class="modal-close" id="tips-and-tricks-close"></div>
+		<div class="modal-close" data-bind="click:hide"></div>
 		<h3>Tips and tricks</h3>
 		<dl>
 			<dt>Ctrl + Spacebar (both Mac and PC)</dt>

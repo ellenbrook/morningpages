@@ -8,12 +8,12 @@ define([
         var self = this;
         self.modal = element;
         
-        self.showModal = function()
+        self.show = function()
         {
             self.modal.show();
         };
         
-        self.hideModal = function()
+        self.hide = function()
         {
             self.modal.hide();
         };

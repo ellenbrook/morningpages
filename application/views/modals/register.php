@@ -1,7 +1,7 @@
 <div class="modal" id="register">
 	<div class="modal-window">
 		<div class="modal-inner">
-			<label class="modal-close" for="register"></label>
+			<div class="modal-close" data-bind="click:hide"></div>
 			<h2>Register</h2>
 			<p class="intro">Registration is fast and simple!</p>
 			<div class="modal-left">	 

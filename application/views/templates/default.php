@@ -106,7 +106,7 @@
 				
 					<li><a href="<?php echo URL::site('user/logout'); ?>" title="Log out">Log out</a></li>
 				<?php else: ?>
-					<li><a href="#" data-bind="click:clickShowTipsAndTricks">Tips and Tricks</a></li>
+					<li><a href="#" data-bind="click:showTipsAndTricks">Tips and Tricks</a></li>
 					<li>Log in</li>
 				<?php endif; ?>
 			</ul>
@@ -119,7 +119,7 @@
 		</div>
 	</section>
 
-<?php echo View::factory('templates/footer'); ?>
+	<?php echo View::factory('templates/footer'); ?>
 
 	<script src="<?php echo URL::site('media/js/require.js'); ?>" type="text/javascript"></script>
 	<script src="<?php echo URL::site('media/js/config.js'); ?>" type="text/javascript"></script>
@@ -132,10 +132,12 @@
 			$include_viewmodel = true;
 		}
 ?>
-		require(['project'], function(){
-			<?php if($include_viewmodel): ?>
-				require(['viewModels/<?php echo $controller.'/'.$action; ?>']);
-			<?php endif; ?>
+		require(['project'], function(project){
+			project.init(<?php echo (user::logged()?'true':'false').', '.site::notes(); ?>).then(function(){
+				<?php if($include_viewmodel): ?>
+					require(['viewModels/<?php echo $controller.'/'.$action; ?>']);
+				<?php endif; ?>
+			});
 		});
 	</script>
 </body>
