@@ -23,13 +23,13 @@
 					</dd>
 				</div>
 				<div class="stat-block">
-					<dt>Longest post</dt>
+					<dt>Longest Single Page</dt>
 					<dd>
 						<span class="stat-circle three"><?php echo number_format(user::get()->most_words); ?></span>
 					</dd>
 				</div>
 				<div class="stat-block">
-					<dt>All time words</dt>
+					<dt>Accumulative Words</dt>
 					<dd>
 						<span class="stat-circle four"><?php echo number_format(user::get()->all_time_words); ?></span>
 					</dd>
