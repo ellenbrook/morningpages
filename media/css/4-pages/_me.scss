@@ -1,0 +1,155 @@
+.me 
+{
+
+	h2 {
+		text-align: center;
+		margin-bottom: .25em;
+	}
+
+	.me-icon 
+	{
+		@include span-columns(12);
+		text-align: center;
+
+		// @include media($medium-screen)
+		// {
+		// 	@include span-columns(2);
+		// 	text-align: left
+		// }
+
+		> img 
+		{
+			border-radius: 50%;
+			
+			&:hover {
+				@include animation(spin 600ms ease-in);
+				@include animation-iteration-count(1);
+			}
+		}
+	}
+
+	.me-username
+	{
+		@include span-columns(12);
+		text-align: center;
+
+		// @include media($medium-screen)
+		// {
+		// 	@include span-columns(10);
+		// 	@include omega;
+		// 	text-align: center;
+		// }
+
+		h2 {
+			margin-bottom: .25em;
+		}
+
+		p {
+			font-style: italic;
+		}
+	}
+
+	.me-stats 
+	{
+		@include clearfix;
+		@include span-columns(12);
+
+		> dl {
+			@include fill-parent;
+			overflow: hidden;
+
+			.stat-block 
+			{
+				@include span-columns(6);
+				
+				&:nth-child(2n)
+				{
+					@include omega;
+				}
+
+				@include media($medium-screen)
+				{
+					@include span-columns(3);
+				
+					&:nth-child(2n)
+					{
+						padding-right: 30px;
+					}
+				}
+				
+				dl {
+					text-align: center;
+				}
+
+				dt {
+					text-align: center;
+					font-size: 1.2em;
+					
+					@include media($medium-screen) {
+						margin-bottom: .5em;
+						font-size: 1.5em;
+					}
+				}
+
+				dd {
+					text-align: center;
+				}
+
+				.stat-circle {
+					display: inline-block;
+					text-align: center;
+					height: 100px;
+					width: 100px;
+					line-height: 3em;
+					font-weight: bold;
+					text-align: center;
+					color: #fff;
+					font-size: 2em;
+					border-radius: 50%;
+					
+					&:hover {
+						@include animation(spin 600ms ease-in);
+						@include animation-iteration-count(1);
+					}
+					
+					@include media($medium-screen)
+					{
+						height: 150px;
+						width: 150px;
+						font-size: 3em;
+					}
+				}
+
+				.one {
+					background: adjust-hue($base-accent-color, 120);
+				}
+
+				.two {
+					background: adjust-hue($base-accent-color, -110);
+				}
+
+				.three {
+					background: adjust-hue($base-accent-color, 45);
+				}
+
+				.four {
+					background: adjust-hue($base-accent-color, -45);
+				}
+			}
+		}
+	}
+
+	.me-badges 
+	{
+		@include span-columns(12);
+	}
+}
+
+@include keyframes(spin){
+	0% {
+		@include transform(rotate(0deg));
+	}
+	100% {
+		@include transform(rotate(360deg));
+	}
+}
