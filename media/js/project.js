@@ -18,6 +18,8 @@ define([
     			var headerModel = function(){
 					var self = this;
 					
+					self.site = site;
+					
 					self.hamburgerClick = function(element, event){
 						$('#hidden-nav-trigger').toggleClass('navigation-trigger-clicked');
 						$('#user-options-triangle').show();
