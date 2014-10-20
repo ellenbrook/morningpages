@@ -1,0 +1,32 @@
+@mixin theme_header($args) {
+	$bgcolor:map-get($args, 'bgcolor');
+	.site-header
+	{
+		background-color:$bgcolor;
+	}
+}
+@mixin theme_body($args)
+{
+	$bgcolor:map-get($args, 'bgcolor');
+	background-color:$bgcolor;
+}
+
+@mixin theme($args){
+	$name:map-get($args, 'name');
+	@if $name == null {
+		@error 'Required name of theme missing';
+	}
+	$body:map-get($args,'body');
+	$header:map-get($args, 'header');
+	body.#{$name}
+	{
+		@if $body {
+			@include theme_body($body);
+		}
+		@if $header{
+			@include theme_header($header);
+		}
+	}
+}
+
+@import 'trendy';

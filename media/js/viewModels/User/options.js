@@ -33,9 +33,6 @@ define([
 		
 		$('#site-options').tabs();
 		
-		
-		
-		
 	};
 	
 	ko.applyBindings(new optionsModel(),$('#site-options')[0]);

@@ -88,6 +88,10 @@ $text-color: #333;
 $body-text: "ff-tisa-web-pro";
 $header-text: "futura-pt",sans-serif;
 
+@mixin theme($good){
+	$good-color:$good;
+}
+
 .hidden {
 	display: none;
 }

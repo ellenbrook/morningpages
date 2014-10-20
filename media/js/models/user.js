@@ -58,12 +58,10 @@ define([
 		};
 		
 		self.save_setting = function(setting){
-			
 			return $.post('/ajax/user/savesetting',{
 				'setting':setting,
 				'value':self.options[setting]()
 			});
-			
 		};
 		
 	};
