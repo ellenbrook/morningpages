@@ -19,7 +19,7 @@
 					<input type="password" class="form-control modal-login" value="" name="password" placeholder="Password" />
 				</div>
 				<div class="form-group">
-					<span class="modal-login-icon fa fa-lock"></span>
+					<span class="modal-login-icon fa fa-repeat"></span>
 					<input type="password" class="form-control modal-login" value="" name="password_confirm" placeholder="Password Confirm" />
 				</div>
 				<div class="form-group">
