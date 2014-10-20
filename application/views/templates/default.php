@@ -20,6 +20,7 @@
 	}
 ?>
 <body class="<?php echo $theme; ?>">
+
 <header id="header" class="site-header">
 	<div class="container">
 		<h1 class="logo pull-left">
@@ -27,6 +28,7 @@
 		</h1>
 		<nav class="default">
 			<ul>
+				<li><a href="#about">About</a></li>
 				<li><a href="<?php echo URL::site('write'); ?>" title="Write" class="btn btn-default<?php echo ($controller=='Page'?' active':''); ?>">Write</a></li>
 				<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
 				<?php if(!user::logged()): ?>
@@ -38,11 +40,6 @@
 				<button id="hidden-nav-trigger" class="navigation-trigger" data-bind="click:hamburgerClick"><span class="fa fa-cog"></span></button>
 			</ul>
 		</nav>
-		<div class="hamburger-container">
-		  <div class="hamburger-line"></div>
-		  <div class="hamburger-line"></div>
-		  <div class="hamburger-line"></div>
-		</div>
 		<div id="user-options-triangle" class="triangle pull-right"></div>
 	</div>
 </header>

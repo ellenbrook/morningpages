@@ -49,7 +49,7 @@ define([
 				}
 				else
 				{
-					self.loginModal.show()
+					self.loginModal().show()
 						.done(function(){
 							// User logged in successfully
 							defer.resolve();
@@ -70,7 +70,7 @@ define([
 				}
 				else
 				{
-					self.registerModal.show()
+					self.registerModal().show()
 						.done(function(){
 							// User registerred successfully
 							defer.resolve();
