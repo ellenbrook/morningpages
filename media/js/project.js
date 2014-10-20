@@ -30,7 +30,10 @@ define([
 					};
 			        
 					self.showLoginModal = function(){
-						site.showLoginModal();
+						site.showLoginModal().done(function(){
+							site.say('You have been logged in. Welcome back!');
+							site.user.getInfo();
+						});
 					};
 					
 					self.showRegisterModal = function(){

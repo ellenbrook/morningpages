@@ -34,6 +34,41 @@ class Controller_Ajax_User extends Controller {
 		));
 	}
 	
+	public function action_login()
+	{
+		if(user::logged())
+		{
+			ajax::error('You are already logged in as '.user::get()->username());
+		}
+		
+		if($_POST)
+		{
+			$email = arr::get($_POST, 'email','');
+			$password = arr::get($_POST, 'password','');
+			$remember = false;//(arr::get($_POST, 'remember','')=='yes');
+			if(user::login($email, $password, $remember))
+			{
+				$user = user::get();
+				if($user->delete != 0) // Previously set for deletion. Cancel that
+				{
+					$user->delete = 0;
+					$user->save();
+				}
+				ajax::success('You have been logged in. Welcome back!');
+			}
+			else
+			{
+				//notes::error('Wrong username or password. Please try again.');
+				ajax::error('Invalid username or password.');
+			}
+		}
+		else
+		{
+			ajax::error('No data received');
+		}
+		
+	}
+	
 	public function action_savetheme()
 	{
 		if(!user::logged())

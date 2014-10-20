@@ -96,26 +96,21 @@ define([
 				
 				if($(element).valid())
 				{
-					console.log('1');
 					if(argtype == 'function')
 					{
-						console.log('2');
-						return arg();
+						return arg($(element).serialize());
 					}
 					else
 					{
-						console.log('3');
 						if(argtype == 'object')
 						{
-							console.log('4');
 							if(typeof arg.successnote == 'string')
 							{
 								site.say({type:'success','note':arg.successnote});
 							}
 							if(typeof arg.success == 'function')
 							{
-								console.log('5');
-								return arg.success();
+								return arg.success($(element).serialize());
 							}
 						}
 					}

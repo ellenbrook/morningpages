@@ -1,7 +1,7 @@
 define([
     'jquery',
     'knockout'
-],function($, ko){
+],function($, ko, site){
     
     var modalModel = function(element)
     {
@@ -23,10 +23,21 @@ define([
             self.promise.reject();
         };
         
-        self.login = function(){
+        self.login = function(form){
         	
-        	self.modal.hide();
-        	self.promise.resolve();
+        	$.post('/ajax/user/login',form,function(reply){
+        		if(reply.success)
+        		{
+        			self.modal.hide();
+        			self.promise.resolve();
+        		}
+        		else
+        		{
+        			self.modal.find('.errmsg').html('<label class="error">'+reply.message+'</label>').show();
+        		}
+        	}, 'json');
+        	return false;
+        	
         };
         
     };
