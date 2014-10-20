@@ -23,7 +23,7 @@ define([
 					self.hamburgerClick = function(element, event){
 						$('#hidden-nav-trigger').toggleClass('navigation-trigger-clicked');
 						$('#user-options-triangle').show();
-						$( "#user-options" ).slideToggle( "slow", function() {
+						$( "#user-options" ).slideToggle( "normal", function() {
 							if(!$('#user-options').is(':visible'))
 							{
 								$('#user-options-triangle').hide();

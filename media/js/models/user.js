@@ -25,6 +25,44 @@ define([
 		self.passconfirm = ko.observable('');
 		self.wordcount = ko.observable(0);
 		self.logged = ko.observable(false);
+		self.privacy = {
+			timer:null,
+			countdown:0,
+			timerWarningGiven:false,
+			startTimer:function(){
+				var privaself = this;
+				privaself.die();
+				privaself.countdown = self.options.privacymode_minutes() * 60;
+				return $.Deferred(function(defer){
+					privaself.timer = setInterval(function(){
+						$(window).off('keydown').off('mousemove').on('keydown',function(){
+							privaself.die();
+							defer.reject();
+						}).on('mousemove',function(){
+							privaself.die();
+							defer.reject();
+						});
+						privaself.countdown -= 1;
+						if(privaself.countdown <= (self.options.privacymode_minutes() * 60) && !privaself.timerWarningGiven)
+						{
+							defer.notify('minutewarning');
+							privaself.timerWarningGiven = true;
+						}
+						if(privaself.countdown <= 0)
+						{
+							privaself.die();
+							defer.resolve();
+						}
+						console.log('timer: ',privaself.countdown);
+					}, 1000);
+				});
+			},
+			die:function(){
+				clearInterval(this.timer);
+				this.timer = null;
+				this.timerWarningGiven = false;
+			}
+		};
 		
 		self.getInfo = function(){
 			if(!self.loaded)
@@ -42,9 +80,10 @@ define([
 						self.options.timezone_id(reply.options.timezone_id);
 						self.options.theme_id(reply.options.theme_id);
 						self.options.privacymode(Boolean(reply.options.privacymode));
-						self.options.privacymode_minutes(reply.options.privacymode_minutes);
+						self.options.privacymode_minutes(parseInt(reply.options.privacymode_minutes));
 						self.options.hemingwaymode(Boolean(reply.options.hemingwaymode));
 						self.options.public(Boolean(reply.options.public));
+						
 						self.logged(true);
 						self.loaded = true;
 					}
