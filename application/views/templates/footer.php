@@ -1,29 +1,27 @@
 <footer class="footer">
- <div class="container">
-  <div class="footer-links">
-    <ul>
-      <li><h3>Navigation</h3></li>
-      <li><a href="/#about" title="About Morning Pages">About</a></li>
-       <li><a href="<?php echo URL::site('write'); ?>" title="Write">Write</a></li>
-      <li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
-      <li><a href="javascript:void(0)">Contact</a></li>
-    </ul>
-    <ul>
-      <li><h3>Follow Us</h3></li>
-      <li><a href="https://www.facebook.com/morningpages" target="_blank">Facebook</a></li>
-      <li><a href="https://twitter.com/morningpagesnet">Twitter</a></li>
-    </ul>
-    <ul>
-      <li><h3>Legal</h3></li>
-      <li><a href="javascript:void(0)">Terms and Conditions</a></li>
-      <li><a href="javascript:void(0)">Privacy Policy</a></li>
-    </ul>
-  </div>
-
-  <hr>
-
-  <p>We take privacy very seriously. If you have specific questions, please don't hesitate to ask about them on <a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">our forum</a>.</p>
- </div>
+	<div class="container">
+		<div class="footer-links">
+			<ul>
+				<li><h3>Navigation</h3></li>
+				<li><a href="/#about" title="About Morning Pages">About</a></li>
+				<li><a href="<?php echo URL::site('write'); ?>" title="Write">Write</a></li>
+				<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
+				<li><a href="javascript:void(0)">Contact</a></li>
+			</ul>
+			<ul>
+				<li><h3>Follow Us</h3></li>
+				<li><a href="https://www.facebook.com/morningpages" target="_blank">Facebook</a></li>
+				<li><a href="https://twitter.com/morningpagesnet">Twitter</a></li>
+			</ul>
+			<ul>
+				<li><h3>Legal</h3></li>
+				<li><a href="javascript:void(0)">Terms and Conditions</a></li>
+				<li><a href="javascript:void(0)">Privacy Policy</a></li>
+			</ul>
+		</div>
+		<hr>
+		<p>We take privacy very seriously. If you have specific questions, please don't hesitate to ask about them on <a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">our forum</a>.</p>
+	</div>
 </footer>
 <?php
 

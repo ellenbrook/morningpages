@@ -17,17 +17,17 @@ define([
     			
     			var headerModel = function(){
 					var self = this;
-			        
-			        self.hamburgerClick = function(element, event){
-			            $('#hidden-nav-trigger').toggleClass('navigation-trigger-clicked');
-			            $('#user-options-triangle').show();
-			            $( "#user-options" ).slideToggle( "slow", function() {
-			                if(!$('#user-options').is(':visible'))
-			                {
-			                    $('#user-options-triangle').hide();
-			                }
-			            });
-			        };
+					
+					self.hamburgerClick = function(element, event){
+						$('#hidden-nav-trigger').toggleClass('navigation-trigger-clicked');
+						$('#user-options-triangle').show();
+						$( "#user-options" ).slideToggle( "slow", function() {
+							if(!$('#user-options').is(':visible'))
+							{
+								$('#user-options-triangle').hide();
+							}
+						});
+					};
 			        
 					self.showLoginModal = function(){
 						site.showLoginModal();
@@ -60,8 +60,10 @@ define([
 					};
 					
 				};
-				ko.applyBindings(new useroptionsModel(), $('#user-options')[0]);
-				
+				if($('#user-options').length)
+				{
+					ko.applyBindings(new useroptionsModel(), $('#user-options')[0]);
+				}
 				
 				defer.resolve();
     			
