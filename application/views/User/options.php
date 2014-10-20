@@ -105,7 +105,7 @@
 				<div class="form-group">
 					<label for="site-theme" class="hidden">Theme</label>
 						<label for="site-theme">Site theme</label>
-						<select data-bind="value:user.options.theme_id" id="site-theme" name="theme_id">
+						<select data-bind="value:user.options.theme_id,event:{change:save_theme}" id="site-theme" name="theme_id">
 							<option value="0">Standard</option>
 <?php
 							$themes = ORM::factory('Theme')->find_all();
@@ -123,7 +123,7 @@
 					<label for="writing-reminders-button">Receive daily reminder e-mails at the time that you specify.</label>
 					
 					<label class="label-switch">
-						<input type="checkbox" data-bind="checked:user.options.reminder" />
+						<input type="checkbox" data-bind="checked:user.options.reminder,event:{change:function(){save_setting('reminder')}}" />
 							<div class="checkbox"></div>
 					</label>
 					<label class="status" data-bind="css:{'on':user.options.reminder(),'off':!user.options.reminder()}">
@@ -133,7 +133,7 @@
 
 					
 					<div class="inline-form time-container" data-bind="fadeVisible:user.options.reminder()">
-						<select data-bind="value:user.options.reminder_hour" name="hour" id="reminder-hour">
+						<select data-bind="value:user.options.reminder_hour,event:{change:function(){save_setting('reminder_hour')}" name="hour" id="reminder-hour">
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
@@ -147,18 +147,18 @@
 							<option value="11">11</option>
 							<option value="12">12</option>
 						</select>
-						<select data-bind="value:user.options.reminder_minute" name="minute" id="reminder-minute">
+						<select data-bind="value:user.options.reminder_minute,,event:{change:function(){save_setting('reminder_minute')}" name="minute" id="reminder-minute">
 							<option value="0">00</option>
 							<option value="15">15</option>
 							<option value="30">30</option>
 							<option value="45">45</option>
 						</select>
-						<select data-bind="value:user.options.reminder_meridiem" name="day-night" id="reminder-day-night">
+						<select data-bind="value:user.options.reminder_meridiem,event:{change:function(){save_setting('reminder_meridiem')}" name="day-night" id="reminder-day-night">
 							<option value="am">AM</option>
 							<option value="pm">PM</option>
 						</select>
 						
-						<select name="timezone" data-bind="value:user.options.timezone_id" id="reminder-timezone">
+						<select name="timezone" data-bind="value:user.options.timezone_id,event:{change:function(){save_setting('timezone_id')}" id="reminder-timezone">
 <?php
 							$zones = ORM::factory('Timezone')->find_all();
 							foreach($zones as $zone)
@@ -174,7 +174,7 @@
 					<label for="privacy-mode">Privacy mode logs you out after 1, 5, or 10 minutes of inactivity.</label>
 					
 					<label class="label-switch">
-						<input type="checkbox" data-bind="checked:user.options.privacymode" />
+						<input type="checkbox" data-bind="checked:user.options.privacymode,event:{change:function(){save_setting('privacymode')}" />
 							<div class="checkbox"></div>
 					</label>
 					<label class="status" data-bind="css:{'on':user.options.privacymode(),'off':!user.options.privacymode()}">
@@ -183,7 +183,7 @@
 					</label>
 					
 					<div class="inline-form" data-bind="fadeVisible:user.options.privacymode()">
-						<select data-bind="value:user.options.privacymode_minutes" name="privacymode_minutes" id="privacymode-minutes">
+						<select data-bind="value:user.options.privacymode_minutes,event:{change:function(){save_setting('privacymode_minutes')}" name="privacymode_minutes" id="privacymode-minutes">
 							<option value="1">1 minute</option>
 							<option value="5">5 minutes</option>
 							<option value="10">10 minutes</option>
@@ -195,7 +195,7 @@
 					<label for="hemingway-mode">Hemingway mode disables the use of the backspace key, keeping your writing pure.</label>
 					
 					<label class="label-switch">
-						<input type="checkbox" data-bind="checked:user.options.hemingwaymode" />
+						<input type="checkbox" data-bind="checked:user.options.hemingwaymode,event:{change:function(){save_setting('hemingwaymode')}" />
 							<div class="checkbox"></div>
 					</label>
 					<label class="status" data-bind="css:{'on':user.options.hemingwaymode(),'off':!user.options.hemingwaymode()}">
@@ -208,7 +208,7 @@
 					<label for="public-profile">Turn this on in order to allow others to view your profile that includes your username, badges, and stats.</label>
 					
 					<label class="label-switch">
-						<input type="checkbox" data-bind="checked:user.options.public" />
+						<input type="checkbox" data-bind="checked:user.options.public,event:{change:function(){save_setting('public')}" />
 							<div class="checkbox"></div>
 					</label>
 					<label class="status" data-bind="css:{'on':user.options.public(),'off':!user.options.public()}">
