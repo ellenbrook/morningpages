@@ -10,6 +10,29 @@
 	$bgcolor:map-get($args, 'bgcolor');
 	background-color:$bgcolor;
 }
+@mixin user_menu($args)
+{
+	$bgcolor:map-get($args, 'bgcolor');
+	.hidden-menu
+	{
+		background-color:$bgcolor;
+	}
+	#user-options-triangle
+	{
+		border-bottom-color:$bgcolor;
+	}
+	.site-header .navigation-trigger
+	{
+		background-color:$bgcolor;
+	}
+}
+@mixin theme_footer($args) {
+	$bgcolor:map-get($args, 'bgcolor');
+	.footer
+	{
+		background-color:$bgcolor;
+	}
+}
 
 @mixin theme($args){
 	$name:map-get($args, 'name');
@@ -18,6 +41,8 @@
 	}
 	$body:map-get($args,'body');
 	$header:map-get($args, 'header');
+	$usermenu:map-get($args,'usermenu');
+	$footer:map-get($args, 'footer');
 	body.#{$name}
 	{
 		@if $body {
@@ -25,6 +50,12 @@
 		}
 		@if $header{
 			@include theme_header($header);
+		}
+		@if $usermenu {
+			@include user_menu($usermenu);
+		}
+		@if $footer{
+			@include theme_footer($footer);
 		}
 	}
 }
