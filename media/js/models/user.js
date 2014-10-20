@@ -45,6 +45,7 @@ define([
 						self.options.privacymode_minutes(reply.options.privacymode_minutes);
 						self.options.hemingwaymode(Boolean(reply.options.hemingwaymode));
 						self.options.public(Boolean(reply.options.public));
+						self.logged(true);
 						self.loaded = true;
 					}
 				},'json');

@@ -31,12 +31,9 @@
 				<li><a href="#about">About</a></li>
 				<li><a href="<?php echo URL::site('write'); ?>" title="Write" class="btn btn-default<?php echo ($controller=='Page'?' active':''); ?>">Write</a></li>
 				<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
-				<?php if(!user::logged()): ?>
-					<li><a href="#" data-bind="click:showLoginModal">Login</a></li>
-					<li><a href="#" data-bind="click:showRegisterModal">Register</a></li>
-				<?php else: ?>
-					<li><a href="<?php echo URL::site('me'); ?>" title="Your personal Morning Pages profile">Me</a></li>
-				<?php endif; ?>
+				<li class="hidden" data-bind="visible:!site.user.logged()"><a href="#" data-bind="click:showLoginModal">Login</a></li>
+				<li class="hidden" data-bind="visible:!site.user.logged()"><a href="#" data-bind="click:showRegisterModal">Register</a></li>
+				<li class="hidden" data-bind="visible:site.user.logged()"><a href="<?php echo URL::site('me'); ?>" title="Your personal Morning Pages profile">Me</a></li>
 				<button id="hidden-nav-trigger" class="navigation-trigger" data-bind="click:hamburgerClick"><span class="fa fa-cog"></span></button>
 			</ul>
 		</nav>
