@@ -28,7 +28,31 @@ define([
 				self.setupLoginModal();
 				self.setupRegisterModal();
 			}
+			else
+			{
+				self.user.getInfo().done(function(){
+					self.startUserPrivacyTimer();
+				});
+			}
 			
+		};
+		
+		self.startUserPrivacyTimer = function(){
+			console.log('startUserPrivacyTimer');
+			if(self.user.options.privacymode())
+			{
+				self.user.privacy.startTimer().progress(function(arg){
+					if(arg == 'minutewarning')
+					{
+						self.say('Your privacysettings will log you out in 1 minute if you do not become active');
+					}
+				}).done(function(){
+					console.log('done - log out');
+				}).fail(function(){
+					console.log('starting over');
+					self.startUserPrivacyTimer();
+				});
+			}
 		};
 		
 		self.setupLoginModal = function(){
