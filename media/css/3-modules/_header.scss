@@ -1,10 +1,8 @@
-@mixin header($bgcolor, $color){
-	background-color: $bgcolor;
-	color: $color;
-}
 .index-header {
 	padding: 1em 0;
-	
+	background-color: $good-color;
+	color: $light-color;
+
 	.logo {
 		@include span-columns(6);
 		text-indent: -999em;
@@ -45,9 +43,28 @@
 }
 
 .site-header {
-	@extend .index-header;
-	@include header($good-color, $light-color);
 	position: relative;
+	@extend .index-header;
+
+	.logo {
+		@include span-columns(6);
+		text-indent: -999em;
+		width: 236px;
+		height: 56px;
+		background-position: left center;
+		background-size: contain;
+		
+
+		> a {
+			width: 236px;
+			height: 56px;
+			background: url('/media/img/logo.png') no-repeat;
+			background-position: left center;
+			background-size: contain;
+			display: block;
+			color: $light-color;
+		}
+	}
 
 	.navigation-trigger {
 		outline: none;
