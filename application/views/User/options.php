@@ -170,7 +170,7 @@
 					</div>
 				</div>
 				<div class="form-group button-group">
-					<label for="privacy-mode">Privacy mode logs you out after 1, 5, or 10 minutes of inactivity.</label>
+					<label for="privacy-mode">Privacy mode logs you out after 5, 10 or 15 minutes of inactivity.</label>
 					
 					<label class="label-switch">
 						<input type="checkbox" data-bind="checked:user.options.privacymode,event:{change:function(){save_setting('privacymode');}}" />
@@ -183,9 +183,9 @@
 					
 					<div class="inline-form" data-bind="fadeVisible:user.options.privacymode()">
 						<select data-bind="value:user.options.privacymode_minutes,event:{change:function(){save_setting('privacymode_minutes');}}" name="privacymode_minutes" id="privacymode-minutes">
-							<option value="1">1 minute</option>
-							<option value="5">5 minutes</option>
+							<option value="5">5 minute</option>
 							<option value="10">10 minutes</option>
+							<option value="15">15 minutes</option>
 						</select>
 					</div>
 					
