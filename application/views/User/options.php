@@ -224,17 +224,17 @@
 		<div class="tab-content">
 			<fieldset>
 				<div class="form-group">
-					<label for="file" class="file">Import posts</label>
-					<input type="file" name="file" id="file">
+					<label for="file" class="file">Import posts <span class="fa fa-reply"></span></label>
+					<input type="file" name="file" class="btn" id="file">
 				</div>
 				<hr />
 				<div class="form-group">
 					<label for="export-posts" class="hidden">Export in XML format</label>
-					<a href="<?php echo URL::site('ajax/export/xml'); ?>" id="export-posts" class="btn btn-good">Export Posts</a> 
+					<a href="<?php echo URL::site('ajax/export/xml'); ?>" id="export-posts" class="btn btn-good">Export Posts <span class="fa fa-share"></span></a> 
 				</div>
 				<hr />
 				<div class="form-group">
-					<a href="#" id="delete-account">Delete Account (REPLACE THE SAVE BUTTON WITH THIS SOME HOW)</a>
+					<a href="#" id="delete-account" class="btn btn-bad">Delete Account <span class="fa fa-frown-o"></span></a>
 				</div>
 			</fieldset>    
 		</div>
