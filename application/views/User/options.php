@@ -1,102 +1,6 @@
 <ul class="accordion-tabs" id="site-options">
-	<li class="tab-header-and-content">
-		<a href="#personal-settings" class="tab-link is-active">Personal Settings</a>
-		<div class="tab-content">
-			<form class="user-options-form" data-bind="validateForm:true" action="<?php echo URL::site('user/options'); ?>" method="post">
-				<fieldset>
-					<div class="form-group">
-						<label for="email">Email</label>
-						<input type="email" required class="<?php echo (($errors&&arr::get($errors,'email',false))?'error':''); ?>" id="user-email" value="<?php echo user::get()->email; ?>" name="email">
-<?php
-						if($errors&&arr::get($errors,'email',false))
-						{
-							echo '<label for="user-email" class="error">';
-							$errs = arr::get($errors,'email');
-							if(is_array($errs))
-							{
-								echo '<ul>';
-								foreach($errs as $err)
-								{
-									echo '<li>'.$err.'</li>';
-								}
-								echo '</ul>';
-							}
-							else
-							{
-								echo $errs;
-							}
-							echo '</label>';
-						}
-?>
-					</div>
-					
-					<hr />
-					
-					<div class="flash-notice">
-						<h4>Note</h4> only fill out the below fields if you wan't to change your password.
-					</div>
-	
-					<div class="form-group">
-						<label for="new-password">New Password</label>
-						<input minlength="5" title="Min 5, max 42 characters" class="<?php echo (($errors&&arr::get($errors,'password',false))?'error':''); ?>" type="password" id="new-password" placeholder="Enter your new password.." name="password">
-<?php
-						if($errors&&arr::path($errors, '_external.password', false))
-						{
-							echo '<label for="new-password" class="error">';
-							$errs = arr::path($errors, '_external.password');
-							if(is_array($errs))
-							{
-								echo '<ul>';
-								foreach($errs as $err)
-								{
-									echo '<li>'.$err.'</li>';
-								}
-								echo '</ul>';
-							}
-							else
-							{
-								echo $errs;
-							}
-							echo '</label>';
-						}
-?>
-					</div>
-					<div class="form-group">
-						<label for="confirm-new-password">Confirm your new password</label>
-						<input minlength="5" title="Must match above password" class="<?php echo (($errors&&arr::get($errors,'password_confirm',false))?'error':''); ?>" type="password" placeholder="Re-enter your new password.." id="confirm-new-password" name="password_confirm">
-<?php
-						if($errors&&arr::path($errors, '_external.password_confirm', false))
-						{
-							echo '<label for="confirm-new-password" class="error">';
-							$errs = arr::path($errors, '_external.password_confirm');
-							if(is_array($errs))
-							{
-								echo '<ul>';
-								foreach($errs as $err)
-								{
-									echo '<li>'.$err.'</li>';
-								}
-								echo '</ul>';
-							}
-							else
-							{
-								echo $errs;
-							}
-							echo '</label>';
-						}
-?>
-					</div>
-					
-					<div class="form-group text-right">
-						<button class="btn-good pull-right">Save personal settings</button>
-					</div>
-					
-				</fieldset>
-			</form>
-		</div>
-	</li>
  	<li class="tab-header-and-content">
-		<a href="#site-settings" class="tab-link">Site Settings</a>
+		<a href="#site-settings" class="tab-link is-active">Site Settings</a>
 		<div class="tab-content">
 			<p>
 				<em>Note: The below settings save automatically when you change them</em>
@@ -219,6 +123,104 @@
 			</fieldset>
 		</div>
 	</li>
+	
+	<li class="tab-header-and-content">
+		<a href="#personal-settings" class="tab-link">Personal Settings</a>
+		<div class="tab-content">
+			<form class="user-options-form" data-bind="validateForm:true" action="<?php echo URL::site('user/options'); ?>" method="post">
+				<fieldset>
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="email" required class="<?php echo (($errors&&arr::get($errors,'email',false))?'error':''); ?>" id="user-email" value="<?php echo user::get()->email; ?>" name="email">
+<?php
+						if($errors&&arr::get($errors,'email',false))
+						{
+							echo '<label for="user-email" class="error">';
+							$errs = arr::get($errors,'email');
+							if(is_array($errs))
+							{
+								echo '<ul>';
+								foreach($errs as $err)
+								{
+									echo '<li>'.$err.'</li>';
+								}
+								echo '</ul>';
+							}
+							else
+							{
+								echo $errs;
+							}
+							echo '</label>';
+						}
+?>
+					</div>
+					
+					<hr />
+					
+					<div class="flash-notice">
+						<h4>Note</h4> only fill out the below fields if you wan't to change your password.
+					</div>
+	
+					<div class="form-group">
+						<label for="new-password">New Password</label>
+						<input minlength="5" title="Min 5, max 42 characters" class="<?php echo (($errors&&arr::get($errors,'password',false))?'error':''); ?>" type="password" id="new-password" placeholder="Enter your new password.." name="password">
+<?php
+						if($errors&&arr::path($errors, '_external.password', false))
+						{
+							echo '<label for="new-password" class="error">';
+							$errs = arr::path($errors, '_external.password');
+							if(is_array($errs))
+							{
+								echo '<ul>';
+								foreach($errs as $err)
+								{
+									echo '<li>'.$err.'</li>';
+								}
+								echo '</ul>';
+							}
+							else
+							{
+								echo $errs;
+							}
+							echo '</label>';
+						}
+?>
+					</div>
+					<div class="form-group">
+						<label for="confirm-new-password">Confirm your new password</label>
+						<input minlength="5" title="Must match above password" class="<?php echo (($errors&&arr::get($errors,'password_confirm',false))?'error':''); ?>" type="password" placeholder="Re-enter your new password.." id="confirm-new-password" name="password_confirm">
+<?php
+						if($errors&&arr::path($errors, '_external.password_confirm', false))
+						{
+							echo '<label for="confirm-new-password" class="error">';
+							$errs = arr::path($errors, '_external.password_confirm');
+							if(is_array($errs))
+							{
+								echo '<ul>';
+								foreach($errs as $err)
+								{
+									echo '<li>'.$err.'</li>';
+								}
+								echo '</ul>';
+							}
+							else
+							{
+								echo $errs;
+							}
+							echo '</label>';
+						}
+?>
+					</div>
+					
+					<div class="form-group text-right">
+						<button class="btn-good pull-right">Save personal settings</button>
+					</div>
+					
+				</fieldset>
+			</form>
+		</div>
+	</li>
+	
  	<li class="tab-header-and-content">
 		<a href="#account-settings" class="tab-link">Account Details</a>
 		<div class="tab-content">
