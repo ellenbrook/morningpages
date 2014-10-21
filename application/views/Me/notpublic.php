@@ -1,0 +1,1 @@
+<div class="container">	<section>		<h2><span class="fa fa-eye-slash"></span> Private profile</h2>				<p>			This profile is private and cannot be viewed by others.		</p>	</section></div>

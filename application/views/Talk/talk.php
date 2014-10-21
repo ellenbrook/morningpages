@@ -24,7 +24,7 @@
 		<div class="comment-bio">
 			<?php echo HTML::image($talk->user->gravatar(120)); ?>
 			<p class="comment-author">
-				<?php echo $talk->user->username(); ?>
+				<?php echo $talk->user->username(true); ?>
 			</p>
 			<p class="comment-detail">
 				<?php echo Date::fuzzy_span($talk->created); ?>
@@ -73,7 +73,7 @@
 				<div class="comment-bio">
 					<?php echo HTML::image($reply->user->gravatar(100)); ?>
 					<p class="comment-author">
-						<?php echo $reply->user->username(); ?>
+						<?php echo $reply->user->username(true); ?>
 					</p>
 					<p class="comment-detail">
 						<?php echo Date::fuzzy_span($reply->created); ?>

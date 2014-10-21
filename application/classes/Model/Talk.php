@@ -140,7 +140,7 @@ class Model_Talk extends ORM {
 	
 	public function username()
 	{
-		return $this->user->username();
+		return $this->user->username(true);
 	}
 	
 	public function hot()

@@ -29,7 +29,7 @@
 		<nav class="default">
 			<ul>
 				<li><a href="#about">About</a></li>
-				<li><a href="<?php echo URL::site('write'); ?>" title="Write" class="btn btn-default<?php echo ($controller=='Page'?' active':''); ?>">Write</a></li>
+				<li><a href="<?php echo URL::site('write'); ?>" title="Write" class="<?php echo ($controller=='Page'?' active':''); ?>">Write</a></li>
 				<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
 				<li class="hidden" data-bind="visible:!site.user.logged()"><a href="#" data-bind="click:showLoginModal">Login</a></li>
 				<li class="hidden" data-bind="visible:!site.user.logged()"><a href="#" data-bind="click:showRegisterModal">Register</a></li>
