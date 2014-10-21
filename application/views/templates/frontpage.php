@@ -26,6 +26,14 @@
 		<h1 class="logo pull-left">
 			<a href="<?php echo URL::site(); ?>" title="Morning pages">Morning Pages</a>
 		</h1>
+		<div data-bind="ImAburger:true" class="hamburger-container">
+		  <div class="hamburger-line"></div>
+		  <div class="hamburger-line"></div>
+		  <div class="hamburger-line"></div>
+		</div>
+		<div class="mobile-navigation">
+			<p>This is a nav</p>
+		</div>
 		<nav class="frontpage">
 			<ul>
 				<li><a href="#about">About</a></li>

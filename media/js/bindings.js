@@ -27,6 +27,7 @@ define([
 				$(this).find('.hamburger-line:nth-child(2)').toggleClass('rotate-left');
 				$(this).find('.hamburger-line:nth-child(3)').toggleClass('rotate-right');
 				$(this).find('.hamburger-line:nth-child(1)').toggleClass('hide-me');
+				$('.mobile-navigation').toggleClass('mobile-navigation-active');
 			});
 		}
 	};

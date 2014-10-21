@@ -20,11 +20,6 @@
 		> img 
 		{
 			border-radius: 50%;
-			
-			&:hover {
-				@include animation(spin 600ms ease-in);
-				@include animation-iteration-count(1);
-			}
 		}
 	}
 
