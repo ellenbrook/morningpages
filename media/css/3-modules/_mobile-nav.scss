@@ -51,13 +51,31 @@
 
 .mobile-navigation {
   @include position(fixed, 0 null 0 -201px);
-  background-color: $good-color;
+  background-color: darken($good-color, 10);
   width: 200px;
   z-index: 50;
-  border-right: 1px solid darken($good-color, 10);
+  border-right: 1px solid darken($good-color, 20);
   transition: all 600ms ease-in;
 
   &-active {
     @include position(fixed, 0 null 0 0);
+  }
+
+  ul {
+    @include fill-parent;
+  }
+
+  li {
+
+    &:hover {
+      background: lighten($good-color, 10);
+    }
+
+    a {
+      display: inline-block;
+      padding: 1em;
+      color: #fff;
+      width: 100%;
+    }
   }
 }

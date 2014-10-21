@@ -32,7 +32,18 @@
 		  <div class="hamburger-line"></div>
 		</div>
 		<div class="mobile-navigation">
-			<p>This is a nav</p>
+			<ul>
+				<li><a href="#about">About</a></li>
+				<li><a href="<?php echo URL::site('write'); ?>" title="Write" class="<?php echo ($controller=='Page'?' active':''); ?>">Write</a></li>
+				<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
+				<?php if(!user::logged()): ?>
+					<li><a href="#" data-bind="click:showLoginModal">Login</a></li>
+					<li><a href="#" data-bind="click:showRegisterModal">Register</a></li>
+				<?php else: ?>
+					<li><a href="<?php echo URL::site('me'); ?>" title="Your personal Morning Pages profile">Me</a></li>
+					<li><a href="<?php echo URL::site('user/logout'); ?>" title="Log out">Log out</a></li>
+				<?php endif; ?>
+			</ul>
 		</div>
 		<nav class="frontpage">
 			<ul>
