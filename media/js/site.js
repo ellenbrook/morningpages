@@ -31,7 +31,10 @@ define([
 			else
 			{
 				self.user.getInfo().done(function(){
-					self.startUserPrivacyTimer();
+					if(self.user.options.privacymode())
+					{
+						self.startUserPrivacyTimer();
+					}
 				});
 			}
 			

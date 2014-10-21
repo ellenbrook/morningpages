@@ -1,6 +1,6 @@
 <ul class="accordion-tabs" id="site-options">
 	<li class="tab-header-and-content">
-		<a href="#personal-settings" class="tab-link">Personal Settings</a>
+		<a href="#personal-settings" class="tab-link is-active">Personal Settings</a>
 		<div class="tab-content">
 			<form class="user-options-form" data-bind="validateForm:true" action="<?php echo URL::site('user/options'); ?>" method="post">
 				<fieldset>
@@ -220,7 +220,7 @@
 		</div>
 	</li>
  	<li class="tab-header-and-content">
-		<a href="#account-settings" class="tab-link is-active">Account Details</a>
+		<a href="#account-settings" class="tab-link">Account Details</a>
 		<div class="tab-content">
 			<fieldset>
 				<div class="form-group">
