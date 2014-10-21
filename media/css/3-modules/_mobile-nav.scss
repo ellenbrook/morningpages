@@ -71,11 +71,25 @@
       background: lighten($good-color, 10);
     }
 
+    &.header {
+      font-weight: bold;
+      padding: 1em 1em 1em 1em;
+
+      &:hover {
+        background: darken($good-color, 10);
+      }
+    }
+
     a {
       display: inline-block;
       padding: 1em;
       color: #fff;
       width: 100%;
     }
+  }
+
+  .mobile-select {
+    margin: 1em;
+    width: 150px;
   }
 }
