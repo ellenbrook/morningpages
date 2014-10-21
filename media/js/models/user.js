@@ -29,31 +29,21 @@ define([
 			timer:null,
 			countdown:0,
 			timerWarningGiven:false,
+			ticks:self.options.privacymode_minutes() * 60,
 			startTimer:function(){
 				var privaself = this;
 				privaself.die();
-				privaself.countdown = self.options.privacymode_minutes() * 60;
 				return $.Deferred(function(defer){
+					$(window).on('keydown',function(){
+						privaself.die();
+						defer.reject();
+					}).on('mousemove',function(){
+						privaself.die();
+						defer.reject();
+					});
+					privaself.doTick(defer);
 					privaself.timer = setInterval(function(){
-						$(window).off('keydown').off('mousemove').on('keydown',function(){
-							privaself.die();
-							defer.reject();
-						}).on('mousemove',function(){
-							privaself.die();
-							defer.reject();
-						});
-						privaself.countdown -= 1;
-						if(privaself.countdown <= (self.options.privacymode_minutes() * 60) && !privaself.timerWarningGiven)
-						{
-							defer.notify('minutewarning');
-							privaself.timerWarningGiven = true;
-						}
-						if(privaself.countdown <= 0)
-						{
-							privaself.die();
-							defer.resolve();
-						}
-						console.log('timer: ',privaself.countdown);
+						privaself.doTick(defer);
 					}, 1000);
 				});
 			},
@@ -61,6 +51,21 @@ define([
 				clearInterval(this.timer);
 				this.timer = null;
 				this.timerWarningGiven = false;
+				this.countdown = self.options.privacymode_minutes() * 60;
+				$(window).off('keydown').off('mousemove');
+			},
+			doTick:function(defer){
+				this.countdown -= 1;
+				if(this.countdown <= 60 && !this.timerWarningGiven)
+				{
+					defer.notify('minutewarning');
+					this.timerWarningGiven = true;
+				}
+				if(this.countdown <= 0)
+				{
+					this.die();
+					defer.resolve();
+				}
 			}
 		};
 		

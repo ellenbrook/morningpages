@@ -66,7 +66,11 @@ class Controller_Ajax_User extends Controller {
 		{
 			ajax::error('No data received');
 		}
-		
+	}
+	
+	public function action_logout()
+	{
+		user::logout();
 	}
 	
 	public function action_savetheme()
