@@ -154,6 +154,55 @@ abstract class site {
 			}
 		}
 		
+		if($controller == 'user')
+		{
+			if($action != '')
+			{
+				if(in_array($action, user::reservednames()))
+				{
+					return array(
+						'controller' => 'User',
+						'action' => $action
+					);
+				}
+				// We're either looking at a user's public profile or 404'd
+				$user = ORM::factory('User')->where('slug','=',$action)->find();
+				if($user->loaded())
+				{
+					if((bool)$user->option('public'))
+					{
+						return array(
+							'controller' => 'Me',
+							'action' => 'profile',
+							'user' => $user
+						);
+					}
+					else
+					{
+						return array(
+							'controller' => 'Me',
+							'action' => 'notpublic'
+						);
+					}
+				}
+				else
+				{
+					return array(
+						'controller' => 'Errors',
+						'action' => '404',
+						'params' => $params
+					);
+				}
+			}
+			else
+			{
+				return array(
+					'controller' => 'User',
+					'action' => 'options'
+				);
+			}
+		}
+		
 		// "Static" controllers
 		$file = 'application/classes/Controller/' . $controllerfile . '.php';
 		if(file_exists($file) && method_exists('Controller_'.ucfirst($controllerfile), 'action_'.$action))

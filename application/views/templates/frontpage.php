@@ -29,7 +29,7 @@
 		<nav class="frontpage">
 			<ul>
 				<li><a href="#about">About</a></li>
-				<li><a href="<?php echo URL::site('write'); ?>" title="Write" class="btn btn-default<?php echo ($controller=='Page'?' active':''); ?>">Write</a></li>
+				<li><a href="<?php echo URL::site('write'); ?>" title="Write" class="<?php echo ($controller=='Page'?' active':''); ?>">Write</a></li>
 				<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
 				<?php if(!user::logged()): ?>
 					<li><a href="#" data-bind="click:showLoginModal">Login</a></li>

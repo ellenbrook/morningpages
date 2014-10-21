@@ -45,7 +45,12 @@
 .site-header {
 	position: relative;
 	@extend .index-header;
-
+	
+	h1
+	{
+		margin-bottom:0;
+	}
+	
 	.logo {
 		@include span-columns(6);
 		text-indent: -999em;
@@ -53,7 +58,7 @@
 		height: 56px;
 		background-position: left center;
 		background-size: contain;
-		
+		margin-bottom:0;
 
 		> a {
 			width: 236px;
