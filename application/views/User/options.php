@@ -1,6 +1,6 @@
 <ul class="accordion-tabs" id="site-options">
 	<li class="tab-header-and-content">
-		<a href="#personal-settings" class="tab-link is-active">Personal Settings</a>
+		<a href="#personal-settings" class="tab-link">Personal Settings</a>
 		<div class="tab-content">
 			<form class="user-options-form" data-bind="validateForm:true" action="<?php echo URL::site('user/options'); ?>" method="post">
 				<fieldset>
@@ -220,17 +220,19 @@
 		</div>
 	</li>
  	<li class="tab-header-and-content">
-		<a href="#account-settings" class="tab-link">Account Details</a>
+		<a href="#account-settings" class="tab-link is-active">Account Details</a>
 		<div class="tab-content">
 			<fieldset>
 				<div class="form-group">
 					<label for="file" class="file">Import posts</label>
 					<input type="file" name="file" id="file">
 				</div>
+				<hr />
 				<div class="form-group">
 					<label for="export-posts" class="hidden">Export in XML format</label>
-					<button id="export-posts" class="btn btn-good">Export Posts</button> 
+					<a href="<?php echo URL::site('ajax/export/xml'); ?>" id="export-posts" class="btn btn-good">Export Posts</a> 
 				</div>
+				<hr />
 				<div class="form-group">
 					<a href="#" id="delete-account">Delete Account (REPLACE THE SAVE BUTTON WITH THIS SOME HOW)</a>
 				</div>

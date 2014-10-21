@@ -47,6 +47,14 @@ class Model_Page extends ORM {
 		return $cont;
 	}
 	
+	public function rawcontent()
+	{
+		$cont = $this->content;
+		$cont = $this->decode($cont);
+		$cont = Security::xss_clean($cont);
+		return $cont;
+	}
+	
 	public function decode($content)
 	{
 		$enc = Encrypt::instance();
@@ -164,8 +172,12 @@ class Model_Page extends ORM {
 		return $random; 
 	}
 	
+	/**
+	 * obsolete
+	 */
 	public function wordcount()
 	{
+		throw new Exception('wordcount() is obsolete');
 		$content = strip_tags($this->content);
         $replace = array("\r\n", "\n", "\r", "\t", '.', ',', ';', "'", '@');
         $content = str_replace($replace, ' ', $content);
