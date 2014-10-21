@@ -27,7 +27,7 @@
 
     .rotate-left {
       position: absolute;
-      top: 28px;
+      top: 10px;
       left: 0;
       transform: rotate(225deg);
       transition: all 600ms ease;
@@ -36,7 +36,7 @@
 
     .rotate-right {
       position: absolute;
-      top: 28px;
+      top: 10px;
       left: 0;
       transform: rotate(-225deg);
       transition: all 600ms ease;
@@ -47,4 +47,17 @@
       margin-top:-20px;
       transition: all 600ms ease;
     }
+}
+
+.mobile-navigation {
+  @include position(fixed, 0 null 0 -201px);
+  background-color: $good-color;
+  width: 200px;
+  z-index: 50;
+  border-right: 1px solid darken($good-color, 10);
+  transition: all 600ms ease-in;
+
+  &-active {
+    @include position(fixed, 0 null 0 0);
+  }
 }
