@@ -145,15 +145,23 @@
   }
 
   .modal-left {
-    float: left;
-    width: 50%;
+    
+    @include media($medium-screen) {
+      float: left;
+      width: 50%;
+    }
   }
 
   .modal-right {
-    float: left;
-    text-align: right;
-    width: 50%;
-    @include omega();
+    margin-top: 1em;
+
+    @include media($medium-screen) {
+      margin-top: 0em;
+      float: left;
+      text-align: right;
+      width: 50%;
+      @include omega();
+    }
   }
 
   .modal-social {
