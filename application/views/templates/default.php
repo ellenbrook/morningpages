@@ -97,7 +97,7 @@
 				<li><a href="<?php echo URL::site('user/logout'); ?>" title="Log out">Log out</a></li>
 			<?php else: ?>
 				<li><a href="#" data-bind="click:showTipsAndTricks">Tips and Tricks</a></li>
-				<li>Log in</li>
+				<li><a href="#" data-bind="click:showLoginModal">Log in</a></li>
 			<?php endif; ?>
 			</ul>
 		</div>
