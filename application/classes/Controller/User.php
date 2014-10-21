@@ -61,8 +61,10 @@ class Controller_User extends Controller_Project {
 	public function action_delete()
 	{
 		$user = user::get();
-		$user->delete = time();
-		$user->save();
+		$user->delete();
+		user::logout();
+		notes::info('Your account and pages have been deleted. Sorry to see you go!');
+		site::redirect('');
 	}
 	
 	public function action_login()
