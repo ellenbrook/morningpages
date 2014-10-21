@@ -224,17 +224,23 @@
 		<div class="tab-content">
 			<fieldset>
 				<div class="form-group">
-					<label for="file" class="file">Import posts</label>
-					<input type="file" name="file" id="file">
-				</div>
-				<div class="form-group">
+					<h3>Export your pages</h3>
 					<label for="export-posts" class="hidden">Export in XML format</label>
-					<button id="export-posts" class="btn btn-good">Export Posts</button> 
+					<a href="<?php echo URL::site('ajax/export/xml'); ?>" id="export-posts" class="btn btn-good">Export <span class="fa fa-share"></span></a> 
 				</div>
+				<hr />
 				<div class="form-group">
-					<a href="#" id="delete-account">Delete Account (REPLACE THE SAVE BUTTON WITH THIS SOME HOW)</a>
+					<h3>Danger zone</h3>
+					<p>
+						<em>Remember you can export your pages above if you want to save them for yourself.</em>
+					</p>
+					<p>
+						<a href="#" id="delete-account" data-bind="click:deleteAccount" class="btn btn-bad">Delete Account <span class="fa fa-frown-o"></span></a>
+					</p>
 				</div>
 			</fieldset>    
 		</div>
 	</li>
 </ul>
+
+<?php echo View::factory('modals/delete-account'); ?>

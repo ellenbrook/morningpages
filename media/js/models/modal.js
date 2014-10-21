@@ -40,6 +40,11 @@ define([
         	
         };
         
+        self.confirm = function(){
+        	self.modal.hide();
+        	self.promise.resolve();
+        };
+        
     };
     
     return modalModel;

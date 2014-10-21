@@ -2,11 +2,6 @@
 
 class Controller_Ajax_Export extends Controller {
 	
-	public function action_doit()
-	{
-		$this->response->send_file(URL::site('ajax/export/xml'));
-	}
-	
 	public function action_xml()
 	{
 		if(!user::logged())
@@ -28,22 +23,26 @@ class Controller_Ajax_Export extends Controller {
 		$xml .= '<title>'.$possessive.' morning pages</title>';
 		$xml .= '<language>en-US</language>';
 		$xml .= '<author>'.$user->username.'</author>';
+		$xml .= '<pages>';
 		if((bool)$pages->count())
 		{
 			foreach($pages as $page)
 			{
-				$xml .= '<item>';
+				$xml .= '<page>';
 				$xml .= '<published>';
 				$xml .= '<date>'.$page->daystamp().'</date>';
 				$xml .= '<timestamp>'.$page->created.'</timestamp>';
 				$xml .= '</published>';
-				$xml .= '<content><![CDATA['.$page->content().']]></content>';
-				$xml .= '</item>';
+				$xml .= '<content><![CDATA['.$page->rawcontent().']]></content>';
+				$xml .= '<wordcount>'.$page->wordcount.'</wordcount>';
+				$xml .= '</page>';
 			}
 		}
+		$xml .= '</pages>';
 		$xml .= '</channel>';
 		$this->response->headers('Content-Type','text/xml');
-		echo $xml;
+		$this->response->body($xml);
+		$this->response->send_file(true, 'pages.xml');
 	}
 	
 }
