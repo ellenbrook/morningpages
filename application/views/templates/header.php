@@ -1,7 +1,7 @@
 <?php
 
 $isfront = false;
-if(routes::isFrontPage($controller, $action))
+if(routes::isFrontPage())
 {
 	$isfront = true;
 }
@@ -22,7 +22,7 @@ if(routes::isFrontPage($controller, $action))
 			<ul>
 				<li class="header">Navigation</li>
 				<li><a href="#about">About</a></li>
-				<li><a href="<?php echo URL::site('write'); ?>" title="Write" class="<?php echo ($controller=='Page'?' active':''); ?>">Write</a></li>
+				<li><a href="<?php echo URL::site('write'); ?>" title="Write">Write</a></li>
 				<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
 				<li class="hidden" data-bind="visible:!site.user.logged()"><a href="#" data-bind="showModal:{element:'#loginModal',done:doneLoggingIn}">Login</a></li>
 				<li class="hidden" data-bind="visible:!site.user.logged()"><a href="#" data-bind="showModal:'#registerModal'">Register</a></li>
@@ -92,16 +92,18 @@ if(routes::isFrontPage($controller, $action))
 		</div>
 		<nav class="<?php echo ($isfront?'frontpage':'default');  ?>">
 			<ul>
-				<li><a href="#about">About</a></li>
-				<li><a href="<?php echo URL::site('write'); ?>" title="Write" class="<?php echo ($controller=='Page'?' active':''); ?>">Write</a></li>
+				<li><a href="<?php echo URL::site('about'); ?>" title="About Morning Pages">About</a></li>
+				<li><a href="<?php echo URL::site('write'); ?>" title="Write">Write</a></li>
 				<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
-				<li><a href="#" data-bind="showModal:'#registerModal'">Register</a></li>
 				<?php if(!user::logged()): ?>
 					<li><a href="#" data-bind="showModal:{element:'#loginModal',done:doneLoggingIn}">Login</a></li>
 					<li><a href="#" data-bind="showModal:'#registerModal'">Register</a></li>
 				<?php else: ?>
 					<li><a href="<?php echo URL::site('me'); ?>" title="Your personal Morning Pages profile">Me</a></li>
 					<li><a href="<?php echo URL::site('user/logout'); ?>" title="Log out">Log out</a></li>
+				<?php endif; ?>
+				<?php if(!$isfront): ?>
+					<button id="hidden-nav-trigger" class="navigation-trigger" data-bind="click:hamburgerClick"><span class="fa fa-cog"></span></button>
 				<?php endif; ?>
 			</ul>
 		</nav>
