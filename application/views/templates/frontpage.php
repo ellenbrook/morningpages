@@ -23,7 +23,7 @@
 
 <?php
 
-echo View::factory('templates/header', array('controller' => $controller, 'action' => $action));
+echo View::factory('templates/header');
 
 ?>
 

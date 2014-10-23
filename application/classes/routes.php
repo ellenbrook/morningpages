@@ -26,15 +26,22 @@ abstract class routes {
 		if($controller == 'suggestions')
 		{
 			return array(
-				'controller' => 'Site',
+				'controller' => 'Page',
 				'action' => 'suggestions'
 			);
 		}
 		if($controller == 'faq')
 		{
 			return array(
-				'controller' => 'Site',
+				'controller' => 'Page',
 				'action' => 'faq'
+			);
+		}
+		if($controller == 'about')
+		{
+			return array(
+				'controller' => 'Page',
+				'action' => 'about'
 			);
 		}
 		if($controller == 'write')
@@ -223,8 +230,10 @@ abstract class routes {
 		);
 	}
 	
-	public static function isFrontPage($controller, $action)
+	public static function isFrontPage()
 	{
+		$controller = Request::current()->controller();
+		$action = Request::current()->action();
 		return $controller == 'Site' && $action == 'index';
 	}
 	
