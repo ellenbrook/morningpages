@@ -11,6 +11,10 @@ class Controller_Page extends Controller_Project {
 	
 	public function action_about(){}
 	
+	public function action_terms(){}
+	
+	public function action_privacy(){}
+	
 	public function action_write()
 	{
 		$errors = false;
@@ -76,7 +80,7 @@ class Controller_Page extends Controller_Project {
 		$this->template->page = $page;
 	}
 	
-	public function action_suggestions()
+	public function action_contact()
 	{
 		$errors = false;
 		if($_POST)
@@ -95,7 +99,7 @@ class Controller_Page extends Controller_Project {
 					->content(arr::get($_POST, 'suggestion').'<br /><br />.E-mail: '.arr::get($_POST, 'email',''))
 					->subject('Suggestions from '.site::option('sitename'))
 					->send();
-				site::redirect('suggestions');
+				site::redirect('contact');
 			}
 			else
 			{
