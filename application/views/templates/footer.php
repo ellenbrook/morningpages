@@ -3,10 +3,10 @@
 		<div class="footer-links">
 			<ul>
 				<li><h3>Navigation</h3></li>
-				<li><a href="/#about" title="About Morning Pages">About</a></li>
+				<li><a href="<?php echo URL::site('about'); ?>" title="About Morning Pages">About</a></li>
 				<li><a href="<?php echo URL::site('write'); ?>" title="Write">Write</a></li>
 				<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
-				<li><a href="javascript:void(0)">Contact</a></li>
+				<li><a href="<?php echo URL::site('contact'); ?>" title="Contact Morning Pages">Contact</a></li>
 			</ul>
 			<ul>
 				<li><h3>Follow Us</h3></li>
@@ -15,8 +15,8 @@
 			</ul>
 			<ul>
 				<li><h3>Legal</h3></li>
-				<li><a href="javascript:void(0)">Terms and Conditions</a></li>
-				<li><a href="javascript:void(0)">Privacy Policy</a></li>
+				<li><a href="<?php echo URL::site('terms-conditions'); ?>">Terms and Conditions</a></li>
+				<li><a href="<?php echo URL::site('privacy-policy'); ?>">Privacy Policy</a></li>
 			</ul>
 		</div>
 		<hr>

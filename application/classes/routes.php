@@ -23,11 +23,11 @@ abstract class routes {
 		$slug5 = (isset($params['slug5']) ? $params['slug5'] : '');
 				
 		// Page alias
-		if($controller == 'suggestions')
+		if($controller == 'contact')
 		{
 			return array(
 				'controller' => 'Page',
-				'action' => 'suggestions'
+				'action' => 'contact'
 			);
 		}
 		if($controller == 'faq')
@@ -35,6 +35,27 @@ abstract class routes {
 			return array(
 				'controller' => 'Page',
 				'action' => 'faq'
+			);
+		}
+		if($controller == 'about')
+		{
+			return array(
+				'controller' => 'Page',
+				'action' => 'about'
+			);
+		}
+		if($controller == 'terms-conditions')
+		{
+			return array(
+				'controller' => 'Page',
+				'action' => 'terms'
+			);
+		}
+		if($controller == 'privacy-policy')
+		{
+			return array(
+				'controller' => 'Page',
+				'action' => 'privacy'
 			);
 		}
 		if($controller == 'about')
