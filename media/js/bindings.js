@@ -3,8 +3,9 @@ define([
 	'jquery',
 	'site',
 	'autogrow',
-	'validate'
-], function(ko, $, site){
+	'validate',
+    'models/modal'
+], function(ko, $, site,ag,validate,modal){
 	
 	ko.bindingHandlers.autogrow = {
 	    init: function (element, valueAccessor, allBindingsAccessor) {
@@ -19,6 +20,49 @@ define([
 	            $(element).trigger('autosize');
 	        });
 	    }
+	};
+	
+	ko.bindingHandlers.showModal = {
+		init:function(element, valueAccessor){
+			var vals = valueAccessor();
+			var done = false;
+			var fail = false;
+			if(typeof vals == 'object')
+			{
+				var modalelement = $(vals.element)[0];
+				if(vals.done)
+				{
+					done = vals.done;
+				}
+				if(vals.fail)
+				{
+					fail = vals.fail;
+				}
+			}
+			else
+			{
+				var modalelement = $(valueAccessor())[0];
+			}
+			var model = ko.dataFor(modalelement);
+			if(!model)
+			{
+				model = new modal($(modalelement));
+				ko.applyBindings(model, modalelement);
+			}
+			$(element).on('click', function(){
+				model.show().done(function(data){
+					if(done)
+					{
+						done(data);
+					}
+				}).fail(function(data){
+					if(fail)
+					{
+						fail(data);
+					}
+				});
+			});
+		}
 	};
 	
 	ko.bindingHandlers.ImAburger = {
@@ -43,7 +87,7 @@ define([
 		}
 	};
 
-	ko.bindingHandlers.showModal = {
+	/*ko.bindingHandlers.showModal = {
 		init:function(element, valueAccessor){
 			$(element).on('click',function(){
 				$('#'+valueAccessor()).show( "fast" );
@@ -54,7 +98,7 @@ define([
 				return false;
 			});
 		}
-	};
+	};*/
 	ko.bindingHandlers.hideModal = {
 		init:function(element, valueAccessor){
 			$(element).on('click',function(){

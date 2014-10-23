@@ -31,11 +31,9 @@ define([
 						});
 					};
 			        
-					self.showLoginModal = function(){
-						site.showLoginModal().done(function(){
-							site.say('You have been logged in. Welcome back!');
-							site.user.getInfo();
-						});
+					self.doneLoggingIn = function(){
+						site.say('You have been logged in. Welcome back!');
+						site.user.getInfo();
 					};
 					
 					self.showRegisterModal = function(){
@@ -56,13 +54,6 @@ define([
 			                window.location.href = '/write/'+date;
 			            }
 			        };
-			        
-					self.tipsModal = new modal( $('#tips-and-tricks') );
-					ko.applyBindings(self.tipsModal, $('#tips-and-tricks')[0]);
-			
-					self.showTipsAndTricks = function(elem, event){
-						self.tipsModal.show();
-					};
 					
 				};
 				if($('#user-options').length)

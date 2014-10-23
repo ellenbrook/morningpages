@@ -25,19 +25,22 @@ define([
 			
 			if(!userLogged)
 			{
-				self.setupLoginModal();
 				self.setupRegisterModal();
 			}
 			else
 			{
-				self.user.getInfo().done(function(){
-					if(self.user.options.privacymode())
-					{
-						self.startUserPrivacyTimer();
-					}
-				});
+				self.getUserInfo();
 			}
 			
+		};
+		
+		self.getUserInfo = function(){
+			self.user.getInfo().done(function(){
+				if(self.user.options.privacymode())
+				{
+					self.startUserPrivacyTimer();
+				}
+			});
 		};
 		
 		self.startUserPrivacyTimer = function(){
@@ -58,35 +61,9 @@ define([
 				});
 		};
 		
-		self.setupLoginModal = function(){
-			self.loginModal(new modal($('#loginModal')));
-			ko.applyBindings(self.loginModal(), $('#loginModal')[0]);
-		};
-		
 		self.setupRegisterModal = function(){
 			self.registerModal(new modal($('#registerModal')));
 			ko.applyBindings(self.registerModal(), $('#registerModal')[0]);
-		};
-		
-		self.showLoginModal = function(){
-			return $.Deferred(function(defer){
-				if(self.user.logged())
-				{
-					defer.resolve();
-				}
-				else
-				{
-					self.loginModal().show()
-						.done(function(){
-							// User logged in successfully
-							defer.resolve();
-						})
-						.fail(function(){
-							// Modal closed. Do we care? Reject, I guess.
-							defer.reject();
-						});
-				}
-			});
 		};
 		
 		self.showRegisterModal = function(){
