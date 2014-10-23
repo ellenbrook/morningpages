@@ -149,4 +149,4 @@ Route::set('cron', 'cron(/<controller>(/<action>(/<id>)))')
 		'directory' => 'cron'
 	));
 Route::set('default', '(<controller>(/<action>(/<slug>(/<slug2>(/<slug3>(/<slug4>)(/<slug5>))))))')
-	->filter(array('site','routes'));
+	->filter(array('routes','find'));

@@ -21,46 +21,11 @@
 ?>
 <body class="<?php echo $theme; ?>">
 
-<header id="header" class="index-header">
-	<div class="container">
-		<h1 class="logo pull-left">
-			<a href="<?php echo URL::site(); ?>" title="Morning pages">Morning Pages</a>
-		</h1>
-		<div data-bind="ImAburger:true" class="hamburger-container">
-		  <div class="hamburger-line"></div>
-		  <div class="hamburger-line"></div>
-		  <div class="hamburger-line"></div>
-		</div>
-		<div class="mobile-navigation">
-			<ul>
-				<li><a href="#about">About</a></li>
-				<li><a href="<?php echo URL::site('write'); ?>" title="Write" class="<?php echo ($controller=='Page'?' active':''); ?>">Write</a></li>
-				<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
-				<?php if(!user::logged()): ?>
-					<li><a href="#" data-bind="click:showLoginModal">Login</a></li>
-					<li><a href="#" data-bind="click:showRegisterModal">Register</a></li>
-				<?php else: ?>
-					<li><a href="<?php echo URL::site('me'); ?>" title="Your personal Morning Pages profile">Me</a></li>
-					<li><a href="<?php echo URL::site('user/logout'); ?>" title="Log out">Log out</a></li>
-				<?php endif; ?>
-			</ul>
-		</div>
-		<nav class="frontpage">
-			<ul>
-				<li><a href="#about">About</a></li>
-				<li><a href="<?php echo URL::site('write'); ?>" title="Write" class="<?php echo ($controller=='Page'?' active':''); ?>">Write</a></li>
-				<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
-				<?php if(!user::logged()): ?>
-					<li><a href="#" data-bind="click:showLoginModal">Login</a></li>
-					<li><a href="#" data-bind="click:showRegisterModal">Register</a></li>
-				<?php else: ?>
-					<li><a href="<?php echo URL::site('me'); ?>" title="Your personal Morning Pages profile">Me</a></li>
-					<li><a href="<?php echo URL::site('user/logout'); ?>" title="Log out">Log out</a></li>
-				<?php endif; ?>
-			</ul>
-		</nav>
-	</div>
-</header>
+<?php
+
+echo View::factory('templates/header', array('controller' => $controller, 'action' => $action));
+
+?>
 
 <section class="hero full-height">
 	<div class="hero-inner">

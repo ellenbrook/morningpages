@@ -73,7 +73,8 @@
 
     &.header {
       font-weight: bold;
-      padding: 1em 1em 1em 1em;
+      padding: 1em 1em 0 1em;
+      font-size:1.2em;
 
       &:hover {
         background: darken($good-color, 10);
