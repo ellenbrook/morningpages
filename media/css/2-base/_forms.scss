@@ -78,14 +78,15 @@ select[multiple=multiple] {
   }
 
   &:focus {
-    border-color: $form-border-color-focus;
-    box-shadow: $form-box-shadow-focus;
     outline: none;
   }
 }
 
 textarea {
   resize: vertical;
+  outline: none;
+  border-color: transparent;
+  box-shadow: none;
 }
 
 input[type="search"] {
