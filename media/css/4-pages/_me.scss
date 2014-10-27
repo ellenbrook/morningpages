@@ -138,6 +138,30 @@
 	{
 		@include span-columns(12);
 	}
+
+	.badge
+	{
+		@include span-columns(6);
+		&:nth-child(2n)
+		{
+			@include omega;
+		}
+
+		@include media($medium-screen)
+		{
+			@include span-columns(3);
+			@include omega(4n);
+
+			&:nth-child(2n)
+			{
+				padding-right: 30px;
+			}
+		}
+
+		> img {
+			max-width: 100%;
+		}
+	}
 }
 
 @include keyframes(spin){

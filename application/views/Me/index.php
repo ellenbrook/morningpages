@@ -37,7 +37,27 @@
 			</dl>
 		</div>
 		<div class="me-badges">
-			<h2>badge showcase</h2>
+			<div class="badge-container">
+				<div class="badge">
+					<?php echo HTML::image('media/img/badges/newbie.png'); ?>
+				</div>
+
+				<div class="badge">
+					<?php echo HTML::image('media/img/badges/three-in-a-row.png'); ?>
+				</div>
+
+				<div class="badge">
+					<?php echo HTML::image('media/img/badges/seven-in-a-row.png'); ?>
+				</div>
+
+				<div class="badge">
+					<?php echo HTML::image('media/img/badges/thirty-in-a-row.png'); ?>
+				</div>
+
+				<div class="badge">
+					<?php echo HTML::image('media/img/badges/thirty-in-a-row.png'); ?>
+				</div>
+			</div>
 		</div>
 	<?php
 		
