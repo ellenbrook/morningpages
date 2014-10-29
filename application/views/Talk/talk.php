@@ -52,6 +52,9 @@
 			<?php if(user::logged()): ?>
 				<div class="comment-actions">
 					<?php if(user::get()->id == $talk->user_id): ?>
+						<button class="deletebutton" data-bind="click:delete" title="Delete Post">
+							<span class="fa fa-trash"></span>
+						</button>
 						<button class="editbutton" data-bind="click:edit" title="Edit">
 							<span class="fa fa-pencil"></span>
 						</button>
