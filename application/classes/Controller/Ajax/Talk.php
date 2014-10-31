@@ -87,7 +87,7 @@ class Controller_Ajax_Talk extends Controller {
 		{
 			ajax::error('I couldn\'t find that topic. Has it been deleted? Please contact us if you think this is a mistake');
 		}
-		if($object->user_id != user::get()->id)
+		if(!user::can_edit($object))
 		{
 			ajax::error('That doesn\'t seem to be your post to edit. Please contact us if you think this is a mistake');
 		}
@@ -110,7 +110,7 @@ class Controller_Ajax_Talk extends Controller {
 		{
 			ajax::error('I couldn\'t find that post. Has it been deleted? Please contact us if you think this is a mistake');
 		}
-		if($object->user_id != user::get()->id)
+		if(!user::can_edit($object))
 		{
 			ajax::error('That doesn\'t seem to be your post to edit. Please contact us if you think this is a mistake');
 		}
@@ -135,6 +135,42 @@ class Controller_Ajax_Talk extends Controller {
 		catch(exception $e)
 		{
 			ajax::error('Something wen\'t wrong. Please try again or contact us if the problem persists.');
+		}
+	}
+	
+	public function action_deletepost()
+	{
+		if(!user::logged())
+		{
+			ajax::error('You must be logged in to do that.');
+		}
+		$id = arr::get($_POST, 'id', false);
+		$object = ORM::factory('Talkreply', $id);
+		if(!$object->loaded())
+		{
+			ajax::error('I couldn\'t find that post. Has it already been deleted? Please contact us if you think this is a mistake');
+		}
+		if(!user::can_edit($object))
+		{
+			ajax::error('That doesn\'t seem to be your post to delete. Please contact us if you think this is a mistake');
+		}
+		$object->deleted = time();
+		$object->deleted_by = user::get()->id;
+		try
+		{
+			$object->talk->deleted = 0;
+			$object->talk->save();
+			$object->save();
+			ajax::info('Your post has been deleted.');
+		}
+		catch(exception $e)
+		{
+			Kohana::$log->add(Log::CRITICAL, 'Couldn\'t delete Model_Talkreply: :message. User_id: :userid, postreply_id: :replyid', array(
+				':message' => $e->getMessage(),
+				':userid' => user::get()->id,
+				':replyid' => $object->id
+			));
+			ajax::error('Something went wrong and your post couln\'t be deleted. Please try again or contact us if you think this is a mistake.');
 		}
 	}
 	

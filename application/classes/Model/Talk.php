@@ -48,6 +48,11 @@ class Model_Talk extends ORM {
 		return $this->getop()->id;
 	}
 	
+	public function deleted()
+	{
+		return $this->getop()->deleted();
+	}
+	
 	public function content()
 	{
 		$op = $this->getop();

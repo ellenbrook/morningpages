@@ -38,6 +38,11 @@ class Model_Talkreply extends ORM {
 		);
 	}
 	
+	public function deleted()
+	{
+		return $this->deleted > 0;
+	}
+	
 	public function markdown($text)
 	{
 		return markdown::instance()->convert($text);

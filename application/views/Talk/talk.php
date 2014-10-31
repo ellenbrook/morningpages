@@ -22,22 +22,30 @@
 <ul class="comments">
 	<li class="comment op" data-id="<?php echo $talk->opid(); ?>">
 		<div class="comment-bio">
-			<?php echo HTML::image($talk->user->gravatar(120)); ?>
-			<p class="comment-author">
-				<?php echo $talk->user->username(true); ?>
-			</p>
-			<p class="comment-detail">
-				<?php echo Date::fuzzy_span($talk->created); ?>
-			</p>
-			<div class="comment-meta">
-				<div class="votes">
-					<?php echo $talk->votes(); ?> liked
+			<?php if(!$talk->deleted()): ?>
+				<?php echo HTML::image($talk->user->gravatar(120)); ?>
+				<p class="comment-author">
+					<?php echo $talk->user->username(true); ?>
+				</p>
+				<p class="comment-detail">
+					<?php echo Date::fuzzy_span($talk->created); ?>
+				</p>
+				<div class="comment-meta">
+					<div class="votes">
+						<?php echo $talk->votes(); ?> liked
+					</div>
 				</div>
-			</div>
+			<?php else: ?>
+				[deleted]
+			<?php endif; ?>
 		</div>
 		<div class="comment-content completearea">
-			<h3><?php echo $talk->title; ?></h3>
-			<?php echo $talk->content(); ?>
+			<?php if(!$talk->deleted()): ?>
+				<h3><?php echo $talk->title; ?></h3>
+				<?php echo $talk->content(); ?>
+			<?php else: ?>
+				[deleted]
+			<?php endif; ?>
 		</div>
 		<div class="comment-content editarea">
 			<textarea></textarea>
@@ -49,10 +57,10 @@
 			</div>
 		</div>
 		<div class="comment-footer">
-			<?php if(user::logged()): ?>
+			<?php if(user::logged() && !$talk->deleted()): ?>
 				<div class="comment-actions">
 					<?php if(user::get()->id == $talk->user_id): ?>
-						<button class="deletebutton" data-bind="click:delete" title="Delete Post">
+						<button class="deletebutton" data-bind="showModal:{element:'#delete-post-modal',done:deletepost}" title="Delete post">
 							<span class="fa fa-trash"></span>
 						</button>
 						<button class="editbutton" data-bind="click:edit" title="Edit">
@@ -74,42 +82,53 @@
 ?>
 			<li class="comment" data-id="<?php echo $reply->id; ?>">
 				<div class="comment-bio">
-					<?php echo HTML::image($reply->user->gravatar(100)); ?>
-					<p class="comment-author">
-						<?php echo $reply->user->username(true); ?>
-					</p>
-					<p class="comment-detail">
-						<?php echo Date::fuzzy_span($reply->created); ?>
-					</p>
-					<div class="comment-meta">
-						<div class="votes"><?php echo $reply->votes(); ?> liked</div>
-					</div>
+					<?php if(!$reply->deleted()): ?>
+						<?php echo HTML::image($reply->user->gravatar(100)); ?>
+						<p class="comment-author">
+							<?php echo $reply->user->username(true); ?>
+						</p>
+						<p class="comment-detail">
+							<?php echo Date::fuzzy_span($reply->created); ?>
+						</p>
+						<div class="comment-meta">
+							<div class="votes"><?php echo $reply->votes(); ?> liked</div>
+						</div>
+					<?php else: ?>
+						[deleted]
+					<?php endif; ?>
 				</div>
 				<div class="comment-content completearea">
-					<p>
+					<?php if(!$reply->deleted()): ?>
+						<p>
 <?php
-						if($reply->replyto_id != 0)
-						{
-							echo '<em>In reply to '.$reply->replyto->user->username().'</em>';
-						}
+							if($reply->replyto_id != 0)
+							{
+								echo '<em>In reply to '.$reply->replyto->user->username().'</em>';
+							}
 ?>
-					</p>
-					<?php echo $reply->content(); ?>
-				</div>
-				<div class="comment-content editarea">
-					<textarea></textarea>
-					<div class="text-right">
-						<button data-bind="click:edit" title="Save">
-							Save
-						</button>
-						<a href="#" data-bind="click:canceledit">Cancel</a>
+						</p>
+						<?php echo $reply->content(); ?>
 					</div>
-				</div>
+					<div class="comment-content editarea">
+						<textarea></textarea>
+						<div class="text-right">
+							<button data-bind="click:edit" title="Save">
+								Save
+							</button>
+							<a href="#" data-bind="click:canceledit">Cancel</a>
+						</div>
+					</div>
+				<?php else: ?>
+					[deleted]
+				<?php endif; ?>
 				<div class="comment-footer">
-					<?php if(user::logged()): ?>
+					<?php if(user::logged() && !$reply->deleted()): ?>
 						<div class="comment-actions">
 							<?php if(user::get()->id == $reply->user_id): ?>
-								<button data-bind="click:edit" title="Edit">
+								<button class="deletebutton" data-bind="click:deletepost" title="Delete post">
+									<span class="fa fa-trash"></span>
+								</button>
+								<button data-bind="click:edit" title="Edit post">
 									<span class="fa fa-pencil"></span>
 								</button>
 							<?php endif; ?>
@@ -196,4 +215,7 @@ if($numpages > 1)
 			</fieldset>
 		</form>
 	</div>
+	
+	<?php echo View::factory('modals/delete-post'); ?>
+	
 <?php endif; ?>
