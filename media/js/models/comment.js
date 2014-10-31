@@ -10,6 +10,8 @@ define([
 		
 		self.element = $element;
 		self.contentarea = $element.find('.completearea');
+		self.bioarea = $element.find('.comment-bio');
+		self.footerarea = $element.find('.comment-footer');
 		self.editarea = self.element.find('.editarea');
 		self.id = $element.data('id');
 		self.type = $element.hasClass('op') ? 'talk' : 'talkreply';
@@ -74,6 +76,18 @@ define([
 			self.editarea.hide();
 			self.editbutton.removeAttr('disabled');
 			self.editing = false;
+		};
+		
+		self.deletepost = function(data){
+			$.post('/ajax/talk/deletepost',{id:self.id},function(reply){
+				if(reply.success)
+				{
+					self.contentarea.html('[deleted]');
+					self.bioarea.html('[deleted]');
+					self.footerarea.html('');
+				}
+				site.say(reply);
+			},'json');
 		};
 		
 		self.quote = function(){

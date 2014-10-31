@@ -2,7 +2,7 @@
 
 class Controller_Talk extends Controller_Project {
 	
-	private $pagination_limit = 200;
+	private $pagination_limit = 20;
 	
 	public function action_index()
 	{
@@ -51,8 +51,9 @@ class Controller_Talk extends Controller_Project {
 			}
 		}
 		
-		$talks = ORM::factory('Talk');
-		$counter = ORM::factory('Talk');
+		$talks = ORM::factory('Talk')->where('deleted','=',0);
+		
+		$counter = ORM::factory('Talk')->where('deleted','=',0);
 		if($tag && $tag->loaded())
 		{
 			$talks = $talks->where('talktag_id','=',$tag->id);
