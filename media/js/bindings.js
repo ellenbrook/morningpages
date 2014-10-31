@@ -61,6 +61,19 @@ define([
 						fail(data);
 					}
 				});
+				return false;
+			});
+		}
+	};
+	
+	ko.bindingHandlers.goToPreviousPage = {
+		init:function(element){
+			$(element).on('change',function(){
+				var date = $(element).val();
+	            if($(element).val() != 0)
+	            {
+	                window.location.href = '/write/'+date;
+	            }
 			});
 		}
 	};

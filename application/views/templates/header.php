@@ -10,25 +10,23 @@ $isfront = routes::isFrontPage();
 			<a href="<?php echo URL::site(); ?>" title="Morning pages">Morning Pages</a>
 		</h1>
 		<div data-bind="ImAburger:true" class="hamburger-container">
-		  <div class="hamburger-line"></div>
-		  <div class="hamburger-line"></div>
-		  <div class="hamburger-line"></div>
+			<div class="hamburger-line"></div>
+			<div class="hamburger-line"></div>
+			<div class="hamburger-line"></div>
 		</div>
-		<div class="mobile-navigation">
+		<div id="mobile-nav" class="mobile-navigation">
 			<ul>
 				<li class="header">Navigation</li>
 				<li><a href="#about">About</a></li>
 				<li><a href="<?php echo URL::site('write'); ?>" title="Write">Write</a></li>
 				<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
-				<li class="hidden" data-bind="visible:!site.user.logged()"><a href="#" data-bind="showModal:{element:'#loginModal',done:doneLoggingIn}">Login</a></li>
-				<li class="hidden" data-bind="visible:!site.user.logged()"><a href="#" data-bind="showModal:'#registerModal'">Register</a></li>
-				<li class="hidden" data-bind="visible:site.user.logged()"><a href="<?php echo URL::site('me'); ?>" title="Your personal Morning Pages profile">Me</a></li>
 				<li class="header">Options</li>
 				<?php if(user::logged()): ?>
+					<li class="hidden" data-bind="visible:site.user.logged()"><a href="<?php echo URL::site('me'); ?>" title="Your personal Morning Pages profile">Me</a></li>
 					<li><a href="<?php echo URL::site('user/options'); ?>">User options</a></li>
 					<!-- <li>Current streak: echo user::get()->current_streak </li> -->
 					<li>
-				    	<select data-bind="event:{change:goToPreviousPage}" id="pastposts" class="mobile-select">
+				    	<select data-bind="goToPreviousPage:true" id="pastposts" class="mobile-select">
 				        	<option value="0">Previous pages</option>
 				        	<option value="/">Today</option>
 <?php
@@ -115,7 +113,7 @@ $isfront = routes::isFrontPage();
 					<li><a href="<?php echo URL::site('user/options'); ?>">User options</a></li>
 					<!-- <li>Current streak: echo user::get()->current_streak </li> -->
 					<li>
-				    	<select data-bind="event:{change:goToPreviousPage}" id="pastposts">
+				    	<select data-bind="goToPreviousPage:true" id="pastposts">
 				        	<option value="0">Previous pages</option>
 				        	<option value="/">Today</option>
 	<?php

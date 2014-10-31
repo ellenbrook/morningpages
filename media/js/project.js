@@ -46,15 +46,6 @@ define([
 			    
 			    var useroptionsModel = function(){
 			        var self = this;
-			        
-			        self.goToPreviousPage = function(obj, ev){
-			            var date = $(ev.target).val();
-			            if($(ev.target).val() != 0)
-			            {
-			                window.location.href = '/write/'+date;
-			            }
-			        };
-					
 				};
 				if($('#user-options').length)
 				{
