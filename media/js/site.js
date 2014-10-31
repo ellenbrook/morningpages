@@ -23,11 +23,7 @@ define([
 			self.user.logged(userLogged);
 			self.showNotes(notes);
 			
-			if(!userLogged)
-			{
-				self.setupRegisterModal();
-			}
-			else
+			if(userLogged)
 			{
 				self.getUserInfo();
 			}
@@ -59,32 +55,6 @@ define([
 				}).fail(function(){
 					self.startUserPrivacyTimer();
 				});
-		};
-		
-		self.setupRegisterModal = function(){
-			self.registerModal(new modal($('#registerModal')));
-			ko.applyBindings(self.registerModal(), $('#registerModal')[0]);
-		};
-		
-		self.showRegisterModal = function(){
-			return $.Deferred(function(defer){
-				if(self.user.logged())
-				{
-					defer.resolve();
-				}
-				else
-				{
-					self.registerModal().show()
-						.done(function(){
-							// User registerred successfully
-							defer.resolve();
-						})
-						.fail(function(){
-							// Modal closed. Do we care? Reject, I guess.
-							defer.reject();
-						});
-				}
-			});
 		};
 		
 		self.scrollTo = function($element){
