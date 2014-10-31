@@ -57,7 +57,7 @@
 			</div>
 		</div>
 		<div class="comment-footer">
-			<?php if(user::logged() && !$talk->deleted()): ?>
+			<?php if(user::can_edit($talk->getop()) && !$talk->deleted()): ?>
 				<div class="comment-actions">
 					<?php if(user::get()->id == $talk->user_id): ?>
 						<button class="deletebutton" data-bind="showModal:{element:'#delete-post-modal',done:deletepost}" title="Delete post">
@@ -122,7 +122,7 @@
 					[deleted]
 				<?php endif; ?>
 				<div class="comment-footer">
-					<?php if(user::logged() && !$reply->deleted()): ?>
+					<?php if(user::can_edit($reply) && !$reply->deleted()): ?>
 						<div class="comment-actions">
 							<?php if(user::get()->id == $reply->user_id): ?>
 								<button class="deletebutton" data-bind="click:deletepost" title="Delete post">
