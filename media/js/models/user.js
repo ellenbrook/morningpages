@@ -1,7 +1,8 @@
 define([
 	'knockout',
-	'jquery'
-],function(ko, $){
+	'jquery',
+	'social/fb'
+],function(ko, $, fb){
 	
 	var user = function(){
 		var self = this;
@@ -67,6 +68,30 @@ define([
 					defer.resolve();
 				}
 			}
+		};
+		
+		self.init = function(logged){
+			if(logged)
+			{
+				self.logged(true);
+				return self.getInfo();
+			}
+			return $.Deferred(function(defer){
+				fb.init().then(function(){
+					if(fb.logged)
+					{
+						self.logged(true);
+						self.getInfo().then(function(){
+							defer.resolve();
+						});
+						
+					}
+					else
+					{
+						defer.resolve();
+					}
+				});
+			});
 		};
 		
 		self.getInfo = function(){

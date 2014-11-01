@@ -1,7 +1,8 @@
 define([
     'jquery',
-    'knockout'
-],function($, ko, site){
+    'knockout',
+    'social/fb'
+],function($, ko, fb){
     
     var modalModel = function(element)
     {
@@ -38,6 +39,36 @@ define([
         	}, 'json');
         	return false;
         	
+        };
+        
+        self.fblogin = function(){
+        	fb.init().done().fail(function(){
+        		fb.login().done(function(reply){
+        			var data = {};
+        			data.accessToken = reply.authResponse.accessToken;
+        			data.signedRequest = reply.authResponse.signedRequest;
+        			data.serviceId = reply.authResponse.userID;
+        			fb.api('/me').then(function(reply){
+        				data.name = reply.name;
+        				data.email = reply.email;
+        				$.post('/ajax/user/fbsignup',data,function(reply){
+        					if(reply.success)
+        					{
+        						self.modal.hide();
+        						self.promise.resolve(reply, true);
+        					}
+        					else
+        					{
+        						fb.deleteme();
+        						self.modal.hide();
+        						self.promise.reject(reply, true);
+        					}
+        				},'json');
+        			});
+        		}).fail(function(){
+        			console.log('Facebook login cancelled.');
+        		});
+        	});
         };
         
         self.confirm = function(){

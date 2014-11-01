@@ -22,8 +22,8 @@
 			<div class="modal-right">
 				<ul class="social-buttons">
 					<li>
-						<a href="<?php echo URL::site('auth/twitter'); ?>" title="Sign in with Twitter">
-							<img src="<?php echo URL::site('media/img/sign-in-with-twitter-gray.png'); ?>" alt="Sign in with Twitter" />
+						<a href="#" data-bind="click:fblogin" title="Sign in with Facebook">
+							<img src="<?php echo URL::site('media/img/sign-in-with-twitter-gray.png'); ?>" alt="Sign in with Facebook" />
 						</a>
 					</li>
 					<li>
