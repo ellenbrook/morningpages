@@ -16,18 +16,9 @@ define([
 			$('body').removeClass().addClass(newclass);
 		});
 		
-		self.loginModal = ko.observable();
-		self.registerModal = ko.observable();
-		
 		self.init = function(userLogged, notes){
-			self.user.logged(userLogged);
 			self.showNotes(notes);
-			
-			if(userLogged)
-			{
-				self.getUserInfo();
-			}
-			
+			self.user.init(userLogged);
 		};
 		
 		self.getUserInfo = function(){

@@ -50,15 +50,23 @@ define([
 				ko.applyBindings(model, modalelement);
 			}
 			$(element).on('click', function(){
-				model.show().done(function(data){
+				model.show().done(function(data, sayit){
 					if(done)
 					{
 						done(data);
 					}
-				}).fail(function(data){
+					if(sayit)
+					{
+						site.say(data);
+					}
+				}).fail(function(data, sayit){
 					if(fail)
 					{
 						fail(data);
+					}
+					if(sayit)
+					{
+						site.say(data);
 					}
 				});
 				return false;

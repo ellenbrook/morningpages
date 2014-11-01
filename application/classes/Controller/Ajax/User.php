@@ -34,6 +34,89 @@ class Controller_Ajax_User extends Controller {
 		));
 	}
 	
+	public function action_fbsignup()
+	{
+		if($_POST)
+		{
+			$serviceid = arr::get($_POST, 'serviceId', false);
+			if(!$serviceid)
+			{
+				ajax::error('1Something wen\'t wrong, and we didn\'t receive the data we expected. Please try again, or contact us if you think this is an error.');
+			}
+			$name = arr::get($_POST, 'name', false);
+			if(!$name || empty($name))
+			{
+				ajax::error('2We didn\'t get your name! Please reauth and share your name with us!');
+			}
+			$token = arr::get($_POST, 'accessToken', false);
+			if(!$token)
+			{
+				ajax::error('3Something wen\'t wrong, and we didn\'t receive the data we expected. Please try again, or contact us if you think this is an error.');
+			}
+			$secret = arr::get($_POST, 'signedRequest', false);
+			if(!$secret)
+			{
+				ajax::error('4Something wen\'t wrong, and we didn\'t receive the data we expected. Please try again, or contact us if you think this is an error.');
+			}
+			$existing = ORM::factory('Oauth')
+				->where('type','=','facebook')
+				->where('service_id','=',$serviceid)
+				->find();
+			if($existing->loaded())
+			{
+				// This is a re-auth. Just log the dude in?
+				$existing->token = $token;
+				$existing->token_secret = $secret;
+				$existing->save();
+				user::force_login($existing->user);
+				ajax::success('You have been logged in. Welcome back '.$existing->user->username().'!');
+			}
+			else
+			{
+				$email = arr::get($_POST, 'email', false);
+				// Did they share their email? Can we hook it up to an existing user?
+				if($email && !empty($email))
+				{
+					// Check if there's an existing user
+					$user = ORM::factory('User')
+						->where('email', '=', $email)
+						->find();
+					if(!$user->loaded())
+					{
+						// New user
+						$user->email = $email;
+						$user->username = $name;
+						$user->validation_required(false)->save();
+						$user->add_role('login');
+						$msg = 'You have signed up to Morning Pages! Welcome '.$name;
+					}
+					else
+					{
+						$msg = 'You can now log in with your Facebook account. Welcome back '.$user->username();
+					}
+				}
+				else
+				{
+					// New user, email not shared
+					$user->username = $name;
+					$user->validation_required(false)->save();
+					$user->add_role('login');
+					$msg = 'You have signed up to Morning Pages! Welcome '.$name;
+				}
+				$oauth = ORM::factory('Oauth');
+				$oauth->user_id = $user->id;
+				$oauth->type = 'facebook';
+				$oauth->token = $token;
+				$oauth->token_secret = $secret;
+				$oauth->service_id = $serviceid;
+				$oauth->screen_name = $name;
+				$oauth->save();
+				ajax::success($msg);
+			}
+		}
+		ajax::error('Something wen\'t wrong! I didn\'t receive any data. Please try again, or contact us if you think this is an error.');
+	}
+	
 	public function action_login()
 	{
 		if(user::logged())
