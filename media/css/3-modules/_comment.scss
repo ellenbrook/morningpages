@@ -67,6 +67,20 @@
            border-bottom: 1px solid #ccc;
         }
       }
+      ul
+      {
+      	list-style-type:disc;
+      }
+      ol
+      {
+      	list-style-type:decimal;
+      }
+      pre
+      {
+      	padding:10px 5px;
+      	background:#EEE;
+      	border:1px solid #CCC;
+      }
     }
     .comment-content.editarea
     {
