@@ -46,7 +46,7 @@ class Controller_Page extends Controller_Project {
 							$page->counted = 1;
 						}
 						$page->update();
-						achievement::check(user::get(), achievement::FIRST_POST);
+						achievement::check_all(user::get());
 						/*$autosave = $page->get_autosave();
 						if($autosave)
 						{
@@ -62,9 +62,6 @@ class Controller_Page extends Controller_Project {
 					}
 					catch(ORM_Validation_Exception $e)
 					{
-						var_dump($_POST);
-						var_dump($e->errors());
-						die();
 						$errors = $e->errors('models');
 					}
 				}
