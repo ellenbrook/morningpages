@@ -22,6 +22,11 @@ define([
 			return total;
 		}, this);
 		
+		self.getAutosave = function(){
+			self.autosaver = new autosave($('#morningpage-content'));
+			return self.autosaver.get();
+		};
+		
 		if(site.user.logged())
 		{
 			site.user.getInfo().then(function(){
@@ -36,18 +41,37 @@ define([
 					});
 				}
 			});
-			
-			self.autosaver = new autosave($('#morningpage-content'));
-			self.autosaver.get().then(function(reply){
-				self.autosaver.element.val(reply.content);
-				 $('#morningpage-content').trigger('autosize');
+			self.getAutosave().then(function(reply){
+				self.writtenwords(reply.content);
+				$('#morningpage-content').trigger('autosize');
 			});
-			
 		}
+		else
+		{
+			site.user.logged.subscribe(function(logged){
+				if(logged)
+				{
+					console.log('dude logged in');
+					self.getAutosave().then(function(reply){
+						if(reply.content.length > 0)
+						{
+							var old = self.writtenwords();
+							var newcontent = reply.content+"\r"+old;
+							self.writtenwords(newcontent);
+							$('#morningpage-content').trigger('autosize');
+							site.say('We prepended an autosave you had from earlier!');
+						}
+					});
+				}
+			});
+		}
+		
+		
 		
 		self.submitPage = function(){
 			if(!site.user.logged())
 			{
+				site.say('You must be logged in to save your page. Please log in (or register) and try again (your content won\'t be lost)');
 				return false;
 			}
 		};
@@ -77,7 +101,7 @@ define([
 			else
 			{
 				$('.container').addClass('not-relative');
-				$('#morningpage-content').trigger('autosize.destroy').addClass('fullscreen');
+				$('#morningpage-content').trigger('autosize.destroy').addClass('fullscreen').focus();
 				$('#fullscreen-toolbar').addClass('fullscreen-toolbar');
 				isFullscreen = true;
 			}

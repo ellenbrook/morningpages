@@ -80,8 +80,8 @@ define([
 				fb.init().then(function(){
 					if(fb.logged)
 					{
-						self.logged(true);
 						self.getInfo().then(function(){
+							self.logged(true);
 							defer.resolve();
 						});
 						
