@@ -33,10 +33,15 @@
 	<?php endif; ?>
 
 	<div class="container" id="writing-container">
+		<div class="text-right" id="fullscreen-toolbar">
+			<a href="#" data-bind="click:fullscreen">
+				<span class="fa fa-arrows-alt"></span>
+			</a>
+		</div>
 		<?php if(user::logged()): ?>
 			<?php if($page->open()): ?>
 						<form role="form" action="<?php echo URL::site('write/'.$page->day); ?>" method="post" id="writeform">
-							<textarea id="morningpage-content" name="content" autofocus data-bind="value:writtenwords,valueUpdate:'keyup',autogrow:''"></textarea>
+							<textarea name="content" autofocus data-bind="value:writtenwords,valueUpdate:'keyup',autogrow:''" id="morningpage-content"></textarea>
 							<button data-bind="disable:totalwords()<1,css:{'btn-disabled':totalwords()<1}" class="writing-submit">Submit</button>
 							<p class="subtext">
 							      <span data-bind="text:wordcount()">0</span> / 750
@@ -45,7 +50,7 @@
 			<?php endif; ?>
 		<?php else: ?>
 					<form role="form" action="<?php echo URL::site('write/'); ?>" method="post" id="writeform" data-bind="submit:submitPage">
-						<textarea name="morningpage" autofocus data-bind="value:writtenwords,valueUpdate:'keyup',autogrow:''"></textarea>
+						<textarea name="content" autofocus data-bind="value:writtenwords,valueUpdate:'keyup',autogrow:''" id="morningpage-content"></textarea>
 						<button data-bind="disable:totalwords()<1,css:{'btn-disabled':totalwords()<1}"  class="writing-submit">Submit</button>
 						<p class="subtext">
 						      <span data-bind="text:wordcount()">0</span> / 750
