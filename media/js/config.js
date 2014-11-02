@@ -1,8 +1,8 @@
 require.config({
 	'baseUrl':'/media/js',
 	'paths':{
-		//'knockout':'vendor/knockout',
-		'knockout':'vendor/knockout.dev',
+		'knockout':'vendor/knockout',
+		//'knockout':'vendor/knockout.dev',
 		'jquery':'//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min',
 		'autogrow':'vendor/jquery.autosize',
 		'validate':'vendor/jquery.validate.min',
