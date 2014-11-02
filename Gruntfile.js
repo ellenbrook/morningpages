@@ -3,6 +3,9 @@ module.exports = function(grunt){
 		pkg:grunt.file.readJSON('package.json'),
 		sass:{
 			dist:{
+				options:{
+					style:'compressed'
+				},
 				files:{
 					'media/css/style.css':'media/css/style.scss'
 				}
