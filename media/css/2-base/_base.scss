@@ -41,6 +41,11 @@
 	}
 }
 
+.container.not-relative
+{
+	position:static;
+}
+
 html, body {
 	position: relative;
 	height: 100%;

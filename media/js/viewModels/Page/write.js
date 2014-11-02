@@ -40,6 +40,7 @@ define([
 			self.autosaver = new autosave($('#morningpage-content'));
 			self.autosaver.get().then(function(reply){
 				self.autosaver.element.val(reply.content);
+				 $('#morningpage-content').trigger('autosize');
 			});
 			
 		}
@@ -60,8 +61,27 @@ define([
 				$('#sidebar').toggle();
 				$('#header').toggle();
 				$('#user-options').hide();
+				$('footer').toggle();
 			}
 		});
+		
+		var isFullscreen = false;
+		self.fullscreen = function(){
+			if(isFullscreen)
+			{
+				$('.container').removeClass('not-relative');
+				$('#morningpage-content').removeClass('fullscreen').trigger('autosize');
+				$('#fullscreen-toolbar').removeClass('fullscreen-toolbar');
+				isFullscreen = false;
+			}
+			else
+			{
+				$('.container').addClass('not-relative');
+				$('#morningpage-content').trigger('autosize.destroy').addClass('fullscreen');
+				$('#fullscreen-toolbar').addClass('fullscreen-toolbar');
+				isFullscreen = true;
+			}
+		};
 		
 	};
 	
