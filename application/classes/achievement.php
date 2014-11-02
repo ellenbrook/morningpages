@@ -3,6 +3,9 @@
 abstract class achievement {
 	
 	const FIRST_POST = 'newbie';
+	const HAT_TRICK = 'hattrick';
+	const WEEK_STREAK = '7daystreak';
+	const MONTH_STREAK = 'hotstreak';
 	const WRITING_STREAK = 'streak';
 	
 	public static function add(Model_User $user, Model_Achievement $achievement)
@@ -12,6 +15,15 @@ abstract class achievement {
 		$userachievement->achievement_id = $achievement->id;
 		$userachievement->created = time();
 		$userachievement->save();
+		self::announce($achievement->triggertext);
+	}
+	
+	public static function check_all(Model_User $user)
+	{
+		self::check($user, self::FIRST_POST);
+		self::check($user, self::HAT_TRICK);
+		self::check($user, self::WEEK_STREAK);
+		self::check($user, self::MONTH_STREAK);
 	}
 	
 	public static function check(Model_User $user, $type, $value = false)
@@ -29,7 +41,48 @@ abstract class achievement {
 						->where('type', '=', self::FIRST_POST)
 						->find();
 					self::add($user, $achievement);
-					self::announce($achievement->triggertext);
+				}
+				break;
+			case self::HAT_TRICK:
+				$existing = $user->achievement->where('type','=',self::HAT_TRICK)->find();
+				if($existing->loaded())
+				{
+					return false;
+				}
+				if($user->current_streak == 3)
+				{
+					$achievement = ORM::factory('Achievement')
+						->where('type', '=', self::HAT_TRICK)
+						->find();
+					self::add($user, $achievement);
+				}
+				break;
+			case self::WEEK_STREAK:
+				$existing = $user->achievement->where('type','=',self::WEEK_STREAK)->find();
+				if($existing->loaded())
+				{
+					return false;
+				}
+				if($user->current_streak == 7)
+				{
+					$achievement = ORM::factory('Achievement')
+						->where('type', '=', self::WEEK_STREAK)
+						->find();
+					self::add($user, $achievement);
+				}
+				break;
+			case self::MONTH_STREAK:
+				$existing = $user->achievement->where('type','=',self::MONTH_STREAK)->find();
+				if($existing->loaded())
+				{
+					return false;
+				}
+				if($user->current_streak == 7)
+				{
+					$achievement = ORM::factory('Achievement')
+						->where('type', '=', self::MONTH_STREAK)
+						->find();
+					self::add($user, $achievement);
 				}
 				break;
 			case self::WRITING_STREAK:

@@ -37,7 +37,28 @@
 			</dl>
 		</div>
 		<div class="me-badges">
+			<div class="badge-header">
+				<h3>User badges</h3>
+			</div>
 			<div class="badge-container">
+<?php
+		
+				$userachievements = $user->userachievements->find_all();
+				if((bool)$userachievements->count())
+				{
+					foreach($userachievements as $userachievement)
+					{
+						echo '<div class="badge">';
+						echo HTML::image('media/img/badges/'.$userachievement->achievement->badge, array(
+							'title' => $userachievement->achievement->description,
+							'alt' => $userachievement->achievement->description
+						));
+						echo '<div class="achievement-date">'.date('m-d-Y',$userachievement->created).'</div>';
+						echo '</div>';
+					}
+				}
+?>
+<?php /*
 				<div class="badge">
 					<?php echo HTML::image('media/img/badges/newbie.png'); ?>
 				</div>
@@ -57,19 +78,9 @@
 				<div class="badge">
 					<?php echo HTML::image('media/img/badges/thirty-in-a-row.png'); ?>
 				</div>
+*/ ?>
 			</div>
 		</div>
-	<?php
-		
-		/*$userachievements = $user->userachievements->find_all();
-		if((bool)$userachievements->count())
-		{
-			foreach($userachievements as $userachievement)
-			{
-				echo HTML::image('media/img/badges/'.$userachievement->achievement->badge);
-			}
-		}*/
-	?>
 
 	</section>
 </div>

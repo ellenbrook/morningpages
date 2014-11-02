@@ -46,7 +46,7 @@ class Controller_Page extends Controller_Project {
 							$page->counted = 1;
 						}
 						$page->update();
-						achievement::check(user::get(), achievement::FIRST_POST);
+						achievement::check_all(user::get());
 						/*$autosave = $page->get_autosave();
 						if($autosave)
 						{
@@ -62,9 +62,6 @@ class Controller_Page extends Controller_Project {
 					}
 					catch(ORM_Validation_Exception $e)
 					{
-						var_dump($_POST);
-						var_dump($e->errors());
-						die();
 						$errors = $e->errors('models');
 					}
 				}
@@ -95,7 +92,7 @@ class Controller_Page extends Controller_Project {
 				
 				notes::success('Your message has been sent and we will get back to you as soon as possible. Thanks!');
 				$mail = mail::create('suggestion')
-					->to('ericellenbrook@gmail.com')
+					->to('morningpagesnet@gmail.com')
 					->content(arr::get($_POST, 'suggestion').'<br /><br />.E-mail: '.arr::get($_POST, 'email',''))
 					->subject('Suggestions from '.site::option('sitename'))
 					->send();

@@ -13,7 +13,6 @@ define(['facebook'], function(){
 		self.init = function(){
 			return $.Deferred(function(defer){
 				FB.getLoginStatus(function(reply){
-					console.log(reply);
 					if(reply.status == 'connected')
 					{
 						self.logged = true;
