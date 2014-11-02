@@ -23,6 +23,9 @@
 		<p>We take privacy very seriously. If you have specific questions, please don't hesitate to ask about them on <a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">our forum</a>.</p>
 	</div>
 </footer>
+
+<div id="fb-root"></div>
+
 <?php
 
 if(!user::logged())
