@@ -1,0 +1,47 @@
+figure.wordcloud
+{
+	float:right;
+	padding:20px;
+	background:#EEE;
+	width:40%;
+	margin-left:20px;
+	margin-bottom:20px;
+	border-radius:20px;
+	
+	.wordcloud-heading
+	{
+		border-bottom:1px solid #CCC;
+		margin-bottom:10px;
+		padding-bottom:10px;
+		
+		h3
+		{
+			margin-bottom:0;
+		}
+	}
+	.wordcloud-body
+	{
+		line-height:normal;
+		
+		.orange
+		{
+			color:#FCCB5F;
+		}
+		.red
+		{
+			color:#FC6E59;
+		}
+		.brown
+		{
+			color:#6C3E36;
+		}
+		.green
+		{
+			color:#8DBF67;
+		}
+		.blue
+		{
+			color:#225B66;
+		}
+	}
+}

@@ -148,7 +148,7 @@ class Model_Page extends ORM {
 		$classes = array('orange','red','brown','green');
 		foreach($words as $word => $count)
 		{
-			$size = floor(75 * ($count / $max));
+			$size = floor(50 * ($count / $max));
 			if($size < 10)
 			{
 				$size = 10;
