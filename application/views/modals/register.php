@@ -30,17 +30,15 @@
 			<div class="modal-right">
 				<ul class="social-buttons">
 					<li>
-						<form method="post" action="<?php echo URL::site('auth/facebook'); ?>">
-							<button class="social-button facebook-button">
+							<a href="<?php echo URL::site('auth/facebook'); ?>" class="social-button facebook-button">
 	    						<span><i class="fa fa-facebook-square"></i></span> Register with Facebook
-	  						</button>
+	  						</a>
   						</form>
 					</li>
 					<li>
-						<form method="post" action="<?php echo URL::site('auth/twitter'); ?>">
-							<button class="social-button twitter-button">
+							<a href= "<?php echo URL::site('auth/twitter'); ?>" class="social-button twitter-button">
 	   						 <span><i class="fa fa-twitter-square"></i></span> Register with Twitter
-	 						</button>
+	 						</a>
  						</form>
 					</li>
 				</ul>

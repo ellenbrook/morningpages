@@ -1,8 +1,10 @@
 .social-button {
+  display: block;
   cursor: pointer;
-  width: 250px;
-  margin-bottom: 10px;
-  padding: 10px;
+  width: 240px;
+  margin-left: 10px;
+  margin-bottom: 14px;
+  padding: 6px;
   box-shadow: none;
   border: none;
   font-family: $helvetica;
@@ -25,6 +27,7 @@
 
 .facebook-button {
   background: #3b5998;
+  color: #fff;
     
   &:hover {
     background: lighten(#3b5998, 10%);
@@ -33,6 +36,7 @@
 
 .twitter-button {
   background: #55acee;
+  color: #fff;
   
   &:hover {
     background: lighten(#55acee, 10%);

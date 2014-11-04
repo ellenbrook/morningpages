@@ -22,14 +22,14 @@
 			<div class="modal-right">
 				<ul class="social-buttons">
 					<li>
-						<button data-bind="click:fblogin" class="social-button facebook-button">
+						<a href="#" class="social-button facebook-button">
 					      <span><i class="fa fa-facebook-square"></i></span> Login with Facebook
-					    </button>
+					    </a>
 					</li>
 					<li>
-						<button  data-bind="click:twitterlogin" class="social-button twitter-button">
+						<a  href="#" class="social-button twitter-button">
 					      <span><i class="fa fa-twitter-square"></i></span> Login with Twitter
-						</button>
+						</a>
 					</li>
 				</ul>
 			</div>
