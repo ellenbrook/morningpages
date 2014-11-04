@@ -22,14 +22,14 @@
 			<div class="modal-right">
 				<ul class="social-buttons">
 					<li>
-						<a href="#" data-bind="click:fblogin" title="Sign in with Facebook">
-							<img src="<?php echo URL::site('media/img/sign-in-with-twitter-gray.png'); ?>" alt="Sign in with Facebook" />
-						</a>
+						<button data-bind="click:fblogin" class="social-button facebook-button">
+					      <span><i class="fa fa-facebook-square"></i></span> Login with Facebook
+					    </button>
 					</li>
 					<li>
-						<a href="<?php echo URL::site('auth/twitter'); ?>" title="Sign in with Twitter">
-							<img src="<?php echo URL::site('media/img/sign-in-with-twitter-gray.png'); ?>" alt="Sign in with Twitter" />
-						</a>
+						<button  data-bind="click:twitterlogin" class="social-button twitter-button">
+					      <span><i class="fa fa-twitter-square"></i></span> Login with Twitter
+						</button>
 					</li>
 				</ul>
 			</div>
