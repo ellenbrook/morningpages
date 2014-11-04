@@ -1,0 +1,13 @@
+#frontpage-news
+{
+	padding: 5em 0;
+	
+	.news
+	{
+		@include span-columns(6);
+	}
+	.talks
+	{
+		@include span-columns(6);
+	}
+}
