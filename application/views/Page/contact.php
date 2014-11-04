@@ -29,7 +29,7 @@
 		
 		<div class="form-group<?php echo (arr::get($errors, 'suggestion', false)?' has-error':'') ?>">
 			<label for="suggestions-suggestion">Your message</label>
-			<textarea required="required" minlength="5" maxlength="1000" name="suggestion" id="suggestions-suggestion" class="form-control"></textarea>
+			<textarea required="required" minlength="5" class="text-border" maxlength="1000" name="suggestion" id="suggestions-suggestion" class="form-control"></textarea>
 			<span class="help-block">
 				<?php echo arr::get($errors, 'suggestion', '') ?>
 			</span>

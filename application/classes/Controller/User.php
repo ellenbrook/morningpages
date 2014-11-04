@@ -56,6 +56,9 @@ class Controller_User extends Controller_Project {
 			}
 		}
 		$this->bind('errors', $errors);
+
+		$this->template->title = "Morning Pages User Options";
+		$this->template->description = "Use these settings to adjust privacy levels, change writing settings, or more.";
 	}
 	
 	public function action_delete()

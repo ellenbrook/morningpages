@@ -9,11 +9,20 @@ class Controller_Page extends Controller_Project {
 		$this->template->view = View::factory('Page/write');
 	}
 	
-	public function action_about(){}
+	public function action_about(){
+		$this->template->title = "About Morning Pages";
+		$this->template->description = "Morning Pages is about writing three pages of stream of consciousness thought every day. Become a better person by using MorninPages.net";
+	}
 	
-	public function action_terms(){}
+	public function action_terms(){
+		$this->template->title = "Terms of Service";
+		$this->template->description = "Morning Pages terms of service.";
+	}
 	
-	public function action_privacy(){}
+	public function action_privacy(){
+		$this->template->title = "Morning Pages Privacy Policy";
+		$this->template->description = "Morning Pages Privacy Policy";
+	}
 	
 	public function action_write()
 	{
@@ -75,6 +84,9 @@ class Controller_Page extends Controller_Project {
 		$this->bind('page', $page);
         $this->template->daystamp = $this->request->param('daystamp');
 		$this->template->page = $page;
+
+		$this->template->title = "Write Your Morning Pages";
+		$this->template->description = "Morning Pages is about writing three pages of stream of consciousness thought every day. Become a better person by using MorninPages.net";
 	}
 	
 	public function action_contact()
@@ -104,8 +116,14 @@ class Controller_Page extends Controller_Project {
 			}
 		}
 		$this->bind('errors',$errors);
+
+		$this->template->title = "Contact Morning Pages";
+		$this->template->description = "Feel free to contact MorningPages.net if you have questions or concerns about your account, the site or for more information regarding your Morning Pages.";
 	}
 	
-	public function action_faq(){}
+	public function action_faq(){
+		$this->template->title = "Morning Pages Questions";
+		$this->template->description = "Frequently asked questions regarding your Morning Pages, the Morning Pages website, and more. Don't see your listed? Check the Morning Pages forum for more info.";
+	}
 	
 }
