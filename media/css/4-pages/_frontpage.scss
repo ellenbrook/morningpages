@@ -15,15 +15,15 @@
 
 		@include media($medium-screen)
 		{
-			@include shift(2);
-			@include span-columns(5);
+			@include shift(1.5);
+			@include span-columns(5.5);
 		}
 		
 	}
 	.talks
 	{
 		@include span-columns(12);
-		
+
 		@include media($medium-screen)
 		{
 		@include span-columns(5);
