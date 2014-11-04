@@ -41,22 +41,22 @@ class Controller_Ajax_User extends Controller {
 			$serviceid = arr::get($_POST, 'serviceId', false);
 			if(!$serviceid)
 			{
-				ajax::error('1Something wen\'t wrong, and we didn\'t receive the data we expected. Please try again, or contact us if you think this is an error.');
+				ajax::error('Something wen\'t wrong, and we didn\'t receive the data we expected. Please try again, or contact us if you think this is an error.');
 			}
 			$name = arr::get($_POST, 'name', false);
 			if(!$name || empty($name))
 			{
-				ajax::error('2We didn\'t get your name! Please reauth and share your name with us!');
+				ajax::error('We didn\'t get your name! Please reauth and share your name with us!');
 			}
 			$token = arr::get($_POST, 'accessToken', false);
 			if(!$token)
 			{
-				ajax::error('3Something wen\'t wrong, and we didn\'t receive the data we expected. Please try again, or contact us if you think this is an error.');
+				ajax::error('Something wen\'t wrong, and we didn\'t receive the data we expected. Please try again, or contact us if you think this is an error.');
 			}
 			$secret = arr::get($_POST, 'signedRequest', false);
 			if(!$secret)
 			{
-				ajax::error('4Something wen\'t wrong, and we didn\'t receive the data we expected. Please try again, or contact us if you think this is an error.');
+				ajax::error('Something wen\'t wrong, and we didn\'t receive the data we expected. Please try again, or contact us if you think this is an error.');
 			}
 			$existing = ORM::factory('Oauth')
 				->where('type','=','facebook')

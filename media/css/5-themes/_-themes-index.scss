@@ -1,5 +1,6 @@
 @mixin theme_header($args) {
 	$bgcolor:map-get($args, 'bgcolor');
+	.index-header,
 	.site-header
 	{
 		background-color:$bgcolor;
