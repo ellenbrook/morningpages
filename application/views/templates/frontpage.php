@@ -80,13 +80,17 @@ echo View::factory('templates/header');
 			$news = ORM::factory('Talk')
 				->where('deleted','=',0)
 				->where('announcement','=',1)
+				->limit(3)
 				->find_all();
 			if((bool)$news->count())
 			{
 				echo '<ul>';
 				foreach($news as $new)
 				{
-					echo '<li>'.HTML::anchor($new->url(), $new->title, array('title'=>$new->title)).'</li>';
+					echo '<li>';
+					echo '<h4>'.HTML::anchor($new->url(), $new->title, array('title'=>$new->title)).'</h4>';
+					echo '<p>This is an excerpt of the talk. Maybe just about 100 characters or so? Then we can add a ...</p>';
+					echo '</li>';
 				}
 				echo '</ul>';
 			}
@@ -98,13 +102,17 @@ echo View::factory('templates/header');
 			$talks = ORM::factory('Talk')
 				->where('deleted','=',0)
 				->where('announcement','=',0)
+				->limit(3)
 				->find_all();
 			if((bool)$talks->count())
 			{
 				echo '<ul>';
 				foreach($talks as $talk)
 				{
-					echo '<li>'.HTML::anchor($talk->url(), $talk->title, array('title'=>$talk->title)).'</li>';
+					echo '<li>';
+					echo '<h4>'.HTML::anchor($talk->url(), $talk->title, array('title'=>$talk->title)).'</h4>';
+					echo '<p>This is an excerpt of the talk. Maybe just about 100 characters or so? Then we can add a ...</p>';
+					echo '</li>';
 				}
 				echo '</ul>';
 			}
