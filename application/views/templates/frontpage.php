@@ -72,6 +72,47 @@ echo View::factory('templates/header');
 	</div>
 </section>
 
+<section class="news" id="frontpage-news">
+	<div class="container">
+		<div class="news">
+			<h3>Latest news</h3>
+<?php
+			$news = ORM::factory('Talk')
+				->where('deleted','=',0)
+				->where('announcement','=',1)
+				->find_all();
+			if((bool)$news->count())
+			{
+				echo '<ul>';
+				foreach($news as $new)
+				{
+					echo '<li>'.HTML::anchor($new->url(), $new->title, array('title'=>$new->title)).'</li>';
+				}
+				echo '</ul>';
+			}
+?>
+		</div>
+		<div class="talks">
+			<h3>Latest talks</h3>
+<?php
+			$talks = ORM::factory('Talk')
+				->where('deleted','=',0)
+				->where('announcement','=',0)
+				->find_all();
+			if((bool)$talks->count())
+			{
+				echo '<ul>';
+				foreach($talks as $talk)
+				{
+					echo '<li>'.HTML::anchor($talk->url(), $talk->title, array('title'=>$talk->title)).'</li>';
+				}
+				echo '</ul>';
+			}
+?>
+		</div>
+	</div>
+</section>
+
 <?php echo View::factory('templates/footer'); ?>
 
 
