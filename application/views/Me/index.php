@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="mecont">
 	<section class="me">
 		<h2>me/<?php echo $user->username; ?></h2>
 		<div class="me-icon">
