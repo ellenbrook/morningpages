@@ -37,8 +37,8 @@
 					<span><?php echo $talk->username(); ?></span>
 				</div>
 				<div class="card-content">
-					<div class="card-header">
-						<h3><a href="<?php echo URL::site($talk->url()); ?>"><?php echo $talk->title; ?></a></h3>
+					<div class="card-header<?php echo ((bool)$talk->announcement?' announcement':''); ?>">
+						<h3><a href="<?php echo URL::site($talk->url()); ?>"><?php echo ((bool)$talk->announcement?'<span class="fa fa-comment-o"> ':'').$talk->title; ?></a></h3>
 					</div>
 					<div class="card-copy">
 						<?php echo $talk->excerpt(); ?>
@@ -157,6 +157,11 @@ if($numpages > 1)
 					}
 ?>
 				</p>
+				<?php if(user::logged('admin')): ?>
+					<p>
+						<label class="stay" for="new-talk-announcement"><input id="new-talk-announcement" placeholder="Announcement" type="checkbox" value="1" name="announcement" /> Announcement?</label>
+					</p>
+				<?php endif; ?>
 				<p>
 					<label for="new-talk-title">Title</label>
 					<input class="<?php echo (($errors&&arr::get($errors,'title',false))?'error':''); ?>" value="<?php echo arr::get($_POST, 'title',''); ?>" required type="text" id="new-talk-title" name="title" placeholder="Title of your conversation" />
