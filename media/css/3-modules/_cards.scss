@@ -108,6 +108,21 @@
     padding: $base-spacing/3 $gutter/2;
     color:$base-font-color;
     text-transform:capitalize;
+    
+    h3
+    {
+    	margin-bottom:0;
+    }
+    &.announcement
+    {
+    	h3
+    	{
+    		a
+    		{
+    			color:red;
+    		}
+    	}
+    }
   }
 
   .card-copy {

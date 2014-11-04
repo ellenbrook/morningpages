@@ -134,8 +134,16 @@ class Model_Talk extends ORM {
 			),
 			'user_id' => array(
 				array('not_empty')
+			),
+			'announcement' => array(
+				array(array($this, 'canbeannouncement'), array('announcement',':value'))
 			)
 		);
+	}
+	
+	public function canbeannouncement($field, $value)
+	{
+		return user::logged('admin');
 	}
 	
 	public function validtagid($field, $value)
