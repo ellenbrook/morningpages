@@ -7,21 +7,20 @@
 			</p>
   			<fieldset>
 				<div class="form-group">
-					<label for="site-theme" class="hidden">Theme</label>
-						<label for="site-theme">Site theme</label>
-						<select data-bind="value:user.options.theme_id,event:{change:save_theme}" id="site-theme" name="theme_id">
-							<option value="0">Standard</option>
+					<label for="site-theme">Site theme</label>
+					<select data-bind="value:user.options.theme_id,event:{change:save_theme}" id="site-theme" name="theme_id">
+						<option value="0">Standard</option>
 <?php
-							$themes = ORM::factory('Theme')->find_all();
-							if((bool)$themes->count())
+						$themes = ORM::factory('Theme')->find_all();
+						if((bool)$themes->count())
+						{
+							foreach($themes as $theme)
 							{
-								foreach($themes as $theme)
-								{
-									echo '<option value="'.$theme->id.'">'.$theme->title.'</option>';
-								}
+								echo '<option value="'.$theme->id.'">'.$theme->title.'</option>';
 							}
+						}
 ?>
-						</select>
+					</select>
 				</div>
 				<div class="form-group button-group">
 					<label for="writing-reminders-button">Receive daily reminder e-mails at the time that you specify.</label>

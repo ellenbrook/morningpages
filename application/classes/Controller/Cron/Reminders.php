@@ -13,7 +13,7 @@ class Controller_Cron_Reminders extends Controller {
 	
 	public function action_index()
 	{
-		$start = microtime();
+		/*$start = microtime();
 		//var_dump(date_default_timezone_get());
 		$query = DB::query(Database::SELECT,
 			'SELECT
@@ -65,12 +65,48 @@ class Controller_Cron_Reminders extends Controller {
 		}
 		$end = microtime();
 		echo '<p>Execution time: '.(($end - $start)/60).'</p>';
-		var_dump('mem:',memory_get_usage());
+		var_dump('mem:',memory_get_usage());*/
 	}
 	
 	public function action_send()
 	{
-		
+		$query = DB::query(Database::SELECT,
+		'SELECT
+			user.id,
+			user.email,
+			opt.reminder,
+			opt.last_reminder,
+			opt.next_reminder
+		FROM
+			`users` AS user
+		JOIN
+			`user_options` AS opt
+			ON
+				user.id = opt.user_id
+		WHERE
+			opt.reminder = 1
+		AND
+			opt.next_reminder > '.strtotime('-5 minutes').'
+		AND
+			opt.next_reminder < '.strtotime('+5 minutes').';'
+		);
+		$results = $query->execute()->as_array();
+		if(is_array($results))
+		{
+			foreach($results as $result)
+			{
+				$user = ORM::factory('User', arr::get($result,'id',''));
+				if($user->loaded())
+				{
+					// Send the mail here..
+					
+					// Then:
+					$option = $user->option;
+					$option->last_reminder = time();
+					$option->next_reminder = $user->get_next_reminder(true);
+				}
+			}
+		}
 	}
 	
 }
