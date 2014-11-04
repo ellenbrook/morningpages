@@ -32,6 +32,36 @@
 		li {
 			display: inline-block;
 			padding: 1em;
+			
+			&.hidden
+			{
+				display:none;
+			}
+			&.shown
+			{
+				display:inline-block;
+			}
+			&:empty
+			{
+				padding:0;
+				display:none;
+			}
+			
+			ul
+			{
+				float:none;
+				
+				li
+				{
+					padding-top:0;
+					padding-bottom:0;
+					
+					&:first-child
+					{
+						padding-left:0;
+					}
+				}
+			}
 		}
 
 		a {

@@ -30,10 +30,11 @@
 
 if(!user::logged())
 {
-    echo View::factory('modals/login');
-    echo View::factory('modals/register');
+    
+    
 }
-
+echo View::factory('modals/login');
+echo View::factory('modals/register');
 echo View::factory('modals/tipsandtricks');
 
 ?>
