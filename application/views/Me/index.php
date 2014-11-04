@@ -9,6 +9,9 @@
 		</div>
 
 		<div class="me-stats">
+			<div class="stats-header">
+				<h3>User stats</h3>
+			</div>
 			<dl>
 				<div class="stat-block">
 					<dt>Longest Streak</dt>

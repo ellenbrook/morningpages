@@ -145,7 +145,8 @@ class Model_Page extends ORM {
 		uasort($words, create_function('$a, $b', 'if($a == $b){return 0;}return ($a > $b) ? -1 : 1;'));
 		$words = array_slice($words, 0, $wordlimit, true);
 		$words = $this->shuffle_assoc($words);
-		$classes = array('orange','red','brown','green');
+		$classes = array('orange','red','brown','green', 'blue');
+		$color = $classes[rand(0,count($classes)-1)];
 		foreach($words as $word => $count)
 		{
 			$size = floor(50 * ($count / $max));
@@ -153,7 +154,13 @@ class Model_Page extends ORM {
 			{
 				$size = 10;
 			}
-			$html .= '<span style="font-size:' . $size . 'px;" class="'.$classes[rand(0,count($classes)-1)].'">'.$word.'</span> ';
+			$prevcolor = $color;
+			$color = $classes[rand(0,count($classes)-1)];
+			while($color == $prevcolor)
+			{
+				$color = $classes[rand(0,count($classes)-1)];
+			}
+			$html .= '<span style="font-size:' . $size . 'px;" class="'.$color.'">'.$word.'</span> ';
 		}
 		return $html;
 	}
