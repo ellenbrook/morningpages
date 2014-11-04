@@ -43,14 +43,6 @@ define([
 			    };
 			
 			    ko.applyBindings(new headerModel(), $('#header')[0]);
-			    
-			    var useroptionsModel = function(){
-			        var self = this;
-				};
-				if($('#user-options').length)
-				{
-					ko.applyBindings(new useroptionsModel(), $('#user-options')[0]);
-				}
 				
 				defer.resolve();
     			

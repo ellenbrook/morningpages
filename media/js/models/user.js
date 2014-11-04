@@ -20,7 +20,7 @@ define([
 			hemingwaymode:ko.observable(false),
 			public:ko.observable(false)
 		};
-		self.loaded = false;
+		self.loaded = ko.observable(false);
 		
 		self.password = ko.observable('');
 		self.passconfirm = ko.observable('');
@@ -95,7 +95,7 @@ define([
 		};
 		
 		self.getInfo = function(){
-			if(!self.loaded)
+			if(!self.loaded())
 			{
 				return $.get('/ajax/User/info',function(reply){
 					if(reply.success)
@@ -115,7 +115,7 @@ define([
 						self.options.public(Boolean(reply.options.public));
 						
 						self.logged(true);
-						self.loaded = true;
+						self.loaded(true);
 					}
 				},'json');
 			}

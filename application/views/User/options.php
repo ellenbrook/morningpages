@@ -1,5 +1,5 @@
 <ul class="accordion-tabs" id="site-options">
- 	<li class="tab-header-and-content">
+	<li class="tab-header-and-content">
 		<a href="#site-settings" class="tab-link is-active">Site Settings</a>
 		<div class="tab-content">
 			<p>
@@ -241,6 +241,11 @@
 					</p>
 				</div>
 			</fieldset>    
+		</div>
+	</li>
+	<li data-bind="if:!user.loaded()">
+		<div class="tab-content">
+			<div class="loader" title="Loading info"></div>
 		</div>
 	</li>
 </ul>

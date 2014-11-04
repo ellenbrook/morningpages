@@ -101,18 +101,18 @@ $isfront = routes::isFrontPage();
 					<ul>
 						<li><a href="<?php echo URL::site('me'); ?>" title="Your personal Morning Pages profile">Me</a></li>
 						<li><a href="<?php echo URL::site('user/logout'); ?>" title="Log out">Log out</a></li>
+						<li>
+							<a href="<?php echo URL::site('user/options'); ?>" title="User options"><span class="fa fa-cog"></span></a>
+						</li>
 					</ul>
 				</li>
 				<?php //endif; ?>
-				<?php if(!$isfront): ?>
-					<button id="hidden-nav-trigger" class="navigation-trigger" data-bind="click:hamburgerClick"><span class="fa fa-cog"></span></button>
-				<?php endif; ?>
 			</ul>
 		</nav>
 	</div>
 </header>
 
-<?php if(!$isfront): ?>
+<?php if(false): ?>
 	
 	<section id="user-options" class="hidden-menu">
 		<div class="container">
@@ -124,7 +124,7 @@ $isfront = routes::isFrontPage();
 				    	<select data-bind="goToPreviousPage:true" id="pastposts">
 				        	<option value="0">Previous pages</option>
 				        	<option value="/">Today</option>
-	<?php
+<?php
 	    					$pages = user::get()
 	    						->pages
 	    						->where('type','=','page')
@@ -167,7 +167,7 @@ $isfront = routes::isFrontPage();
 	    							echo '<optgroup>';
 	    						}
 	    					}
-	?>
+?>
 	               		</select>
 					</li>
 				<?php else: ?>
