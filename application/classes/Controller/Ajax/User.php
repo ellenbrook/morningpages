@@ -194,22 +194,28 @@ class Controller_Ajax_User extends Controller {
 		{
 			ajax::error('Something wen\'t wrong and your setting couldn\'t be saved. I received no data!');
 		}
+		$update_timestamp = false;
 		switch($setting)
 		{
 			case 'reminder':
 				$option->reminder = $value;
+				$update_timestamp = true;
 				break;
 			case 'reminder_hour':
 				$option->reminder_hour = $value;
+				$update_timestamp = true;
 				break;
 			case 'reminder_minute':
 				$option->reminder_minute = $value;
+				$update_timestamp = true;
 				break;
 			case 'reminder_meridiem':
 				$option->reminder_meridiem = $value;
+				$update_timestamp = true;
 				break;
 			case 'timezone_id':
 				$option->timezone_id = $value;
+				$update_timestamp = true;
 				break;
 			case 'privacymode':
 				$option->privacymode = $value;
@@ -229,6 +235,10 @@ class Controller_Ajax_User extends Controller {
 		}
 		try
 		{
+			if($update_timestamp)
+			{
+				$option->next_reminder = $user->get_next_reminder($user);
+			}
 			$option->save();
 			ajax::success('Saved');
 		}
@@ -239,6 +249,8 @@ class Controller_Ajax_User extends Controller {
 			));
 		}
 	}
+	
+	
 	
 }
 	
