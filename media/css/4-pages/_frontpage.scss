@@ -15,8 +15,7 @@
 
 		@include media($medium-screen)
 		{
-			@include shift(1.5);
-			@include span-columns(5.5);
+			@include span-columns(6);
 		}
 		
 	}
@@ -26,7 +25,8 @@
 
 		@include media($medium-screen)
 		{
-		@include span-columns(5);
+			@include span-columns(6);
+			@include omega();
 		}
 	}
 }
