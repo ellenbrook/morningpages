@@ -30,14 +30,18 @@
 			<div class="modal-right">
 				<ul class="social-buttons">
 					<li>
-						<a href="<?php echo URL::site('auth/twitter'); ?>" title="Sign in with Twitter">
-							<img src="<?php echo URL::site('media/img/sign-in-with-twitter-gray.png'); ?>" alt="Sign in with Twitter" />
-						</a>
+						<form method="post" action="<?php echo URL::site('auth/facebook'); ?>">
+							<button class="social-button facebook-button">
+	    						<span><i class="fa fa-facebook-square"></i></span> Register with Facebook
+	  						</button>
+  						</form>
 					</li>
 					<li>
-						<a href="<?php echo URL::site('auth/twitter'); ?>" title="Sign in with Twitter">
-							<img src="<?php echo URL::site('media/img/sign-in-with-twitter-gray.png'); ?>" alt="Sign in with Twitter" />
-						</a>
+						<form method="post" action="<?php echo URL::site('auth/twitter'); ?>">
+							<button class="social-button twitter-button">
+	   						 <span><i class="fa fa-twitter-square"></i></span> Register with Twitter
+	 						</button>
+ 						</form>
 					</li>
 				</ul>
 			</div>
