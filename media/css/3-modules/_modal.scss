@@ -12,7 +12,8 @@
   display: none;
 
   .btn {
-    @extend a;
+    @extend button;
+    color: #fff;
     // height: 30px;
   }
 
@@ -100,6 +101,14 @@
       }
     }
 
+    .btn {
+    color: #fff;
+    // height: 30px;
+
+      &:hover {
+        color: #fff;
+      }
+    }
     p {
       font-size: $base-font-size;
       max-width: 100% !important;

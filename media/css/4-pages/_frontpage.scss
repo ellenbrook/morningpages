@@ -2,12 +2,31 @@
 {
 	padding: 5em 0;
 	
+	h4 {
+		margin-bottom: .25em;
+	}
+
+	li {
+		margin-bottom: 1.25em;
+	}
 	.news
 	{
-		@include span-columns(6);
+		@include span-columns(12);
+
+		@include media($medium-screen)
+		{
+			@include shift(2);
+			@include span-columns(5);
+		}
+		
 	}
 	.talks
 	{
-		@include span-columns(6);
+		@include span-columns(12);
+		
+		@include media($medium-screen)
+		{
+		@include span-columns(5);
+		}
 	}
 }
