@@ -6,6 +6,56 @@
 		</div>
 		<div class="me-username">
 			<p>Member since <?php echo $user->created(); ?></p>
+			<?php if(user::logged() && user::get()->id==$user->id): ?>
+				<select data-bind="goToPreviousPage:true" id="pastposts">
+		        	<option value="0">Previous pages</option>
+		        	<option value="/">Today</option>
+<?php
+					$pages = user::get()
+						->pages
+						->where('type','=','page')
+						->order_by('created', 'DESC')
+						->find_all();
+					$years = array();
+					if((bool)$pages->count())
+					{
+						foreach($pages as $p)
+						{
+							$stamp = $p->created;
+							$year = date('Y', $stamp);
+							if(!array_key_exists($year, $years))
+							{
+								$years[$year] = array();
+							}
+							$month = date('F',$stamp);
+							if(!array_key_exists($month, $years[$year]))
+							{
+								$years[$year][$month] = array();
+							}
+							$years[$year][$month][] = $p;
+						}
+					}
+					foreach($years as $year => $month)
+					{
+						foreach($month as $monthname => $days)
+						{
+							echo '<optgroup label="'.$monthname.', '.$year.'">';
+							foreach($days as $day)
+							{
+							    $dayname = date('l ',$day->created).' the '.date('jS',$day->created);
+	                            if($day->day != site::today_slug())
+	                            {
+	                                //$dayname = 'Today';
+	                                echo '<option value="'.$day->day.'"'.($dayname==$day->day?' selected="selected"':'').'>'.$dayname.'</option>';
+	                            }
+								
+							}
+							echo '<optgroup>';
+						}
+					}
+?>
+       			</select>
+       		<?php endif; ?>
 		</div>
 
 		<div class="me-stats">
