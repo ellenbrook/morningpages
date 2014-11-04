@@ -89,13 +89,21 @@ $isfront = routes::isFrontPage();
 				<li><a href="<?php echo URL::site('about'); ?>" title="About Morning Pages">About</a></li>
 				<li><a href="<?php echo URL::site('write'); ?>" title="Write">Write</a></li>
 				<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
-				<?php if(!user::logged()): ?>
-					<li><a href="#" data-bind="showModal:{element:'#loginModal',done:doneLoggingIn}">Login</a></li>
-					<li><a href="#" data-bind="showModal:'#registerModal'">Register</a></li>
-				<?php else: ?>
-					<li><a href="<?php echo URL::site('me'); ?>" title="Your personal Morning Pages profile">Me</a></li>
-					<li><a href="<?php echo URL::site('user/logout'); ?>" title="Log out">Log out</a></li>
-				<?php endif; ?>
+				<?php //if(!user::logged()): ?>
+				<li class="<?php echo (user::logged()?'hidden':''); ?>" data-bind="if:!site.user.logged(),css:{'shown':site.user.logged()}">
+					<ul>
+						<li><a href="#" data-bind="showModal:{element:'#loginModal',done:doneLoggingIn}">Login</a></li>
+						<li><a href="#" data-bind="showModal:'#registerModal'">Register</a></li>
+					</ul>
+				</li>
+				<?php //else: ?>
+				<li class="<?php echo (!user::logged()?'hidden':''); ?>" data-bind="if:site.user.logged(),css:{'shown':site.user.logged()}">
+					<ul>
+						<li><a href="<?php echo URL::site('me'); ?>" title="Your personal Morning Pages profile">Me</a></li>
+						<li><a href="<?php echo URL::site('user/logout'); ?>" title="Log out">Log out</a></li>
+					</ul>
+				</li>
+				<?php //endif; ?>
 				<?php if(!$isfront): ?>
 					<button id="hidden-nav-trigger" class="navigation-trigger" data-bind="click:hamburgerClick"><span class="fa fa-cog"></span></button>
 				<?php endif; ?>
