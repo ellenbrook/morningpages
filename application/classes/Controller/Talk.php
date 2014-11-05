@@ -87,8 +87,8 @@ class Controller_Talk extends Controller_Project {
 		$this->bind('numpages', $numpages);
 		$this->bind('currentpage', $page);
 
-		$this->template->title = "Talk About Morning Pages";
-		$this->template->description = "Talk About Morning Pages, or anything else you might find interesting. Use this area to ask questions, make friends, or find out information about Morning Pages.";
+		seo::instance()->title("Talk About Morning Pages");
+		seo::instance()->description("Talk About Morning Pages, or anything else you might find interesting. Use this area to ask questions, make friends, or find out information about Morning Pages.");
 	}
 	
 	public function action_talknotfound()
@@ -173,7 +173,8 @@ class Controller_Talk extends Controller_Project {
 		$this->bind('numpages', $numpages);
 		$this->bind('currentpage', $page);
 
-		$this->template->description = "Talk About Morning Pages, or anything else you might find interesting. Use this area to ask questions, make friends, or find out information about Morning Pages.";
+		seo::instance()->title($talk->title);
+		seo::instance()->description("Talk About Morning Pages, or anything else you might find interesting. Use this area to ask questions, make friends, or find out information about Morning Pages.");
 	}
 
 }
