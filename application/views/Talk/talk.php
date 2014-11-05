@@ -198,8 +198,7 @@ if($numpages > 1)
 				<div class="action">
 					<h3>Submit new reply</h3>
 				</div>
-				<div class="loader"></div>
-				<p data-bind="visible:replyto_id()!=0">
+				<p data-bind="visible:replyto_id!=0">
 					<a href="#" class="error" data-bind="click:cancelreply">
 						<span class="fa fa-remove"></span>
 					</a>

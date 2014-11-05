@@ -14,7 +14,7 @@ class Model_Talk extends ORM {
 	);
 	
 	protected $_sorting = array(
-		'created' => 'DESC'
+		'last_reply' => 'DESC'
 	);
 	
 	public function labels()

@@ -127,6 +127,10 @@ class Controller_Talk extends Controller_Project {
 			try
 			{
 				$reply->save();
+				
+				$talk->last_reply = time();
+				$talk->save();
+				
 				$vote = ORM::factory('User_Talkvote');
 				$vote->type = 'talkreply';
 				$vote->user_id = user::get()->id;
