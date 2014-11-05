@@ -66,11 +66,19 @@
   }
 
   li {
-
-    &:hover {
-      background: lighten($good-color, 10);
-    }
-
+		
+		a
+		{
+			&:hover {
+	      background: lighten($good-color, 10);
+	    }
+		}
+		
+		&.shown
+		{
+			display:block;
+		}
+		
     &.header {
       font-weight: bold;
       padding: 1em 1em 0 1em;

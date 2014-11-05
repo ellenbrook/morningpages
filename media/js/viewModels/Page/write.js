@@ -51,7 +51,6 @@ define([
 			site.user.logged.subscribe(function(logged){
 				if(logged)
 				{
-					console.log('dude logged in');
 					self.getAutosave().then(function(reply){
 						if(reply.content.length > 0)
 						{
