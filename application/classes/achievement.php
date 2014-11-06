@@ -28,6 +28,13 @@ abstract class achievement {
 	
 	public static function check(Model_User $user, $type, $value = false)
 	{
+		$achievement = ORM::factory('Achievement')
+			->where('type','=',$type)
+			->find();
+		if(!$achievement->loaded())
+		{
+			return false;
+		}
 		switch($type)
 		{
 			case self::FIRST_POST:
@@ -44,7 +51,7 @@ abstract class achievement {
 				}
 				break;
 			case self::HAT_TRICK:
-				$existing = $user->achievement->where('type','=',self::HAT_TRICK)->find();
+				$existing = $user->userachievements->where('achievement_id','=',$achievement)->find();
 				if($existing->loaded())
 				{
 					return false;
@@ -58,7 +65,7 @@ abstract class achievement {
 				}
 				break;
 			case self::WEEK_STREAK:
-				$existing = $user->achievement->where('type','=',self::WEEK_STREAK)->find();
+				$existing = $user->userachievements->where('achievement_id','=',$achievement)->find();
 				if($existing->loaded())
 				{
 					return false;
@@ -72,7 +79,7 @@ abstract class achievement {
 				}
 				break;
 			case self::MONTH_STREAK:
-				$existing = $user->achievement->where('type','=',self::MONTH_STREAK)->find();
+				$existing = $user->userachievements->where('achievement_id','=',$achievement)->find();
 				if($existing->loaded())
 				{
 					return false;

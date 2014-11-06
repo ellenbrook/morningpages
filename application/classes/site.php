@@ -16,6 +16,17 @@ abstract class site {
 		return json_encode($final);
 	}
 	
+	public static function count_total_words()
+	{
+		$numwords = DB::select(DB::expr("SUM(`wordcount`) AS count"))
+			->from('pages')
+			->where('day','=', site::today_slug())
+			->execute()
+			->as_array();
+		$numwords = arr::get($numwords[0],'count',0);
+		return $numwords;
+	}
+	
 	public static function today_slug()
 	{
 		return date('m-d-Y');
