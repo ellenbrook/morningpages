@@ -2,7 +2,7 @@
 
 class Model_Talk extends ORM {
 	
-	private $hotlimit = 3;
+	private $hotlimit = 10;
 	
 	protected $_belongs_to = array(
 		'talktag' => array(),
@@ -166,6 +166,57 @@ class Model_Talk extends ORM {
 		$content = $this->content();
 		$content = strip_tags($content);
 		return substr($content, 0, 200).(strlen($content)>200?'&hellip;':'');
+	}
+	
+	public function numreplies()
+	{
+		return $this->replies->where('op','!=',1)->count_all();
+	}
+	
+	public function numpages()
+	{
+		$limit = Kohana::$config->load('talk')->get('pagination_limit');
+		return ceil($this->numreplies()/$limit);
+	}
+	
+	public function pagination($currentpage = 1)
+	{
+		$limit = Kohana::$config->load('talk')->get('pagination_limit');
+		$numreplies = $this->numreplies();
+		$numpages = $this->numpages();
+		$html = '<div class="pagination">';
+		$html .= '<ul>';
+		$url = $this->url();
+		if($currentpage > 1)
+		{
+			$prevnum = $currentpage - 1;
+			$prevurl = $url;
+			if($prevnum > 1)
+			{
+				$prevurl = $url.'?page='.$prevnum;
+			}
+			$html .= '<li class="page-prev"><a href="'.(URL::site($prevurl)).'">Prev</a></li>';
+		}
+		$html .= '<li>';
+		$html .= '<ul>';
+		for($i=1;$i<=$numpages;$i++)
+		{
+			$iurl = $url.'?page='.$i;
+			if($i==1)
+			{
+				$iurl = $url;
+			}
+			$html .= '<li class="'.($currentpage==$i?'active':'').'"><a href="'.URL::site($iurl).'">'.$i.'</a></li>';
+		}
+		if($currentpage < $numpages)
+		{
+			$html .= '<li class="page-next"><a href="'.URL::site($url.'?page='.($currentpage+1)).'">Next</a></li>';
+		}
+		$html .= '</ul>';
+		$html .= '</li>';
+		$html .= '</ul>';
+		$html .= '</div>';
+		return $html;
 	}
 	
 	public function url()
