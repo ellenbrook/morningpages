@@ -1,6 +1,6 @@
 
 <div class="page-header">
-	<h2>Talk</h2>
+	<h2>Talk<?php echo ($tag?' <span class="seriffed">about</span> '.$tag->title:''); ?></h2>
 </div>
 
 <ul class="tag-nav">
@@ -19,68 +19,77 @@
 	}
 ?>
 </ul>
+
+<?php
+
+echo $talk->pagination($currentpage);
+
+?>
+
 <ul class="comments">
-	<li class="comment op" data-id="<?php echo $talk->opid(); ?>">
-		<div class="comment-bio">
-			<?php if(!$talk->deleted()): ?>
-				<?php echo HTML::image($talk->user->gravatar(120)); ?>
-				<p class="comment-author">
-					<?php echo $talk->user->username(true); ?>
-				</p>
-				<p class="comment-detail">
-					<?php echo Date::fuzzy_span($talk->created); ?>
-				</p>
-				<div class="comment-meta">
-					<div class="votes">
-						<?php echo $talk->votes(); ?> liked
+	<?php if((int)arr::get($_GET, 'page',0)<1): ?>
+		<li class="comment op" id="comment-<?php echo $talk->opid(); ?>" data-id="<?php echo $talk->opid(); ?>">
+			<div class="comment-bio">
+				<?php if(!$talk->deleted()): ?>
+					<?php echo HTML::image($talk->user->gravatar(120)); ?>
+					<p class="comment-author">
+						<?php echo $talk->user->username(true); ?>
+					</p>
+					<p class="comment-detail">
+						<?php echo Date::fuzzy_span($talk->created); ?>
+					</p>
+					<div class="comment-meta">
+						<div class="votes">
+							<?php echo $talk->votes(); ?> liked
+						</div>
 					</div>
-				</div>
-			<?php else: ?>
-				[deleted]
-			<?php endif; ?>
-		</div>
-		<div class="comment-content completearea">
-			<?php if(!$talk->deleted()): ?>
-				<h3><?php echo $talk->title; ?></h3>
-				<?php echo $talk->content(); ?>
-			<?php else: ?>
-				[deleted]
-			<?php endif; ?>
-		</div>
-		<div class="comment-content editarea">
-			<textarea></textarea>
-			<div class="text-right">
-				<button data-bind="click:edit" title="Save">
-					Save
-				</button>
-				<a href="#" data-bind="click:canceledit">Cancel</a>
+				<?php else: ?>
+					[deleted]
+				<?php endif; ?>
 			</div>
-		</div>
-		<div class="comment-footer">
-			<?php if(user::can_edit($talk->getop()) && !$talk->deleted()): ?>
-				<div class="comment-actions">
-					<?php if(user::get()->id == $talk->user_id): ?>
-						<button class="deletebutton" data-bind="showModal:{element:'#delete-post-modal',done:deletepost}" title="Delete post">
-							<span class="fa fa-trash"></span>
-						</button>
-						<button class="editbutton" data-bind="click:edit" title="Edit">
-							<span class="fa fa-pencil"></span>
-						</button>
-					<?php endif; ?>
-					<button data-bind="click:comment">Comment</button>
-					<button data-bind="click:quote">Reply</button>
-					<button class="<?php echo (user::get()->votedon($talk->opid())?'voted':''); ?>" data-bind="click:vote">+1</button>
+			<div class="comment-content completearea">
+				<?php if(!$talk->deleted()): ?>
+					<h3><?php echo $talk->title; ?></h3>
+					<?php echo $talk->content(); ?>
+				<?php else: ?>
+					[deleted]
+				<?php endif; ?>
+			</div>
+			<div class="comment-content editarea">
+				<textarea></textarea>
+				<div class="text-right">
+					<button data-bind="click:edit" title="Save">
+						Save
+					</button>
+					<a href="#" data-bind="click:canceledit">Cancel</a>
 				</div>
-			<?php endif; ?>
-		</div>
-	</li>
+			</div>
+			<div class="comment-footer">
+				<?php if(user::can_edit($talk->getop()) && !$talk->deleted()): ?>
+					<div class="comment-actions">
+						<?php if(user::get()->id == $talk->user_id): ?>
+							<button class="deletebutton" data-bind="showModal:{element:'#delete-post-modal',done:deletepost}" title="Delete post">
+								<span class="fa fa-trash"></span>
+							</button>
+							<button class="editbutton" data-bind="click:edit" title="Edit">
+								<span class="fa fa-pencil"></span>
+							</button>
+						<?php endif; ?>
+						<button data-bind="click:comment">Comment</button>
+						<button data-bind="click:quote">Reply</button>
+						<button class="<?php echo (user::get()->votedon($talk->opid())?'voted':''); ?>" data-bind="click:vote">+1</button>
+					</div>
+				<?php endif; ?>
+			</div>
+		</li>
+	<?php endif; ?>
 <?php
 	if((bool)$replies->count())
 	{
 		foreach($replies as $reply)
 		{
 ?>
-			<li class="comment" data-id="<?php echo $reply->id; ?>">
+			<li class="comment" id="comment-<?php echo $reply->id; ?>" data-id="<?php echo $reply->id; ?>">
 				<div class="comment-bio">
 					<?php if(!$reply->deleted()): ?>
 						<?php echo HTML::image($reply->user->gravatar(100)); ?>
@@ -93,17 +102,15 @@
 						<div class="comment-meta">
 							<div class="votes"><?php echo $reply->votes(); ?> liked</div>
 						</div>
-					<?php else: ?>
-						[deleted]
 					<?php endif; ?>
 				</div>
 				<div class="comment-content completearea">
 					<?php if(!$reply->deleted()): ?>
-						<p>
+						<p class="in-reply-to">
 <?php
 							if($reply->replyto_id != 0)
 							{
-								echo '<em>In reply to '.$reply->replyto->user->username().'</em>';
+								echo '<a href="#comment-'.$reply->replyto_id.'" data-bind="click:showParent" title="'.$reply->replyto->excerpt().'">In reply to '.$reply->replyto->user->username().'</a>';
 							}
 ?>
 						</p>
@@ -152,41 +159,7 @@
 
 <?php
 
-if($numpages > 1)
-{
-	echo '<div class="pagination">';
-	echo '<ul>';
-	$url = $url = $talk->url();
-	if($currentpage > 1)
-	{
-		$prevnum = $currentpage - 1;
-		$prevurl = $url;
-		if($prevnum > 1)
-		{
-			$prevurl = $url.'?page='.$prevnum;
-		}
-		echo '<li class="page-prev"><a href="'.(URL::site($prevurl)).'">Prev</a></li>';
-	}
-	echo '<li>';
-	echo '<ul>';
-	for($i=1;$i<=$numpages;$i++)
-	{
-		$iurl = $url.'?page='.$i;
-		if($i==1)
-		{
-			$iurl = $url;
-		}
-		echo '<li class="'.($currentpage==$i?'active':'').'"><a href="'.URL::site($iurl).'">'.$i.'</a></li>';
-	}
-	if($currentpage < $numpages)
-	{
-		echo '<li class="page-next"><a href="'.URL::site($url.'?page='.($currentpage+1)).'">Next</a></li>';
-	}
-	echo '</ul>';
-	echo '</li>';
-	echo '</ul>';
-	echo '</div>';
-}
+echo $talk->pagination($currentpage);
 
 ?>
 
@@ -198,7 +171,7 @@ if($numpages > 1)
 				<div class="action">
 					<h3>Submit new reply</h3>
 				</div>
-				<p data-bind="visible:replyto_id!=0">
+				<p data-bind="visible:replyto_id()>0">
 					<a href="#" class="error" data-bind="click:cancelreply">
 						<span class="fa fa-remove"></span>
 					</a>

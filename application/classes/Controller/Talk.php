@@ -2,8 +2,6 @@
 
 class Controller_Talk extends Controller_Project {
 	
-	private $pagination_limit = 20;
-	
 	public function action_index()
 	{
 		$tag = $this->request->param('tag');
@@ -59,7 +57,7 @@ class Controller_Talk extends Controller_Project {
 			$talks = $talks->where('talktag_id','=',$tag->id);
 			$counter = $counter->where('talktag_id','=',$tag->id);
 		}
-		$limit = $this->pagination_limit;
+		$limit = Kohana::$config->load('talk')->get('pagination_limit');
 		$numtalks = $counter->count_all();
 		
 		$numpages = ceil($numtalks/$limit);
@@ -117,6 +115,16 @@ class Controller_Talk extends Controller_Project {
 			}
 		}
 		
+		$replies = $talk->replies
+			->where('op','!=',1);
+		$counter = $talk->replies
+			->where('op','!=',1);
+		$limit = Kohana::$config->load('talk')->get('pagination_limit');
+		$numreplies = $counter->count_all();
+		
+		$numpages = ceil($numreplies/$limit);
+		$page = (int)arr::get($_GET, 'page',0);
+		
 		if($_POST)
 		{
 			$this->require_login();
@@ -127,6 +135,7 @@ class Controller_Talk extends Controller_Project {
 			try
 			{
 				$reply->save();
+				$page = $numpages;
 				
 				$talk->last_reply = time();
 				$talk->save();
@@ -137,7 +146,7 @@ class Controller_Talk extends Controller_Project {
 				$vote->object_id = $reply->id;
 				$vote->save();
 				notes::success('Your reply has been posted.');
-				site::redirect($talk->url());
+				site::redirect($talk->url().'?page='.$page.'#comment-'.$reply->id);
 			}
 			catch(ORM_Validation_Exception $e)
 			{
@@ -145,15 +154,7 @@ class Controller_Talk extends Controller_Project {
 				$errors = $e->errors();
 			}
 		}
-		$replies = $talk->replies
-			->where('op','!=',1);
-		$counter = $talk->replies
-			->where('op','!=',1);
-		$limit = $this->pagination_limit;
-		$numreplies = $counter->count_all();
 		
-		$numpages = ceil($numreplies/$limit);
-		$page = (int)arr::get($_GET, 'page',0);
 		if($page < 1)
 		{
 			$page = 1;

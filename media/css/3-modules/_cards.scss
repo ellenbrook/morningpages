@@ -12,6 +12,8 @@
   $card-image-hover-background: lighten($card-image-background, 5);
   $card-stats-color: lighten($base-accent-color, 10);
   $comment-background: lighten($base-accent-color, 15);
+  $pagination-border-color: $base-border-color;
+  $pagination-background: lighten($pagination-border-color, 10);
   
   @include transition (all 0.2s ease-in-out);
   background-color: $card-background;
@@ -176,6 +178,20 @@
         font-weight: normal;
       }
     }
+  }
+  
+  .card-pagination
+  {
+  	text-align:right;
+  	padding: $base-spacing/2 0 $base-spacing/2 $gutter/2;
+  	margin-right:$gutter/2;
+  	border-top:1px solid #DDD;
+  	
+  	a
+  	{
+  		 background: $pagination-background;
+  		 padding: $base-spacing/4 $gutter/4;
+  	}
   }
 
   &:hover {

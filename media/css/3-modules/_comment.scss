@@ -1,5 +1,6 @@
 .comments {
 	margin-bottom:50px;
+	margin-top:20px;
 
   .comment {
     @include outer-container;
@@ -18,7 +19,7 @@
       background-color: darken(#fff, 3%);
     }
 
-    &:nth-child(1) {
+    &.op {
       background-color: lighten($good-color, 55%);
       border-color: lighten($good-color, 50%);
     }
@@ -31,7 +32,7 @@
       @include media($medium-screen)
       {
         @include span-columns(2);
-        text-align: left;
+        
         border-bottom: none;
       }
       
@@ -55,6 +56,16 @@
       {
         @include span-columns(10);
         @include omega;
+      }
+      
+      .in-reply-to
+      {
+      	font-size:0.8em;
+      	font-style:italic;
+      	a
+      	{
+      		color:#666;
+      	}
       }
 
       h3 {
@@ -80,6 +91,11 @@
       	padding:10px 5px;
       	background:#EEE;
       	border:1px solid #CCC;
+      }
+      a[rel="nofollow"]:after
+      {
+      	font-family: 'FontAwesome';
+				content: " \f08e";
       }
     }
     .comment-content.editarea

@@ -107,6 +107,10 @@ define([
 			});
 		};
 		
+		self.showParent = function(elem, ev){
+			return false;
+		};
+		
 		self.comment = function(){
 			site.scrollTo($('#replyform'));
 		};

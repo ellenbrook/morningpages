@@ -38,7 +38,7 @@
 				</div>
 				<div class="card-content">
 					<div class="card-header<?php echo ((bool)$talk->announcement?' announcement':''); ?>">
-						<h3><a href="<?php echo URL::site($talk->url()); ?>"><?php echo ((bool)$talk->announcement?'<span class="fa fa-comment-o"> ':'').$talk->title; ?></a></h3>
+						<h3><a href="<?php echo URL::site($talk->url()); ?>" title="<?php echo $talk->title; ?>"><?php echo ((bool)$talk->announcement?'<span class="fa fa-comment-o"> ':'').$talk->title; ?></a></h3>
 					</div>
 					<div class="card-copy">
 						<?php echo $talk->excerpt(); ?>
@@ -49,6 +49,24 @@
 							<li><?php echo $replies; ?><span><?php echo ($replies==1?'Reply':'Replies'); ?></span></li>
 						</ul>
 					</div>
+<?php
+					$numpages = $talk->numpages();
+					if($numpages > 1)
+					{
+						echo '<div class="card-pagination">';
+						echo 'Page: ';
+						for($i=1;$i<=$numpages;$i++)
+						{
+							$url = $talk->url();
+							if($i>1)
+							{
+								$url.='?page='.$i;
+							}
+							echo '<a href="'.URL::site($url).'" title="Go to page '.$i.'">'.$i.'</a>';
+						}
+						echo '</div>';
+					}
+?>
 				</div>
 			</div>
 <?php

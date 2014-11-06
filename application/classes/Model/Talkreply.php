@@ -38,6 +38,13 @@ class Model_Talkreply extends ORM {
 		);
 	}
 	
+	public function excerpt()
+	{
+		$content = $this->content();
+		$content = strip_tags($content);
+		return substr($content, 0, 200).(strlen($content)>200?'&hellip;':'');
+	}
+	
 	public function deleted()
 	{
 		return $this->deleted > 0;
@@ -59,6 +66,7 @@ class Model_Talkreply extends ORM {
 	public function content()
 	{
 		$content = $this->content;
+		$content = htmlentities($content);
 		$content = $this->markdown($content);
 		$content = Security::xss_clean($content);
 		return $content;
