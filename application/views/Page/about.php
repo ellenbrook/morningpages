@@ -6,10 +6,10 @@
 	<dt>Isn't this just blogging?</dt>
 	<dd>No. In theory, other people read blogs. Your Morning Pages are meant for you and you alone. If you want people to read your writing, there are plenty of websites in which you can write and share your words with the world.  Writing your Morning Pages before you start your day will give you a sense of clarity that you may not have had if you hadn't written them.</dd>
 
-	<dt>Can I write more than three pages?<dt>
+	<dt>Can I write more than three pages?</dt>
 	<dd>Absolutely. You can write as much as you'd like. Julie Cameron, the creator of Morning Pages, suggests writers try and keep the length of their pages to as close to three pages as possible. Writing more than three pages regularly sometimes invites self-obsession which is something anyone should try and avoid. One doesn't see a therapist for as long as they'd like. They make an appointment that lasts an hour or so. Seeing a therapist for more than that might be unhealthy and counter-productive. This will allow you to reflect on the key points of what was discussed and this is no different than limiting the length of your Morning Pages.</dd>
 
-	<dt>Why did you make this site?<dt>
+	<dt>Why did you make this site?</dt>
 	<dd>One of the co-creators of this website had a friend who learned about Morning Pages through a therapist he was seeing. Upon self-enlightenment he suggested the same to his friends. Thus this website was born.</dd>
 
 	<dt>When I write, I can't press the submit button. What gives?</dt>
