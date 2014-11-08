@@ -6,8 +6,7 @@ define(['facebook'], function(){
 		self.logged = false;
 		
 		FB.init({
-			//appId:'874456799244937' // Production-dev: dev.morningpages.net
-			appId:'874461365911147' // Testapp: morningpages.dev
+			appId:'874456799244937'
 		});
 		
 		self.init = function(){
