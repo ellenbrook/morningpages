@@ -81,11 +81,12 @@ class Model_User_Option extends ORM {
 	
 	public function rules()
 	{
+		/*
 		return array(
 			'user_id' => array(
 				array('not_empty'),
 				array('numeric'),
-				//array(array($this, 'verify_userid'), array('user_id',':value'))
+				array(array($this, 'verify_userid'), array('user_id',':value'))
 			),
 			'reminder' => array(
 				array('not_empty'),
@@ -132,7 +133,8 @@ class Model_User_Option extends ORM {
 				array('not_empty'),
 				array(array($this, 'verify_int_bool'), array('public',':value'))
 			),
-		);
+		);*/
+		return array();
 	}
 	
 	public function verify_available_theme($field, $value)
