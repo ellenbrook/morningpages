@@ -82,6 +82,7 @@ class Controller_Auth extends Controller {
 					else
 					{
 						notes::error('Whoops! Something wen\'t wrong and we couldn\'t log you in. Please try again or send us a message if the problem persists.');
+						Kohana::$log->add(Log::ERROR, '1. Couldnt log user in: '.$e->getMessage());
 					}
 				}
 			}
@@ -109,6 +110,7 @@ class Controller_Auth extends Controller {
 			}
 			catch(exception $e)
 			{
+				Kohana::$log->add(Log::ERROR, '2. Couldnt create user: '.$e->getMessage());
 				notes::error('Whoops! Something wen\'t wrong and we couldn\'t log you in. Please try again or send us a message if the problem persists.');
 			}
 			
