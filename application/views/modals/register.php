@@ -29,12 +29,12 @@
 			</div>
 			<div class="modal-right">
 				<ul class="social-buttons">
-					<li>
+					<?php /*<li>
 							<a href="<?php echo URL::site('auth/facebook'); ?>" class="social-button facebook-button">
 	    						<span><i class="fa fa-facebook-square"></i></span> Register with Facebook
 	  						</a>
   						</form>
-					</li>
+					</li>*/ ?>
 					<li>
 							<a href= "<?php echo URL::site('auth/twitter'); ?>" class="social-button twitter-button">
 	   						 <span><i class="fa fa-twitter-square"></i></span> Register with Twitter

@@ -21,11 +21,11 @@
 			</div>
 			<div class="modal-right">
 				<ul class="social-buttons">
-					<li>
+					<?php /*<li>
 						<a href="#" data-bind="click:fblogin" class="social-button facebook-button">
 					      <span><i class="fa fa-facebook-square"></i></span> Login with Facebook
 					    </a>
-					</li>
+					</li>*/ ?>
 					<li>
 						<a  href="<?php echo URL::site('auth/twitter'); ?>" class="social-button twitter-button">
 					      <span><i class="fa fa-twitter-square"></i></span> Login with Twitter
