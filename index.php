@@ -1,5 +1,14 @@
 <?php
 
+$ips = array(
+	'188.179.47.167',
+	'99.137.10.80'
+);
+if(!in_array($_SERVER['REMOTE_ADDR'], $ips))
+{
+	header('Location:http://morningpages.net/be-right-back.php');
+}
+
 /**
  * The directory in which your application specific resources are located.
  * The application directory must contain the bootstrap.php file.
