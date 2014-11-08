@@ -132,11 +132,6 @@ class Controller_Ajax_User extends Controller {
 			if(user::login($email, $password, $remember))
 			{
 				$user = user::get();
-				if($user->delete != 0) // Previously set for deletion. Cancel that
-				{
-					$user->delete = 0;
-					$user->save();
-				}
 				ajax::success('You have been logged in. Welcome back!');
 			}
 			else
