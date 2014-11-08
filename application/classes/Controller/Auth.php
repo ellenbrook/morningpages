@@ -17,7 +17,7 @@ class Controller_Auth extends Controller {
 		try
 		{
 			$connection = new TwitterOAuth(arr::get($this->creds, 'key'), arr::get($this->creds, 'secret'));
-			$tmp = $connection->getRequestToken('http://dev.morningpages.net/auth/twittercallback');
+			$tmp = $connection->getRequestToken('http://morningpages.net/auth/twittercallback');
 			Session::instance()->set('twitter_oauth_token', arr::get($tmp, 'oauth_token',''));
 			Session::instance()->set('twitter_oauth_token_secret', arr::get($tmp, 'oauth_token_secret',''));
 			$redirect = $connection->getAuthorizeURL($tmp);
