@@ -27,7 +27,7 @@ echo $talk->pagination($currentpage);
 ?>
 
 <ul class="comments">
-	<?php if((int)arr::get($_GET, 'page',0)<1): ?>
+	<?php if((int)arr::get($_GET, 'page',0)>=1): ?>
 		<li class="comment op" id="comment-<?php echo $talk->opid(); ?>" data-id="<?php echo $talk->opid(); ?>">
 			<div class="comment-bio">
 				<?php if(!$talk->deleted()): ?>

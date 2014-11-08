@@ -161,6 +161,14 @@ class Controller_Ajax_Talk extends Controller {
 			$object->talk->deleted = 0;
 			$object->talk->save();
 			$object->save();
+			
+			if($object->op == 1)
+			{
+				$talk = $object->talk;
+				$talk->deleted = 1;
+				$talk->save();
+			}
+			
 			ajax::info('Your post has been deleted.');
 		}
 		catch(exception $e)
