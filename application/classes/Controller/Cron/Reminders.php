@@ -99,6 +99,18 @@ class Controller_Cron_Reminders extends Controller {
 				if($user->loaded())
 				{
 					// Send the mail here..
+					$mail = mail::create('reminder')
+						->to($user->email)
+						->tokenize(array(
+							'username' => $user->username,
+							'writeurl' => URL::site('write', true),
+							'link' => HTML::anchor('write','It’s time to write your Morning Pages'),
+							'totalwords' => $totalwords,
+							'currentstreak' => $currentstreak,
+							'dayswrittenthismonth' => $dayswrittenthismonth,
+							'contactlink' => HTML::anchor('contact','contact us') )
+						)
+						->send();
 					
 					// Then:
 					$option = $user->option;
