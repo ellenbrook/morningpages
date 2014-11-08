@@ -89,7 +89,7 @@ echo View::factory('templates/header');
 				{
 					echo '<li>';
 					echo '<h4>'.HTML::anchor($new->url(), $new->title, array('title'=>$new->title)).'</h4>';
-					echo '<p>'.$talk->excerpt().'</p>';
+					echo '<p>'.$new->excerpt().'</p>';
 					echo '</li>';
 				}
 				echo '</ul>';
