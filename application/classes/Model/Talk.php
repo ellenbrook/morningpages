@@ -143,7 +143,14 @@ class Model_Talk extends ORM {
 	
 	public function canbeannouncement($field, $value)
 	{
-		return user::logged('admin');
+		if($value && $value == 1)
+		{
+			return user::logged('admin');
+		}
+		else
+		{
+			return true;
+		}
 	}
 	
 	public function validtagid($field, $value)
