@@ -7,18 +7,9 @@ class Controller_Cron_Maintenance extends Controller {
 		$users = ORM::factory('User')->find_all();
 		foreach($users as $user)
 		{
-			$slug = site::slugify($user->username);
-			$orgslug = $slug;
-			$existing = ORM::factory('User')->where('slug','=',$slug)->find();
-			$i = 2;
-			while($existing->loaded())
-			{
-				$slug = $orgslug.'-'.$i;
-				$i++;
-			}
-			$user->slug = $slug;
-			$user->update();
-		}
+			$options = ORM::factory('User_Option');
+			$options->user_id = $user->id;
+			$options->save();
 	}
 	
 }
