@@ -85,7 +85,7 @@ class Model_User_Option extends ORM {
 			'user_id' => array(
 				array('not_empty'),
 				array('numeric'),
-				array(array($this, 'verify_userid'), array('user_id',':value'))
+				//array(array($this, 'verify_userid'), array('user_id',':value'))
 			),
 			'reminder' => array(
 				array('not_empty'),
