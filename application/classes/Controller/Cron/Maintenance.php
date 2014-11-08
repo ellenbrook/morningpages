@@ -10,6 +10,7 @@ class Controller_Cron_Maintenance extends Controller {
 			$options = ORM::factory('User_Option');
 			$options->user_id = $user->id;
 			$options->save();
+		}
 	}
 	
 }
