@@ -41,7 +41,7 @@ define([
 			else
 			{
 				var val = self.editarea.find('textarea').val().trim();
-				if(val.length > 0 && val.length < 1001)
+				if(val.length > 0 && val.length < 10001)
 				{
 					$.post('/ajax/talk/edit',{
 						'id':self.id,
@@ -59,9 +59,9 @@ define([
 						site.say(reply);
 					},'json');
 				}
-				else if(val.length > 1000)
+				else if(val.length > 10000)
 				{
-					site.say('Your post must be under 1000 characters (right now it\'s '+val.trim().length+' characters long)');
+					site.say('Your post must be under 10,000 characters (right now it\'s '+val.trim().length+' characters long)');
 				}
 				else
 				{

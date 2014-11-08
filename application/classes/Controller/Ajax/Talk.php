@@ -130,7 +130,7 @@ class Controller_Ajax_Talk extends Controller {
 		}
 		catch(ORM_Validation_Exception $e)
 		{
-			ajax::error('Your message is either too long (max 1000 characters) or too short (min 1 character)');
+			ajax::error('Your message is either too long (max 10,000 characters) or too short (min 1 character)');
 		}
 		catch(exception $e)
 		{
