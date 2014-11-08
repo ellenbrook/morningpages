@@ -111,7 +111,14 @@ class Controller_Talk extends Controller_Project {
 			if($talk->user_id != user::get()->id)
 			{
 				$talk->views = $talk->views+1;
-				$talk->save();
+				try
+				{
+					$talk->save();
+				}
+				catch(ORM_Validation_Exception $e)
+				{
+					var_dump($e->errors());
+				}
 			}
 		}
 		
