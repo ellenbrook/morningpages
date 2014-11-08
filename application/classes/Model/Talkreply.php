@@ -108,7 +108,7 @@ class Model_Talkreply extends ORM {
 			'content' => array(
 				array('not_empty'),
 				array('min_length', array(':value', 1)),
-				array('max_length', array(':value', 1000))
+				array('max_length', array(':value', 10000))
 			),
 			'talk_id' => array(
 				array('not_empty')
