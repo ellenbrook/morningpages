@@ -5,7 +5,7 @@ $ips = array(
 	'99.137.10.80',
 	'127.0.0.1'
 );
-if(!in_array($_SERVER['REMOTE_ADDR'], $ips))
+if(isset($_SERVER['REMOTE_ADDR']) && !in_array($_SERVER['REMOTE_ADDR'], $ips))
 {
 	header('Location:http://morningpages.net/be-right-back.php');
 }
