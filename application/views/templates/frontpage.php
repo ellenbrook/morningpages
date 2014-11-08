@@ -111,7 +111,7 @@ echo View::factory('templates/header');
 				{
 					echo '<li>';
 					echo '<h4>'.HTML::anchor($talk->url(), $talk->title, array('title'=>$talk->title)).'</h4>';
-					echo '<p>This is an excerpt of the talk. Maybe just about 100 characters or so? Then we can add a ...</p>';
+					echo '<p>'.$talk->excerpt().'</p>';
 					echo '</li>';
 				}
 				echo '</ul>';
