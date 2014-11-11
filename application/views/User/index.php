@@ -74,7 +74,7 @@
 								echo '<ul>';
 								foreach($pages as $page)
 								{
-									$numwords = $page->wordcount();
+									$numwords = $page->wordcount;
 									echo '<li><a href="'.url::site('write/'.$page->day).'" title="See your writing from '.$page->date().'">'.$page->date().'</a> - '.$numwords.' word'.($numwords==1?'':'s').'</li>';
 								}
 								echo '</ul>';
