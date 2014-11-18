@@ -4,8 +4,17 @@ define([
 	'site',
 	'autogrow',
 	'validate',
-    'models/modal'
-], function(ko, $, site,ag,validate,modal){
+    'models/modal',
+    'markdown'
+], function(ko, $, site,ag,validate,modal, markdown){
+	
+	ko.bindingHandlers.markdownpreview = {
+		init:function(element, valueAccessor) {
+			$(element).on('keyup', function(){
+				$(valueAccessor()).html(markdown.toHTML($(element).val()));
+			});
+		}
+	};
 	
 	ko.bindingHandlers.autogrow = {
 	    init: function (element, valueAccessor, allBindingsAccessor) {

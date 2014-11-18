@@ -179,11 +179,13 @@ echo $talk->pagination($currentpage);
 				</p>
 				<p>
 					<label for="new-reply-content">Post a reply</label>
-					<textarea name="content" placeholder="Type your reply here..." id="new-reply-content"></textarea>
+					<textarea name="content" data-bind="autogrow:true, markdownpreview:'#markdown-preview'" placeholder="Type your reply here..." id="new-reply-content"></textarea>
 				</p>
 				<p class="text-right">
 					<button class="button">Submit reply</button>
 				</p>
+				<h3>Preview:</h3>
+				<div id="markdown-preview"></div>
 			</fieldset>
 		</form>
 	</div>

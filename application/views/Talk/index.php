@@ -207,7 +207,7 @@ if($numpages > 1)
 				</p>
 				<p>
 					<label for="new-talk-content">Content</label>
-					<textarea class="<?php echo (($errors&&arr::get($errors,'content',false))?'error':''); ?>" required data-bind="autogrow:true" name="content" placeholder="Your content here..." id="new-talk-content"><?php echo arr::get($_POST, 'content',''); ?></textarea>
+					<textarea class="<?php echo (($errors&&arr::get($errors,'content',false))?'error':''); ?>" required data-bind="autogrow:true, markdownpreview:'#markdown-preview'" name="content" placeholder="Your content here..." id="new-talk-content"><?php echo arr::get($_POST, 'content',''); ?></textarea>
 <?php
 					if($errors&&arr::get($errors,'content',false))
 					{
@@ -233,6 +233,8 @@ if($numpages > 1)
 				<p class="text-right">
 					<button class="button">Submit talk</button>
 				</p>
+				<h3>Preview:</h3>
+				<div id="markdown-preview"></div>
 			</fieldset>
 		</form>
 	</div>

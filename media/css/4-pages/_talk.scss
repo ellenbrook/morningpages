@@ -20,3 +20,19 @@
 		cursor:pointer;
 	}
 }
+#markdown-preview
+{
+	padding:20px;
+	background:#EEE;
+	border:1px solid #CCC;
+	border-radius:5px;
+	
+	ul
+	{
+		list-style-type:disc;
+	}
+	ol
+	{
+		list-style-type:decimal;
+	}
+}

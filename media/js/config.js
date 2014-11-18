@@ -7,8 +7,9 @@ require.config({
 		'autogrow':'vendor/jquery.autosize',
 		'validate':'vendor/jquery.validate.min',
 		'jgrowl':'vendor/jgrowl.min',
-		'facebook':'//connect.facebook.net/en_US/all' // Minified
-		//'facebook':'//connect.facebook.net/en_US/sdk/debug' // Debugging
+		'facebook':'//connect.facebook.net/en_US/all', // Minified
+		//'facebook':'//connect.facebook.net/en_US/sdk/debug' // Debugging,
+		'markdown':'vendor/markdown'
 	},
 	'shim':{
 		'autogrow':{
@@ -22,6 +23,9 @@ require.config({
 		},
 		'facebook':{
 			exports:''
+		},
+		'markdown':{
+			exports:'markdown'
 		}
 	}
 });

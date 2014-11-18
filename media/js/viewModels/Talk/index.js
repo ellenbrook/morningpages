@@ -1,8 +1,9 @@
 define([
 	'knockout',
 	'jquery',
-	'validate'
-],function(ko,$, validate){
+	'validate',
+	'markdown'
+],function(ko,$, validate, markdown){
 	
 	var talkModel = function(){
 		
