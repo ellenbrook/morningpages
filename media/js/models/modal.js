@@ -1,8 +1,7 @@
 define([
     'jquery',
-    'knockout',
-    'social/fb'
-],function($, ko, fb){
+    'knockout'
+],function($, ko){
     
     var modalModel = function(element)
     {

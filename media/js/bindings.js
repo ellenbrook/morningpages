@@ -6,7 +6,7 @@ define([
 	'validate',
     'models/modal',
     'markdown'
-], function(ko, $, site,ag,validate,modal, markdown){
+], function(ko, $, site, ag, validate, modal, markdown){
 	
 	ko.bindingHandlers.markdownpreview = {
 		init:function(element, valueAccessor) {
