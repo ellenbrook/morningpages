@@ -85,11 +85,6 @@ class Controller_User extends Controller_Project {
 			if(user::login($email, $password, $remember))
 			{
 				$user = user::get();
-				if($user->delete != 0) // Previously set for deletion. Cancel that
-				{
-					$user->delete = 0;
-					$user->save();
-				}
 				notes::success('You have been logged in. Welcome back!');
 				$lasturl = site::get_last_url();
 				if($lasturl)
