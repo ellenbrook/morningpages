@@ -75,12 +75,12 @@ define([
 				self.logged(true);
 				return self.getInfo();
 			}
-			return $.Deferred(function(defer){
+			/*return $.Deferred(function(defer){
 				self.getInfo().then(function(){
 					self.logged(true);
 					defer.resolve();
 				});
-			});
+			});*/
 		};
 		
 		self.getInfo = function(){
