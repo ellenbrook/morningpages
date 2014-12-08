@@ -40,6 +40,24 @@ define([
         	
         };
         
+        self.register = function(form){
+        	
+        	$.post('/ajax/user/register',form,function(reply){
+        		if(reply.success)
+        		{
+        			self.modal.hide();
+        			self.promise.resolve();
+        		}
+        		else
+        		{
+        			self.modal.find('.errors').html(reply.errors).show();
+        			self.modal.find('.errmsg').html('<label class="error">'+reply.message+'</label>').show();
+        		}
+        	}, 'json');
+        	return false;
+        	
+        };
+        
         self.fblogin = function(){
         	fb.init().done().fail(function(){
         		fb.login().done(function(reply){

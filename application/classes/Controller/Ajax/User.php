@@ -146,6 +146,56 @@ class Controller_Ajax_User extends Controller {
 		}
 	}
 	
+	public function action_register()
+	{
+		if(user::logged())
+		{
+			ajax::error('You are already logged in as '.user::get()->username());
+		}
+		
+		if($_POST)
+		{
+			$user = ORM::factory('User');
+			try
+			{
+				user::create($_POST);
+				if(user::logged())
+				{
+					ajax::success('You are now signed up. Welcome!');
+				}
+				else
+				{
+					// should log this error (user wasnt logged in with user::create())
+					ajax::error('An error occurred and I couldn\'t sign you in! Please try again or open an issue here: https://github.com/ellenbrook/morningpages');
+				}
+			}
+			catch(ORM_Validation_Exception $e)
+			{
+				$errors = $e->errors('models');
+				$ehtml = '<ul>';
+				foreach($errors as $error)
+				{
+					if(is_array($error)) foreach($error as $suberror)
+					{
+						$ehtml .= '<li>'.$suberror.'</li>';
+					}
+					else
+					{
+						$ehtml .= '<li>'.$error.'</li>';
+					}
+				}
+				$ehtml .= '<ul>';
+				ajax::error('Whoops! There was an error in the form. Please review it and submit it again.', array(
+					'errors' => $ehtml
+				));
+			}
+		}
+		else
+		{
+			ajax::error('No data received');
+		}
+	}
+	
 	public function action_logout()
 	{
 		user::logout();

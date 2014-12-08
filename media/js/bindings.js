@@ -199,7 +199,6 @@ define([
 							}
 						}
 					}
-					console.log('');
 					return true;
 				}
 				

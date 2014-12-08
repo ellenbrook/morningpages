@@ -5,22 +5,24 @@
 			<h2>Register</h2>
 			<p class="intro">Registration is fast and simple!</p>
 			<div class="modal-left">	 
-			 <form role="form" method="post" action="<?php echo user::url('user/signup'); ?>">
+			 <form role="form" method="post" data-bind="validateForm:register" action="<?php echo user::url('signup'); ?>">
+			 	<p class="errmsg hidden"></p>
+			 	<p class="errors hidden"></p>
 				<div class="form-group">
 					<span class="modal-login-icon fa fa-envelope"></span>
-					<input type="text" class="form-control modal-login" name="email" value="<?php echo arr::get($_POST, 'email',''); ?>" placeholder="E-mail" />
+					<input type="email" required="required" class="form-control modal-login" name="email" value="<?php echo arr::get($_POST, 'email',''); ?>" placeholder="E-mail" />
 				</div>
 				<div class="form-group">
 					<span class="modal-login-icon fa fa-user modal-login"></span>
-					<input type="text" class="form-control modal-login" name="username" value="<?php echo arr::get($_POST, 'username',''); ?>" placeholder="Username" />
+					<input type="text" minlength="2" required="required" class="form-control modal-login" name="username" value="<?php echo arr::get($_POST, 'username',''); ?>" placeholder="Username" />
 				</div>
 				<div class="form-group">
 					<span class="modal-login-icon fa fa-lock"></span>
-					<input type="password" class="form-control modal-login" value="" name="password" placeholder="Password" />
+					<input type="password" minlength="5" required="required" class="form-control modal-login" value="" name="password" placeholder="Password" />
 				</div>
 				<div class="form-group">
 					<span class="modal-login-icon fa fa-repeat"></span>
-					<input type="password" class="form-control modal-login" value="" name="password_confirm" placeholder="Password Confirm" />
+					<input type="password" minlength="5" required="required" class="form-control modal-login" value="" name="password_confirm" placeholder="Password Confirm" />
 				</div>
 				<div class="form-group">
 					<button type="submit">Register</button>

@@ -20,7 +20,20 @@
   .modal-open {
     overflow: hidden;
   }
-
+	
+	.errors
+	{
+		ul
+		{
+			list-style-type:disc;
+			li
+			{
+				color:red;
+				
+			}
+		}
+	}
+	
   .modal-window { // overlay
     @include transition(opacity .25s ease);
     @include position(fixed, 0px 0px 0px 0px);

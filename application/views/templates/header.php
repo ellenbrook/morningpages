@@ -24,7 +24,7 @@ $isfront = routes::isFrontPage();
 				<li class="<?php echo (user::logged()?'hidden':''); ?>" data-bind="if:!site.user.logged(),css:{'shown':!site.user.logged()}">
 					<ul>
 						<li><a href="#" data-bind="showModal:{element:'#loginModal',done:doneLoggingIn}">Login</a></li>
-						<li><a href="#" data-bind="showModal:'#registerModal'">Register</a></li>
+						<li><a href="#" data-bind="showModal:{element:'#registerModal',done:doneRegistering}">Register</a></li>
 					</ul>
 				</li>
 				<li class="<?php echo (!user::logged()?'hidden':''); ?>" data-bind="if:site.user.logged(),css:{'shown':site.user.logged()}">
@@ -46,7 +46,7 @@ $isfront = routes::isFrontPage();
 				<li class="<?php echo (user::logged()?'hidden':''); ?>" data-bind="if:!site.user.logged(),css:{'shown':site.user.logged()}">
 					<ul>
 						<li><a href="#" data-bind="showModal:{element:'#loginModal',done:doneLoggingIn}">Login</a></li>
-						<li><a href="#" data-bind="showModal:'#registerModal'">Register</a></li>
+						<li><a href="#" data-bind="showModal:{element:'#registerModal',done:doneRegistering}">Register</a></li>
 					</ul>
 				</li>
 				<li class="<?php echo (!user::logged()?'hidden':''); ?>" data-bind="if:site.user.logged(),css:{'shown':site.user.logged()}">
