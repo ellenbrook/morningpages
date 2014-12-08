@@ -15,11 +15,45 @@ define([
 		self.deleteModal = new modal( $('#delete-account-modal') );
 		ko.applyBindings(self.deleteModal, $('#delete-account-modal')[0]);
 		
+		/**
+		 * Manually subscribing to checkboxes as Chrome fires the change event before the object's value changes for some reason
+		 */
+		self.user.options.reminder.subscribe(function(value){
+			self.user.save_setting('reminder').done(function(reply){
+				reply = $.parseJSON(reply);
+				site.say(reply);
+			});
+			return true;
+		});
+		self.user.options.privacymode.subscribe(function(value){
+			self.user.save_setting('privacymode').done(function(reply){
+				reply = $.parseJSON(reply);
+				site.say(reply);
+			});
+			return true;
+		});
+		self.user.options.hemingwaymode.subscribe(function(value){
+			self.user.save_setting('hemingwaymode').done(function(reply){
+				reply = $.parseJSON(reply);
+				site.say(reply);
+			});
+			return true;
+		});
+		self.user.options.public.subscribe(function(value){
+			self.user.save_setting('public').done(function(reply){
+				reply = $.parseJSON(reply);
+				site.say(reply);
+			});
+			return true;
+		});
+		
+		
 		self.save_setting = function(setting){
 			self.user.save_setting(setting).done(function(reply){
 				reply = $.parseJSON(reply);
 				site.say(reply);
 			});
+			return true;
 		};
 		
 		self.deleteAccount = function(){

@@ -26,7 +26,7 @@
 					<label for="writing-reminders-button">Receive daily reminder e-mails at the time that you specify.</label>
 					
 					<label class="label-switch">
-						<input type="checkbox" data-bind="checked:user.options.reminder,event:{change:function(){save_setting('reminder');}}" />
+						<input type="checkbox" data-bind="checked:user.options.reminder" />
 							<div class="checkbox"></div>
 					</label>
 					<label class="status" data-bind="css:{'on':user.options.reminder(),'off':!user.options.reminder()}">
@@ -76,7 +76,7 @@
 					<label for="privacy-mode">Privacy mode logs you out after 5, 10 or 15 minutes of inactivity.</label>
 					
 					<label class="label-switch">
-						<input type="checkbox" data-bind="checked:user.options.privacymode,event:{change:function(){save_setting('privacymode');}}" />
+						<input type="checkbox" data-bind="checked:user.options.privacymode" />
 							<div class="checkbox"></div>
 					</label>
 					<label class="status" data-bind="css:{'on':user.options.privacymode(),'off':!user.options.privacymode()}">
@@ -97,7 +97,7 @@
 					<label for="hemingway-mode">Hemingway mode disables the use of the backspace key, keeping your writing pure.</label>
 					
 					<label class="label-switch">
-						<input type="checkbox" data-bind="checked:user.options.hemingwaymode,event:{change:function(){save_setting('hemingwaymode');}}" />
+						<input type="checkbox" data-bind="checked:user.options.hemingwaymode" />
 							<div class="checkbox"></div>
 					</label>
 					<label class="status" data-bind="css:{'on':user.options.hemingwaymode(),'off':!user.options.hemingwaymode()}">
@@ -110,7 +110,7 @@
 					<label for="public-profile">Turn this on in order to allow others to view your profile that includes your username, badges, and stats.</label>
 					
 					<label class="label-switch">
-						<input type="checkbox" data-bind="checked:user.options.public,event:{change:function(){save_setting('public');}}" />
+						<input type="checkbox" data-bind="checked:user.options.public" />
 							<div class="checkbox"></div>
 					</label>
 					<label class="status" data-bind="css:{'on':user.options.public(),'off':!user.options.public()}">
