@@ -41,7 +41,7 @@
 		<?php if(user::logged()): ?>
 			<?php if($page->open()): ?>
 				<form role="form" action="<?php echo URL::site('write/'.$page->day); ?>" method="post" id="writeform">
-					<textarea class="<?php echo ((bool)user::get()->option('rtl')?'rtl':''); ?>" name="content" autofocus data-bind="value:writtenwords,valueUpdate:'keyup',autogrow:''" id="morningpage-content"></textarea>
+					<textarea class="<?php echo (user::logged() && (bool)user::get()->option('rtl')?'rtl':''); ?>" name="content" autofocus data-bind="value:writtenwords,valueUpdate:'keyup',autogrow:''" id="morningpage-content"></textarea>
 					<button data-bind="disable:totalwords()<1,css:{'btn-disabled':totalwords()<1}" class="writing-submit">Submit</button>
 					<p class="subtext">
 					      <span data-bind="text:wordcount()">0</span> / 750
@@ -50,7 +50,7 @@
 			<?php endif; ?>
 		<?php else: ?>
 			<form role="form" action="<?php echo URL::site('write/'); ?>" method="post" id="writeform" data-bind="submit:submitPage">
-				<textarea class="<?php echo ((bool)user::get()->option('rtl')?'rtl':''); ?>" name="content" autofocus data-bind="value:writtenwords,valueUpdate:'keyup',autogrow:''" id="morningpage-content"></textarea>
+				<textarea class="<?php echo (user::logged() && (bool)user::get()->option('rtl')?'rtl':''); ?>" name="content" autofocus data-bind="value:writtenwords,valueUpdate:'keyup',autogrow:''" id="morningpage-content"></textarea>
 				<button data-bind="disable:totalwords()<1,css:{'btn-disabled':totalwords()<1}"  class="writing-submit">Submit</button>
 				<p class="subtext">
 				      <span data-bind="text:wordcount()">0</span> / 750
