@@ -82,7 +82,7 @@
 					</dd>
 				</div>
 				<div class="stat-block">
-					<dt>Accumulative Words</dt>
+					<dt>Cumulative Words</dt>
 					<dd>
 						<span class="stat-circle four"><?php echo number_format($user->all_time_words); ?></span>
 					</dd>
