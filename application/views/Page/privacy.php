@@ -15,8 +15,7 @@
 
 <dt>How do we protect visitor information?</dt>
 
-<dd>We do not use an SSL certificate</dd>
-<dd>• We do not need an SSL because: We're broke. If we had the resources for a dedicated server with a trustworthy certificate, we'd get it in a heartbeat. We do everything we can to protect your information though. Everything you write is encrypted and access to the website is only possible through SSH with a key ile. </dd>
+<dd>We do not use an SSL certificate. We're broke. If we had the resources for a dedicated server with a trustworthy certificate, we'd get it in a heartbeat. We do everything we can to protect your information though. Everything you write is encrypted and access to the website is only possible through SSH with a key file. </dd>
 
 
 <dt>Do we use 'cookies'?</dt>
