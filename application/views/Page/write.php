@@ -3,7 +3,7 @@
 	    <div id="dummy-content" style="display:none;" class="hidden">
             <?php echo ORM::factory('Dummytext')->order_by(DB::expr('RAND()'))->limit(1)->find()->text(); ?>
         </div>
-		<div id="page-content" class="container<?php echo ((bool)user::get()->option('rtl')?' rtl':''); ?>">
+		<div id="page-content" class="container<?php echo (user::logged() && (bool)user::get()->option('rtl')?' rtl':''); ?>">
 			<h2 class="date"><?php echo date('F d, Y', $page->created); ?></h2>
 			<?php if($page->type == 'page' && $page->content != ''): ?>
 				<figure class="wordcloud pull-right">
