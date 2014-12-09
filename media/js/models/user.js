@@ -2,7 +2,7 @@ define([
 	'knockout',
 	'jquery'
 ],function(ko, $){
-	
+	'use strict';
 	var user = function(){
 		var self = this;
 		
@@ -17,7 +17,8 @@ define([
 			privacymode:ko.observable(false),
 			privacymode_minutes:ko.observable(5),
 			hemingwaymode:ko.observable(false),
-			public:ko.observable(false)
+			public:ko.observable(false),
+			rtl:ko.observable(false)
 		};
 		self.loaded = ko.observable(false);
 		
@@ -102,6 +103,7 @@ define([
 						self.options.privacymode_minutes(parseInt(reply.options.privacymode_minutes));
 						self.options.hemingwaymode(Boolean(reply.options.hemingwaymode));
 						self.options.public(Boolean(reply.options.public));
+						self.options.rtl(Boolean(reply.options.rtl));
 						
 						self.logged(true);
 						self.loaded(true);

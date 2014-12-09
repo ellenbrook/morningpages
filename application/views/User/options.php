@@ -26,8 +26,8 @@
 					<label for="writing-reminders-button">Receive daily reminder e-mails at the time that you specify.</label>
 					
 					<label class="label-switch">
-						<input type="checkbox" data-bind="checked:user.options.reminder" />
-							<div class="checkbox"></div>
+						<input type="checkbox" id="writing-reminders-button" data-bind="checked:user.options.reminder" />
+						<div class="checkbox"></div>
 					</label>
 					<label class="status" data-bind="css:{'on':user.options.reminder(),'off':!user.options.reminder()}">
 						<span data-bind="visible:user.options.reminder()">ON</span>
@@ -76,8 +76,8 @@
 					<label for="privacy-mode">Privacy mode logs you out after 5, 10 or 15 minutes of inactivity.</label>
 					
 					<label class="label-switch">
-						<input type="checkbox" data-bind="checked:user.options.privacymode" />
-							<div class="checkbox"></div>
+						<input type="checkbox" id="privacy-mode" data-bind="checked:user.options.privacymode" />
+						<div class="checkbox"></div>
 					</label>
 					<label class="status" data-bind="css:{'on':user.options.privacymode(),'off':!user.options.privacymode()}">
 						<span data-bind="visible:user.options.privacymode()">ON</span>
@@ -97,8 +97,8 @@
 					<label for="hemingway-mode">Hemingway mode disables the use of the backspace key, keeping your writing pure.</label>
 					
 					<label class="label-switch">
-						<input type="checkbox" data-bind="checked:user.options.hemingwaymode" />
-							<div class="checkbox"></div>
+						<input type="checkbox" id="hemingway-mode" data-bind="checked:user.options.hemingwaymode" />
+						<div class="checkbox"></div>
 					</label>
 					<label class="status" data-bind="css:{'on':user.options.hemingwaymode(),'off':!user.options.hemingwaymode()}">
 						<span data-bind="visible:user.options.hemingwaymode()">ON</span>
@@ -110,12 +110,25 @@
 					<label for="public-profile">Turn this on in order to allow others to view your profile that includes your username, badges, and stats.</label>
 					
 					<label class="label-switch">
-						<input type="checkbox" data-bind="checked:user.options.public" />
-							<div class="checkbox"></div>
+						<input type="checkbox" id="public-profile" data-bind="checked:user.options.public" />
+						<div class="checkbox"></div>
 					</label>
 					<label class="status" data-bind="css:{'on':user.options.public(),'off':!user.options.public()}">
 						<span data-bind="visible:user.options.public()">ON</span>
 						<span data-bind="visible:!user.options.public()">OFF</span>
+					</label>
+					
+				</div>
+				<div class="form-group button-group">
+					<label for="rtl-writing">Do you prefer writing right-to-left?</label>
+					
+					<label class="label-switch">
+						<input type="checkbox" id="rtl-writing" data-bind="checked:user.options.rtl" />
+						<div class="checkbox"></div>
+					</label>
+					<label class="status" data-bind="css:{'on':user.options.rtl(),'off':!user.options.rtl()}">
+						<span data-bind="visible:user.options.rtl()">ON</span>
+						<span data-bind="visible:!user.options.rtl()">OFF</span>
 					</label>
 					
 				</div>

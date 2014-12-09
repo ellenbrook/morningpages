@@ -24,6 +24,11 @@
 @import "buttons";
 @import "flashes";
 
+.rtl
+{
+	direction:rtl;
+}
+
 .page-header
 {
 	border-bottom:1px solid #CCC;

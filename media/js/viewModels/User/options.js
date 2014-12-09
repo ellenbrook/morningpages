@@ -46,6 +46,13 @@ define([
 			});
 			return true;
 		});
+		self.user.options.rtl.subscribe(function(value){
+			self.user.save_setting('rtl').done(function(reply){
+				reply = $.parseJSON(reply);
+				site.say(reply);
+			});
+			return true;
+		});
 		
 		
 		self.save_setting = function(setting){

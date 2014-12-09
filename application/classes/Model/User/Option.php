@@ -20,7 +20,8 @@ class Model_User_Option extends ORM {
 			'privacymode'			=> 'Privacymode',
 			'privacymode_minutes'	=> 'Privacimode minutes',
 			'hemingwaymode'			=> 'Hemingway mode',
-			'public'				=> 'Public'
+			'public'				=> 'Public',
+			'rtl'					=> 'Right to left',
 		);
 	}
 	
@@ -63,6 +64,10 @@ class Model_User_Option extends ORM {
 			'public' => array(
 				array('Security::xss_clean', array(':value')),
 				array(array($this,'convert_weird_to_bool'), array(':value'))
+			),
+			'rtl' => array(
+				array('Security::xss_clean', array(':value')),
+				array(array($this,'convert_weird_to_bool'), array(':value'))
 			)
 		);
 	}
@@ -79,6 +84,7 @@ class Model_User_Option extends ORM {
 		}
 	}
 	
+	// Erh...?
 	public function rules()
 	{
 		/*

@@ -30,6 +30,7 @@ class Controller_Ajax_User extends Controller {
 				'privacymode_minutes' => $user->option->privacymode_minutes,
 				'hemingwaymode' => (bool)$user->option->hemingwaymode,
 				'public' => (bool)$user->option->public,
+				'rtl' => (bool)$user->option->rtl,
 			)
 		));
 	}
@@ -273,6 +274,9 @@ class Controller_Ajax_User extends Controller {
 				break;
 			case 'public':
 				$option->public = $value;
+				break;
+			case 'rtl':
+				$option->rtl = $value;
 				break;
 			default:
 				ajax::error('Something wen\'t wrong and your setting couldn\'t be saved. I received no data!');
