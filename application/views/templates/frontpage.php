@@ -8,6 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta content="Morning Pages" name="name">
 	<meta content="<?php echo seo::instance()->description(); ?>" name="description">
+	<meta name="google-site-verification" content="GRSH_5xF1zNVylG4dVPeMMzbAd-3x5snMapOlZwfNp8" />
 	<link href="<?php echo URL::site('media/img/favicon.ico'); ?>" rel="shortcut icon" />
 	<link rel="apple-touch-icon" href="<?php echo URL::site('media/img/favicon.png'); ?>" />
 	<link rel="stylesheet" type="text/css" id="mainstyles" href="<?php echo URL::site('media/css/style.css'); ?>" />
