@@ -232,6 +232,7 @@ class Model_Talk extends ORM {
 	{
 		$this->slug = site::slugify($this->title);
 		$this->created = time();
+		$this->last_reply = time();
 		return parent::create($validation);
 	}
 	
