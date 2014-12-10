@@ -49,6 +49,7 @@ class Task_Reminders extends Minion_Task {
 					$option = $user->option;
 					$option->last_reminder = time();
 					$option->next_reminder = $user->get_next_reminder(true);
+					$option->save();
 				}
 			}
 		}
