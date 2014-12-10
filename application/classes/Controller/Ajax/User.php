@@ -31,6 +31,7 @@ class Controller_Ajax_User extends Controller {
 				'hemingwaymode' => (bool)$user->option->hemingwaymode,
 				'public' => (bool)$user->option->public,
 				'rtl' => (bool)$user->option->rtl,
+				'language' => $user->option->language
 			)
 		));
 	}
@@ -277,6 +278,9 @@ class Controller_Ajax_User extends Controller {
 				break;
 			case 'rtl':
 				$option->rtl = $value;
+				break;
+			case 'language':
+				$option->language = (int)$value;
 				break;
 			default:
 				ajax::error('Something wen\'t wrong and your setting couldn\'t be saved. I received no data!');

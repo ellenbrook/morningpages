@@ -2,6 +2,8 @@
 
 class Model_Stopword extends ORM {
 	
-	
+	protected $_sorting = array(
+		'name' => 'ASC'
+	);
 	
 }

@@ -18,7 +18,8 @@ define([
 			privacymode_minutes:ko.observable(5),
 			hemingwaymode:ko.observable(false),
 			public:ko.observable(false),
-			rtl:ko.observable(false)
+			rtl:ko.observable(false),
+			language:ko.observable(1)
 		};
 		self.loaded = ko.observable(false);
 		
@@ -104,6 +105,7 @@ define([
 						self.options.hemingwaymode(Boolean(reply.options.hemingwaymode));
 						self.options.public(Boolean(reply.options.public));
 						self.options.rtl(Boolean(reply.options.rtl));
+						self.options.language(parseInt(reply.options.language));
 						
 						self.logged(true);
 						self.loaded(true);

@@ -68,6 +68,9 @@ class Model_User_Option extends ORM {
 			'rtl' => array(
 				array('Security::xss_clean', array(':value')),
 				array(array($this,'convert_weird_to_bool'), array(':value'))
+			),
+			'language' => array(
+				array('Security::xss_clean', array(':value'))
 			)
 		);
 	}

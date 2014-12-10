@@ -22,6 +22,9 @@
 ?>
 					</select>
 				</div>
+				
+				<hr />
+				
 				<div class="form-group button-group">
 					<label for="writing-reminders-button">Receive daily reminder e-mails at the time that you specify.</label>
 					
@@ -119,6 +122,9 @@
 					</label>
 					
 				</div>
+				
+				<hr />
+				
 				<div class="form-group button-group">
 					<label for="rtl-writing">Do you prefer writing right-to-left?</label>
 					
@@ -132,6 +138,24 @@
 					</label>
 					
 				</div>
+				
+				<div class="form-group">
+					<label for="writing-language">What language are you writing in? (we use this to filter our common words from the wordclouds)</label>
+					<select data-bind="value:user.options.language,event:{change:function(){save_setting('language')}}" id="writing-language" name="language">
+						<option value="0">None of the below (no filter)</option>
+<?php
+						$stopwords = ORM::factory('Stopword')->find_all();
+						if((bool)$stopwords->count())
+						{
+							foreach($stopwords as $stopword)
+							{
+								echo '<option value="'.$stopword->id.'">'.$stopword->name.' ('.$stopword->code.')'.'</option>';
+							}
+						}
+?>
+					</select>
+				</div>
+				
 			</fieldset>
 		</div>
 	</li>
