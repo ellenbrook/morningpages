@@ -67,6 +67,7 @@ class Model_Talkreply extends ORM {
 	{
 		$content = $this->content;
 		$content = htmlentities($content);
+		$content = str_replace('&gt;', '>', $content);
 		$content = $this->markdown($content);
 		$content = Security::xss_clean($content);
 		return $content;
