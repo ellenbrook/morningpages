@@ -108,6 +108,7 @@ class Controller_Talk extends Controller_Project {
 		$talk = $this->request->param('talk');
 		if(user::logged())
 		{
+			// Iterate views
 			if($talk->user_id != user::get()->id)
 			{
 				$talk->views = $talk->views+1;
@@ -117,9 +118,19 @@ class Controller_Talk extends Controller_Project {
 				}
 				catch(ORM_Validation_Exception $e)
 				{
-					var_dump($e->errors());
+					//var_dump($e->errors());
 				}
 			}
+			// Set when the user last saw the topic
+			$user = user::get();
+			$viewed = $user->talkviews->where('talk_id','=',$talk->id)->find();
+			if(!$viewed->loaded())
+			{
+				$viewed->user_id = $user->id;
+				$viewed->talk_id = $talk->id;
+			}
+			$viewed->last = time();
+			$viewed->save();
 		}
 		
 		$replies = $talk->replies

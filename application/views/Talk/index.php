@@ -41,7 +41,22 @@
 				</div>
 				<div class="card-content">
 					<div class="card-header<?php echo ((bool)$talk->announcement?' announcement':''); ?>">
-						<h3><a href="<?php echo URL::site($talk->url()); ?>" title="<?php echo $talk->title; ?>"><?php echo ((bool)$talk->announcement?'<span class="fa fa-comment-o"> ':'').$talk->title; ?></a></h3>
+<?php
+						$class = 'unread';
+						if(user::logged())
+						{
+							$user = user::get();
+							$viewed = $user->talkviews->where('talk_id','=',$talk->id)->find();
+							if($viewed->loaded())
+							{
+								if($talk->last_reply <= $viewed->last)
+								{
+									$class = 'read';
+								}
+							}
+						}
+?>
+						<h3><a class="<?php echo $class; ?>" href="<?php echo URL::site($talk->url()); ?>" title="<?php echo $talk->title; ?>"><?php echo ((bool)$talk->announcement?'<span class="fa fa-comment-o"> ':'').$talk->title; ?></a></h3>
 					</div>
 					<div class="card-copy">
 						<?php echo $talk->excerpt(); ?>
