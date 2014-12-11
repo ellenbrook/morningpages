@@ -8,7 +8,7 @@
 					<p class="errmsg hidden"></p>
 					<div class="form-group">
 						<span class="modal-login-icon fa fa-user"></span>
-						<input type="email" required="required" class="form-control modal-login" name="email" value="<?php echo arr::get($_POST, 'email',''); ?>" placeholder="Email or Username" />
+						<input type="text" minlength="2" required="required" class="form-control modal-login" name="email" value="<?php echo arr::get($_POST, 'email',''); ?>" placeholder="Email or Username" />
 					</div>
 					<div class="form-group">
 						<span class="modal-login-icon fa fa-lock"></span>
