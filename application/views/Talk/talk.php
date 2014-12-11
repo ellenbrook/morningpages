@@ -139,7 +139,6 @@ echo $talk->pagination($currentpage);
 									<span class="fa fa-pencil"></span>
 								</button>
 							<?php endif; ?>
-							<button data-bind="click:comment">Comment</button>
 							<button data-bind="click:quote">Reply</button>
 							<button class="<?php echo (user::get()->votedon($reply->id, 'talkreply')?'voted':''); ?>" data-bind="click:vote">+1</button>
 						</div>
