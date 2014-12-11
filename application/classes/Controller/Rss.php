@@ -8,7 +8,7 @@ class Controller_Rss extends Controller {
 		
 		$talks = ORM::factory('Talk')
 			->where('deleted','=',0)
-			->limit(20)
+			->limit(15)
 			->order_by('created', 'DESC')
 			->find_all();
 		
@@ -20,7 +20,9 @@ class Controller_Rss extends Controller {
 				$feed[$talk->id] = array(
 					'title' => $talk->title,
 					'pubDate' => $talk->created,
-					'link' => $talk->url()
+					'link' => $talk->url(),
+					'description' => $talk->excerpt(),
+					'guid' => $talk->url()
 				);
 			}
 		}
