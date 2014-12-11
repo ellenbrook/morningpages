@@ -22,7 +22,7 @@ class Controller_Rss extends Controller {
 					'pubDate' => $talk->created,
 					'link' => $talk->url(),
 					'description' => $talk->excerpt(),
-					'guid' => $talk->url()
+					'guid' => $talk->id
 				);
 			}
 		}
