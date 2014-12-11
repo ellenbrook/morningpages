@@ -48,6 +48,7 @@ class Controller_Page extends Controller_Project {
 		                    $page->type = 'page';
 							$page->content = $content;
 		                }
+		                
 						$page->wordcount = str_word_count(strip_tags($page->content()));
 						if($page->wordcount > 750 && !(bool)$page->counted)
 						{
@@ -55,6 +56,19 @@ class Controller_Page extends Controller_Project {
 							$page->counted = 1;
 						}
 						$page->update();
+						
+						$oldsaves = ORM::factory('Page')
+							->where('type','=','autosave')
+							->where('user_id','=',user::get()->id)
+							->find_all();
+						if((bool)$oldsaves->count())
+						{
+							foreach($oldsaves as $old)
+							{
+								$old->delete();
+							}
+						}
+						
 						achievement::check_all(user::get());
 						/*$autosave = $page->get_autosave();
 						if($autosave)
