@@ -12,7 +12,9 @@ define([
 		self.writtenwords = ko.observable('');
 		self.totalwords = ko.observable(0);
 		self.wordcount = ko.computed(function(){
-			var total = $.trim(self.writtenwords()).split(/\s+/).length;
+			var words = $.trim(self.writtenwords()).split(/[\s,.]+/);
+			words = $.grep(words, function(n){return (n);});
+			var total = words.length;
 			if(self.writtenwords().length == 0) total = 0;
 			if(site.user.logged())
 			{

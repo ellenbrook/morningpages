@@ -39,13 +39,14 @@ class Controller_Page extends Controller_Project {
 					$content = arr::get($_POST, 'content','');
 					if($page->type == 'page')
 					{
-						if($page->content != "")
+						$raw = $page->rawcontent();
+						if($raw != "")
 						{
-							$page->content = $page->rawcontent()."\n".$content;
+							$content = $raw."\n".$content;
 						}
 						else
 						{
-							$page->content = $content;
+							$content = $content;
 						}
 					}
 					try
@@ -53,11 +54,10 @@ class Controller_Page extends Controller_Project {
 		                if($page->type == 'autosave')
 		                {
 		                    $page->type = 'page';
-							$page->content = $content;
 		                }
 		                
-						//$page->wordcount = str_word_count(strip_tags($page->content()));
-						$page->wordcount = count(preg_split('/[\s+,]/u', $page->content));
+						$page->wordcount = count(preg_split('/[\s,.]+/u', $content));
+						$page->content = $content;
 						if($page->wordcount > 750 && !(bool)$page->counted)
 						{
 							user::update_stats($content, $page);
