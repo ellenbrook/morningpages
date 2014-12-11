@@ -20,7 +20,7 @@ class Controller_Rss extends Controller {
 				$feed[] = array(
 					'title' => $talk->title,
 					'pubDate' => $talk->created,
-					'link' => $talk->url(),
+					//'link' => $talk->url(),
 					'description' => $talk->excerpt(),
 					'guid' => $talk->url()
 				);
