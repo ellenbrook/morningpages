@@ -21,7 +21,7 @@ abstract class routes {
 		$slug3 = (isset($params['slug3']) ? $params['slug3'] : '');
 		$slug4 = (isset($params['slug4']) ? $params['slug4'] : '');
 		$slug5 = (isset($params['slug5']) ? $params['slug5'] : '');
-				
+		
 		// Page alias
 		if($controller == 'contact')
 		{
@@ -136,6 +136,13 @@ abstract class routes {
 				return array(
 					'controller' => 'Talk',
 					'action' => 'index'
+				);
+			}
+			if($action == 'feed')
+			{
+				return array(
+					'controller' => 'Rss',
+					'action' => 'talk'
 				);
 			}
 			$talktag = ORM::factory('Talktag')

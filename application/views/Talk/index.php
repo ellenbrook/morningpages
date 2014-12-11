@@ -1,4 +1,7 @@
 <div class="page-header">
+	<div class="text-right rss">
+		<a href="<?php echo URL::site('talk/feed'); ?>"><span class="fa fa-rss-square"></span></a>
+	</div>
 	<h2>Talk<?php echo ($tag?' <span class="seriffed">about</span> '.$tag->title:''); ?></h2>
 </div>
 
