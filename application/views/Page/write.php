@@ -21,6 +21,13 @@
 			{
 				echo $page->content();
 			}
+			if(!$page->open())
+			{
+				echo '<hr />';
+				echo '<div class="wordcount">';
+				echo $page->wordcount.' '.Inflector::plural('word', $page->wordcount);
+				echo '</div>';
+			}
 ?>
 		</div>
 	<?php else: ?>

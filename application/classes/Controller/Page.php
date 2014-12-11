@@ -39,7 +39,14 @@ class Controller_Page extends Controller_Project {
 					$content = arr::get($_POST, 'content','');
 					if($page->type == 'page')
 					{
-						$page->content = $page->content().$content;
+						if($page->content != "")
+						{
+							$page->content = $page->rawcontent()."\n".$content;
+						}
+						else
+						{
+							$page->content = $content;
+						}
 					}
 					try
 					{
@@ -49,7 +56,8 @@ class Controller_Page extends Controller_Project {
 							$page->content = $content;
 		                }
 		                
-						$page->wordcount = str_word_count(strip_tags($page->content()));
+						//$page->wordcount = str_word_count(strip_tags($page->content()));
+						$page->wordcount = count(preg_split('/[\s+,]/u', $page->content));
 						if($page->wordcount > 750 && !(bool)$page->counted)
 						{
 							user::update_stats($content, $page);
@@ -70,16 +78,7 @@ class Controller_Page extends Controller_Project {
 						}
 						
 						achievement::check_all(user::get());
-						/*$autosave = $page->get_autosave();
-						if($autosave)
-						{
-							$autosave->delete();
-						}				
-						if(!(bool)$page->counted)
-						{
-							
-						}
-		                $page->save();*/
+						
 						notes::success('Your page has been saved!');
 						site::redirect('write/'.$page->day);
 					}
