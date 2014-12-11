@@ -130,16 +130,16 @@ define([
 					if(reply.message == 'add')
 					{
 						var old = parseInt($votes.text());
-						var newcount = old+1;
-						$votes.text(newcount + 'liked');
+						var newvotes = old+1;
+						$votes.text(newvotes + ' liked');
 						$(ev.target).addClass('voted');
 					}
 					if(reply.message == 'remove')
 					{
 						var old = parseInt($votes.text());
-						var newcount = old-1;
+						var newvotes = old-1;
 						if(newvotes < 0) newvotes = 0;
-						$votes.text(newcount + 'liked');
+						$votes.text(newvotes + ' liked');
 						$(ev.target).removeClass('voted');
 					}
 				}
