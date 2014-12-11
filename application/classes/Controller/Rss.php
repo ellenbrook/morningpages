@@ -29,7 +29,8 @@ class Controller_Rss extends Controller {
 		
 		echo Feed::create(array(
 			'title' => 'Talk about Morning Pages',
-			'link' => 'talk'
+			'link' => 'talk',
+			'description' => 'New talks on Morning Pages'
 		), $feed);
 	}
 	
