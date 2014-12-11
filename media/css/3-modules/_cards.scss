@@ -132,11 +132,11 @@
     	{
     		a
     		{
-    			&.unread
+    			&.read
     			{
     				color:darken($red, 20%);
     			}
-    			&.read
+    			&.unread
     			{
     				color:$red;
     			}
