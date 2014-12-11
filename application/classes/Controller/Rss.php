@@ -17,11 +17,15 @@ class Controller_Rss extends Controller {
 		{
 			foreach($talks as $talk)
 			{
+				$description = $talk->content();
+				$description = strip_tags($description);
+				$description = str_replace(array("\r\n","\n"), ' ', $description);
+				$description = substr($description, 0, 200);
 				$feed[] = array(
 					'title' => $talk->title,
 					'pubDate' => $talk->created,
 					'link' => $talk->url(),
-					'description' => str_replace(array("\r\n","\n"), ' ', $talk->excerpt()),
+					'description' => $description,
 					'guid' => $talk->url()
 				);
 			}
