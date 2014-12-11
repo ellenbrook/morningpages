@@ -17,7 +17,7 @@ class Controller_Rss extends Controller {
 		{
 			foreach($talks as $talk)
 			{
-				$feed[$talk->id] = array(
+				$feed[] = array(
 					'title' => $talk->title,
 					'pubDate' => $talk->created,
 					'link' => $talk->url(),
@@ -27,7 +27,10 @@ class Controller_Rss extends Controller {
 			}
 		}
 		
-		echo Feed::create(array('title' => 'Talk about Morning Pages'), $feed);
+		echo Feed::create(array(
+			'title' => 'Talk about Morning Pages',
+			'link' => 'talk'
+		), $feed);
 	}
 	
 }
