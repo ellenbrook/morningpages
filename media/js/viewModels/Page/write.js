@@ -68,11 +68,15 @@ define([
 		
 		
 		self.submitPage = function(){
+			console.log('submit 1');
 			if(!site.user.logged())
 			{
+				console.log('submit 2');
 				site.say('You must be logged in to save your page. Please log in (or register) and try again (your content won\'t be lost)');
 				return false;
 			}
+			console.log('submit 3');
+			return true;
 		};
 		
 		$(document).on("keydown", function(e){
