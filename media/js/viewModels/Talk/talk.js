@@ -21,6 +21,10 @@ define([
 			self.replyto_id(0);
 		};
 		
+		self.subscribe = function(elem, ev){
+			console.log(elem,ev);
+		};
+		
 		new autosize($('#new-reply-content'));
 	};
 	

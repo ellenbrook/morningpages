@@ -163,6 +163,19 @@ echo $talk->pagination($currentpage);
 ?>
 
 <?php if(user::logged()): ?>
+	<div class="talk-subscription">
+		
+		<div class="form-group button-group">
+			<label for="talk-subscribe">Subscribe to this topic by e-mail</label>
+			
+			<label class="label-switch">
+				<input type="checkbox" data-bind="event:{change:subscribe}" value="yes" id="talk-subscribe" />
+				<div class="checkbox"></div>
+			</label>
+			
+		</div>
+		
+	</div>
 	<div class="talk-action" id="replyform">
 		<form action="<?php echo URL::site($talk->url()); ?>" method="post">
 			<input type="hidden" name="replyto_id" data-bind="value:replyto_id()" />
