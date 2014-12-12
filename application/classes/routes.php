@@ -112,13 +112,7 @@ abstract class routes {
 				);
 			}
 		}
-		/*if($controller == 'options')
-		{
-			return array(
-				'controller' => 'Me',
-				'action' => 'options'
-			);
-		}*/
+		
 		if($controller == 'read')
 		{
 			return array(

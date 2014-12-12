@@ -39,7 +39,7 @@ echo View::factory('templates/header');
 	</div>
 </section>
 
-<section class="about" id="about">
+<section class="about" id="frontpage-about">
 	<div class="container">
 		<ul class="bullets">
 			<li class="bullet three-col-bullet">

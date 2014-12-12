@@ -134,7 +134,8 @@ class Controller_Page extends Controller_Project {
 		seo::instance()->description("Feel free to contact MorningPages.net if you have questions or concerns about your account, the site or for more information regarding your Morning Pages.");
 	}
 	
-	public function action_faq(){
+	public function action_faq()
+	{
 		seo::instance()->title("Morning Pages Questions");
 		seo::instance()->description("Frequently asked questions regarding your Morning Pages, the Morning Pages website, and more. Don't see your listed? Check the Morning Pages forum for more info.");
 	}

@@ -1,8 +1,18 @@
+#frontpage-about
+{
+	.container
+	{
+		padding-bottom:5em;
+		border-bottom:1px solid #CCC;
+	}
+}
+
 #frontpage-news
 {
 	padding: 5em 0;
 	
-	h4 {
+	h4
+	{
 		margin-bottom: .25em;
 	}
 
