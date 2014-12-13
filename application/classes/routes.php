@@ -67,9 +67,14 @@ abstract class routes {
 		}
 		if($controller == 'write')
 		{
+			$todayslug = site::today_slug();
+			if(user::logged())
+			{
+				$todayslug = user::get()->today_slug();
+			}
 			if(empty($action) || $action == 'index')
 			{
-				$action = site::today_slug();
+				$action = $todayslug;
 			}
 			$page = false;
 			if(user::logged())
@@ -79,9 +84,8 @@ abstract class routes {
 					->where('type','=','page')
 					->where('day','=',$action)
 					->find();
-				if(!$page->loaded() && $action == site::today_slug())
+				if(!$page->loaded() && $action == $todayslug)
 				{
-				    
 				    $page = ORM::factory('Page')
                         ->where('user_id','=',user::get()->id)
                         ->where('type','=','autosave')
@@ -95,7 +99,7 @@ abstract class routes {
                     }
 				}
 			}
-			if((user::logged() && $page->loaded()) || !user::logged())
+			if((user::logged() && ($page && $page->loaded())) || !user::logged())
 			{
 				return array(
 					'controller' => 'Page',

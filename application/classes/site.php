@@ -29,7 +29,12 @@ abstract class site {
 	
 	public static function today_slug()
 	{
-		return date('m-d-Y');
+		return date(self::dateformat());
+	}
+	
+	public static function dateformat()
+	{
+		return 'm-d-Y';
 	}
 	
 	public static function name()

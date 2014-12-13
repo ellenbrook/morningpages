@@ -202,8 +202,8 @@ class Model_Page extends ORM {
 	{
 		$user = user::get();
 		$this->user_id = $user->id;
-		$this->created = time();
-		$this->day = site::today_slug();
+		$this->created = $user->timestamp();
+		$this->day = user::get()->today_slug();
 		
 		return parent::create($validation);
 	}
