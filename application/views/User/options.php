@@ -26,56 +26,6 @@
 				<hr />
 				
 				<div class="form-group button-group">
-					<label for="writing-reminders-button">Receive daily reminder e-mails at the time that you specify.</label>
-					
-					<label class="label-switch">
-						<input type="checkbox" id="writing-reminders-button" data-bind="checked:user.options.reminder" />
-						<div class="checkbox"></div>
-					</label>
-					<label class="status" data-bind="css:{'on':user.options.reminder(),'off':!user.options.reminder()}">
-						<span data-bind="visible:user.options.reminder()">ON</span>
-						<span data-bind="visible:!user.options.reminder()">OFF</span>
-					</label>
-					
-					<div class="inline-form time-container" data-bind="fadeVisible:user.options.reminder()">
-						<select data-bind="value:user.options.reminder_hour,event:{change:function(){save_setting('reminder_hour');}}" name="hour" id="reminder-hour">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-						</select>
-						<select data-bind="value:user.options.reminder_minute,,event:{change:function(){save_setting('reminder_minute');}}" name="minute" id="reminder-minute">
-							<option value="0">00</option>
-							<option value="15">15</option>
-							<option value="30">30</option>
-							<option value="45">45</option>
-						</select>
-						<select data-bind="value:user.options.reminder_meridiem,event:{change:function(){save_setting('reminder_meridiem');}}" name="day-night" id="reminder-day-night">
-							<option value="am">AM</option>
-							<option value="pm">PM</option>
-						</select>
-						
-						<select name="timezone" data-bind="value:user.options.timezone_id,event:{change:function(){save_setting('timezone_id');}}" id="reminder-timezone">
-<?php
-							$zones = ORM::factory('Timezone')->find_all();
-							foreach($zones as $zone)
-							{
-								echo '<option value="'.$zone->id.'">'.$zone->name.'</option>';
-							}
-?>
-						</select>
-						
-					</div>
-				</div>
-				<div class="form-group button-group">
 					<label for="privacy-mode">Privacy mode logs you out after 5, 10 or 15 minutes of inactivity.</label>
 					
 					<label class="label-switch">
@@ -124,6 +74,59 @@
 				</div>
 				
 				<hr />
+				
+				<div class="form-group">
+					<label for="user-timezone">Your timezone</label>
+					<select id="user-timezone" name="timezone" data-bind="value:user.options.timezone_id,event:{change:function(){save_setting('timezone_id');}}" id="reminder-timezone">
+<?php
+						$zones = ORM::factory('Timezone')->find_all();
+						foreach($zones as $zone)
+						{
+							echo '<option value="'.$zone->id.'">'.$zone->name.'</option>';
+						}
+?>
+					</select>
+				</div>
+				
+				<div class="form-group button-group">
+					<label for="writing-reminders-button">Receive daily reminder e-mails at the time that you specify</label>
+					
+					<label class="label-switch">
+						<input type="checkbox" id="writing-reminders-button" data-bind="checked:user.options.reminder" />
+						<div class="checkbox"></div>
+					</label>
+					<label class="status" data-bind="css:{'on':user.options.reminder(),'off':!user.options.reminder()}">
+						<span data-bind="visible:user.options.reminder()">ON</span>
+						<span data-bind="visible:!user.options.reminder()">OFF</span>
+					</label>
+					
+					<div class="inline-form time-container" data-bind="fadeVisible:user.options.reminder()">
+						<select data-bind="value:user.options.reminder_hour,event:{change:function(){save_setting('reminder_hour');}}" name="hour" id="reminder-hour">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select>
+						<select data-bind="value:user.options.reminder_minute,,event:{change:function(){save_setting('reminder_minute');}}" name="minute" id="reminder-minute">
+							<option value="0">00</option>
+							<option value="15">15</option>
+							<option value="30">30</option>
+							<option value="45">45</option>
+						</select>
+						<select data-bind="value:user.options.reminder_meridiem,event:{change:function(){save_setting('reminder_meridiem');}}" name="day-night" id="reminder-day-night">
+							<option value="am">AM</option>
+							<option value="pm">PM</option>
+						</select>
+					</div>
+				</div>
 				
 				<div class="form-group button-group">
 					<label for="rtl-writing">Do you prefer writing right-to-left?</label>
