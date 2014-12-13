@@ -21,7 +21,7 @@ class Task_Userstreaks extends Minion_Task {
 				if($last->loaded())
 				{
 					$day = 60 * 60 * 24;
-					if($last->created < time() - $day)
+					if($last->created < $user->timestamp() - $day)
 					{
 						$user->current_streak = 0;
 						$user->save();

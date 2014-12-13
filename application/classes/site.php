@@ -34,7 +34,7 @@ abstract class site {
 	
 	public static function dateformat()
 	{
-		return 'm-d-Y';
+		return 'Y-m-d';
 	}
 	
 	public static function name()
