@@ -39,9 +39,9 @@ class Task_Reminders extends Minion_Task {
 						->to($user->email)
 						->tokenize(array(
 							'username' => $user->username,
-							'writeurl' => URL::site('write', true),
-							'link' => HTML::anchor('write','It’s time to write your Morning Pages'),
-							'contactlink' => HTML::anchor('contact','contact us') )
+							'writeurl' => URL::site('write', 'http'),
+							'link' => HTML::anchor('write','It’s time to write your Morning Pages', null, 'http'),
+							'contactlink' => HTML::anchor('contact','contact us', null, 'http') )
 						)
 						->send();
 					
