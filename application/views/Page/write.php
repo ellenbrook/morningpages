@@ -40,7 +40,7 @@
 		</div>
 	<?php endif; ?>
 	
-	<?php if($page->open()): ?>
+	<?php if($page && $page->open()): ?>
 		<div class="container" id="writing-container">
 			<div class="text-right" id="fullscreen-toolbar">
 				<a href="#" data-bind="click:fullscreen">
