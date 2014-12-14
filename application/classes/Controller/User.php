@@ -120,10 +120,10 @@ class Controller_User extends Controller_Project {
 	{
 		if($_POST)
 		{
-			$user = ORM::factory('user')->where('email', '=', $_POST['email'])->find();
+			$user = ORM::factory('User')->where('email', '=', $_POST['email'])->find();
 			if($user->loaded())
 			{
-				$token = ORM::factory('user_token');
+				$token = ORM::factory('User_Token');
 				$token->user_id = $user -> id;
 				$token->created = time();
 				$token->expires = strtotime('+2 hours');
@@ -153,7 +153,7 @@ class Controller_User extends Controller_Project {
 	{
 		$token = $this->request->param('id');
 		$errors = false;
-		$token = ORM::factory('user_token')->where('token', '=', $token)->find();
+		$token = ORM::factory('User_Token')->where('token', '=', $token)->find();
 		if(!$token || !$token->loaded())
 		{
 			// Bad or expired token
@@ -162,7 +162,7 @@ class Controller_User extends Controller_Project {
 		}
 		if($_POST)
 		{
-			$errors = ORM::factory('user')->where('id', '=', $token->user->id)->find()->update_password($_POST);
+			$errors = ORM::factory('User')->where('id', '=', $token->user->id)->find()->update_password($_POST);
 			if(!$errors)
 			{
 				// Password successfully changed
