@@ -35,7 +35,7 @@ class Model_Page extends ORM {
 	
 	public function open()
 	{
-		return date('Ymd') == date('Ymd', $this->created);
+		return date('Ymd', user::get()->timestamp()) == date('Ymd', $this->created);
 	}
 	
 	public function content()
