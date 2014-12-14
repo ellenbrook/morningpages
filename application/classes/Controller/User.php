@@ -133,7 +133,7 @@ class Controller_User extends Controller_Project {
 					->to($user->email)
 					->tokenize(array(
 						'username' => $user->username,
-						'resetlink' => $user::url('password/'.$token->token, 'http')
+						'resetlink' => user::url('password/'.$token->token, 'http')
 					))->send();
 				notes::info('Check your e-mail! We\'ve sent you a mail with instructions on resetting your password.');
 				user::redirect('logind');
