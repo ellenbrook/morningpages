@@ -191,6 +191,14 @@ abstract class routes {
 		{
 			if($action != '')
 			{
+				if($action == 'password')
+				{
+					return array(
+						'controller' => 'User',
+						'action' => 'password',
+						'token' => $slug
+					);
+				}
 				if(in_array($action, user::reservednames()))
 				{
 					return array(

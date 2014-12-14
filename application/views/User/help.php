@@ -1,15 +1,4 @@
-<div class="row-fluid">
-	<div class="span12">
-		<ul class="breadcrumb">
-			<li>
-				<?php echo HTML::anchor('', site::name());?>
-			</li>
-			<li class="active">Help</li>
-		</ul>
-	</div>
-</div>
-
-<h1>Reset your password</h1>
+<h2>Reset your password</h2>
 
 <p>
 	Enter the e-mail address you signed up with, and we'll send you an e-mail which will help you reset your password.

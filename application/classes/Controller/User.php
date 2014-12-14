@@ -136,7 +136,7 @@ class Controller_User extends Controller_Project {
 						'resetlink' => user::url('password/'.$token->token, 'http')
 					))->send();
 				notes::info('Check your e-mail! We\'ve sent you a mail with instructions on resetting your password.');
-				user::redirect('logind');
+				user::redirect('login');
 			}
 			else
 			{
@@ -151,24 +151,34 @@ class Controller_User extends Controller_Project {
 	 */
 	public function action_password($token = false)
 	{
-		$token = $this->request->param('id');
+		$token = $this->request->param('token');
 		$errors = false;
 		$token = ORM::factory('User_Token')->where('token', '=', $token)->find();
 		if(!$token || !$token->loaded())
 		{
 			// Bad or expired token
 			notes::add('error', 'The link you used was either wrong or has expired.');
-			site::redirect(user::slug('help'));
+			//site::redirect(user::slug('help'));
 		}
 		if($_POST)
 		{
-			$errors = ORM::factory('User')->where('id', '=', $token->user->id)->find()->update_password($_POST);
+			try
+			{
+				ORM::factory('User')
+					->where('id', '=', $token->user_id)
+					->find()
+					->update_password($_POST);
+			}
+			catch(ORM_Validation_Exception $e)
+			{
+				$errors = $e->errors('models');
+			}
 			if(!$errors)
 			{
 				// Password successfully changed
 				$token->delete();
 				notes::add('success', 'Your password has been updated and you can now log in.');
-				user::redirect('logind');
+				user::redirect('login');
 				die();
 			}
 			

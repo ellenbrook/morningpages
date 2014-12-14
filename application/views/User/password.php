@@ -1,24 +1,11 @@
-<div class="span9" id="content">
+<h2>Update password</h2>
 
-<div class="row-fluid">
-	<div class="span12">
-		<ul class="breadcrumb">
-			<li>
-				<?php echo HTML::anchor('', site::name());?>
-			</li>
-			<li class="active">Update password</li>
-		</ul>
-	</div>
-</div>
-
-<h1>Update password</h1>
-
-<p>Indtast dit nye password for at ændre det</p>
+<p>Enter your new password</p>
 
 <form action="<?php echo user::url('password/' . $token->token); ?>" method="post">
 	<fieldset>
 		<div class="control-group<?php echo (arr::get($errors, 'password', false)?' error':'') ?>">
-			<label class="control-label" for="password">Nyt password:</label>
+			<label class="control-label" for="password">New password:</label>
 			<div class="controls">
 				<input type="password" class="input-xlarge" name="password" id="password" />
 				<?php if(arr::get($errors, 'password', false)): ?>
@@ -29,7 +16,7 @@
 			</div>
 		</div>
 		<div class="control-group<?php echo (arr::get($errors, 'password_confirm', false)?' error':'') ?>">
-			<label class="control-label" for="password_confirm">Bekræft nyt password:</label>
+			<label class="control-label" for="password_confirm">Confirm new password:</label>
 			<div class="Controls">
 				<input type="password" class="input-xlarge" name="password_confirm" id="password_confirm" />
 				<?php if(arr::get($errors, 'password_confirm', false)): ?>
@@ -40,12 +27,7 @@
 			</div>
 		</div>
 		
-		<input type="submit" value="Opdater password" class="btn btn-primary" />
+		<input type="submit" value="Update password" class="btn btn-primary" />
 		
 	</fieldset>
 </form>
-
-</div>
-<div class="span3" id="sidebar">
-	Hai Sidebar
-</div>

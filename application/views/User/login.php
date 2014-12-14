@@ -1,15 +1,4 @@
-<div class="row-fluid">
-	<div class="span12">
-		<ul class="breadcrumb">
-			<li>
-				<?php echo HTML::anchor('', site::name());?>
-			</li>
-			<li class="active">Log in</li>
-		</ul>
-	</div>
-</div>
-
-<h1>Log in</h1>
+<h2>Log in</h2>
 <?php
 if($error)
 {

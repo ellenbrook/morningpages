@@ -1,16 +1,5 @@
-<div class="row-fluid">
-	<div class="span12">
-		<ul class="breadcrumb">
-			<li>
-				<?php echo HTML::anchor('', site::name());?>
-			</li>
-			<li class="active">Your account</li>
-		</ul>
-	</div>
-</div>
-
 <div class="page-header">
-	<h1><?php echo user::get()->username; ?></h1>
+	<h2><?php echo user::get()->username; ?></h2>
 </div>
 
 <p>

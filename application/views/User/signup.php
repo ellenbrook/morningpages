@@ -1,17 +1,6 @@
 <section>
 	<div class="container">
-		<ul class="breadcrumb">
-			<li>
-				<?php echo HTML::anchor('', site::name());?>
-			</li>
-			<li class="active">Signup</li>
-		</ul>
-	</div>
-</section>
-
-<section>
-	<div class="container">
-		<h1>Sign up in 10 seconds</h1>
+		<h2>Sign up in 10 seconds</h2>
 		<p>
 			<?php echo html::anchor(user::slug('login'),'&laquo; Already signed up?'); ?>
 		</p>

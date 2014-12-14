@@ -17,6 +17,10 @@
 					<div class="form-group">
 						<button type="submit">Sign In</button>
 					</div>
+					<hr />
+					<p>
+						<a href="<?php echo user::url('help'); ?>" title="Reset your password">forgot password?</a>
+					</p>
 				</form>
 			</div>
 			<div class="modal-right">
