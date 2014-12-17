@@ -41,7 +41,7 @@ class Task_Reminders extends Minion_Task {
 							'username' => $user->username,
 							'writeurl' => 'http://morningpages.net/write',
 							'link' => HTML::anchor('http://morningpages.net/write','It’s time to write your Morning Pages'),
-							'contactlink' => HTML::anchor('http://morningpages.net/write','contact us') )
+							'contactlink' => HTML::anchor('http://morningpages.net/contact','contact us') )
 						)
 						->send();
 					

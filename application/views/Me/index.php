@@ -7,15 +7,17 @@
 		<div class="me-username">
 			<p>Member since <?php echo $user->created(); ?></p>
 			<?php if(user::logged() && user::get()->id==$user->id): ?>
+<?php
+				$pages = user::get()
+					->pages
+					->where('type','=','page')
+					->order_by('created', 'DESC')
+					->find_all();
+?>
 				<select data-bind="goToPreviousPage:true" id="pastposts">
-		        	<option value="0">Previous pages</option>
+		        	<option value="0">Previous pages (<?php echo $pages->count(); ?>)</option>
 		        	<option value="/">Today</option>
 <?php
-					$pages = user::get()
-						->pages
-						->where('type','=','page')
-						->order_by('created', 'DESC')
-						->find_all();
 					$years = array();
 					if((bool)$pages->count())
 					{
