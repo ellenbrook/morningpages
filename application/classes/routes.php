@@ -30,6 +30,13 @@ abstract class routes {
 				'action' => 'contact'
 			);
 		}
+		if($controller == 'leaderboard')
+		{
+			return array(
+				'controller' => 'Page',
+				'action' => 'leaderboard'
+			);
+		}
 		if($controller == 'faq')
 		{
 			return array(

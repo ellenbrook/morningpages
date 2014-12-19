@@ -9,19 +9,28 @@ class Controller_Page extends Controller_Project {
 		$this->template->view = View::factory('Page/write');
 	}
 	
-	public function action_about(){
+	public function action_about()
+	{
 		seo::instance()->title("About Morning Pages");
 		seo::instance()->description("Morning Pages is about writing three pages of stream of consciousness thought every day. Become a better person by using MorninPages.net");
 	}
 	
-	public function action_terms(){
+	public function action_terms()
+	{
 		seo::instance()->title("Terms of Service");
 		seo::instance()->description("Morning Pages terms of service.");
 	}
 	
-	public function action_privacy(){
+	public function action_privacy()
+	{
 		seo::instance()->title("Morning Pages Privacy Policy");
 		seo::instance()->description("Morning Pages Privacy Policy");
+	}
+	
+	public function action_leaderboard()
+	{
+		seo::instance()->title("Morning Pages leaderboard");
+		seo::instance()->description("Morning Pages leaderboard");
 	}
 	
 	public function action_write()
