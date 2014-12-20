@@ -8,7 +8,7 @@ class Controller_Cms_Users extends Controller {
 		$type = arr::get($_GET, 'role', false);
 		$usercount = ORM::factory('User')->count_all();
 		$numpages = ceil($usercount / $limit);
-		$page = arr::get($_GET, 'page', 1);
+		$page = arr::get($_GET, 'p', 1);
 		if($page > $numpages)
 		{
 			$page = $numpages;
