@@ -73,6 +73,18 @@ echo View::factory('templates/header');
 	</div>
 </section>
 
+<section class="stats" id="frontpage-stats">
+	<div class="container">
+<?php
+		$words = DB::query(Database::SELECT, "SELECT SUM(wordcount) FROM `pages` WHERE `type` = 'page'")->execute()->as_array();
+		$words = array_pop($words);
+?>
+		<p>
+			<?php echo ORM::factory('User')->count_all() ?> users who to date have written a combined <?php echo number_format(arr::get($words, 'words'),0); ?> words over <?php echo ORM::factory('Page')->count_all(); ?> pages.
+		</p>
+	</div>
+</section>
+
 <section class="news" id="frontpage-news">
 	<div class="container">
 		<div class="news">
