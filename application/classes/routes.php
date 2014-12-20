@@ -11,8 +11,20 @@ abstract class routes {
 	 */
 	public static function find($route, $params, $request)
 	{
-		$controller = (isset($params['controller']) ? strtolower($params['controller']) : 'site');
+		visitor::save_update_current();
+		maintenance::delete_inactive_visitors();
+		extract($params);
+		if(!isset($controller))
+		{
+			$controller = 'content';
+		}
 		$controller = strtolower($controller);
+		$guid = $controller.'/'.$action;
+		if($action == 'index')
+		{
+			$guid = $controller;
+		}
+		
 		$controllerfile = ucfirst($controller);
 		$action = (isset($params['action']) ? $params['action'] : 'index');
 		//$action = ucfirst($action);
@@ -21,6 +33,15 @@ abstract class routes {
 		$slug3 = (isset($params['slug3']) ? $params['slug3'] : '');
 		$slug4 = (isset($params['slug4']) ? $params['slug4'] : '');
 		$slug5 = (isset($params['slug5']) ? $params['slug5'] : '');
+		
+		// Homepage
+		if($guid == 'content')
+		{
+			return array(
+				'controller' => 'Site',
+				'action' => 'index'
+			);
+		}
 		
 		// Page alias
 		if($controller == 'contact')
@@ -35,41 +56,6 @@ abstract class routes {
 			return array(
 				'controller' => 'Page',
 				'action' => 'leaderboard'
-			);
-		}
-		if($controller == 'faq')
-		{
-			return array(
-				'controller' => 'Page',
-				'action' => 'faq'
-			);
-		}
-		if($controller == 'about')
-		{
-			return array(
-				'controller' => 'Page',
-				'action' => 'about'
-			);
-		}
-		if($controller == 'terms-conditions')
-		{
-			return array(
-				'controller' => 'Page',
-				'action' => 'terms'
-			);
-		}
-		if($controller == 'privacy-policy')
-		{
-			return array(
-				'controller' => 'Page',
-				'action' => 'privacy'
-			);
-		}
-		if($controller == 'about')
-		{
-			return array(
-				'controller' => 'Page',
-				'action' => 'about'
 			);
 		}
 		if($controller == 'write')
@@ -248,6 +234,55 @@ abstract class routes {
 					'controller' => 'User',
 					'action' => 'options'
 				);
+			}
+		}
+		
+		// Pages/Content
+		$content = ORM::factory('Content');
+		if(!user::logged('admin'))
+		{
+			$content = $content->where('status','=','active');
+		}
+		$content = $content->where('guid','=',$guid)->find();
+		if($content->loaded())
+		{
+			// Specific content
+			
+			$class = 'Content';
+			if(class_exists('Controller_'.ucfirst($content->contenttype->type)))
+			{
+				$class = ucfirst($content->contenttype->type);
+			}
+			
+			$action = 'default';
+			if($content->contenttypetype_id != 0)
+			{
+				if(method_exists('Controller_'.$class, 'action_'.$content->contenttypetype->key))
+				{
+					$action = $content->contenttypetype->key;
+				}
+			}
+			$content->hit();
+			return array(
+				'controller' => $class,
+				'action' => $action,
+				'content' => $content
+			);
+		}
+		else
+		{
+			// Index page for contenttype
+			if($action == 'index')
+			{
+				$contenttype = $controller;
+				if(class_exists('Controller_'.ucfirst($contenttype)))
+				{
+					$class = ucfirst($contenttype);
+					return array(
+						'controller' => $class,
+						'action' => 'index'
+					);
+				}
 			}
 		}
 		
