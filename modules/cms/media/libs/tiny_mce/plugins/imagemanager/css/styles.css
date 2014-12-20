@@ -1,0 +1,35 @@
+.previewholder
+{
+	width:300px;
+}
+.imageinfo
+{
+	margin-left:300px;
+}
+.url-previewholder
+{
+	width:200px;
+}
+.url-imageinfo
+{
+	margin-left:200px;
+}
+#url-preview-image-container
+{
+	width:280px;
+}
+#alignment-preview
+{
+	width:200px;
+	border:1px solid #CCC;
+}
+.alignleft
+{
+	float:left;
+	margin:5px;
+}
+.alignright
+{
+	float:right;
+	margin:5px;
+}

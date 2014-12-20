@@ -1,0 +1,29 @@
+.fullmodal
+{
+	width:100%;
+}
+	.fullmodal .main
+	{
+		border-left:1px solid #E5E5E5;
+		padding:0;
+	}
+	.fullmodal .modal-content
+	{
+		border-radius:0;
+	}
+		.fullmodal .modal-content .row
+		{
+			margin:0;
+		}
+	.fullmodal .modal-dialog
+	{
+		width:97%;
+	}
+	.fullmodal .modal-body
+	{
+		padding:0;
+	}
+		.fullmodal .modal-body .row
+		{
+			margin:0;
+		}

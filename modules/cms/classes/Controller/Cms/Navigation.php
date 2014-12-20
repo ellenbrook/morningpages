@@ -1,0 +1,1 @@
+<?php defined('SYSPATH') or die('No direct script access.');class Controller_Cms_Navigation extends Controller_Cms {		public function action_index()	{		reply::ok(View::factory('Cms/Navigation/index'), 'navigation', array(			'viewModel' => 'viewModels/Navigation/index'		));	}	}

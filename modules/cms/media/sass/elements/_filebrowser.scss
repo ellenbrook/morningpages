@@ -1,0 +1,174 @@
+		.fullmodal .modal-body .images
+		{
+			padding:20px;
+			min-height:420px;
+		}
+	.fullmodal .thumbnails
+	{
+		margin:0;
+		padding:0;
+	}
+	.fullmodal .file-uploader
+	{
+		margin-bottom: 10px;
+		overflow: hidden;
+	}
+	.fullmodal .thumbnail:focus
+	{
+		outline: 0;
+	}
+	a.thumbnail.active
+	{
+		border-color: #DDD;
+	}
+	.fullmodal .toggledthumb
+	{
+		border-color: #0088CC;
+	}
+	.fullmodal .leftbar
+	{
+		padding:0;
+	}
+		.fullmodal .leftbar .filebrowserdropzone
+		{
+			padding:20px;
+		}
+			.fullmodal .leftbar .filebrowserdropzone .file-uploader
+			{
+				margin-bottom: 0;
+			}
+			.fullmodal .leftbar .filebrowserdropzone .message
+			{
+				font-size: 1.2em;
+				line-height: 30px;
+				color: #BBB;
+				font-weight: bold;
+			}
+		.fullmodal .leftbar .file-tags
+		{
+			padding:20px;
+		}
+			.fullmodal .leftbar .file-tags ul
+			{
+				margin:0;
+				padding:0;
+				margin-bottom:10px;
+			}
+				.fullmodal .leftbar .file-tags ul li
+				{
+					margin:0;
+					padding:0;
+					list-style-type:none;
+					display:inline;
+				}
+					.fullmodal .leftbar .file-tags ul li a
+					{
+						
+					}
+					.fullmodal .leftbar .file-tags ul li a:active,
+					.fullmodal .leftbar .file-tags ul li a:focus
+					{
+						outline:none;
+					}
+	.fullmodal .filebrowser-info
+	{
+		color: #999;
+		padding:20px;
+	}
+		.fullmodal .filebrowser-info .file-meta
+		{
+			margin-bottom:20px;
+			padding-bottom:20px;
+			border-bottom:1px solid #DDD;
+			color: #333;
+		}
+		.fullmodal .filebrowser-info .filename
+		{
+			font-size: 0.8em;
+			font-weight: bold;
+		}
+		.fullmodal .filebrowser-info .filetype
+		{
+			font-size: 0.8em;
+			font-style: italic;
+			color: #999;
+		}
+	.fullmodal .file
+	{
+		position: relative;
+		list-style-type:none;
+		margin:0;
+		float:left;
+		margin-right:10px;
+	}
+		.fullmodal .file .thumbnail
+		{
+			position: relative;
+			display: block;
+			width: 145px;
+			height: 145px;
+			text-align:center;
+			border-radius:0;
+			&:hover
+			{
+				@include drop-shadow(2);
+			}
+		}
+			.fullmodal .file .thumbnail img
+			{
+				position:absolute;
+				top:0;
+				bottom:0;
+				left:0;
+				right:0;
+				margin:auto;
+			}
+		.fullmodal .file .progress
+		{
+			border-radius: 0;
+			height:10px;
+		}
+			.fullmodal .file .progress .progress-bar
+			{
+				line-height:10px;
+				font-size:10px;
+			}
+		.fullmodal .file .filebrowser-file-checkbox
+		{
+			position: absolute;
+			top: 0;
+			right: 0;
+			background: #1E8CBE;
+			padding: 2px 5px;
+			border-radius: 3px;
+			color:#FFF;
+		}
+		.fullmodal .file .nameoverlay
+		{
+			position: absolute;
+			width: 100%;
+			bottom: 0;
+			left: 0;
+			text-align: center;
+			background: #FFF;
+			display: block;
+			opacity: 0.8;
+			line-height: normal;
+			color: #333;
+		}
+	.fullmodal .modal-footer
+	{
+		text-align: left;
+		margin-top:0;
+	}
+	.fullmodal .status
+	{
+		height: 30px;
+	}
+.filebrowserwrap
+{
+}
+	.filebrowserwrap .filebrowserbtn
+	{
+		margin-bottom: 10px;
+	}

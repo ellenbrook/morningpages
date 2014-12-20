@@ -1,0 +1,107 @@
+.widget
+{
+	background:#FFF;
+	border:1px solid #E3E3E3;
+	margin-bottom:20px;
+	padding:0;
+	list-style-type:none;
+	&.block
+	{
+		
+	}
+}
+	.widget-list .widget
+	{
+		margin-bottom:5px;
+	}
+.widget-kids
+{
+	margin-top:10px;
+}
+.widget-header
+{
+	border-bottom:1px solid #E3E3E3;
+	background: #fafafa;
+	/*background: -moz-linear-gradient(top, #fafafa 0%, #e9e9e9 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fafafa), color-stop(100%,#e9e9e9));
+	background: -webkit-linear-gradient(top, #fafafa 0%,#e9e9e9 100%);
+	background: -o-linear-gradient(top, #fafafa 0%,#e9e9e9 100%);
+	background: -ms-linear-gradient(top, #fafafa 0%,#e9e9e9 100%);
+	background: linear-gradient(to bottom, #fafafa 0%,#e9e9e9 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#e9e9e9',GradientType=0 );*/
+	/*background: -moz-linear-gradient(top, #fafafa 0%, #eee 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fafafa), color-stop(100%,#eee));
+	background: -webkit-linear-gradient(top, #fafafa 0%,#eee 100%);
+	background: -o-linear-gradient(top, #fafafa 0%,#eee 100%);
+	background: -ms-linear-gradient(top, #fafafa 0%,#eee 100%);
+	background: linear-gradient(to bottom, #fafafa 0%,#eee 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#eeeeee',GradientType=0 );*/
+	background:#EEE;
+	overflow:hidden;
+}
+.widget-title
+{
+	float:left;
+	line-height:40px;
+	margin:0;
+	padding-left:10px;
+	font-weight:bold;
+	font-size:14px;
+}
+.widget-excerpt
+{
+	line-height:40px;
+	float:left;
+	font-size:0.9em;
+	font-style:italic;
+	margin-left:20px;
+}
+.widget-tool
+{
+	text-align:center;
+	padding:10px;
+	border-left:1px solid #C9C9C9;
+}
+	.widget-tool a
+	{
+		color:#333;
+	}
+	.widget-tool a:active,
+	.widget-tool a:focus
+	{
+		outline: none;
+	}
+.widget-tool-left
+{
+	border-left:0;
+	border-right:1px solid #C9C9C9;
+}
+.widget-mover
+{
+	cursor: move;
+}
+.widget-body
+{
+	padding:10px;
+	background:#FFF;
+}
+.widget.block textarea
+{
+	width:100%;
+}
+.widget-sorting-placeholder
+{
+	border:1px dashed #333;
+	margin-bottom:20px;
+}
+.widget-list
+{
+	padding:0;
+	margin-bottom:10px;
+}
+	.widget-list .widget-sorting-placeholder
+	{
+		margin:0;
+		padding:0;
+		list-style-type:none;
+	}

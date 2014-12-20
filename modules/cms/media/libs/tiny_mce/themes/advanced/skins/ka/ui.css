@@ -1,0 +1,420 @@
+/* Reset */
+.kaSkin table, .kaSkin tbody, .kaSkin a, .kaSkin img, .kaSkin tr, .kaSkin div, .kaSkin td, .kaSkin iframe, .kaSkin span, .kaSkin *, .kaSkin .mceText {
+border:0; margin:0; padding:0; white-space:nowrap; text-decoration:none; font-weight:normal; cursor:default; vertical-align:baseline; width:auto; border-collapse:separate;
+}
+.kaSkin a:hover, .kaSkin a:link, .kaSkin a:visited, .kaSkin a:active {text-decoration:none; font-weight:normal; cursor:default;}
+.kaSkin table td {vertical-align:middle}
+
+/* Containers */
+.kaSkin table {}
+.kaSkin iframe {display:block;}
+.kaSkin .mceToolbar {
+	padding: 2px;
+	background:#EEE;
+	-moz-border-radius:5px 5px 0 0;
+	-webkit-border-radius:5px 5px 0 0;
+	border-radius:5px 5px 0 0;
+	border:1px solid #CCC;
+	border-bottom:0;
+}
+
+/* External */
+.kaSkin .mceExternalToolbar {position:absolute; border-bottom:0; display:none}
+.kaSkin .mceExternalToolbar td.mceToolbar {padding-right:13px;}
+.kaSkin .mceExternalClose {position:absolute; top:3px; right:3px; width:7px; height:7px; background:url(../../img/icons.gif) -820px 0}
+
+/* Layout */
+.kaSkin table.mceToolbar, .kaSkin tr.mceFirst .mceToolbar tr td, .kaSkin tr.mceLast .mceToolbar tr td {border:0; margin:0; padding:0}
+.kaSkin table.mceLayout {border:0;}
+.kaSkin .mceIframeContainer {
+	border-left:1px solid #CCC;
+	border-right:1px solid #CCC;
+}
+.kaSkin .mceStatusbar {
+	display: block;
+	font-family: 'MS Sans Serif',sans-serif,Verdana,Arial;
+	font-size: 9pt;
+	line-height: 16px;
+	overflow: visible;
+	height: 20px;
+	background:#EEE;
+	border:1px solid #CCC;
+	border-top:0;
+	color:#464646;
+	-moz-border-radius:0 0 5px 5px;
+	-webkit-border-radius:0 0 5px 5px;
+	border-radius:0 0 5px 5px;
+}
+.kaSkin .mceStatusbar div {float:left; padding:2px;}
+.kaSkin .mceStatusbar a.mceResize {
+	display: block;
+	float: right;
+	background: url(../../img/icons.gif) -800px 0;
+	width: 20px;
+	height: 20px;
+	cursor: se-resize
+}
+.kaSkin .mceStatusbar a:hover {text-decoration:underline}
+.kaSkin table.mceToolbar {margin: 0 2px 2px;}
+.kaSkin #content_toolbar1 {margin-top: 2px;}
+.kaSkin .mceToolbar .mceToolbarEndListBox span {display:none}
+.kaSkin span.mceIcon, .kaSkin img.mceIcon {display:block; width:20px; height:20px}
+.kaSkin .mceIcon {background:url(../../img/icons.gif) no-repeat 20px 20px}
+
+/* Button */
+.kaSkin .mceButton {
+	display:block; 
+	width: 20px; 
+	height: 20px; 
+	cursor: default; 
+	padding: 1px 2px; 
+	margin: 1px; 
+	background-image: url(img/butt2.png);
+	background-position: left top;
+	background-repeat: repeat-x;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	border-radius: 3px;
+}
+.kaSkin a.mceButton span, .kaSkin a.mceButton img {cursor:pointer;}
+.kaSkin .mceOldBoxModel a.mceButton span, .kaSkin .mceOldBoxModel a.mceButton img {margin:0 0 0 1px}
+.kaSkin a.mceButtonEnabled:hover {
+	background-position:0 -10px;
+}
+.kaSkin a.mceButtonActive, .kaSkin a.mceButtonSelected {
+	background-image: inherit;
+}
+.kaSkin .mceButtonDisabled .mceIcon {opacity:0.3; filter:alpha(opacity=30);}
+.kaSkin .mceButtonDisabled {}
+
+/* Separator */
+.kaSkin .mceSeparator { 
+	height: 24px; 
+	width: 1px;
+	display: block;
+	background: transparent;
+	overflow: hidden; 
+	margin: 0 2px; 
+}
+
+/* ListBox */
+.kaSkin .mceListBox, .kaSkin .mceListBox a {display:block}
+.kaSkin .mceListBox .mceText {
+	padding: 1px 2px 1px 5px;
+	text-align:left; 
+	text-decoration: none !important;
+	width:70px;  
+	background-image: url(img/butt2.png);
+	background-position: left top;
+	background-repeat: repeat-x;
+	font-family: Tahoma,Verdana,Arial,Helvetica; 
+	font-size: 11px; 
+	height: 20px; 
+	line-height: 20px; 
+	overflow: hidden;
+	color:#464646;
+	cursor:pointer;
+}
+.kaSkin .mceListBox {
+	margin: 1px;
+	direction: ltr;
+}
+.kaSkin .mceListBox .mceOpen {
+	width: 14px;
+	height: 20px; 
+	border-collapse: separate;
+	background-image: url(img/butt2.png);
+	background-position: left top;
+	background-repeat: repeat-x;
+	padding: 1px;
+	border-left: 0 none !important;
+}
+.kaSkin .mceListBox .mceOpen span {
+	display: block;
+	width:14px;
+	height:20px;
+	background-image: url(img/down_arrow.gif);
+	background-position: 2px 1px;
+	background-repeat: no-repeat;
+}
+.kaSkin table.mceListBoxEnabled:hover .mceText, 
+.kaSkin .mceListBoxHover .mceText, 
+.kaSkin .mceListBoxSelected .mceText,
+.kaSkin table.mceListBoxEnabled:hover .mceOpen, 
+.kaSkin .mceListBoxHover .mceOpen, 
+.kaSkin .mceListBoxSelected .mceOpen {
+	background-image: none;
+}
+.kaSkin .mceListBoxDisabled .mceText {color:gray}
+.kaSkin .mceListBoxMenu {overflow:auto; overflow-x:hidden}
+.kaSkin .mceOldBoxModel .mceListBox .mceText {height:22px}
+.kaSkin select.mceListBox {font-family:Tahoma,Verdana,Arial,Helvetica; font-size:12px;}
+
+/* SplitButton */
+.kaSkin .mceSplitButton a, .kaSkin .mceSplitButton span {display:block; height:20px}
+.kaSkin .mceSplitButton { 
+	display:block;
+	margin: 1px;
+	direction: ltr;
+}
+.kaSkin table.mceSplitButton td {
+	padding: 2px;
+	background-image: url(img/butt2.png);
+	background-position: left top;
+	background-repeat: repeat-x;
+}
+.kaSkin .mceSplitButton a.mceAction {
+	height:20px;
+	width:20px;
+	padding: 1px 2px;
+}
+.kaSkin .mceSplitButton span.mceAction {
+	background: url(../../img/icons.gif) 20px 20px;
+	width:20px; 
+}
+.kaSkin .mceSplitButton a.mceOpen {
+	width:10px;
+	height:20px;
+	background-image: url(img/down_arrow.gif);
+	background-position: 1px 2px;
+	background-repeat: no-repeat;
+	padding: 1px;
+	border-left: 0 none !important;
+}
+.kaSkin .mceSplitButton span.mceOpen {display:none}
+.kaSkin .mceSplitButtonDisabled .mceAction {
+	opacity:0.3; filter:alpha(opacity=30);
+}
+.kaSkin .mceListBox a.mceText, .kaSkin .mceSplitButton a.mceAction {
+	-moz-border-radius-bottomleft: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-khtml-border-bottom-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	-moz-border-radius-topleft: 3px;
+	-webkit-border-top-left-radius: 3px;
+	-khtml-border-top-left-radius: 3px;
+	border-top-left-radius: 3px;
+}
+.kaSkin .mceSplitButton a.mceOpen, .kaSkin .mceListBox a.mceOpen {
+	-moz-border-radius-bottomright: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	-khtml-border-bottom-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	-moz-border-radius-topright: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-khtml-border-top-right-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+/* ColorSplitButton */
+.kaSkin div.mceColorSplitMenu table {}
+.kaSkin .mceColorSplitMenu td {padding:2px}
+.kaSkin .mceColorSplitMenu a {display:block; width:9px; height:9px; overflow:hidden;}
+.kaSkin .mceColorSplitMenu td.mceMoreColors {padding:1px 3px 1px 1px}
+.kaSkin .mceColorSplitMenu a.mceMoreColors {width:100%; height:auto; text-align:center; font-family:Tahoma,Verdana,Arial,Helvetica; font-size:11px; line-height:20px;}
+.kaSkin .mceColorSplitMenu a.mceMoreColors:hover {}
+.kaSkin a.mceMoreColors:hover {}
+.kaSkin .mceColorPreview {margin: -4px 0 0 2px; width:16px; height:4px; overflow:hidden}
+
+/* Menu */
+.kaSkin .mceMenu {position:absolute; left:0; top:0; z-index:1000;}
+.kaSkin .mceNoIcons span.mceIcon {width:0;}
+.kaSkin .mceNoIcons a .mceText {padding-left:10px}
+.kaSkin .mceMenu table {}
+.kaSkin .mceMenu a, .kaSkin .mceMenu span, .kaSkin .mceMenu {display:block}
+.kaSkin .mceMenu td {height:20px;overflow:hidden;}
+.kaSkin .mceMenu a {
+	position:relative;
+	padding:3px 0 4px 0;
+	text-decoration: none !important;
+}
+.kaSkin .mceMenu .mceText {
+	position:relative; 
+	display:block; 
+	font-family:Tahoma,Verdana,Arial,Helvetica; 
+	cursor:pointer; 
+	margin:0; 
+	padding:0 25px;
+}
+.kaSkin .mceMenu span.mceText, .kaSkin .mceMenu .mcePreview {font-size:11px}
+.kaSkin .mceMenu pre.mceText {font-family:Monospace}
+.kaSkin .mceMenu .mceIcon {position:absolute; top:0; left:0; width:22px;}
+.kaSkin .mceMenu .mceMenuItemEnabled a:hover, 
+.kaSkin .mceMenu .mceMenuItemActive {}
+.kaSkin td.mceMenuItemSeparator {height:1px}
+.kaSkin .mceMenuItemTitle a {
+	border-top: 0;
+	border-right: 0;
+	border-left: 0;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	text-decoration: none !important;
+}
+.kaSkin .mceMenuItemTitle span.mceText {font-weight:bold; padding-left:4px}
+.kaSkin .mceMenuItemDisabled .mceText {}
+.kaSkin .mceMenuItemSelected .mceIcon {background:url(../default/img/menu_check.gif)}
+.kaSkin .mceNoIcons .mceMenuItemSelected a {background:url(../default/img/menu_arrow.gif) no-repeat -6px center}
+.kaSkin .mceMenu span.mceMenuLine {display:none}
+.kaSkin .mceMenuItemSub a {background:url(../default/img/menu_arrow.gif) no-repeat top right;}
+
+/* Progress,Resize */
+.kaSkin .mceBlocker {position:absolute; left:0; top:0; z-index:1000; opacity:0.5; filter:alpha(opacity=50); background:#FFF}
+.kaSkin .mceProgress {position:absolute; left:0; top:0; z-index:1001; background:url(../default/img/progress.gif) no-repeat; width:32px; height:32px; margin:-16px 0 0 -16px}
+.kaSkin .mcePlaceHolder {border:1px dotted gray}
+
+/* Formats */
+.kaSkin .mce_formatPreview a {font-size:10px}
+.kaSkin .mce_p span.mceText {}
+.kaSkin .mce_address span.mceText {font-style:italic}
+.kaSkin .mce_pre span.mceText {font-family:monospace}
+.kaSkin .mce_h1 span.mceText {font-weight:bolder; font-size: 2em}
+.kaSkin .mce_h2 span.mceText {font-weight:bolder; font-size: 1.5em}
+.kaSkin .mce_h3 span.mceText {font-weight:bolder; font-size: 1.17em}
+.kaSkin .mce_h4 span.mceText {font-weight:bolder; font-size: 1em}
+.kaSkin .mce_h5 span.mceText {font-weight:bolder; font-size: .83em}
+.kaSkin .mce_h6 span.mceText {font-weight:bolder; font-size: .75em}
+
+/* Theme */
+.kaSkin span.mce_bold {background-position:0 0}
+.kaSkin span.mce_italic {background-position:-60px 0}
+.kaSkin span.mce_underline {background-position:-140px 0}
+.kaSkin span.mce_strikethrough {background-position:-120px 0}
+.kaSkin span.mce_undo {background-position:-160px 0}
+.kaSkin span.mce_redo {background-position:-100px 0}
+.kaSkin span.mce_cleanup {background-position:-40px 0}
+.kaSkin span.mce_bullist {background-position:-20px 0}
+.kaSkin span.mce_numlist {background-position:-80px 0}
+.kaSkin span.mce_justifyleft {background-position:-460px 0}
+.kaSkin span.mce_justifyright {background-position:-480px 0}
+.kaSkin span.mce_justifycenter {background-position:-420px 0}
+.kaSkin span.mce_justifyfull {background-position:-440px 0}
+.kaSkin span.mce_anchor {background-position:-200px 0}
+.kaSkin span.mce_indent {background-position:-400px 0}
+.kaSkin span.mce_outdent {background-position:-540px 0}
+.kaSkin span.mce_link {background-position:-500px 0}
+.kaSkin span.mce_unlink {background-position:-640px 0}
+.kaSkin span.mce_sub {background-position:-600px 0}
+.kaSkin span.mce_sup {background-position:-620px 0}
+.kaSkin span.mce_removeformat {background-position:-580px 0}
+.kaSkin span.mce_newdocument {background-position:-520px 0}
+.kaSkin span.mce_image {background-position:-380px 0}
+.kaSkin span.mce_help {background-position:-340px 0}
+.kaSkin span.mce_code {background-position:-260px 0}
+.kaSkin span.mce_hr {background-position:-360px 0}
+.kaSkin span.mce_visualaid {background-position:-660px 0}
+.kaSkin span.mce_charmap {background-position:-240px 0}
+.kaSkin span.mce_paste {background-position:-560px 0}
+.kaSkin span.mce_copy {background-position:-700px 0}
+.kaSkin span.mce_cut {background-position:-680px 0}
+.kaSkin span.mce_blockquote {background-position:-220px 0}
+.kaSkin .mce_forecolor span.mceAction {background-position:-720px 0}
+.kaSkin .mce_backcolor span.mceAction {background-position:-760px 0}
+.kaSkin .mce_forecolorpicker {background-position:-720px 0}
+.kaSkin .mce_backcolorpicker {background-position:-760px 0}
+
+/* Plugins */
+.kaSkin span.mce_advhr {background-position:-0px -20px}
+.kaSkin span.mce_ltr {background-position:-20px -20px}
+.kaSkin span.mce_rtl {background-position:-40px -20px}
+.kaSkin span.mce_emotions {background-position:-60px -20px}
+.kaSkin span.mce_fullpage {background-position:-80px -20px}
+.kaSkin span.mce_fullscreen {background-position:-100px -20px}
+.kaSkin span.mce_iespell {background-position:-120px -20px}
+.kaSkin span.mce_insertdate {background-position:-140px -20px}
+.kaSkin span.mce_inserttime {background-position:-160px -20px}
+.kaSkin span.mce_absolute {background-position:-180px -20px}
+.kaSkin span.mce_backward {background-position:-200px -20px}
+.kaSkin span.mce_forward {background-position:-220px -20px}
+.kaSkin span.mce_insert_layer {background-position:-240px -20px}
+.kaSkin span.mce_insertlayer {background-position:-260px -20px}
+.kaSkin span.mce_movebackward {background-position:-280px -20px}
+.kaSkin span.mce_moveforward {background-position:-300px -20px}
+.kaSkin span.mce_media {background-position:-320px -20px}
+.kaSkin span.mce_nonbreaking {background-position:-340px -20px}
+.kaSkin span.mce_pastetext {background-position:-360px -20px}
+.kaSkin span.mce_pasteword {background-position:-380px -20px}
+.kaSkin span.mce_selectall {background-position:-400px -20px}
+.kaSkin span.mce_preview {background-position:-420px -20px}
+.kaSkin span.mce_print {background-position:-440px -20px}
+.kaSkin span.mce_cancel {background-position:-460px -20px}
+.kaSkin span.mce_save {background-position:-480px -20px}
+.kaSkin span.mce_replace {background-position:-500px -20px}
+.kaSkin span.mce_search {background-position:-520px -20px}
+.kaSkin span.mce_styleprops {background-position:-560px -20px}
+.kaSkin span.mce_table {background-position:-580px -20px}
+.kaSkin span.mce_cell_props {background-position:-600px -20px}
+.kaSkin span.mce_delete_table {background-position:-620px -20px}
+.kaSkin span.mce_delete_col {background-position:-640px -20px}
+.kaSkin span.mce_delete_row {background-position:-660px -20px}
+.kaSkin span.mce_col_after {background-position:-680px -20px}
+.kaSkin span.mce_col_before {background-position:-700px -20px}
+.kaSkin span.mce_row_after {background-position:-720px -20px}
+.kaSkin span.mce_row_before {background-position:-740px -20px}
+.kaSkin span.mce_merge_cells {background-position:-760px -20px}
+.kaSkin span.mce_table_props {background-position:-980px -20px}
+.kaSkin span.mce_row_props {background-position:-780px -20px}
+.kaSkin span.mce_split_cells {background-position:-800px -20px}
+.kaSkin span.mce_template {background-position:-820px -20px}
+.kaSkin span.mce_visualchars {background-position:-840px -20px}
+.kaSkin span.mce_abbr {background-position:-860px -20px}
+.kaSkin span.mce_acronym {background-position:-880px -20px}
+.kaSkin span.mce_attribs {background-position:-900px -20px}
+.kaSkin span.mce_cite {background-position:-920px -20px}
+.kaSkin span.mce_del {background-position:-940px -20px}
+.kaSkin span.mce_ins {background-position:-960px -20px}
+.kaSkin span.mce_pagebreak {background-position:0 -40px}
+.kaSkin .mce_spellchecker span.mceAction {background-position:-540px -20px}
+
+/* border */
+.kaSkin .mceExternalToolbar, 
+.kaSkin .mceButton, 
+.kaSkin a.mceButtonEnabled:hover, 
+.kaSkin a.mceButtonActive, 
+.kaSkin a.mceButtonSelected, 
+.kaSkin .mceListBox .mceText, 
+.kaSkin .mceListBox .mceOpen, 
+.kaSkin table.mceListBoxEnabled:hover .mceText, 
+.kaSkin .mceListBoxHover .mceText, 
+.kaSkin .mceListBoxSelected .mceText, 
+.kaSkin table.mceListBoxEnabled:hover .mceOpen, 
+.kaSkin .mceListBoxHover .mceOpen, 
+.kaSkin .mceListBoxSelected .mceOpen, 
+.kaSkin select.mceListBox, 
+.kaSkin .mceSplitButton a.mceAction, 
+.kaSkin .mceSplitButton a.mceOpen,
+.kaSkin .mceSplitButton a.mceOpen:hover, 
+.kaSkin .mceSplitButtonSelected a.mceOpen, 
+.kaSkin table.mceSplitButtonEnabled:hover a.mceAction, 
+.kaSkin .mceSplitButton a.mceAction:hover, 
+.kaSkin div.mceColorSplitMenu table, 
+.kaSkin .mceColorSplitMenu a, 
+.kaSkin .mceColorSplitMenu a.mceMoreColors, 
+.kaSkin .mceColorSplitMenu a.mceMoreColors:hover, 
+.kaSkin a.mceMoreColors:hover, 
+.kaSkin .mceMenu {
+	border-style: solid; 
+	border-width: 0px;
+}
+.mceButtonEnabled
+{
+	background:#CCC;
+}
+.mceListBoxMenu
+{
+	background:#EEE;
+	color:#464646;
+}
+.mceMenuItem .mceText
+{
+	cursor:pointer;
+	color:#464646;
+}
+.mceMenuItem:hover
+{
+	background:#CCC;
+}
+.mceFirst:hover
+{
+	background:#EEE;
+}

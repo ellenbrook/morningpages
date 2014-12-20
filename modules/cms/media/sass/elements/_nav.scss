@@ -1,0 +1,28 @@
+.nav
+{
+	
+	&.nav-pills
+	{
+		li
+		{
+			a
+			{
+				color:darken($color-grey, 20%);
+			}
+			&.active
+			{
+				a
+				{
+					background:$color-teal;
+					color:$color-white;
+					&:hover,
+					&:focus,
+					&:active
+					{
+						background:$color-teal;
+					}
+				}
+			}
+		}
+	}
+}

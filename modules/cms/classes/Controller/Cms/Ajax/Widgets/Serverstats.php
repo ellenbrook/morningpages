@@ -1,0 +1,1 @@
+<?php defined('SYSPATH') or die('No direct script access.');class Controller_Cms_Ajax_Widgets_Serverstats extends Controller {		public function action_get()	{			}	}

@@ -1,0 +1,14 @@
+{
+  "name": "jgrowl",
+  "homepage": "https://github.com/Nayjest/jGrowl",
+  "version": "1.2.10",
+  "_release": "1.2.10",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.2.10",
+    "commit": "d53039be1650e7af5cfd3d1be7be068c203e9371"
+  },
+  "_source": "git://github.com/Nayjest/jGrowl.git",
+  "_target": "*",
+  "_originalSource": "jgrowl"
+}

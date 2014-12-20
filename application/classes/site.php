@@ -16,6 +16,18 @@ abstract class site {
 		return json_encode($final);
 	}
 	
+	public static function locale()
+	{
+		return Kohana::$config->load('site')->get('locale');
+	}
+	
+	public static function jslocale()
+	{
+		$locale = self::locale();
+		$locale = strtolower($locale);
+		return str_replace('_','-', $locale);
+	}
+	
 	public static function count_total_words()
 	{
 		$numwords = DB::select(DB::expr("SUM(`wordcount`) AS count"))

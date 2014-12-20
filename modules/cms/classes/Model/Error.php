@@ -1,0 +1,1 @@
+<?php defined('SYSPATH') or die('No direct script access.');class Model_Error extends ORM {		public function get_url()	{		return $this->url;	}		public function get_referrer()	{		$ref = $this->referrer;		$ref = trim($ref);		if(empty($ref))		{			$ref = '<em>direkte</em>';		}		return $ref;	}		public function get_when()	{		return $this->when;	}	}

@@ -1,0 +1,33 @@
+.thumbnails
+{
+	margin:0;
+	padding:0;
+}
+	.thumbnails li
+	{
+		list-style-type:none;
+	}
+		.thumbnails li .thumbnail
+		{
+			height:320px;
+			border-radius:0;
+		}
+			.thumbnails li .thumbnail .fancybox
+			{
+				display:block;
+				height:145px;
+			}
+			.thumbnails li .thumbnail .caption
+			{
+				padding:9px 0;
+			}
+			.thumbnails li .thumbnail .closer
+			{
+				text-align:right;
+				overflow:hidden;
+			}
+				.thumbnails li .thumbnail .closer .close
+				{
+					font-size:inherit;
+					font-weight:normal;
+				}

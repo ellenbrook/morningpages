@@ -1,0 +1,1 @@
+<?php defined('SYSPATH') or die('No direct script access.');class Model_Widgettype extends ORM {		protected $_has_many = array(		'widgets' => array()	);		protected $_sorting = array(		'display' => 'ASC'	);		public function info()	{		return array(			'id' => $this->id,			'type' => $this->type,			'display' => $this->display		);	}	}
