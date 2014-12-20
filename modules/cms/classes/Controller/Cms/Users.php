@@ -21,6 +21,7 @@ class Controller_Cms_Users extends Controller {
 		$offset = $page*$limit;
 		
 		$users = ORM::factory('User');
+		$counter = ORM::factory('User');
 		$currentrole = false;
 		if($type)
 		{
@@ -28,7 +29,9 @@ class Controller_Cms_Users extends Controller {
 				->where('name','=',$type)
 				->find();
 			$users = $currentrole->users;
+			$counter = $currentrole->users;
 		}
+		$numresults = $counter->count_all();
 		$users = $users
 			->offset($offset)
 			->limit($limit)
@@ -55,6 +58,7 @@ class Controller_Cms_Users extends Controller {
 		$view = View::factory('Cms/Users/index',array(
 		 'roles' => $roles
 		));
+		$view->pagination = cms::pagination($numresults, '#/users', $limit);
 		reply::ok($view, 'users', array(
 			'viewModel' => 'viewModels/Users/index',
 			'userCount' => $usercount,

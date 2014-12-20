@@ -2,19 +2,6 @@
 	<h1><?php echo __('Users'); ?></h1>
 </div>
 
-<script type="text/javascript">
-	var typeaheadroles = [];
-<?php
-	if((bool)$roles->count())
-	{
-		foreach($roles as $role)
-		{
-			echo 'typeaheadroles.push({id:'.$role->id.',title:"'.__($role->name).'"});';
-		}
-	}
-?>
-</script>
-
 <div class="row">
 	
 	<script type="text/html" id="users-role-selecter-template">
@@ -34,7 +21,7 @@
 		</span>
 	</script>
 	
-	<div class="col-xs-12">
+	<div class="col-xs-9">
 		<span data-bind="if:role!=''">
 			<a href="#/users" title="<?php echo __('All'); ?>">
 				<span><?php echo __('All') ?></span>
@@ -59,12 +46,34 @@
 		</small>
 		
 	</div>
+	<div class="col-xs-3 text-right">
+		<script type="text/javascript">
+			var typeaheadusers = [];
+<?php
+			$users = DB::query(Database::SELECT, "SELECT `id`, `username` FROM `users`")->execute()->as_array();
+			if(is_array($users) && !empty($users))
+			{
+				foreach($users as $user)
+				{
+					echo 'typeaheadusers.push({id:'.arr::get($user, 'id','').',title:"'.arr::get($user, 'username','').'"});';
+				}
+			}
+?>
+		</script>
+		<input type="text" data-bind="typeahead:{data:typeaheadusers,callback:selectTypeaheadContent}" class="form-control" placeholder="Search user..." />
+	</div>
 </div>
 
-<div class="text-right">
+<div class="row">
+	<div class="col-xs-12 text-right">
+		<?php echo $pagination; ?>
+	</div>
+</div>
+
+<div class="">
 	<a href="#/users/new" class="btn btn-primary">
 		<span class="glyphicon glyphicon-plus"></span>
-		<?php echo __('Add new'); ?>
+		<?php echo __('Add new user'); ?>
 	</a>
 </div>
 
@@ -102,6 +111,12 @@
 			</tbody>
 		</table>
 		<div data-bind="loader:loading()"></div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-12 text-right">
+		<?php echo $pagination; ?>
 	</div>
 </div>
 

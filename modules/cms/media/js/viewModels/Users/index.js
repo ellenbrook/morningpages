@@ -26,6 +26,10 @@ define([
 			self.roles.push(new role(data.roles[i]));
 		}
 		
+		self.selectTypeaheadContent = function(val){
+			site.redirect('/users/edit/'+val.id);
+		};
+		
 		self.showAddRoleModal = function(){
 			$('#users-add-role-modal').modal('show');
 		};
