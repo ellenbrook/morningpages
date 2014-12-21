@@ -46,6 +46,7 @@ if((bool)$users->count())
         FROM talkreplies
         LEFT JOIN users ON users.id = talkreplies.user_id
         GROUP BY talkreplies.user_id
+        ORDER BY posts DESC
         LIMIT 10
     ")->execute()->as_array();
 
