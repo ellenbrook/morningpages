@@ -80,7 +80,7 @@ echo View::factory('templates/header');
 		$words = array_pop($words);
 ?>
 		<p>
-			<?php echo ORM::factory('User')->count_all() ?> users who to date have written a combined <?php echo number_format(arr::get($words, 'words'),0); ?> words over <?php echo ORM::factory('Page')->count_all(); ?> pages.
+			<span class="stat"><?php echo ORM::factory('User')->count_all() ?></span> users have written a combined <span class="stat"><?php echo number_format(arr::get($words, 'words'),0); ?></span> words over <span class="stat"><?php echo ORM::factory('Page')->count_all(); ?></span> pages.
 		</p>
 	</div>
 </section>

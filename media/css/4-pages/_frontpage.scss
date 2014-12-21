@@ -4,6 +4,30 @@
 	{
 		padding-bottom:5em;
 		border-bottom:1px solid #CCC;
+		
+		h2
+		{
+			border:0;
+		}
+	}
+}
+
+#frontpage-stats
+{
+	.container
+	{
+		padding-bottom:5em;
+		padding-top:5em;
+		border-bottom:1px solid #CCC;
+		text-align:center;
+		font-style:italic;
+		
+		.stat
+		{
+			font-size:4em;
+			font-style:normal;
+			color:#2C5999;
+		}
 	}
 }
 
