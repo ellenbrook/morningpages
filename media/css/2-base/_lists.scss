@@ -16,13 +16,6 @@ ol {
     padding-left: $base-spacing;
   }
 }
-ol
-{
-	&.numbered
-  {
-  	list-style-type:decimal;
-  }
-}
 
 dl {
   margin-bottom: $base-spacing / 2;

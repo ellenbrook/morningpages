@@ -1,5 +1,14 @@
 <h2>Leaderboard</h2>
 
+<table class="table-borders">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Username</th>
+      <th>Current Streak</th>
+    </tr>
+  </thead>
+  <tbody>
 <?php
 
 $users = ORM::factory('User')
@@ -8,11 +17,17 @@ $users = ORM::factory('User')
 	->find_all();
 if((bool)$users->count())
 {
-	echo '<ol class="numbered">';
+	$i = 0;
 	foreach ($users as $user)
 	{
-		echo '<li>'.$user->link().' - '.$user->current_streak.'</li>';
+		$i++;
+		echo '<tr>';
+		echo '<td>'.$i.'</td>';
+	    echo '<td>'.$user->link().'</td>';
+	    echo '<td>'.$user->current_streak.'</td>';
+	    echo '</tr>';
 	}
-	echo '</ol>';
 }
-
+?>
+  </tbody>
+</table>
