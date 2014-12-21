@@ -24,7 +24,7 @@ class Task_Userstreaks extends Minion_Task {
 					if($last->created < $user->timestamp() - $day)
 					{
 						$user->current_streak = 0;
-						$user->save();
+						$user->validation_required(false)->save();
 					}
 				}
 			}
