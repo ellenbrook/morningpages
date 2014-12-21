@@ -56,7 +56,7 @@ if((bool)$users->count())
         if($user->loaded())
         {
            echo '<tr>';
-           echo '<td>'.$user->username.'</td>';
+           echo '<td>'.$user->link().'</td>';
            echo '<td>'.arr::get($a, 'posts', 0).'</td>';
            echo '</tr>';
         }
