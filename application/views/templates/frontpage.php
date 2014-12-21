@@ -73,22 +73,9 @@ echo View::factory('templates/header');
 	</div>
 </section>
 
-<section class="stats" id="frontpage-stats">
-	<div class="container">
-<?php
-		$words = DB::query(Database::SELECT, "SELECT SUM(wordcount) as words FROM `pages` WHERE `type` = 'page'")->execute()->as_array();
-		$words = array_pop($words);
-?>
-		<p>
-			<span class="stat"><?php echo ORM::factory('User')->count_all() ?></span> users have written a combined <span class="stat"><?php echo number_format(arr::get($words, 'words'),0); ?></span> words over <span class="stat"><?php echo ORM::factory('Page')->count_all(); ?></span> pages.
-		</p>
-	</div>
-</section>
-
 <section class="news" id="frontpage-news">
 	<div class="container">
 		<div class="news">
-			<h3>Latest news</h3>
 <?php
 			$news = ORM::factory('Talk')
 				->where('deleted','=',0)
@@ -108,9 +95,7 @@ echo View::factory('templates/header');
 				echo '</ul>';
 			}
 ?>
-		</div>
-		<div class="talks">
-			<h3>Latest talks</h3>
+			<!-- <h3>Latest talks</h3>
 <?php
 			$talks = ORM::factory('Talk')
 				->where('deleted','=',0)
@@ -129,7 +114,7 @@ echo View::factory('templates/header');
 				}
 				echo '</ul>';
 			}
-?>
+?> -->
 		</div>
 	</div>
 </section>

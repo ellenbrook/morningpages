@@ -20,8 +20,17 @@
 			</ul>
 		</div>
 		<hr>
-		<p>We take privacy very seriously. If you have specific questions, please don't hesitate to ask about them on <a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">our forum</a>.</p>
+<!-- 		<p>We take privacy very seriously. If you have specific questions, please don't hesitate to ask about them on <a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">our forum</a>.</p> -->
 	</div>
+	<section class="footer-stats">
+<?php
+		$words = DB::query(Database::SELECT, "SELECT SUM(wordcount) as words FROM `pages` WHERE `type` = 'page'")->execute()->as_array();
+		$words = array_pop($words);
+?>
+		<p>
+			Morning Pages boasts <span class="stat"><?php echo ORM::factory('User')->count_all() ?></span> dedicated users whom have written a combined <span class="stat"><?php echo number_format(arr::get($words, 'words'),0); ?></span> words over <span class="stat"><?php echo number_format(ORM::factory('Page')->count_all(),0); ?></span> pages.
+		</p>
+		</section>
 </footer>
 
 <div id="fb-root"></div>
