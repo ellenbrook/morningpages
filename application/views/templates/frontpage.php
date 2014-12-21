@@ -76,7 +76,7 @@ echo View::factory('templates/header');
 <section class="stats" id="frontpage-stats">
 	<div class="container">
 <?php
-		$words = DB::query(Database::SELECT, "SELECT SUM(wordcount) FROM `pages` WHERE `type` = 'page'")->execute()->as_array();
+		$words = DB::query(Database::SELECT, "SELECT SUM(wordcount) as words FROM `pages` WHERE `type` = 'page'")->execute()->as_array();
 		$words = array_pop($words);
 ?>
 		<p>
