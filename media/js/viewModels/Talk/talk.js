@@ -1,16 +1,19 @@
 define([
 	'knockout',
 	'jquery',
+	'site',
 	'validate',
 	'models/comment',
 	'models/autosize'
-],function(ko,$, validate, comment, autosize){
+],function(ko,$, site, validate, comment, autosize){
 	
 	var replyformModel = function(){
 		var self = this;
 		
 		self.replyto_id = ko.observable(0);
 		self.replyto = ko.observable('');
+		
+		self.site = site;
 		
 		$('.comments .comment').each(function(){
 			ko.applyBindings(new comment($(this), self), $(this)[0]);
@@ -22,7 +25,9 @@ define([
 		};
 		
 		self.subscribe = function(elem, ev){
-			console.log(elem,ev);
+			$.post('/ajax/talk/subscribe',{id:$(ev.target).val()},function(reply){
+				site.say(reply);
+			}, 'json');
 		};
 		
 		new autosize($('#new-reply-content'));

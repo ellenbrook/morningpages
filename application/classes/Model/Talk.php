@@ -189,6 +189,7 @@ class Model_Talk extends ORM {
 		$numreplies = $this->numreplies();
 		$numpages = $this->numpages();
 		$html = '<div class="pagination">';
+		$html .= 'Page: ';
 		$html .= '<ul>';
 		$url = $this->url();
 		if($currentpage > 1)

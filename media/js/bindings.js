@@ -10,7 +10,23 @@ define([
 	
 	ko.bindingHandlers.markdownpreview = {
 		init:function(element, valueAccessor) {
+			if($(element).val() == '')
+			{
+				$(valueAccessor()).hide();
+			}
+			else
+			{
+				$(valueAccessor()).html(markdown.toHTML($(element).val()));
+			}
 			$(element).on('keyup', function(){
+				if($(element).val() == '')
+				{
+					$(valueAccessor()).hide();
+				}
+				else
+				{
+					$(valueAccessor()).show();
+				}
 				$(valueAccessor()).html(markdown.toHTML($(element).val()));
 			});
 		}

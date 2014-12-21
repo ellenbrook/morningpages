@@ -162,46 +162,56 @@ echo $talk->pagination($currentpage);
 
 ?>
 
-<?php if(user::logged()): ?>
-	<div class="talk-subscription">
-		
-		<div class="form-group button-group">
-			<label for="talk-subscribe">Subscribe to this topic by e-mail</label>
+<div class="talk-action" id="replyform" data-bind="visible:site.user.logged">
+	<form action="<?php echo URL::site($talk->url()); ?>" method="post">
+		<input type="hidden" name="replyto_id" data-bind="value:replyto_id()" />
+		<fieldset>
+			<div class="action">
+				<h3>Submit new reply</h3>
+			</div>
 			
-			<label class="label-switch">
-				<input type="checkbox" data-bind="event:{change:subscribe}" value="yes" id="talk-subscribe" />
-				<div class="checkbox"></div>
-			</label>
+			<p data-bind="visible:replyto_id()>0">
+				<a href="#" class="error" data-bind="click:cancelreply">
+					<span class="fa fa-remove"></span>
+				</a>
+				You're replying to <span id="reply-to-author" data-bind="text:replyto()"></span>
+			</p>
+			<p>
+				<label for="new-reply-content">Post a reply</label>
+				<textarea name="content" data-bind="autogrow:true, markdownpreview:'#markdown-preview'" placeholder="Type your reply here..." id="new-reply-content"></textarea>
+			</p>
+			<p class="text-right">
+				<button class="button">Submit reply</button>
+			</p>
 			
-		</div>
-		
-	</div>
-	<div class="talk-action" id="replyform">
-		<form action="<?php echo URL::site($talk->url()); ?>" method="post">
-			<input type="hidden" name="replyto_id" data-bind="value:replyto_id()" />
-			<fieldset>
-				<div class="action">
-					<h3>Submit new reply</h3>
+			<div class="talk-subscription">
+	
+				<div class="form-group">
+					<label class="stay" for="talk-subscribe">
+<?php
+						$sub = false;
+						if(user::logged())
+						{
+							$sub = user::get()->talksubscriptions
+								->where('talk_id','=',$talk->id)
+								->find();
+						}
+?>
+						<input type="checkbox" data-bind="event:{change:subscribe}" value="<?php echo $talk->id; ?>" id="talk-subscribe"<?php echo ($sub && $sub->loaded()?' checked="checked"':''); ?> />
+						Subscribe to this topic by e-mail?
+					</label>
+					
 				</div>
-				<p data-bind="visible:replyto_id()>0">
-					<a href="#" class="error" data-bind="click:cancelreply">
-						<span class="fa fa-remove"></span>
-					</a>
-					You're replying to <span id="reply-to-author" data-bind="text:replyto()"></span>
-				</p>
-				<p>
-					<label for="new-reply-content">Post a reply</label>
-					<textarea name="content" data-bind="autogrow:true, markdownpreview:'#markdown-preview'" placeholder="Type your reply here..." id="new-reply-content"></textarea>
-				</p>
-				<p class="text-right">
-					<button class="button">Submit reply</button>
-				</p>
-				<h3>Preview:</h3>
-				<div id="markdown-preview"></div>
-			</fieldset>
-		</form>
-	</div>
+				
+			</div>
+			
+			<hr />
+			
+			<h3>Preview:</h3>
+			<div id="markdown-preview"></div>
+		</fieldset>
+	</form>
+</div>
 	
-	<?php echo View::factory('modals/delete-post'); ?>
-	
-<?php endif; ?>
+<?php echo View::factory('modals/delete-post'); ?>
+

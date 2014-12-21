@@ -1,15 +1,18 @@
 define([
 	'knockout',
 	'jquery',
+	'site',
 	'validate',
 	'markdown'
-],function(ko,$, validate, markdown){
+],function(ko,$, site, validate, markdown){
 	
 	var talkModel = function(){
 		
 		self.submitTalk = function(){
 			console.log('valid');
 		};
+		
+		self.site = site;
 		
 	};
 	

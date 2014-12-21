@@ -150,110 +150,109 @@ if($numpages > 1)
 ?>
 
 
-<?php if(user::logged()): ?>
-	<div class="talk-action">
-		<form data-bind="validateForm:{rules:{'#new-talk-tag':{min:1,messages:{min:'Please select a topic'}}}}" action="<?php echo URL::site('talk'); ?>" method="post">
-			<fieldset>
-				<div class="header">
-					<h3>Start a new conversation</h3>
-				</div>
-				<p>
-					<label for="new-talk-tag">Topic</label>
-					<select name="talktag_id" id="new-talk-tag" class="<?php echo (($errors&&arr::get($errors,'talktag_id',false))?'error':''); ?>">
-						<option value="0"<?php echo (!$tag?' selected="selected"':''); ?>>Select</option>
+<div class="talk-action" data-bind="visible:site.user.logged">
+	<form data-bind="validateForm:{rules:{'#new-talk-tag':{min:1,messages:{min:'Please select a topic'}}}}" action="<?php echo URL::site('talk'); ?>" method="post">
+		<fieldset>
+			<div class="header">
+				<h3>Start a new conversation</h3>
+			</div>
+			<p>
+				<label for="new-talk-tag">Topic</label>
+				<select name="talktag_id" id="new-talk-tag" class="<?php echo (($errors&&arr::get($errors,'talktag_id',false))?'error':''); ?>">
+					<option value="0"<?php echo (!$tag?' selected="selected"':''); ?>>Select</option>
 <?php
-						if((bool)$tags->count())
-						{
-							foreach($tags as $t)
-							{
-								echo '<option value="'.$t->id.'"'.(($tag&&$tag->id==$t->id)?' selected="selected"':'').'>'.$t->title.'</option>';
-							}
-						}
-?>
-					</select>
-<?php
-					if($errors&&arr::get($errors,'talktag_id',false))
+					if((bool)$tags->count())
 					{
-						echo '<label for="new-talk-tag" class="error">';
-						$errs = arr::get($errors,'talktag_id');
-						if(is_array($errs))
+						foreach($tags as $t)
 						{
-							echo '<ul>';
-							foreach($errs as $err)
-							{
-								echo '<li>'.$err.'</li>';
-							}
-							echo '</ul>';
+							echo '<option value="'.$t->id.'"'.(($tag&&$tag->id==$t->id)?' selected="selected"':'').'>'.$t->title.'</option>';
 						}
-						else
-						{
-							echo $errs;
-						}
-						echo '</label>';
 					}
 ?>
-				</p>
-				<?php if(user::logged('admin')): ?>
-					<p>
-						<label class="stay" for="new-talk-announcement"><input id="new-talk-announcement" placeholder="Announcement" type="checkbox" value="1" name="announcement" /> Announcement?</label>
-					</p>
-				<?php endif; ?>
-				<p>
-					<label for="new-talk-title">Title</label>
-					<input class="<?php echo (($errors&&arr::get($errors,'title',false))?'error':''); ?>" value="<?php echo arr::get($_POST, 'title',''); ?>" required type="text" id="new-talk-title" name="title" placeholder="Title of your conversation" />
+				</select>
 <?php
-					if($errors&&arr::get($errors,'title',false))
+				if($errors&&arr::get($errors,'talktag_id',false))
+				{
+					echo '<label for="new-talk-tag" class="error">';
+					$errs = arr::get($errors,'talktag_id');
+					if(is_array($errs))
 					{
-						echo '<label for="new-talk-title" class="error">';
-						$errs = arr::get($errors,'title');
-						if(is_array($errs))
+						echo '<ul>';
+						foreach($errs as $err)
 						{
-							echo '<ul>';
-							foreach($errs as $err)
-							{
-								echo '<li>'.$err.'</li>';
-							}
-							echo '</ul>';
+							echo '<li>'.$err.'</li>';
 						}
-						else
-						{
-							echo $errs;
-						}
-						echo '</label>';
+						echo '</ul>';
 					}
+					else
+					{
+						echo $errs;
+					}
+					echo '</label>';
+				}
 ?>
-				</p>
+			</p>
+			<?php if(user::logged('admin')): ?>
 				<p>
-					<label for="new-talk-content">Content</label>
-					<textarea class="<?php echo (($errors&&arr::get($errors,'content',false))?'error':''); ?>" required data-bind="autogrow:true, markdownpreview:'#markdown-preview'" name="content" placeholder="Your content here..." id="new-talk-content"><?php echo arr::get($_POST, 'content',''); ?></textarea>
+					<label class="stay" for="new-talk-announcement"><input id="new-talk-announcement" placeholder="Announcement" type="checkbox" value="1" name="announcement" /> Announcement?</label>
+				</p>
+			<?php endif; ?>
+			<p>
+				<label for="new-talk-title">Title</label>
+				<input class="<?php echo (($errors&&arr::get($errors,'title',false))?'error':''); ?>" value="<?php echo arr::get($_POST, 'title',''); ?>" required type="text" id="new-talk-title" name="title" placeholder="Title of your conversation" />
 <?php
-					if($errors&&arr::get($errors,'content',false))
+				if($errors&&arr::get($errors,'title',false))
+				{
+					echo '<label for="new-talk-title" class="error">';
+					$errs = arr::get($errors,'title');
+					if(is_array($errs))
 					{
-						echo '<label for="new-talk-content" class="error">';
-						$errs = arr::get($errors,'content');
-						if(is_array($errs))
+						echo '<ul>';
+						foreach($errs as $err)
 						{
-							echo '<ul>';
-							foreach($errs as $err)
-							{
-								echo '<li>'.$err.'</li>';
-							}
-							echo '</ul>';
+							echo '<li>'.$err.'</li>';
 						}
-						else
-						{
-							echo $errs;
-						}
-						echo '</label>';
+						echo '</ul>';
 					}
+					else
+					{
+						echo $errs;
+					}
+					echo '</label>';
+				}
 ?>
-				</p>
-				<p class="text-right">
-					<button class="button">Submit talk</button>
-				</p>
-				<h3>Preview:</h3>
-				<div id="markdown-preview"></div>
-			</fieldset>
-		</form>
-	</div>
-<?php endif; ?>
+			</p>
+			<p>
+				<label for="new-talk-content">Content</label>
+				<textarea class="<?php echo (($errors&&arr::get($errors,'content',false))?'error':''); ?>" required data-bind="autogrow:true, markdownpreview:'#markdown-preview'" name="content" placeholder="Your content here..." id="new-talk-content"><?php echo arr::get($_POST, 'content',''); ?></textarea>
+<?php
+				if($errors&&arr::get($errors,'content',false))
+				{
+					echo '<label for="new-talk-content" class="error">';
+					$errs = arr::get($errors,'content');
+					if(is_array($errs))
+					{
+						echo '<ul>';
+						foreach($errs as $err)
+						{
+							echo '<li>'.$err.'</li>';
+						}
+						echo '</ul>';
+					}
+					else
+					{
+						echo $errs;
+					}
+					echo '</label>';
+				}
+?>
+			</p>
+			<p class="text-right">
+				<button class="button">Submit talk</button>
+			</p>
+			<hr />
+			<h3>Preview:</h3>
+			<div id="markdown-preview"></div>
+		</fieldset>
+	</form>
+</div>

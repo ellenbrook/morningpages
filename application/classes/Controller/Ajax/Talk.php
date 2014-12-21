@@ -54,6 +54,37 @@ class Controller_Ajax_Talk extends Controller {
 		}
 	}
 	
+	public function action_subscribe()
+	{
+		if(!user::logged())
+		{
+			ajax::error('You must be logged in to do that.');
+		}
+		$id = arr::get($_POST, 'id', false);
+		$talk = ORM::factory('Talk', $id);
+		if(!$talk->loaded())
+		{
+			ajax::error('I couldn\'t find that topic. Has it been deleted? Please contact us if you think this is a mistake');
+		}
+		$user = user::get();
+		$sub = $user->talksubscriptions
+			->where('talk_id','=',$id)
+			->find();
+		if($sub->loaded())
+		{
+			$sub->delete();
+			ajax::info('You will no longer recieve e-mail updates from this thread');
+		}
+		else
+		{
+			$sub->talk_id = $id;
+			$sub->user_id = $user->id;
+			$sub->save();
+			ajax::success('You will now recieve e-mail updates from this thread.');
+		}
+		
+	}
+	
 	public function action_quoteform()
 	{
 		// Is the user logged in
