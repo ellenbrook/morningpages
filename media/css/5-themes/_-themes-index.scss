@@ -1,37 +1,46 @@
 @mixin theme_header($args) {
-	$bgcolor:map-get($args, 'bgcolor');
 	.index-header,
 	.site-header
 	{
-		background-color:$bgcolor;
+		@each $key, $value in $args {
+			#{$key}:$value
+		}
+		
 	}
 }
 @mixin theme_body($args)
 {
-	$bgcolor:map-get($args, 'bgcolor');
-	background-color:$bgcolor;
+	@each $key, $value in $args {
+		#{$key}:$value
+	}
 }
 @mixin user_menu($args)
 {
-	$bgcolor:map-get($args, 'bgcolor');
 	.hidden-menu
 	{
-		background-color:$bgcolor;
+		@each $key, $value in $args {
+			#{$key}:$value
+		}
 	}
 	#user-options-triangle
 	{
-		border-bottom-color:$bgcolor;
+		@each $key, $value in $args {
+			#{$key}:$value
+		}
 	}
 	.site-header .navigation-trigger
 	{
-		background-color:$bgcolor;
+		@each $key, $value in $args {
+			#{$key}:$value
+		}
 	}
 }
 @mixin theme_footer($args) {
-	$bgcolor:map-get($args, 'bgcolor');
 	.footer
 	{
-		background-color:$bgcolor;
+		@each $key, $value in $args {
+			#{$key}:$value
+		}
 	}
 }
 
@@ -62,3 +71,4 @@
 }
 
 @import 'trendy';
+@import 'material';
