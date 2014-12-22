@@ -27,6 +27,12 @@ class Controller_Page extends Controller_Project {
 		seo::instance()->description("Morning Pages Privacy Policy");
 	}
 	
+	public function action_challenge()
+	{
+		seo::instance()->title("Take the 30 day writing challenge");
+		seo::instance()->description("Take the 30 day Morning Page writing challenge, and improve yourself!");
+	}
+	
 	public function action_leaderboard()
 	{
 		$active = DB::query(Database::SELECT, "

@@ -51,6 +51,13 @@ abstract class routes {
 				'action' => 'contact'
 			);
 		}
+		if($controller == 'challenge')
+		{
+			return array(
+				'controller' => 'Page',
+				'action' => 'challenge'
+			);
+		}
 		if($controller == 'leaderboard')
 		{
 			return array(
