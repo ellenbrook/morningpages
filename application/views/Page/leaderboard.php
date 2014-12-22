@@ -11,10 +11,6 @@
 		  <tbody>
 <?php
 
-$users = ORM::factory('User')
-	->order_by('current_streak', 'DESC')
-	->limit(10)
-	->find_all();
 if((bool)$users->count())
 {
 	foreach ($users as $user)
@@ -41,26 +37,17 @@ if((bool)$users->count())
 	  </thead>
 	  <tbody>
 <?php
-    $active = DB::query(Database::SELECT, "
-        SELECT users.id, COUNT(talkreplies.user_id) as posts
-        FROM talkreplies
-        LEFT JOIN users ON users.id = talkreplies.user_id
-        GROUP BY talkreplies.user_id
-        ORDER BY posts DESC
-        LIMIT 10
-    ")->execute()->as_array();
-
-    foreach($active as $a)
-    {
-        $user = ORM::factory('user', arr::get($a, 'id'));
-        if($user->loaded())
-        {
-           echo '<tr>';
-           echo '<td>'.$user->link().'</td>';
-           echo '<td>'.arr::get($a, 'posts', 0).'</td>';
-           echo '</tr>';
-        }
-    }
+		foreach($active as $a)
+	    {
+	        $user = ORM::factory('user', arr::get($a, 'id'));
+	        if($user->loaded())
+	        {
+	           echo '<tr>';
+	           echo '<td>'.$user->link().'</td>';
+	           echo '<td>'.arr::get($a, 'posts', 0).'</td>';
+	           echo '</tr>';
+	        }
+	    }
 ?>
 	  </tbody>
 	</table>
