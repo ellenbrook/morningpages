@@ -6,7 +6,8 @@ require.config({
 		'autogrow':'vendor/jquery.autosize',
 		'validate':'vendor/jquery.validate.min',
 		'jgrowl':'vendor/jgrowl.min',
-		'markdown':'vendor/markdown'
+		'markdown':'vendor/markdown',
+		'd3':'//cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js'
 	},
 	'shim':{
 		'autogrow':{
