@@ -104,7 +104,7 @@
 					foreach($userachievements as $userachievement)
 					{
 						echo '<div class="badge">';
-						echo HTML::image('media/img/badges/'.$userachievement->achievement->badge, array(
+						echo HTML::image('/media/img/badges/'.$userachievement->achievement->badge, array(
 							'title' => $userachievement->achievement->description,
 							'alt' => $userachievement->achievement->description
 						));
