@@ -33,6 +33,11 @@ class Task_Userstreaks extends Minion_Task {
 						}
 					}
 				}
+				else
+				{
+					$user->current_streak = 0;
+					$user->validation_required(false)->save();
+				}
 			}
 		}
 	}
