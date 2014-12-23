@@ -10,10 +10,10 @@ define([
 		self.id = $('#rid').data('id');
 		
 		$.post('/ajax/pages/rid', {id:self.id}, function(reply){
+			$('#rid').find('.loader').hide();
 			if(reply.success)
 			{
 				var ctx = $("#myChart").get(0).getContext("2d");
-				$('#rid').find('.loader').hide();
 				var doughnut = new Chart(ctx).Doughnut(reply.data, {
 					responsive : true,
 					animation: true,
@@ -28,7 +28,8 @@ define([
 			{
 				if(reply.problem == 'data')
 				{
-					$('#rid').html(reply.message);
+					$('#rid').find('.errormessage').html(reply.message);
+					$("#myChart").remove();
 				}
 			}
 		},'json');
