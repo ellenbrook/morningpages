@@ -101,6 +101,7 @@ class Controller_Page extends Controller_Project {
 							user::update_stats($content, $page);
 							$page->counted = 1;
 						}
+						$page->duration = $page->user->timestamp() - $page->created;
 						$page->update();
 						
 						$oldsaves = ORM::factory('Page')
