@@ -69,9 +69,11 @@
 					</div>
 <?php
 					$numtalkpages = $talk->numpages();
+					echo '<div class="card-pagination">';
+					echo '<div class="left">in '.HTML::anchor($talk->talktag->url(),$talk->talktag->title).'</div>';
 					if($numtalkpages > 1)
 					{
-						echo '<div class="card-pagination">';
+						echo '<div class="right">';
 						echo 'Page: ';
 						for($i=1;$i<=$numtalkpages;$i++)
 						{
@@ -84,6 +86,7 @@
 						}
 						echo '</div>';
 					}
+					echo '</div>';
 ?>
 				</div>
 			</div>
@@ -110,6 +113,7 @@
 if($numpages > 1)
 {
 	echo '<div class="pagination">';
+	echo 'Page: ';
 	echo '<ul>';
 	$url = 'talk/';
 	if($tag)

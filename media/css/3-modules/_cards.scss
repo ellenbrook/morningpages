@@ -200,15 +200,24 @@
   
   .card-pagination
   {
-  	text-align:right;
   	padding: $base-spacing/2 0 $base-spacing/2 $gutter/2;
   	margin-right:$gutter/2;
   	border-top:1px solid #DDD;
+  	overflow:hidden;
   	
-  	a
+  	.left
   	{
-  		 background: $pagination-background;
-  		 padding: $base-spacing/4 $gutter/4;
+  		@include span-columns(6);
+  	}
+  	.right
+  	{
+  		@include span-columns(6);
+  		text-align:right;
+  		a
+	  	{
+	  		 background: $pagination-background;
+	  		 padding: $base-spacing/4 $gutter/4;
+	  	}
   	}
   }
 
