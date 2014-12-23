@@ -2,7 +2,7 @@ $darkPrimaryColor:   #0097A7;
 $primaryColor:       #00BCD4;
 $lightPrimaryColor:  #B2EBF2;
 $textPrimaryColor:   #FFFFFF;
-$accentColor:        #00BCD4;
+$accentColor:        #009688;
 $primaryTextColor:   #212121;
 $secondaryTextColor: #727272;
 $dividerColor:       #B6B6B6;
@@ -15,7 +15,8 @@ $dividerColor:       #B6B6B6;
 	header:(
 		background-color:$primaryColor,
 		box-shadow:0 0 5px $secondaryTextColor,
-		color:$textPrimaryColor
+		color:$textPrimaryColor,
+		border-top:10px solid $darkPrimaryColor
 	),
 	usermenu:(
 		background-color:$primaryColor,
@@ -26,3 +27,105 @@ $dividerColor:       #B6B6B6;
 		color:$textPrimaryColor
 	),
 ));
+
+body.material
+{
+	a
+	{
+		color:$accentColor;
+	}
+	.index-header nav a,
+	.site-header nav a,
+	.footer li a
+	{
+		color:$lightPrimaryColor;
+		&:hover
+		{
+			color:$textPrimaryColor;
+		}
+	}
+	.rss a
+	{
+		color:#ff9045;
+	}
+	.comments .comment
+	{
+		border-radius:0;
+		box-shadow:none;
+	}
+	button, .modal .btn, input[type="submit"], .btn
+	{
+		border-radius:0;
+		background-color:$accentColor;
+		
+		&:hover
+		{
+			@include drop-shadow(2);
+		}
+	}
+	.card .ribbon-wrapper .ribbon
+	{
+		background-color:$primaryColor;
+	}
+	.card .card-stats ul li,
+	.card .card-header h3 a.read
+	{
+		color:$accentColor;
+	}
+	textarea,
+	textarea, input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"], select[multiple="multiple"]
+	{
+		border-bottom:2px solid $secondaryTextColor;
+		&:hover
+		{
+			border:0;
+			border-bottom:2px solid $secondaryTextColor;
+		}
+		&:focus
+		{
+			border-bottom:2px solid $accentColor;
+		}
+	}
+	.tag-nav .tag.active a,
+	.tag-nav .tag a:hover
+	{
+		background-color:$accentColor;
+	}
+	.tag-nav .tag.active a:after,
+	.tag-nav .tag a:hover:after
+	{
+		border-top:7px solid $accentColor;
+	}
+	.mobile-navigation
+	{
+		background:$primaryColor;
+		border-right:0;
+		@include drop-shadow(2);
+		li
+		{
+			a
+			{
+				color:$lightPrimaryColor;
+				&:hover
+				{
+					color:$textPrimaryColor;
+					background:$darkPrimaryColor;
+				}
+			}
+		}
+	}
+	.intro-text h3
+	{
+		background-color:$darkPrimaryColor;	
+	}
+	.hero .hero-inner .cta-button
+	{
+		background-color:$primaryColor;
+		background-image:linear-gradient($darkPrimaryColor, $primaryColor);
+		&:hover
+		{
+			background-color:$accentColor;
+			background-image:linear-gradient($accentColor, $darkPrimaryColor);
+		}
+	}
+}
