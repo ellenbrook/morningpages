@@ -68,12 +68,12 @@
 						</ul>
 					</div>
 <?php
-					$numpages = $talk->numpages();
-					if($numpages > 1)
+					$numtalkpages = $talk->numpages();
+					if($numtalkpages > 1)
 					{
 						echo '<div class="card-pagination">';
 						echo 'Page: ';
-						for($i=1;$i<=$numpages;$i++)
+						for($i=1;$i<=$numtalkpages;$i++)
 						{
 							$url = $talk->url();
 							if($i>1)
