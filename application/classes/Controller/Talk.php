@@ -158,6 +158,27 @@ class Controller_Talk extends Controller_Project {
 				$talk->last_reply = time();
 				$talk->save();
 				
+				$subscriptions = $talk->subscriptions->find_all();
+				if((bool)$subscriptions->count())
+				{
+					foreach($subscriptions as $subscription)
+					{
+						if($subscription->user_id != $reply->user_id)
+						{
+							mail::create('talkreplyposted')
+								->to($subscription->user->email)
+								->tokenize(array(
+									'username' => $subscription->user->username,
+									'sendername' => $reply->user->username,
+									'title' => $talk->title,
+									'reply' => $reply->content,
+									'link' => HTML::anchor(URL::site($talk->url().'?page='.$page.'#comment-'.$reply->id,'http'), $talk->title)
+								))
+								->send();
+						}
+					}
+				}
+				
 				$vote = ORM::factory('User_Talkvote');
 				$vote->type = 'talkreply';
 				$vote->user_id = user::get()->id;

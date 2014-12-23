@@ -10,7 +10,8 @@ class Model_Talk extends ORM {
 	);
 	
 	protected $_has_many = array(
-		'replies'	=> array('model' => 'Talkreply')
+		'replies'	=> array('model' => 'Talkreply'),
+		'subscriptions' => array('model' => 'User_Talksubscription')
 	);
 	
 	protected $_sorting = array(
