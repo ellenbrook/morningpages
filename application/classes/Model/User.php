@@ -467,7 +467,7 @@ class Model_User extends Model_Auth_User {
 	
 	public function link()
 	{
-		return '<strong>'.$this->username().'</strong>';
+		return $this->username(true);
 	}
 	
 }
