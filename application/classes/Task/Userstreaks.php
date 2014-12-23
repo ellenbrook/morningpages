@@ -25,6 +25,12 @@ class Task_Userstreaks extends Minion_Task {
 					{
 						$user->current_streak = 0;
 						$user->validation_required(false)->save();
+						
+						if($user->doing_challenge())
+						{
+							$user->add_event('Failed the 30 day challenge!');
+							$user->challenge->delete();
+						}
 					}
 				}
 			}

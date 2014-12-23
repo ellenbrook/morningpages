@@ -30,15 +30,6 @@ define([
 							}
 						});
 					};
-			        
-					self.doneLoggingIn = function(){
-						site.say('You have been logged in. Welcome back!');
-						site.user.getInfo();
-					};
-					self.doneRegistering = function(){
-						site.say('You have been signed up. Welcome!');
-						site.user.getInfo();
-					};
 					
 					self.showRegisterModal = function(){
 						site.showRegisterModal();

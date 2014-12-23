@@ -1,6 +1,33 @@
 #challenge
 {
 	padding-bottom:100px;
+	
+	.loginbtn
+	{
+		padding:2em 0;
+		text-align:center;
+	}
+	
+	.intro
+	{
+		text-align:center;
+	}
+	
+	.personalprogress
+	{
+		text-align:center;
+		margin-bottom:40px;
+		.numbers
+		{
+			font-size:4em;
+		}
+		.awesome
+		{
+			color:#666;
+			font-style:italic;
+		}
+	}
+	
 	.signup
 	{
 		text-align:center;
@@ -11,7 +38,6 @@
 		font-size:4em;
 		color:green;
 		text-align:center;
-		display:none;
 	}
 	.name
 	{

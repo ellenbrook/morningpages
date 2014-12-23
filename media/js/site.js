@@ -30,6 +30,15 @@ define([
 			});
 		};
 		
+		self.doneLoggingIn = function(){
+			self.say('You have been logged in. Welcome back!');
+			self.user.getInfo();
+		};
+		self.doneRegistering = function(){
+			self.say('You have been signed up. Welcome!');
+			self.user.getInfo();
+		};
+		
 		self.startUserPrivacyTimer = function(){
 			self.user.privacy.startTimer().progress(function(arg){
 					if(arg == 'minutewarning')

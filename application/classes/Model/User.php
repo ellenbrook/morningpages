@@ -14,7 +14,8 @@ class Model_User extends Model_Auth_User {
 		'contents'			=> array(),
 		'messages'			=> array(),
 		'talksubscriptions'	=> array('model' => 'User_Talksubscription'),
-		'talkreplies'		=> array()
+		'talkreplies'		=> array(),
+		'events'			=> array('model' => 'User_Event')
 	);
 	
 	protected $_belongs_to = array(
@@ -22,10 +23,21 @@ class Model_User extends Model_Auth_User {
 	);
 	
 	protected $_has_one = array(
-		'option' => array('model' => 'User_Option')
+		'option' => array('model' => 'User_Option'),
+		'challenge' => array('model' => 'User_Challenge')
 	);
 	
 	protected $_do_validation = true;
+	
+	public function add_event($message)
+	{
+		$event = ORM::factory('User_Event');
+		$event->user_id = $this->id;
+		$event->message = $message;
+		$event->created = $this->timestamp();
+		$event->save();
+		return $event;
+	}
 	
 	public function info()
 	{
@@ -37,6 +49,12 @@ class Model_User extends Model_Auth_User {
 			{
 				$rolesarr[] = $role->info();
 			}
+		}
+		$doingChallenge = $this->doing_challenge();
+		$challengeProgress = 0;
+		if($doingChallenge)
+		{
+			$challengeProgress = $this->challenge->find()->progress;
 		}
 		return array(
 			'id' => $this->id,
@@ -57,8 +75,15 @@ class Model_User extends Model_Auth_User {
 				'timestamp' => $this->created,
 				'formatted' => date('d-m-Y H:i', $this->created)
 			),
-			'roles' => $rolesarr
+			'roles' => $rolesarr,
+			'doingChallenge' => $doingChallenge,
+			'challengeProgress' => $challengeProgress
 		);
+	}
+	
+	public function doing_challenge()
+	{
+		return $this->challenge->loaded();
 	}
 	
 	public function validation_required($required = true)
@@ -100,6 +125,18 @@ class Model_User extends Model_Auth_User {
 		$next = strtotime($server_date);
 		
 		return $next;
+	}
+	
+	public function wrote_today()
+	{
+		$slug = $this->today_slug();
+		$page = ORM::factory('Page')
+			->where('user_id','=',$this->id)
+			->where('type','=','page')
+			->where('day','=',$slug)
+			->where('wordcount','>',750)
+			->find();
+		return $page->loaded();
 	}
 	
 	public function today_slug()

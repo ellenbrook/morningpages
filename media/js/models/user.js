@@ -23,6 +23,9 @@ define([
 		};
 		self.loaded = ko.observable(false);
 		
+		self.doingChallenge = ko.observable(false);
+		self.challengeProgress = ko.observable(0);
+		
 		self.password = ko.observable('');
 		self.passconfirm = ko.observable('');
 		self.wordcount = ko.observable(0);
@@ -106,6 +109,12 @@ define([
 						self.options.public(Boolean(reply.options.public));
 						self.options.rtl(Boolean(reply.options.rtl));
 						self.options.language(parseInt(reply.options.language));
+						
+						self.doingChallenge(Boolean(reply.doingChallenge));
+						if(self.doingChallenge())
+						{
+							self.challengeProgress(parseInt(reply.challengeProgress));
+						}
 						
 						self.logged(true);
 						self.loaded(true);
