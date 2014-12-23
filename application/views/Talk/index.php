@@ -38,6 +38,7 @@
 				<div class="card-icon">
 					<?php echo HTML::image($talk->user->gravatar('100')); ?>
 					<span><?php echo $talk->username(); ?></span>
+					<div class="post-count">Posts: <?php echo $talk->user->talkreplies->count_all(); ?></div>
 				</div>
 				<div class="card-content">
 					<div class="card-header<?php echo ((bool)$talk->announcement?' announcement':''); ?>">

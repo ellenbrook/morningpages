@@ -13,7 +13,8 @@ class Model_User extends Model_Auth_User {
 		'dashboards'		=> array(),
 		'contents'			=> array(),
 		'messages'			=> array(),
-		'talksubscriptions'	=> array('model' => 'User_Talksubscription')
+		'talksubscriptions'	=> array('model' => 'User_Talksubscription'),
+		'talkreplies'		=> array()
 	);
 	
 	protected $_belongs_to = array(

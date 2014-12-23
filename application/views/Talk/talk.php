@@ -34,6 +34,7 @@ echo $talk->pagination($currentpage);
 					<?php echo HTML::image($talk->user->gravatar(120)); ?>
 					<p class="comment-author">
 						<?php echo $talk->user->username(true); ?>
+						<div class="post-count">Posts: <?php echo $talk->user->talkreplies->count_all(); ?></div>
 					</p>
 					<p class="comment-detail">
 						<?php echo Date::fuzzy_span($talk->created); ?>

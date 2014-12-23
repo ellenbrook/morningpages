@@ -71,6 +71,14 @@
     @include span-columns(12);
     padding: 10px;
     text-align: center;
+    
+    .post-count
+		{
+			font-size:0.8em;
+			color:#666;
+			font-style:italic;
+			margin-top:20px;
+		}
 
       > img {
         width: 100px;
