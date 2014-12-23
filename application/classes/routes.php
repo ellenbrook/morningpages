@@ -110,6 +110,14 @@ abstract class routes {
                     }
 				}
 			}
+			if(user::logged() && ($page && $page->loaded()) && $slug == 'stats')
+			{
+				return array(
+					'controller' => 'Page',
+					'action' => 'pagestats',
+					'page' => $page
+				);
+			}
 			if((user::logged() && ($page && $page->loaded())) || !user::logged())
 			{
 				return array(

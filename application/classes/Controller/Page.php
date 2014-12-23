@@ -102,6 +102,7 @@ class Controller_Page extends Controller_Project {
 							$page->counted = 1;
 						}
 						$page->duration = $page->duration + (time() - arr::get($_POST, 'start', 999));
+						$page->rid = ''; // resetting the RID as it needs to be recalculated when the page is updated
 						$page->update();
 						
 						$oldsaves = ORM::factory('Page')
@@ -139,6 +140,12 @@ class Controller_Page extends Controller_Project {
 
 		seo::instance()->title("Write Your Morning Pages");
 		seo::instance()->description("Morning Pages is about writing three pages of stream of consciousness thought every day. Become a better person by using MorninPages.net");
+	}
+	
+	public function action_pagestats()
+	{
+		seo::instance()->title("Page stats");
+		$this->bind('page',$this->request->param('page'));
 	}
 	
 	public function action_contact()

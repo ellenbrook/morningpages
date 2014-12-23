@@ -7,7 +7,8 @@ require.config({
 		'validate':'vendor/jquery.validate.min',
 		'jgrowl':'vendor/jgrowl.min',
 		'markdown':'vendor/markdown',
-		'd3':'//cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js'
+		'd3':'//cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js',
+		'charts':'vendor/chart'
 	},
 	'shim':{
 		'autogrow':{
@@ -17,6 +18,9 @@ require.config({
 			'deps':['jquery']
 		},
 		'jgrowl':{
+			'deps':['jquery']
+		},
+		'chartjs':{
 			'deps':['jquery']
 		},
 		'markdown':{
