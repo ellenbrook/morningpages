@@ -53,10 +53,21 @@ abstract class routes {
 		}
 		if($controller == 'challenge')
 		{
-			return array(
-				'controller' => 'Page',
-				'action' => 'challenge'
-			);
+			if($action == 'wall-of-fame')
+			{
+				return array(
+					'controller' => 'Page',
+					'action' => 'walloffame'
+				);
+			}
+			elseif($action == 'index')
+			{
+				return array(
+					'controller' => 'Page',
+					'action' => 'challenge'
+				);
+			}
+			
 		}
 		if($controller == 'leaderboard')
 		{

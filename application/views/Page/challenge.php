@@ -3,7 +3,7 @@
 	
 	<div class="hide intro" data-bind="css:{hide:user.doingChallenge()}">
 		<p>
-			Can you write every day for a whole month? Sign up today and write every day until the <?php echo date('jS', strtotime('+30 days')).' of '.date('F', strtotime('+30 days')); ?> to complete the challenge.
+			Can you write every day for a whole month? Sign up today and write every day until the <?php echo date('jS', strtotime('+30 days')).' of '.date('F', strtotime('+30 days')); ?> to complete the challenge and get your name on our <?php echo HTML::anchor('challenge/wall-of-fame', 'wall of fame') ?>!
 		</p>
 	</div>
 	
@@ -28,7 +28,10 @@
 		<div class="numbers">
 			<span data-bind="text:user.challengeProgress()"></span> / 30
 		</div>
-		<div class="hide awesome" data-bind="css:{hide:user.challengeProgress()==0}">Awesome!</div>
+		<div class="hide awesome" data-bind="css:{hide:user.challengeProgress()==0}"><p>You are awesome!</p></div>
+		<p>
+			The <?php echo HTML::anchor('challenge/wall-of-fame', 'wall of fame'); ?> awaits
+		</p>
 	</div>
 	
 	<div class="hide checkmark">

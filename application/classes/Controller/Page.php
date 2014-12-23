@@ -33,6 +33,12 @@ class Controller_Page extends Controller_Project {
 		seo::instance()->description("Take the 30 day Morning Page writing challenge, and improve yourself!");
 	}
 	
+	public function action_walloffame()
+	{
+		seo::instance()->title("30 day writing challenge hall of fame!");
+		seo::instance()->description("These users are the proud completers of the 30 day Morning Page challenge!");
+	}
+	
 	public function action_leaderboard()
 	{
 		$active = DB::query(Database::SELECT, "
