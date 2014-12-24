@@ -78,7 +78,7 @@ abstract class routes {
 		}
 		if($controller == 'write')
 		{
-			$todayslug = site::today_slug();
+			$todayslug = site::day_slug();
 			if(user::logged())
 			{
 				$todayslug = user::get()->today_slug();

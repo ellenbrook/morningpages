@@ -32,15 +32,19 @@ abstract class site {
 	{
 		$numwords = DB::select(DB::expr("SUM(`wordcount`) AS count"))
 			->from('pages')
-			->where('day','=', site::today_slug())
+			->where('day','=', site::day_slug())
 			->execute()
 			->as_array();
 		$numwords = arr::get($numwords[0],'count',0);
 		return $numwords;
 	}
 	
-	public static function today_slug()
+	public static function day_slug($timestamp = false)
 	{
+		if($timestamp)
+		{
+			return date(self::dateformat(), $timestamp);
+		}
 		return date(self::dateformat());
 	}
 	

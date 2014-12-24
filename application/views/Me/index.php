@@ -45,7 +45,7 @@
 							foreach($days as $day)
 							{
 							    $dayname = date('l ',$day->created).' the '.date('jS',$day->created);
-	                            if($day->day != site::today_slug())
+	                            if($day->day != site::day_slug())
 	                            {
 	                                //$dayname = 'Today';
 	                                echo '<option value="'.$day->day.'"'.($dayname==$day->day?' selected="selected"':'').'>'.$dayname.'</option>';

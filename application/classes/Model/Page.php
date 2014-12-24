@@ -92,9 +92,9 @@ class Model_Page extends ORM {
 	{
 		if(!$this->day)
 		{
-			$this->day = site::today_slug();
+			$this->day = site::day_slug();
 		}
-		$today = site::today_slug();
+		$today = site::day_slug();
 		if($today == $this->day)
 		{
 			return 'Today';
