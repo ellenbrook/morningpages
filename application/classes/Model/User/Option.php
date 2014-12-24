@@ -145,12 +145,10 @@ class Model_User_Option extends ORM {
 		);*/
 		return array(
 			'timezone_id' => array(
-				array('not_empty'),
 				array('numeric'),
 				array(array($this, 'verify_available_timezone'), array('timezone_id',':value'))
 			),
 			'language' => array(
-				array('not_empty'),
 				array('numeric'),
 				array(array($this, 'verify_available_timezone'), array('timezone_id',':value'))
 			),
