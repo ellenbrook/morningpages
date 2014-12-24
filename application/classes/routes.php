@@ -56,14 +56,14 @@ abstract class routes {
 			if($action == 'wall-of-fame')
 			{
 				return array(
-					'controller' => 'Page',
+					'controller' => 'Games',
 					'action' => 'walloffame'
 				);
 			}
 			elseif($action == 'index')
 			{
 				return array(
-					'controller' => 'Page',
+					'controller' => 'Games',
 					'action' => 'challenge'
 				);
 			}
@@ -72,7 +72,7 @@ abstract class routes {
 		if($controller == 'leaderboard')
 		{
 			return array(
-				'controller' => 'Page',
+				'controller' => 'Games',
 				'action' => 'leaderboard'
 			);
 		}
