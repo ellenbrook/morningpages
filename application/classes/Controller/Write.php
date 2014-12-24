@@ -38,11 +38,61 @@ class Controller_Write extends Controller_Project {
 		                
 						$page->wordcount = count(preg_split('/[\s,.]+/u', $content));
 						$page->content = $content;
-						if($page->wordcount > 750 && !(bool)$page->counted)
+						
+						$user = user::get();
+						$yesterday_slug = site::day_slug(strtotime('-1 day',$user->timestamp()));
+						$two_days_ago_slug = site::day_slug(strtotime('-2 days',$user->timestamp()));
+						$points = 0;
+						if($page->wordcount >= 750)
 						{
-							user::update_stats($content, $page);
-							$page->counted = 1;
+							if(!(bool)$page->counted)
+							{
+								user::update_stats($content, $page);
+								$page->counted = 1;
+							}
+							
+							// Calculating points
+							$points = 2;
+							$prevpages = $user->pages
+								->where('type','=','page')
+								->and_where_open()
+								->where('day','=',$yesterday_slug)
+								->or_where('day','=',$two_days_ago_slug)
+								->and_where_close()
+								->find_all();
+							foreach($prevpages as $prev)
+							{
+								if($prev->wordcount >= 750)
+								{
+									$points += 2;
+								}
+								else if ($prev->wordcount >= 100)
+								{
+									$points += 1;
+								}
+							}
 						}
+						else if ($page->wordcount >= 100)
+						{
+							$points = 1;
+							$yesterday = $user->pages
+								->where('type','=','page')
+								->and_where('day','=',$yesterday_slug)
+								->find();
+							if($yesterday->loaded())
+							{
+								if($yesterday->wordcount >= 750)
+								{
+									$points += 2;
+								}
+								else if ($yesterday->wordcount >= 100)
+								{
+									$points += 1;
+								}
+							}
+						}
+						$page->points = $points;
+						
 						$page->duration = $page->duration + (time() - arr::get($_POST, 'start', 999));
 						$page->rid = ''; // resetting the RID as it needs to be recalculated when the page is updated
 						$page->update();
