@@ -44,6 +44,8 @@ class Controller_User extends Controller_Project {
 				$user = user::get();
 				$user->update_user($_POST, array(
 					'email',
+					'bio',
+					'website',
 					'password'
 				));
 				$user->save();

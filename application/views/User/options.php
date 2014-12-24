@@ -169,13 +169,65 @@
 			<form class="user-options-form" data-bind="validateForm:true" action="<?php echo URL::site('user/options'); ?>" method="post">
 				<fieldset>
 					<div class="form-group">
-						<label for="email">Email</label>
+						<label for="user-email">Email</label>
 						<input type="email" required class="<?php echo (($errors&&arr::get($errors,'email',false))?'error':''); ?>" id="user-email" value="<?php echo user::get()->email; ?>" name="email">
 <?php
 						if($errors&&arr::get($errors,'email',false))
 						{
 							echo '<label for="user-email" class="error">';
 							$errs = arr::get($errors,'email');
+							if(is_array($errs))
+							{
+								echo '<ul>';
+								foreach($errs as $err)
+								{
+									echo '<li>'.$err.'</li>';
+								}
+								echo '</ul>';
+							}
+							else
+							{
+								echo $errs;
+							}
+							echo '</label>';
+						}
+?>
+					</div>
+					
+					<div class="form-group">
+						<label for="user-bio">Want to share a little bit about yourself?</label>
+						<textarea maxlength="1000" placeholder="Write anything you want about yourself, limited to 1000 characters. Only visible on public profiles." class="<?php echo (($errors&&arr::get($errors,'bio',false))?'error':''); ?>" id="user-bio" name="bio"><?php echo user::get()->bio; ?></textarea>
+<?php
+						if($errors&&arr::get($errors,'bio',false))
+						{
+							echo '<label for="user-bio" class="error">';
+							$errs = arr::get($errors,'bio');
+							if(is_array($errs))
+							{
+								echo '<ul>';
+								foreach($errs as $err)
+								{
+									echo '<li>'.$err.'</li>';
+								}
+								echo '</ul>';
+							}
+							else
+							{
+								echo $errs;
+							}
+							echo '</label>';
+						}
+?>
+					</div>
+					
+					<div class="form-group">
+						<label for="user-website">Got a website or blog you want to share?</label>
+						<input type="text" placeholder="www.mywebsite.com - Only visible on public profiles." class="<?php echo (($errors&&arr::get($errors,'website',false))?'error':''); ?>" id="user-website" value="<?php echo user::get()->website; ?>" name="website">
+<?php
+						if($errors&&arr::get($errors,'website',false))
+						{
+							echo '<label for="user-website" class="error">';
+							$errs = arr::get($errors,'website');
 							if(is_array($errs))
 							{
 								echo '<ul>';

@@ -61,6 +61,7 @@ class Model_User extends Model_Auth_User {
 			'email' => $this->email,
 			'name' => $this->username,
 			'bio' => $this->bio,
+			'website' => $this->website,
 			'logins' => $this->logins,
 			'gravatar' => array(
 				'mini' => $this->gravatar(32),
@@ -262,6 +263,12 @@ class Model_User extends Model_Auth_User {
 					array('min_length', array(':value', 5)),
 					array('max_length', array(':value', 64))
 				),
+				'bio' => array(
+					array('max_length', array(':value', 1000)),
+				),
+				'website' => array(
+					array('max_length', array(':value', 100)),
+				),
 				'email' => array(
 					array('email'),
 					array('not_empty'),
@@ -280,6 +287,8 @@ class Model_User extends Model_Auth_User {
 				'username' => array(),
 				'password' => array(),
 				'email' => array(),
+				'bio' => array(),
+				'website' => array(),
 				'theme' => array()
 			);
 		}
@@ -314,6 +323,8 @@ class Model_User extends Model_Auth_User {
 			'email'		=> 'E-mail',
 			'password'	=> 'Password',
 			'username'	=> 'Username',
+			'bio'		=> 'Bio',
+			'website'	=> 'Website',
 			'theme'		=> 'Your theme'
 		);
 	}
@@ -332,6 +343,12 @@ class Model_User extends Model_Auth_User {
 				'email' => array(
 					array('Security::xss_clean', array(':value'))
 				),
+				'bio' => array(
+					array('Security::xss_clean', array(':value'))
+				),
+				'website' => array(
+					array('Security::xss_clean', array(':value'))
+				),
 				'theme' => array(
 					array('Security::xss_clean', array(':value'))
 				)
@@ -342,7 +359,13 @@ class Model_User extends Model_Auth_User {
 			return array(
 				'username' => array(
 					array('Security::xss_clean', array(':value'))
-				)
+				),
+				'bio' => array(
+					array('Security::xss_clean', array(':value'))
+				),
+				'website' => array(
+					array('Security::xss_clean', array(':value'))
+				),
 			);
 		}
 	}

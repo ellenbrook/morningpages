@@ -19,6 +19,8 @@ class Controller_Ajax_User extends Controller {
 		$doingChallenge = $user->doing_challenge();
 		ajax::success('ok', array(
 			'email' => $user->email,
+			'bio' => $user->bio,
+			'website' => $user->website,
 			'wordcount' => $wordcount,
 			'options' => array(
 				'reminder' => (bool)$user->option->reminder,
