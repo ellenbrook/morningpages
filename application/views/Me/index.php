@@ -58,6 +58,18 @@
 ?>
        			</select>
        		<?php endif; ?>
+<?php
+			if(!empty($user->bio))
+			{
+				echo '<h3>User bio</h3>';
+				echo '<p>'.$user->bio.'</p>';
+			}
+			if(!empty($user->website))
+			{
+				echo '<h3>User website</h3>';
+				echo '<p><a href="'.$user->website.'" rel="nofollow">'.$user->website.'</a></p>';
+			}
+?>
 		</div>
 
 		<div class="me-stats">
