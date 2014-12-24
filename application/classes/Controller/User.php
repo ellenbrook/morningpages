@@ -49,6 +49,12 @@ class Controller_User extends Controller_Project {
 					'password'
 				));
 				$user->save();
+				
+				$options = $user->option;
+				$options->timezone_id  = (int)arr::get($_POST, 'timezone_id', 152);
+				$options->language = (int)arr::get($_POST, 'language', 1);
+				$options->save();
+				
 				notes::success('Your info has been updated!');
 				user::redirect('options');
 			}

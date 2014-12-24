@@ -1,170 +1,7 @@
 <ul class="accordion-tabs" id="site-options">
-	<li class="tab-header-and-content">
-		<a href="#site-settings" class="tab-link is-active">Site Settings</a>
-		<div class="tab-content">
-			<p>
-				<em>Note: The below settings save automatically when you change them</em>
-			</p>
-  			<fieldset>
-				<div class="form-group">
-					<label for="site-theme">Site theme</label>
-					<select data-bind="value:user.options.theme_id,event:{change:save_theme}" id="site-theme" name="theme_id">
-						<option value="0">Standard</option>
-<?php
-						$themes = ORM::factory('Theme')->find_all();
-						if((bool)$themes->count())
-						{
-							foreach($themes as $theme)
-							{
-								echo '<option value="'.$theme->id.'">'.$theme->title.'</option>';
-							}
-						}
-?>
-					</select>
-				</div>
-				
-				<hr />
-				
-				<div class="form-group button-group">
-					<label for="privacy-mode">Privacy mode logs you out after 5, 10 or 15 minutes of inactivity.</label>
-					
-					<label class="label-switch">
-						<input type="checkbox" id="privacy-mode" data-bind="checked:user.options.privacymode" />
-						<div class="checkbox"></div>
-					</label>
-					<label class="status" data-bind="css:{'on':user.options.privacymode(),'off':!user.options.privacymode()}">
-						<span data-bind="visible:user.options.privacymode()">ON</span>
-						<span data-bind="visible:!user.options.privacymode()">OFF</span>
-					</label>
-					
-					<div class="inline-form" data-bind="fadeVisible:user.options.privacymode()">
-						<select data-bind="value:user.options.privacymode_minutes,event:{change:function(){save_setting('privacymode_minutes');}}" name="privacymode_minutes" id="privacymode-minutes">
-							<option value="5">5 minute</option>
-							<option value="10">10 minutes</option>
-							<option value="15">15 minutes</option>
-						</select>
-					</div>
-					
-				</div>
-				<div class="form-group button-group">
-					<label for="hemingway-mode">Hemingway mode disables the use of the backspace key, keeping your writing pure.</label>
-					
-					<label class="label-switch">
-						<input type="checkbox" id="hemingway-mode" data-bind="checked:user.options.hemingwaymode" />
-						<div class="checkbox"></div>
-					</label>
-					<label class="status" data-bind="css:{'on':user.options.hemingwaymode(),'off':!user.options.hemingwaymode()}">
-						<span data-bind="visible:user.options.hemingwaymode()">ON</span>
-						<span data-bind="visible:!user.options.hemingwaymode()">OFF</span>
-					</label>
-					
-				</div>
-				<div class="form-group button-group">
-					<label for="public-profile">Turn this on in order to allow others to view your profile that includes your username, badges, and stats.</label>
-					
-					<label class="label-switch">
-						<input type="checkbox" id="public-profile" data-bind="checked:user.options.public" />
-						<div class="checkbox"></div>
-					</label>
-					<label class="status" data-bind="css:{'on':user.options.public(),'off':!user.options.public()}">
-						<span data-bind="visible:user.options.public()">ON</span>
-						<span data-bind="visible:!user.options.public()">OFF</span>
-					</label>
-					
-				</div>
-				
-				<hr />
-				
-				<div class="form-group">
-					<label for="user-timezone">Your timezone</label>
-					<select id="user-timezone" name="timezone" data-bind="value:user.options.timezone_id,event:{change:function(){save_setting('timezone_id');}}" id="reminder-timezone">
-<?php
-						$zones = ORM::factory('Timezone')->find_all();
-						foreach($zones as $zone)
-						{
-							echo '<option value="'.$zone->id.'">'.$zone->name.'</option>';
-						}
-?>
-					</select>
-				</div>
-				
-				<div class="form-group button-group">
-					<label for="writing-reminders-button">Receive daily reminder e-mails at the time that you specify</label>
-					
-					<label class="label-switch">
-						<input type="checkbox" id="writing-reminders-button" data-bind="checked:user.options.reminder" />
-						<div class="checkbox"></div>
-					</label>
-					<label class="status" data-bind="css:{'on':user.options.reminder(),'off':!user.options.reminder()}">
-						<span data-bind="visible:user.options.reminder()">ON</span>
-						<span data-bind="visible:!user.options.reminder()">OFF</span>
-					</label>
-					
-					<div class="inline-form time-container" data-bind="fadeVisible:user.options.reminder()">
-						<select data-bind="value:user.options.reminder_hour,event:{change:function(){save_setting('reminder_hour');}}" name="hour" id="reminder-hour">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-						</select>
-						<select data-bind="value:user.options.reminder_minute,,event:{change:function(){save_setting('reminder_minute');}}" name="minute" id="reminder-minute">
-							<option value="0">00</option>
-							<option value="15">15</option>
-							<option value="30">30</option>
-							<option value="45">45</option>
-						</select>
-						<select data-bind="value:user.options.reminder_meridiem,event:{change:function(){save_setting('reminder_meridiem');}}" name="day-night" id="reminder-day-night">
-							<option value="am">AM</option>
-							<option value="pm">PM</option>
-						</select>
-					</div>
-				</div>
-				
-				<div class="form-group button-group">
-					<label for="rtl-writing">Do you prefer writing right-to-left?</label>
-					
-					<label class="label-switch">
-						<input type="checkbox" id="rtl-writing" data-bind="checked:user.options.rtl" />
-						<div class="checkbox"></div>
-					</label>
-					<label class="status" data-bind="css:{'on':user.options.rtl(),'off':!user.options.rtl()}">
-						<span data-bind="visible:user.options.rtl()">ON</span>
-						<span data-bind="visible:!user.options.rtl()">OFF</span>
-					</label>
-					
-				</div>
-				
-				<div class="form-group">
-					<label for="writing-language">What language are you writing in? (we use this to filter our common words from the wordclouds)</label>
-					<select data-bind="value:user.options.language,event:{change:function(){save_setting('language')}}" id="writing-language" name="language">
-						<option value="0">None of the below (no filter)</option>
-<?php
-						$stopwords = ORM::factory('Stopword')->find_all();
-						if((bool)$stopwords->count())
-						{
-							foreach($stopwords as $stopword)
-							{
-								echo '<option value="'.$stopword->id.'">'.$stopword->name.' ('.$stopword->code.')'.'</option>';
-							}
-						}
-?>
-					</select>
-				</div>
-				
-			</fieldset>
-		</div>
-	</li>
 	
 	<li class="tab-header-and-content">
-		<a href="#personal-settings" class="tab-link">Personal Settings</a>
+		<a href="#personal-settings" class="tab-link is-active">Personal Settings</a>
 		<div class="tab-content">
 			<form class="user-options-form" data-bind="validateForm:true" action="<?php echo URL::site('user/options'); ?>" method="post">
 				<fieldset>
@@ -246,6 +83,36 @@
 ?>
 					</div>
 					
+					<div class="form-group">
+						<label for="user-timezone">Your timezone</label>
+						<select id="user-timezone" name="timezone_id" data-bind="value:user.options.timezone_id" id="reminder-timezone">
+<?php
+							$zones = ORM::factory('Timezone')->find_all();
+							foreach($zones as $zone)
+							{
+								echo '<option value="'.$zone->id.'">'.$zone->name.'</option>';
+							}
+?>
+						</select>
+					</div>
+					
+					<div class="form-group">
+						<label for="writing-language">What language are you writing in? (we use this to filter our common words from the wordclouds)</label>
+						<select data-bind="value:user.options.language" id="writing-language" name="language">
+							<option value="0">None of the below (no filter)</option>
+<?php
+							$stopwords = ORM::factory('Stopword')->find_all();
+							if((bool)$stopwords->count())
+							{
+								foreach($stopwords as $stopword)
+								{
+									echo '<option value="'.$stopword->id.'">'.$stopword->name.' ('.$stopword->code.')'.'</option>';
+								}
+							}
+?>
+						</select>
+					</div>
+					
 					<hr />
 					
 					<div class="flash-notice">
@@ -309,6 +176,140 @@
 					
 				</fieldset>
 			</form>
+		</div>
+	</li>
+	
+	<li class="tab-header-and-content">
+		<a href="#site-settings" class="tab-link">Site Settings</a>
+		<div class="tab-content">
+			<p>
+				<em>Note: The below settings save automatically when you change them</em>
+			</p>
+  			<fieldset>
+				<div class="form-group">
+					<label for="site-theme">Site theme</label>
+					<select data-bind="value:user.options.theme_id,event:{change:save_theme}" id="site-theme" name="theme_id">
+						<option value="0">Standard</option>
+<?php
+						$themes = ORM::factory('Theme')->find_all();
+						if((bool)$themes->count())
+						{
+							foreach($themes as $theme)
+							{
+								echo '<option value="'.$theme->id.'">'.$theme->title.'</option>';
+							}
+						}
+?>
+					</select>
+				</div>
+				
+				<hr />
+				
+				<div class="form-group button-group">
+					<label for="privacy-mode">Privacy mode logs you out after 5, 10 or 15 minutes of inactivity.</label>
+					
+					<label class="label-switch">
+						<input type="checkbox" id="privacy-mode" data-bind="checked:user.options.privacymode" />
+						<div class="checkbox"></div>
+					</label>
+					<label class="status" data-bind="css:{'on':user.options.privacymode(),'off':!user.options.privacymode()}">
+						<span data-bind="visible:user.options.privacymode()">ON</span>
+						<span data-bind="visible:!user.options.privacymode()">OFF</span>
+					</label>
+					
+					<div class="inline-form" data-bind="fadeVisible:user.options.privacymode()">
+						<select data-bind="value:user.options.privacymode_minutes,event:{change:function(){save_setting('privacymode_minutes');}}" name="privacymode_minutes" id="privacymode-minutes">
+							<option value="5">5 minute</option>
+							<option value="10">10 minutes</option>
+							<option value="15">15 minutes</option>
+						</select>
+					</div>
+					
+				</div>
+				<div class="form-group button-group">
+					<label for="hemingway-mode">Hemingway mode disables the use of the backspace key, keeping your writing pure.</label>
+					
+					<label class="label-switch">
+						<input type="checkbox" id="hemingway-mode" data-bind="checked:user.options.hemingwaymode" />
+						<div class="checkbox"></div>
+					</label>
+					<label class="status" data-bind="css:{'on':user.options.hemingwaymode(),'off':!user.options.hemingwaymode()}">
+						<span data-bind="visible:user.options.hemingwaymode()">ON</span>
+						<span data-bind="visible:!user.options.hemingwaymode()">OFF</span>
+					</label>
+					
+				</div>
+				<div class="form-group button-group">
+					<label for="public-profile">Turn this on in order to allow others to view your profile that includes your username, badges, and stats.</label>
+					
+					<label class="label-switch">
+						<input type="checkbox" id="public-profile" data-bind="checked:user.options.public" />
+						<div class="checkbox"></div>
+					</label>
+					<label class="status" data-bind="css:{'on':user.options.public(),'off':!user.options.public()}">
+						<span data-bind="visible:user.options.public()">ON</span>
+						<span data-bind="visible:!user.options.public()">OFF</span>
+					</label>
+					
+				</div>
+				
+				<hr />
+				
+				<div class="form-group button-group">
+					<label for="writing-reminders-button">Receive daily reminder e-mails at the time that you specify</label>
+					
+					<label class="label-switch">
+						<input type="checkbox" id="writing-reminders-button" data-bind="checked:user.options.reminder" />
+						<div class="checkbox"></div>
+					</label>
+					<label class="status" data-bind="css:{'on':user.options.reminder(),'off':!user.options.reminder()}">
+						<span data-bind="visible:user.options.reminder()">ON</span>
+						<span data-bind="visible:!user.options.reminder()">OFF</span>
+					</label>
+					
+					<div class="inline-form time-container" data-bind="fadeVisible:user.options.reminder()">
+						<select data-bind="value:user.options.reminder_hour,event:{change:function(){save_setting('reminder_hour');}}" name="hour" id="reminder-hour">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select>
+						<select data-bind="value:user.options.reminder_minute,,event:{change:function(){save_setting('reminder_minute');}}" name="minute" id="reminder-minute">
+							<option value="0">00</option>
+							<option value="15">15</option>
+							<option value="30">30</option>
+							<option value="45">45</option>
+						</select>
+						<select data-bind="value:user.options.reminder_meridiem,event:{change:function(){save_setting('reminder_meridiem');}}" name="day-night" id="reminder-day-night">
+							<option value="am">AM</option>
+							<option value="pm">PM</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="form-group button-group">
+					<label for="rtl-writing">Do you prefer writing right-to-left?</label>
+					
+					<label class="label-switch">
+						<input type="checkbox" id="rtl-writing" data-bind="checked:user.options.rtl" />
+						<div class="checkbox"></div>
+					</label>
+					<label class="status" data-bind="css:{'on':user.options.rtl(),'off':!user.options.rtl()}">
+						<span data-bind="visible:user.options.rtl()">ON</span>
+						<span data-bind="visible:!user.options.rtl()">OFF</span>
+					</label>
+					
+				</div>
+				
+			</fieldset>
 		</div>
 	</li>
 	

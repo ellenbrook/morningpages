@@ -143,7 +143,18 @@ class Model_User_Option extends ORM {
 				array(array($this, 'verify_int_bool'), array('public',':value'))
 			),
 		);*/
-		return array();
+		return array(
+			'timezone_id' => array(
+				array('not_empty'),
+				array('numeric'),
+				array(array($this, 'verify_available_timezone'), array('timezone_id',':value'))
+			),
+			'language' => array(
+				array('not_empty'),
+				array('numeric'),
+				array(array($this, 'verify_available_timezone'), array('timezone_id',':value'))
+			),
+		);
 	}
 	
 	public function verify_available_theme($field, $value)
