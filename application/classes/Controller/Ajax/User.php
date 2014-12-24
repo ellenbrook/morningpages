@@ -10,7 +10,7 @@ class Controller_Ajax_User extends Controller {
 		}
 		
 		$user = user::get();
-        $today = $user->pages->where('day','=',site::day_slug($user->timestamp))->find();
+        $today = $user->pages->where('day','=',site::day_slug($user->timestamp()))->find();
         $wordcount = 0;
         if($today->loaded())
         {

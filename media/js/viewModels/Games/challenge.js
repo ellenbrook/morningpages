@@ -13,7 +13,7 @@ define([
 		self.confirmSignup = function(){
 			if(confirm('Are you sure you want to sign up for the 30 day challenge?'))
 			{
-				$.get('/ajax/user/takechallenge', function(reply){
+				$.get('/ajax/games/takechallenge', function(reply){
 					if(reply.success)
 					{
 						self.site.user.doingChallenge(true);

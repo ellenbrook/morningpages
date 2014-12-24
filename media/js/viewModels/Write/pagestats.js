@@ -9,7 +9,7 @@ define([
 		
 		self.id = $('#rid').data('id');
 		
-		$.post('/ajax/pages/rid', {id:self.id}, function(reply){
+		$.post('/ajax/write/rid', {id:self.id}, function(reply){
 			$('#rid').find('.loader').hide();
 			if(reply.success)
 			{

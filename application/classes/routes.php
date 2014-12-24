@@ -113,7 +113,7 @@ abstract class routes {
 			if(user::logged() && ($page && $page->loaded()) && $slug == 'stats')
 			{
 				return array(
-					'controller' => 'Page',
+					'controller' => 'Write',
 					'action' => 'pagestats',
 					'page' => $page
 				);
@@ -121,7 +121,7 @@ abstract class routes {
 			if((user::logged() && ($page && $page->loaded())) || !user::logged())
 			{
 				return array(
-					'controller' => 'Page',
+					'controller' => 'Write',
 					'action' => 'write',
 					'page' => $page,
 					'daystamp' => $action
@@ -130,7 +130,7 @@ abstract class routes {
 			else
 			{
 				return array(
-					'controller' => 'Page',
+					'controller' => 'Write',
 					'action' => 'daynotfound'
 				);
 			}

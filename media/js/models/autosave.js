@@ -7,7 +7,7 @@ define(['jquery'],function($){
 		self.content = self.element.val();
 		
 		self.get = function(){
-			return $.getJSON('/ajax/pages/getautosave',function(reply){
+			return $.getJSON('/ajax/write/getautosave',function(reply){
 				self.content = reply.content;
 			});
 		};
@@ -21,7 +21,7 @@ define(['jquery'],function($){
 			if(newcontent && newcontent.length > 1 && newcontent != self.content)
 			{
 				self.content = newcontent;
-				$.post('/ajax/pages/autosave',{
+				$.post('/ajax/write/autosave',{
 					'content':self.content
 				}, function(reply){
 					

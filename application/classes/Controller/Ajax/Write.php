@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Ajax_Pages extends Controller {
+class Controller_Ajax_Write extends Controller {
 	
 	public function action_autosave()
 	{
