@@ -41,6 +41,13 @@ class Controller_Ajax_User extends Controller {
 		));
 	}
 	
+	public function action_ping()
+	{
+		ajax::success('', array(
+			'status' => user::logged()
+		));
+	}
+	
 	public function action_takechallenge()
 	{
 		if(!user::logged())

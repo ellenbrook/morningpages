@@ -50,8 +50,8 @@
 				</div>
 				<form role="form" action="<?php echo URL::site('write/'.$page->day); ?>" method="post" id="writeform">
 					<input type="hidden" name="start" value="<?php echo time(); ?>" />
-					<textarea class="<?php echo (user::logged() && (bool)user::get()->option('rtl')?'rtl':''); ?>" name="content" autofocus data-bind="value:writtenwords,valueUpdate:'keyup',autogrow:''" id="morningpage-content"><?php echo arr::get($_POST, 'content', ''); ?></textarea>
-					<button data-bind="disable:totalwords()<1,css:{'btn-disabled':totalwords()<1}" class="writing-submit">Submit</button>
+					<textarea class="<?php echo (user::logged() && (bool)user::get()->option('rtl')?'rtl':''); ?>" name="content" autofocus data-bind="value:writtenwords(),valueUpdate:'keyup',autogrow:''" id="morningpage-content"><?php echo arr::get($_POST, 'content', ''); ?></textarea>
+					<button class="writing-submit">Submit</button>
 					<p class="subtext">
 					      <span data-bind="text:wordcount()">0</span> / 750
                     </p>
@@ -65,8 +65,8 @@
 			</div>
 			<form role="form" action="<?php echo URL::site('write/'); ?>" method="post" id="writeform" data-bind="submit:submitPage">
 				<input type="hidden" name="start" value="<?php echo time(); ?>" />
-				<textarea class="<?php echo (user::logged() && (bool)user::get()->option('rtl')?'rtl':''); ?>" name="content" autofocus data-bind="value:writtenwords,valueUpdate:'keyup',autogrow:''" id="morningpage-content"><?php echo arr::get($_POST, 'content', ''); ?></textarea>
-				<button data-bind="disable:totalwords()<1,css:{'btn-disabled':totalwords()<1}"  class="writing-submit">Submit</button>
+				<textarea class="<?php echo (user::logged() && (bool)user::get()->option('rtl')?'rtl':''); ?>" name="content" autofocus data-bind="value:writtenwords(),valueUpdate:'keyup',autogrow:''" id="morningpage-content"><?php echo arr::get($_POST, 'content', ''); ?></textarea>
+				<button  class="writing-submit">Submit</button>
 				<p class="subtext">
 				      <span data-bind="text:wordcount()">0</span> / 750
                 </p>

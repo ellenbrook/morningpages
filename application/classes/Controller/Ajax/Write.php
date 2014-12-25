@@ -118,7 +118,8 @@ class Controller_Ajax_Write extends Controller {
 			$content = $autosave->decode($autosave->content);
 		}
 		ajax::success('',array(
-			'content' => $content
+			'content' => $content,
+			'md5' => md5($content)
 		));
 	}
 	

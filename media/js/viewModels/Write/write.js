@@ -3,8 +3,9 @@ define([
 	'jquery',
 	'site',
 	'models/modal',
-	'models/autosave'
-], function(ko, $, site, modal, autosave){
+	'models/autosave',
+	'vendor/md5'
+], function(ko, $, site, modal, autosave, md5){
 	
 	var writeModel = function(){
 		var self = this;
@@ -24,15 +25,30 @@ define([
 			return total;
 		}, this);
 		
+		self.autosaver = new autosave($('#morningpage-content'));
+		
 		self.getAutosave = function(){
-			self.autosaver = new autosave($('#morningpage-content'));
-			return self.autosaver.get();
+			var promise = $.Deferred();
+			self.autosaver.get().then(function(reply){
+				if(reply.content.length > 0)
+				{
+					var existing = md5(self.writtenwords());
+					if(reply.md5 != existing)
+					{
+						var old = self.writtenwords();
+						var newcontent = reply.content+"\r\r"+old;
+						$('#morningpage-content').val(newcontent).trigger('autosize');
+						site.say('An autosave you had from earlier has been prepended to the text area!');
+					}
+				}
+				promise.resolve();
+			});
+			return promise;
 		};
 		
 		if(site.user.logged())
 		{
 			site.user.getInfo().then(function(){
-				self.writtenwords('');
 				if(site.user.options.hemingwaymode())
 				{
 					$('#morningpage-content').on('keydown',function(e){
@@ -43,9 +59,8 @@ define([
 					});
 				}
 			});
-			self.getAutosave().then(function(reply){
-				self.writtenwords(reply.content);
-				$('#morningpage-content').trigger('autosize');
+			self.getAutosave().then(function(){
+				self.autosaver.start();
 			});
 		}
 		else
@@ -53,32 +68,37 @@ define([
 			site.user.logged.subscribe(function(logged){
 				if(logged)
 				{
-					self.getAutosave().then(function(reply){
-						if(reply.content.length > 0)
-						{
-							var old = self.writtenwords();
-							var newcontent = reply.content+"\r"+old;
-							self.writtenwords(newcontent);
-							$('#morningpage-content').trigger('autosize');
-							site.say('We prepended an autosave you had from earlier!');
-						}
+					self.getAutosave().then(function(){
+						self.autosaver.start();
 					});
 				}
 			});
 		}
 		
 		
-		
 		self.submitPage = function(){
-			if(!site.user.logged())
+			if(self.writtenwords().length < 1)
 			{
-				site.say('You must be logged in to save your page. Please log in (or register) and try again (your content won\'t be lost)');
+				site.say({
+					type:'danger',
+					message:'You haven\'t written anything!'
+				});
 				return false;
 			}
+			if(!site.user.logged())
+			{
+				site.say({
+					type:'danger',
+					message:'You must be logged in to save your page. Please log in (or register) and try again (your content won\'t be lost)'
+				});
+				return false;
+			}
+			//throw 'something';
 			return true;
 		};
 		
 		$(document).on("keydown", function(e){
+			// Trigger dummytext
 			if(e.ctrlKey && e.keyCode == 32)
 			{
 				$('#page-content').toggle();
@@ -88,6 +108,12 @@ define([
 				$('#header').toggle();
 				$('#user-options').hide();
 				$('footer').toggle();
+			}
+			// Force save
+			if(e.ctrlKey && e.keyCode == 83)
+			{
+				self.autosaver.save();
+				return false;
 			}
 		});
 		

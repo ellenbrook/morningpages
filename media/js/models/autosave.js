@@ -12,9 +12,11 @@ define(['jquery'],function($){
 			});
 		};
 		
-		self.savetimer = setInterval(function(){
-			self.save();
-		}, 10000);
+		self.start = function(){
+			self.savetimer = setInterval(function(){
+				self.save();
+			}, 10000);
+		};
 		
 		self.save = function(){
 			var newcontent = self.element.val();

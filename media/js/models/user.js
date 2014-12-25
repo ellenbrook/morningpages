@@ -74,6 +74,11 @@ define([
 			}
 		};
 		
+		// Keeping the session alive?
+		setInterval(function(){
+			$.get('/ajax/user/ping');
+		},300000);
+		
 		self.init = function(logged){
 			if(logged)
 			{

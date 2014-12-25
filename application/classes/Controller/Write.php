@@ -8,6 +8,10 @@ class Controller_Write extends Controller_Project {
 	{
 		$errors = false;
 		$page = false;
+		if($_POST && !user::logged())
+		{
+			notes::error('You must be logged in to save your page. Please log in and submit again.');
+		}
 		if(user::logged())
 		{
 			$page = $this->request->param('page');
@@ -112,7 +116,7 @@ class Controller_Write extends Controller_Project {
 						achievement::check_all(user::get());
 						
 						notes::success('Your page has been saved!');
-						site::redirect('write/'.$page->day);
+						//site::redirect('write/'.$page->day);
 					}
 					catch(ORM_Validation_Exception $e)
 					{
