@@ -25,7 +25,7 @@ abstract class achievement {
 		{
 			if(self::check_newbie($user))
 			{
-				self::add($user, $gotem['newbie']);
+				self::add($user, ORM::factory('Achievement')->where('type', '=', 'newbie')->find());
 				user::award_points(10, 'Wrote first post over 750 words and earned 10 extra points!', $user);
 			}
 		}
@@ -33,7 +33,7 @@ abstract class achievement {
 		{
 			if(self::check_hattrick($user))
 			{
-				self::add($user, $gotem['hattrick']);
+				self::add($user, ORM::factory('Achievement')->where('type', '=', 'hattrick')->find());
 				user::award_points(20, 'Wrote 3 days in a row and earned 20 extra points!', $user);
 			}
 		}
@@ -41,7 +41,7 @@ abstract class achievement {
 		{
 			if(self::check_7daystreak($user))
 			{
-				self::add($user, $gotem['7daystreak']);
+				self::add($user, ORM::factory('Achievement')->where('type', '=', '7daystreak')->find());
 				user::award_points(30, 'Wrote 7 days in a row and earned 30 extra points!', $user);
 			}
 		}
@@ -49,7 +49,7 @@ abstract class achievement {
 		{
 			if(self::check_hotstreak($user))
 			{
-				self::add($user, $gotem['hotstreak']);
+				self::add($user, ORM::factory('Achievement')->where('type', '=', 'hotstreak')->find());
 				user::award_points(40, 'Wrote 30 days in a row and earned 50 extra points!', $user);
 			}
 		}
