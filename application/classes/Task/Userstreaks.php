@@ -16,12 +16,12 @@ class Task_Userstreaks extends Minion_Task {
 				$last = $user
 					->pages
 					->where('type','=','page')
-					->limit(1)
+					->where('day','=', site::day_slug(strtotime('-1 day',$user->timestamp())))
 					->find();
 				if($last->loaded())
 				{
 					$day = 60 * 60 * 24;
-					if($last->created < $user->timestamp() - $day)
+					if(($last->created + $day) > $user->timestamp())
 					{
 						$user->current_streak = 0;
 						$user->validation_required(false)->save();
