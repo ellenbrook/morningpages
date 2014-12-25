@@ -142,8 +142,7 @@ class Model_User extends Model_Auth_User {
 	
 	public function today_slug()
 	{
-		$timestamp = $this->timestamp();
-		return date(site::dateformat(),$timestamp);
+		return site::day_slug($this->timestamp());
 	}
 	
 	public function votedon($id, $type = 'talkreply')
