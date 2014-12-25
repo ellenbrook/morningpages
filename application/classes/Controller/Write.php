@@ -8,6 +8,7 @@ class Controller_Write extends Controller_Project {
 	{
 		$errors = false;
 		$page = false;
+		
 		if(user::logged())
 		{
 			$page = $this->request->param('page');
@@ -74,6 +75,7 @@ class Controller_Write extends Controller_Project {
 				notes::error('You must be logged in to save your page. Please log in and submit again.');
 			}
 		}
+		
 		$this->bind('errors', $errors);
 		$this->bind('page', $page);
         $this->template->daystamp = $this->request->param('daystamp');

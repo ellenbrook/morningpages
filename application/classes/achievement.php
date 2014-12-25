@@ -2,12 +2,6 @@
 
 abstract class achievement {
 	
-	const FIRST_POST = 'newbie';
-	const HAT_TRICK = 'hattrick';
-	const WEEK_STREAK = '7daystreak';
-	const MONTH_STREAK = 'hotstreak';
-	const WRITING_STREAK = 'streak';
-	
 	public static function add(Model_User $user, Model_Achievement $achievement)
 	{
 		$userachievement = ORM::factory('Userachievement');
@@ -20,84 +14,81 @@ abstract class achievement {
 	
 	public static function check_all(Model_User $user)
 	{
-		self::check_first_post($user);
-		self::check_hattrick($user);
-		self::check_7daystreak($user);
-		self::check_30daystreak($user);
-	}
-	
-	public static function check_first_post(Model_User $user)
-	{
-		$achievement = ORM::factory('Achievement')
-			->where('user_id', '=', $user->id)
-			->where('type', '=', self::FIRST_POST)
-			->find();
-		if(!$achievement->loaded())
+		$userachievements = $user->userachievements->find_all();
+		$gotem = array();
+		foreach($userachievements as $userachievement)
 		{
-			$pages = $user->pages
-				->where('type','=','page')
-				->where('wordcount','>=',750)
-				->count_all();
-			if($pages == 1)
+			$gotem[$userachievement->achievement->type] = $userachievement->achievement;
+		}
+		
+		if(!array_key_exists('newbie', $gotem))
+		{
+			if(self::check_newbie($user))
 			{
-				
-				self::add($user, $achievement);
+				self::add($user, $gotem['newbie']);
 			}
 		}
+		if(!array_key_exists('hattrick', $gotem))
+		{
+			if(self::check_hattrick($user))
+			{
+				self::add($user, $gotem['hattrick']);
+			}
+		}
+		if(!array_key_exists('7daystreak', $gotem))
+		{
+			if(self::check_7daystreak($user))
+			{
+				self::add($user, $gotem['7daystreak']);
+			}
+		}
+		if(!array_key_exists('hotstreak', $gotem))
+		{
+			if(self::check_hotstreak($user))
+			{
+				self::add($user, $gotem['hotstreak']);
+			}
+		}
+	}
+	
+	public static function check_newbie(Model_User $user)
+	{
+		$pages = $user->pages
+			->where('type','=','page')
+			->where('wordcount','>=',750)
+			->count_all();
+		if($pages == 1)
+		{
+			return true;
+		}
+		return false;
 	}
 	
 	public static function check_hattrick(Model_User $user)
 	{
-		$achievement = ORM::factory('Achievement')
-			->where('user_id', '=', $user->id)
-			->where('type', '=', self::HAT_TRICK)
-			->find();
-		if(!$achievement->loaded())
+		if($user->current_streak == 3)
 		{
-			if($user->current_streak == 3)
-			{
-				$achievement = ORM::factory('Achievement')
-					->where('type', '=', self::HAT_TRICK)
-					->find();
-				self::add($user, $achievement);
-			}
+			return true;
 		}
+		return false;
 	}
 	
 	public static function check_7daystreak(Model_User $user)
 	{
-		$achievement = ORM::factory('Achievement')
-			->where('user_id', '=', $user->id)
-			->where('type', '=', self::WEEK_STREAK)
-			->find();
-		if(!$achievement->loaded())
+		if($user->current_streak == 7)
 		{
-			if($user->current_streak == 7)
-			{
-				$achievement = ORM::factory('Achievement')
-					->where('type', '=', self::WEEK_STREAK)
-					->find();
-				self::add($user, $achievement);
-			}
+			return true;
 		}
+		return false;
 	}
 	
-	public static function check_30daystreak(Model_User $user)
+	public static function check_hotstreak(Model_User $user)
 	{
-		$achievement = ORM::factory('Achievement')
-			->where('user_id', '=', $user->id)
-			->where('type', '=', self::MONTH_STREAK)
-			->find();
-		if(!$achievement->loaded())
+		if($user->current_streak == 30)
 		{
-			if($user->current_streak == 30)
-			{
-				$achievement = ORM::factory('Achievement')
-					->where('type', '=', self::MONTH_STREAK)
-					->find();
-				self::add($user, $achievement);
-			}
+			return true;
 		}
+		return false;
 	}
 	
 	public static function announce($message)
