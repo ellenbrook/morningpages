@@ -35,7 +35,7 @@ class Controller_Write extends Controller_Project {
 					$page->wordcount = site::count_words($content);
 					$page->content = $content;
 					
-					if($page->wordcount >= 750 && !(bool)$this->counted)
+					if($page->wordcount >= 750 && !(bool)$page->counted)
 					{
 						user::update_stats($page);
 						$page->counted = 1;

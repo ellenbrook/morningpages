@@ -9,7 +9,7 @@ abstract class achievement {
 		$userachievement->achievement_id = $achievement->id;
 		$userachievement->created = time();
 		$userachievement->save();
-		self::announce($achievement->triggertext);
+		notes::achievement($achievement->triggertext);
 	}
 	
 	public static function check_all(Model_User $user)
@@ -92,27 +92,6 @@ abstract class achievement {
 		{
 			return true;
 		}
-		return false;
-	}
-	
-	public static function announce($message)
-	{
-		$session = Session::instance();
-		$notes = $session->get('achievement_notes');
-		if(!$notes)
-			$notes = array();
-		$content = Array('type' => 'achievement', 'note' => $message);
-		$notes[] = $content;
-		$session->set('achievement_notes', $notes);
-	}
-	
-	public static function get_announcements()
-	{
-		$session = Session::instance();
-		$messages = $session -> get('achievement_notes');
-		$session -> delete('achievement_notes');
-		if(isset($messages) && !empty($messages))
-			return $messages;
 		return false;
 	}
 	

@@ -10,10 +10,7 @@ abstract class site {
 	{
 		$notes = notes::fetch();
 		if(!is_array($notes)) $notes = array();
-		$achievements = achievement::get_announcements();
-		if(!is_array($achievements)) $achievements = array();
-		$final = array_merge($notes, $achievements);
-		return json_encode($final);
+		return json_encode($notes);
 	}
 	
 	public static function locale()

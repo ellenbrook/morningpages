@@ -27,6 +27,7 @@ class Controller_Page extends Controller_Project {
 	
 	public function action_contact()
 	{
+		notes::achievement('Congratulations! You earned the achievement "WHATEVER", and banked 10 points! Great job!');
 		$errors = false;
 		if($_POST)
 		{
