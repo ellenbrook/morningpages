@@ -8,73 +8,70 @@ class Controller_Write extends Controller_Project {
 	{
 		$errors = false;
 		$page = false;
-		if($_POST && !user::logged())
-		{
-			notes::error('You must be logged in to save your page. Please log in and submit again.');
-		}
 		if(user::logged())
 		{
 			$page = $this->request->param('page');
 			
 			if($_POST && strlen(arr::get($_POST, 'content',''))>0)
 			{
-				if(user::logged())
+				$content = arr::get($_POST, 'content','');
+				
+				if($page->type == 'page')
 				{
-					$content = arr::get($_POST, 'content','');
-					
-					if($page->type == 'page')
+					$raw = $page->rawcontent();
+					if($raw != "")
 					{
-						$raw = $page->rawcontent();
-						if($raw != "")
-						{
-							$content = $raw."\n".$content;
-						}
-					}
-					else if($page->type == 'autosave')
-					{
-						$page->type = 'page';
-					}
-					
-					try
-					{
-						$page->wordcount = site::count_words($content);
-						$page->content = $content;
-						
-						if($page->wordcount >= 750 && !(bool)$this->counted)
-						{
-							user::update_stats($page);
-							$page->counted = 1;
-						}
-						
-						$page->duration = $page->duration + (time() - arr::get($_POST, 'start', 999));
-						$page->update();
-						
-						$oldsaves = ORM::factory('Page')
-							->where('type','=','autosave')
-							->where('user_id','=',user::get()->id)
-							->find_all();
-						if((bool)$oldsaves->count())
-						{
-							foreach($oldsaves as $old)
-							{
-								$old->delete();
-							}
-						}
-						
-						achievement::check_all(user::get());
-						
-						notes::success('Your page has been saved!');
-						//site::redirect('write/'.$page->day);
-					}
-					catch(ORM_Validation_Exception $e)
-					{
-						$errors = $e->errors('models');
+						$content = $raw."\n".$content;
 					}
 				}
-				else
+				else if($page->type == 'autosave')
 				{
-					notes::error('You must be logged in to save your page.');
-				}	
+					$page->type = 'page';
+				}
+				
+				try
+				{
+					$page->wordcount = site::count_words($content);
+					$page->content = $content;
+					
+					if($page->wordcount >= 750 && !(bool)$this->counted)
+					{
+						user::update_stats($page);
+						$page->counted = 1;
+					}
+					
+					$page->duration = $page->duration + (time() - arr::get($_POST, 'start', 999));
+					
+					$page->update();
+					
+					$oldsaves = ORM::factory('Page')
+						->where('type','=','autosave')
+						->where('user_id','=',user::get()->id)
+						->find_all();
+					if((bool)$oldsaves->count())
+					{
+						foreach($oldsaves as $old)
+						{
+							$old->delete();
+						}
+					}
+					
+					achievement::check_all(user::get());
+					
+					notes::success('Your page has been saved!');
+					//site::redirect('write/'.$page->day);
+				}
+				catch(ORM_Validation_Exception $e)
+				{
+					$errors = $e->errors('models');
+				}
+			}
+		}
+		else
+		{
+			if($_POST)
+			{
+				notes::error('You must be logged in to save your page. Please log in and submit again.');
 			}
 		}
 		$this->bind('errors', $errors);
