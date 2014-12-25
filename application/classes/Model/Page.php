@@ -26,6 +26,58 @@ class Model_Page extends ORM {
 		return markdown::instance()->convert($text);
 	}
 	
+	private function calculate_points()
+	{
+		$user = $this->user;
+		$yesterday_slug = site::day_slug(strtotime('-1 day',$user->timestamp()));
+		$two_days_ago_slug = site::day_slug(strtotime('-2 days',$user->timestamp()));
+		$points = 0;
+		
+		if($this->wordcount >= 750)
+		{
+			$points = 2;
+			$prevpages = $this->user->pages
+				->where('type','=','page')
+				->and_where_open()
+				->where('day','=',$yesterday_slug)
+				->or_where('day','=',$two_days_ago_slug)
+				->and_where_close()
+				->find_all();
+			foreach($prevpages as $prev)
+			{
+				if($prev->wordcount >= 750)
+				{
+					$points += 2;
+				}
+				else if ($prev->wordcount >= 100)
+				{
+					$points += 1;
+				}
+			}
+		}
+		else if ($this->wordcount >= 100)
+		{
+			$points = 1;
+			$yesterday = $user->pages
+				->where('type','=','page')
+				->and_where('day','=',$yesterday_slug)
+				->find();
+			if($yesterday->loaded())
+			{
+				if($yesterday->wordcount >= 750)
+				{
+					$points += 2;
+				}
+				else if ($yesterday->wordcount >= 100)
+				{
+					$points += 1;
+				}
+			}
+		}
+		
+		return $points;
+	}
+	
 	public function encrypt_content($content)
 	{
 		if($content == '') return $content;
@@ -264,6 +316,13 @@ class Model_Page extends ORM {
 			->rule('content', 'not_empty')
 			->rule('content', array($this, 'verify_word_count'), array('content',':value'))
 			->rule('content', 'max_length', array(':value', 100000));
+		
+		$this->points = $this->calculate_points();
+		
+		if($this->changed('content'))
+		{
+			$this->rid = ''; // resetting the RID as it needs to be recalculated when the page is updated
+		}
 		
 		return parent::update($validation);
 	}

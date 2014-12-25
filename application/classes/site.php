@@ -21,6 +21,11 @@ abstract class site {
 		return Kohana::$config->load('site')->get('locale');
 	}
 	
+	public static function count_words($string)
+	{
+		return count(preg_split('/[\s,.]+/u', $string));
+	}
+	
 	public static function jslocale()
 	{
 		$locale = self::locale();
