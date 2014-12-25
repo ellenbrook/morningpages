@@ -26,6 +26,7 @@ abstract class achievement {
 			if(self::check_newbie($user))
 			{
 				self::add($user, $gotem['newbie']);
+				user::award_points(10, 'Wrote first post over 750 words and earned 10 extra points!', $user);
 			}
 		}
 		if(!array_key_exists('hattrick', $gotem))
@@ -33,6 +34,7 @@ abstract class achievement {
 			if(self::check_hattrick($user))
 			{
 				self::add($user, $gotem['hattrick']);
+				user::award_points(20, 'Wrote 3 days in a row and earned 20 extra points!', $user);
 			}
 		}
 		if(!array_key_exists('7daystreak', $gotem))
@@ -40,6 +42,7 @@ abstract class achievement {
 			if(self::check_7daystreak($user))
 			{
 				self::add($user, $gotem['7daystreak']);
+				user::award_points(30, 'Wrote 7 days in a row and earned 30 extra points!', $user);
 			}
 		}
 		if(!array_key_exists('hotstreak', $gotem))
@@ -47,6 +50,7 @@ abstract class achievement {
 			if(self::check_hotstreak($user))
 			{
 				self::add($user, $gotem['hotstreak']);
+				user::award_points(40, 'Wrote 30 days in a row and earned 50 extra points!', $user);
 			}
 		}
 	}
