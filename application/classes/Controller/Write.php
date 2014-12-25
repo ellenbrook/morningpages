@@ -51,7 +51,7 @@ class Controller_Write extends Controller_Project {
 						{
 							if(!(bool)$page->counted)
 							{
-								user::update_stats($content, $page);
+								user::update_stats($page);
 								$page->counted = 1;
 							}
 							
