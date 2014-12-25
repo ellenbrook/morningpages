@@ -15,6 +15,11 @@
 						<input type="password" required="required" class="form-control modal-login" value="" name="password" placeholder="Password" />
 					</div>
 					<div class="form-group">
+						<label>
+							<input type="checkbox" name="remember" value="yes" /> Keep me logged in?
+						</label>
+					</div>
+					<div class="form-group">
 						<button type="submit">Sign In</button>
 					</div>
 					<hr />

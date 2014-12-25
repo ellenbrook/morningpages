@@ -89,7 +89,7 @@ class Controller_User extends Controller_Project {
 		{
 			$email = arr::get($_POST, 'email','');
 			$password = arr::get($_POST, 'password','');
-			$remember = false;//(arr::get($_POST, 'remember','')=='yes');
+			$remember = (arr::get($_POST, 'remember','')=='yes');
 			if(user::login($email, $password, $remember))
 			{
 				$user = user::get();

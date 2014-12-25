@@ -20,6 +20,11 @@ if($error)
 			<input type="password" class="form-control" name="password" id="password" placeholder="Password..." />
 		</div>
 		<div class="form-group">
+			<label>
+				<input type="checkbox" name="remember" value="yes" /> Keep me logged in?
+			</label>
+		</div>
+		<div class="form-group">
 			<button type="submit" class="btn btn-primary">Log in</button> - <a href="<?php echo user::url('signup'); ?>" title="Sign up">New user</a>?
 		</div>
 		<a href="<?php echo user::url('help'); ?>" title="Reset your password">forgot password?</a>
