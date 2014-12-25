@@ -21,6 +21,7 @@ class Controller_Write extends Controller_Project {
 				if(user::logged())
 				{
 					$content = arr::get($_POST, 'content','');
+					
 					if($page->type == 'page')
 					{
 						$raw = $page->rawcontent();
@@ -28,18 +29,14 @@ class Controller_Write extends Controller_Project {
 						{
 							$content = $raw."\n".$content;
 						}
-						else
-						{
-							$content = $content;
-						}
 					}
+					else if($page->type == 'autosave')
+					{
+						$page->type = 'page';
+					}
+					
 					try
 					{
-		                if($page->type == 'autosave')
-		                {
-		                    $page->type = 'page';
-		                }
-		                
 						$page->wordcount = count(preg_split('/[\s,.]+/u', $content));
 						$page->content = $content;
 						
