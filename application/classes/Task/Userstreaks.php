@@ -17,6 +17,7 @@ class Task_Userstreaks extends Minion_Task {
 					->pages
 					->where('type','=','page')
 					->where('day','=', site::day_slug(strtotime('-1 day',$user->timestamp())))
+					->or_where('day','=', site::day_slug($user->timestamp()))
 					->find();
 				if($last->loaded())
 				{
