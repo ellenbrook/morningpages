@@ -3,7 +3,7 @@
   $hero-background-bottom: adjust-hue($hero-background-top, -70);
   $hero-color: $light-color;
   $gradient-angle: 10deg;
-  $hero-image: '/media/img/heroes/hero.jpg';
+  $hero-image: '/media/img/heroes/hero-1.jpg';
 
   @include background(url($hero-image));
   position: relative;
