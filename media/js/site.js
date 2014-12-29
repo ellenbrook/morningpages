@@ -31,7 +31,10 @@ define([
 		};
 		
 		self.doneLoggingIn = function(){
-			self.say('You have been logged in. Welcome back!');
+			self.say({
+				type:'success',
+				message:'You have been logged in. Welcome back!'
+			});
 			self.user.getInfo();
 		};
 		self.doneRegistering = function(){

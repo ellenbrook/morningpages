@@ -74,10 +74,19 @@ define([
 			}
 		};
 		
-		// Keeping the session alive?
-		setInterval(function(){
-			$.get('/ajax/user/ping');
-		},300000);
+		self.keepAlive = function(){
+			// Keeping the session alive?
+			var interval = setInterval(function(){
+				$.get('/ajax/user/ping',function(reply){
+					if(!Boolean(reply.logged))
+					{
+						clearInterval(interval);
+						interval = null;
+						self.logged(false);
+					}
+				},'json');
+			},10000);
+		};
 		
 		self.init = function(logged){
 			if(logged)

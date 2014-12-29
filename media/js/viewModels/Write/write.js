@@ -62,18 +62,22 @@ define([
 			self.getAutosave().then(function(){
 				self.autosaver.start();
 			});
+			site.user.keepAlive();
 		}
-		else
-		{
-			site.user.logged.subscribe(function(logged){
-				if(logged)
-				{
-					self.getAutosave().then(function(){
-						self.autosaver.start();
-					});
-				}
-			});
-		}
+		
+		site.user.logged.subscribe(function(logged){
+			if(logged)
+			{
+				self.getAutosave().then(function(){
+					self.autosaver.start();
+				});
+				site.user.keepAlive();
+			}
+			else
+			{
+				self.autosaver.stop();
+			}
+		});
 		
 		
 		self.submitPage = function(){

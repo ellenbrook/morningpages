@@ -5,6 +5,7 @@ define(['jquery'],function($){
 		
 		self.element = element;
 		self.content = self.element.val();
+		self.savetimer = null;
 		
 		self.get = function(){
 			return $.getJSON('/ajax/write/getautosave',function(reply){
@@ -16,6 +17,11 @@ define(['jquery'],function($){
 			self.savetimer = setInterval(function(){
 				self.save();
 			}, 10000);
+		};
+		
+		self.stop = function(){
+			clearInterval(self.savetimer);
+			self.savetimer = null;
 		};
 		
 		self.save = function(){
