@@ -10,8 +10,9 @@
 			</ul>
 			<ul>
 				<li><h3>Follow Us</h3></li>
-				<li><a href="https://www.facebook.com/morningpages" target="_blank">Facebook</a></li>
-				<li><a href="https://twitter.com/morningpagesnet">Twitter</a></li>
+				<li><a href="https://www.facebook.com/morningpages" target="_blank" title="Follow Morning Pages on Facebook">Facebook</a></li>
+				<li><a href="https://twitter.com/morningpagesnet" target="_blank" title="Follow Morning Pages on Twitter">Twitter</a></li>
+				<li><a href="https://github.com/ellenbrook/morningpages" title="Follow Morning Pages on our Github repository" target="_blank">Twitter</a></li>
 			</ul>
 			<ul>
 				<li><h3>Legal</h3></li>
