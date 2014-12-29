@@ -37,7 +37,7 @@ define([
 					{
 						var old = self.writtenwords();
 						var newcontent = reply.content+"\r\r"+old;
-						$('#morningpage-content').val(newcontent).focus();
+						$('#morningpage-content').val(newcontent);
 						//$('#morningpage-content').blur().focus();
 						site.say('An autosave you had from earlier has been prepended to the text area!');
 					}
