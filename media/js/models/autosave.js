@@ -26,15 +26,21 @@ define(['jquery'],function($){
 		
 		self.save = function(){
 			var newcontent = self.element.val();
+			var promise = $.Deferred();
 			if(newcontent && newcontent.length > 1 && newcontent != self.content)
 			{
 				self.content = newcontent;
 				$.post('/ajax/write/autosave',{
 					'content':self.content
 				}, function(reply){
-					
+					promise.resolve(reply);
 				},'json');
 			}
+			else
+			{
+				promise.reject();
+			}
+			return promise;
 		};
 		
 	};

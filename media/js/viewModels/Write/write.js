@@ -37,7 +37,8 @@ define([
 					{
 						var old = self.writtenwords();
 						var newcontent = reply.content+"\r\r"+old;
-						$('#morningpage-content').val(newcontent).trigger('autosize');
+						$('#morningpage-content').val(newcontent).focus();
+						//$('#morningpage-content').blur().focus();
 						site.say('An autosave you had from earlier has been prepended to the text area!');
 					}
 				}
@@ -116,7 +117,12 @@ define([
 			// Force save
 			if(e.ctrlKey && e.keyCode == 83)
 			{
-				self.autosaver.save();
+				self.autosaver.save().fail(function(){
+					site.say({
+						type:'danger',
+						message:'You must be logged in to save your page!'
+					});
+				});
 				return false;
 			}
 		});
