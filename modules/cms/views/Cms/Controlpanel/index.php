@@ -1,24 +1,3 @@
-<?php
-	/*$files = glob('files/*');
-	foreach($files as $filename)
-	{
-		if(preg_match('(files/.*x[0-9]+.(jpg|png|gif))', $filename))
-		{
-			unlink($filename);
-		}
-	}*/
-	
-	/*$versions = ORM::factory('File_Version')->find_all();
-	foreach($versions as $version)
-	{
-		try
-		{
-			$version->delete();
-		}
-		catch(exception $e){}
-	}*/
-?>
-
 <div class="page-header">
 	<div class="row">
 		<div class="col-xs-9">
@@ -26,20 +5,8 @@
 		</div>
 		<div class="col-xs-3 form-inline text-right">
 			<?php /*<select class="form-control" data-bind="event:{change:changeDashboard},options:dashboards(),optionsCaption:'Vælg kontrolpanel',optionsText:'name',optionsValue:'id',value:currentDashboardId"></select> */ ?>
-			<select class="form-control" data-bind="event:{change:changeDashboard}">
-<?php
-				$dashboard = ORM::factory('Dashboard')->getcurrent();
-				$dashboards = user::get()->dashboards->find_all();
-				if((bool)$dashboards->count())
-				{
-					foreach($dashboards as $db)
-					{
-						echo '<option value="'.$db->id.'"'.($dashboard->id==$db->id?' selected="selected"':'').'>'.$db->name.'</option>';
-					}
-				}
-?>
-			</select>
-			<a href="#" title="<?php echo __('Add new panel') ?>" class="btn btn-sm btn-default">
+			<select class="form-control" data-bind="event:{change:changeDashboardEvent},options:dashboards(),value:dashboard().id,optionsText:'name',optionsValue:'id'"></select>
+			<a href="#" title="<?php echo __('Add new panel') ?>" data-bind="click:createDashboard" class="btn btn-sm btn-default">
 				<span class="glyphicon glyphicon-plus"></span>
 			</a>
 			<a href="#" data-bind="click:deleteDashboard" title="<?php echo __('Delete this panel') ?>" class="btn btn-sm btn-danger">
@@ -51,13 +18,13 @@
 
 <div class="row">
 	<div class="col-xs-4">
-		Stats?
+		Which
 	</div>
 	<div class="col-xs-4">
-		Stats?
+		stats
 	</div>
 	<div class="col-xs-4">
-		Stats?
+		here?
 	</div>
 </div>
 

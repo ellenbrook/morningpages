@@ -4,7 +4,7 @@ class Controller_Cms_Ajax_Dashboards extends Controller {
 	
 	public function action_current()
 	{
-		ajax::success('ok',ORM::factory('Dashboard')->getcurrent()->info());
+		ajax::success('ok',dashboards::get_current()->info());
 	}
 	
 	public function action_deletewidget()
@@ -69,24 +69,33 @@ class Controller_Cms_Ajax_Dashboards extends Controller {
 		{
 			$dashboard = ORM::factory('Dashboard');
 			$dashboard->user_id = user::get()->id;
-			$dashboard->name = arr::get($_POST, 'name', '[ikke navngivet]');
-			$dashboard->order = ORM::factory('Dashboard')->count_all();
+			$dashboard->name = arr::get($_POST, 'name', 'Default');
+			$dashboard->order = ORM::factory('Dashboard')->where('user_id','=',user::get()->id)->count_all();
 			try
 			{
 				$dashboard->save();
 				$dashboard->setcurrent();
-				ajax::success('Kontrolpanelet er blevet oprettet.', array(
-					'name' => $dashboard->name,
-					'id' => $dashboard->id,
-					'order' => $dashboard->order
-				));
+				ajax::success('Created',$dashboard->info());
 			}
 			catch(ORM_Validation_Exception $e)
 			{
 				ajax::error('Validation error', array('errors' => $e->errors()));
 			}
 		}
-		ajax::error('Ingen data modtaget');
+		ajax::error('No data received');
+	}
+	
+	public function action_all()
+	{
+		$dashboards = user::get()->dashboards->find_all();
+		$darray();
+		foreach($dashboards as $dashboard)
+		{
+			$darray[] = $dashboard->info();
+		}
+		ajax::success('', array(
+			'dashboards' => $darray
+		));
 	}
 	
 	public function action_get()
@@ -94,10 +103,15 @@ class Controller_Cms_Ajax_Dashboards extends Controller {
 		$dashboard = ORM::factory('Dashboard', arr::get($_POST, 'id'));
 		if(!$dashboard->loaded())
 		{
-			ajax::error('Kontrolpanelet blev ikke fundet. Er det blevet slettet i mellemtiden?');
+			$dashboard = dashboards::get_current();
 		}
-		$dashboard->setcurrent();
-		ajax::success('ok', $dashboard->info());
+		else
+		{
+			$dashboard->setcurrent();
+		}
+		ajax::success('ok', array(
+			'dashboard' => $dashboard->info()
+		));
 	}
 	
 	public function action_getall()
@@ -121,27 +135,26 @@ class Controller_Cms_Ajax_Dashboards extends Controller {
 		$dashboard = ORM::factory('Dashboard', arr::get($_POST, 'id'));
 		if(!$dashboard->loaded())
 		{
-			ajax::error('Kontrolpanelet blev ikke fundet. Er det blevet slettet i mellemtiden?');
+			ajax::error('The dashboard wasn\'t found. Has it been deleted in the meantime?');
 		}
-		if($dashboard->id == 1)
-		{
-			ajax::error('Standardpanelet kan ikke slettes.');
-		}
-		$order = $dashboard->order;
 		try
 		{
+			$user = $dashboard->user;
 			$dashboard->delete();
-			$new = ORM::factory('Dashboard')->getcurrent();
-			$new->setcurrent();
-			ajax::success('ok', array(
-				'name' => $new->name,
-				'id' => $new->id,
-				'order' => $new->order
+			$dashboards = $user->dashboards->count_all();
+			if((bool)$dashboards)
+			{
+				$current = $user->dashboards->find();
+				$current->current = 1;
+				$current->save();
+			}
+			ajax::info('Dashboard deleted', array(
+				'dashboard' => dashboards::get_current()->info()
 			));
 		}
 		catch(exception $e)
 		{
-			ajax::error('Der opstod en fejl og panelet kunne ikke slettes: '.$e->getMessage());
+			ajax::error('An error occurred and the panel could not be deleted: '.$e->getMessage());
 		}
 	}
 	
@@ -150,7 +163,7 @@ class Controller_Cms_Ajax_Dashboards extends Controller {
 		$dashboard = ORM::factory('Dashboard', arr::get($_POST, 'id'));
 		if(!$dashboard->loaded())
 		{
-			ajax::error('Kontrolpanelet blev ikke fundet. Er det blevet slettet i mellemtiden?');
+			ajax::error('he dashboard wasn\'t found. Has it been deleted in the meantime?');
 		}
 		$widgets = $dashboard->widgets->find_all();
 		$warr = array();
@@ -179,7 +192,7 @@ class Controller_Cms_Ajax_Dashboards extends Controller {
 		$dashboard = ORM::factory('Dashboard', arr::get($_POST, 'id'));
 		if(!$dashboard->loaded())
 		{
-			ajax::error('Kontrolpanelet blev ikke fundet. Er det blevet slettet i mellemtiden?');
+			ajax::error('he dashboard wasn\'t found. Has it been deleted in the meantime?');
 		}
 		$widgets = arr::get($_POST, 'widgets',false);
 		if($widgets && (bool)count($widgets))

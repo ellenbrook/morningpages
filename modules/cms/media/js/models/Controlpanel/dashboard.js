@@ -59,7 +59,7 @@ define([
 		}
 		
 		self.deleteWidget = function(widget){
-			if(confirm('Er du sikke på du vil slette denne widget?'))
+			if(confirm('Sure you want to delete this widget?'))
 			{
 				$.post(site.ajaxurl+'dashboards/deletewidget',{id:widget.id},function(reply){
 					if(reply.success)
