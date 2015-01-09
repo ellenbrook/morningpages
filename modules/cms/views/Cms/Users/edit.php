@@ -40,6 +40,10 @@
 						<input type="text" name="longest_streak" id="user-edit-longest_streak" data-bind="value:user.longest_streak" class="form-control" />
 					</div>
 					<div class="form-group">
+						<label for="user-edit-current_streak"><?php echo __('Current streak:'); ?></label>
+						<input type="text" name="current_streak" id="user-edit-current_streak" data-bind="value:user.current_streak" class="form-control" />
+					</div>
+					<div class="form-group">
 						<label for="user-edit-most_words"><?php echo __('Most words:'); ?></label>
 						<input type="text" name="most_words" id="user-edit-most_words" data-bind="value:user.most_words" class="form-control" />
 					</div>
