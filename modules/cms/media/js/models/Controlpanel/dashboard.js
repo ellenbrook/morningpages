@@ -9,8 +9,9 @@ define([
 	'models/Controlpanel/widgets/calendar',
 	'models/Controlpanel/widgets/serverstats',
 	'models/Controlpanel/widgets/feeds',
-	'models/Controlpanel/widgets/popularcontent'
-], function($,ko,site, currentvisitors, errorpages, tester, todo, calendar, serverstats, feeds, popularcontent){
+	'models/Controlpanel/widgets/popularcontent',
+	'models/Controlpanel/widgets/sitestats'
+], function($,ko,site, currentvisitors, errorpages, tester, todo, calendar, serverstats, feeds, popularcontent, sitestats){
 	
 	return function(data){
 		var self = this;
@@ -42,7 +43,7 @@ define([
 					self.widgets.push(new serverstats(data));
 					break;
 				case 'sitestats':
-					self.widgets.push(new serverstats(data));
+					self.widgets.push(new sitestats(data));
 					break;
 				case 'feeds':
 					self.widgets.push(new feeds(data));

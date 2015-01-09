@@ -51,6 +51,8 @@
 	</div>
 </div>
 
+<hr />
+
 <div class="row" data-bind="with:dashboard()">
 	
 	<div data-bind="foreach:widgets,sortablegrid:saveWidgetsOrder" id="controlpanel-widgets">
@@ -72,6 +74,16 @@
 						<img src="<?php echo cms::url('media/img/ajax-loader-widget.gif'); ?>" alt="Loader" />
 					</div>
 					<div class="widget-content-holder">
+						
+						<?php // Site stats ?>
+						<div data-bind="if:widgettype.type=='sitestats'">
+							<p>
+								New users the past 24 hours: <span data-bind="text:newusers"></span>
+							</p>
+							<p>
+								Total number of pages: <span data-bind="text:pages"></span>
+							</p>
+						</div>
 						
 						<?php // Popular content ?>
 						<div data-bind="if:widgettype.type=='popularcontent'">
