@@ -87,6 +87,7 @@ define([
 			var content = ko.utils.arrayFirst(self.contenttype().items,function(item){
 				return item.id == id;
 			});
+			console.log(content);
 			var item = {
 				id:'',
 				content:content,

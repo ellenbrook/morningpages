@@ -7,7 +7,7 @@ class Controller_Cms_Ajax_Contenttype extends Controller {
 		$contenttype = ORM::factory('Contenttype', arr::get($_GET, 'id', ''));
 		if(!$contenttype->loaded())
 		{
-			ajax::error(__('Indholdstypen blev ikke fundet. Er den blevet slettet i mellemtiden?'));
+			ajax::error(__('Contenttype not found. Has it been deleted?'));
 		}
 		$items = array();
 		$contents = $contenttype->contents->find_all();

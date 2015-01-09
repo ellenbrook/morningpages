@@ -17,6 +17,7 @@ define([
 		self.icon = ko.observable(info.icon);
 		self.max = ko.observable(info.max);
 		self.contenttypetypes = ko.observableArray();
+		self.items = info.items;
 		
 		if(info.contenttypetypes)
 		{
@@ -27,13 +28,13 @@ define([
 		}
 		
 		self.supports = {
-			categories:ko.observable(info.supports.categories?1:0),
-			timestamp:ko.observable(info.supports.timestamp?1:0),
-			tags:ko.observable(info.supports.tags?1:0),
-			thumbnail:ko.observable(info.supports.thumbnail?1:0),
-			hierarchy:ko.observable(info.supports.hierarchy?1:0),
-			author:ko.observable(info.supports.author?1:0),
-			status:ko.observable(info.supports.status?1:0)
+			categories:ko.observable(info.has_categories=="1"?1:0),
+			timestamp:ko.observable(info.has_timestamp=="1"?1:0),
+			tags:ko.observable(info.has_tags?1:0),
+			thumbnail:ko.observable(info.has_thumbnail=="1"?1:0),
+			hierarchy:ko.observable(info.hierarchical=="1"?1:0),
+			author:ko.observable(info.has_author=="1"?1:0),
+			status:ko.observable(info.has_status=="1"?1:0)
 		};
 		
 		self.toggleOpen = function(){

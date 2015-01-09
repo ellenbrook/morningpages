@@ -58,7 +58,7 @@
 							</a>
 						</div>
 						<h3 class="widget-title">
-							<span data-bind="text:linktext"></span>
+							<span data-bind="text:linktext()"></span>
 							<?php /*<small data-bind="text:titletext"></small> */ ?>
 							<small data-bind="visible:type=='external'">
 								<span class="glyphicon glyphicon-share"></span>
@@ -74,11 +74,11 @@
 					<div class="widget-body" data-bind="visibleSlide:open()">
 						<div class="form-group">
 							<label><?php _e('Linktext'); ?>:</label>
-							<input type="text" class="form-control" data-bind="value:linktext" />
+							<input type="text" class="form-control" data-bind="value:linktext,valueUpdate:'keyup'" />
 						</div>
 						<div class="form-group">
 							<label><?php _e('Titletext'); ?>:</label>
-							<input data-bind="value:titletext" type="text" placeholder="En kort beskrivende tekst her..." class="form-control" />
+							<input data-bind="value:titletext" type="text" placeholder="A short descriptive text here..." class="form-control" />
 						</div>
 						<div data-bind="if:type=='content'">
 							<div class="original">
@@ -139,7 +139,7 @@
 						<label for="navigation-select-contenttype"><?php _e('Choose contenttype'); ?></label>
 						<select id="navigation-select-contenttype" data-bind="value:contenttypeid" class="form-control">
 							<option value="0"><?php _e('Select'); ?></option>
-	<?php
+<?php
 							$contenttypes = ORM::factory('Contenttype')->find_all();
 							if((bool)$contenttypes->count())
 							{
@@ -148,7 +148,7 @@
 									echo '<option value="'.$contenttype->id.'">'.$contenttype->display.'</option>';
 								}
 							}
-	?>
+?>
 						</select>
 					</div>
 					

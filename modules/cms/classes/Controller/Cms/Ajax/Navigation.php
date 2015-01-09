@@ -153,7 +153,7 @@ class Controller_Cms_Ajax_Navigation extends Controller {
 					$i++;
 				}
 			}
-			ajax::success(__('Gemt'));
+			ajax::success(__('Saved'));
 		}
 		catch(exception $e)
 		{
@@ -175,7 +175,7 @@ class Controller_Cms_Ajax_Navigation extends Controller {
 		}
 		catch(exception $e)
 		{
-			ajax::error(__('Der opstod en fejl og menupunktet kunne ikke gemmes: :error',array(':error'=>$e->getMessage())));
+			ajax::error(__('An error occurred and the item couldn\'t be saved: :error',array(':error'=>$e->getMessage())));
 		}
 	}
 	
