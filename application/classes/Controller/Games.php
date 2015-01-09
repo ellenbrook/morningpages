@@ -25,16 +25,25 @@ class Controller_Games extends Controller_Project {
 	        LIMIT 10
 	    ")->execute()->as_array();
 		
-		$users = ORM::factory('User')
+		$streaks = ORM::factory('User')
 			->order_by('current_streak', 'DESC')
 			->limit(10)
 			->find_all();
+			
+		$points = DB::query(Database::SELECT, "
+			SELECT (SUM(page.points)+user.points) as points, page.user_id AS id FROM `pages` AS page
+			JOIN `users` AS user ON user.id = page.user_id
+			GROUP BY page.user_id
+			ORDER BY points DESC
+			LIMIT 20
+		")->execute()->as_array();
 		
 		seo::instance()->title("Morning Pages leaderboard");
 		seo::instance()->description("Morning Pages leaderboard");
 		
 		$this->bind('active', $active);
-		$this->bind('users', $users);
+		$this->bind('streaks', $streaks);
+		$this->bind('points', $points);
 	}
 	
 }
