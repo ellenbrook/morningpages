@@ -10,3 +10,4 @@ media/css/*.css.map
 phpmyadmin
 node_modules/*
 *.swp
+tags

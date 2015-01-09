@@ -44,6 +44,13 @@ abstract class routes {
 		}
 		
 		// Page alias
+		if($controller == 'test')
+		{
+			return array(
+				'controller' => 'Page',
+				'action' => 'test'
+			);
+		}
 		if($controller == 'contact')
 		{
 			return array(

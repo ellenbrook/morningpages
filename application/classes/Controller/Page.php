@@ -24,10 +24,14 @@ class Controller_Page extends Controller_Project {
 		seo::instance()->title("Morning Pages Privacy Policy");
 		seo::instance()->description("Morning Pages Privacy Policy");
 	}
+
+	public function action_test()
+	{
+		
+	}
 	
 	public function action_contact()
 	{
-		notes::achievement('Congratulations! You earned the achievement "WHATEVER", and banked 10 points! Great job!');
 		$errors = false;
 		if($_POST)
 		{
