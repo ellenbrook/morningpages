@@ -116,6 +116,7 @@ class Controller_Ajax_Write extends Controller {
 		if($autosave->loaded() && $autosave->content != '')
 		{
 			$content = $autosave->decode($autosave->content);
+			$autosave->delete();
 		}
 		ajax::success('',array(
 			'content' => $content,
