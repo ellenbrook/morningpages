@@ -85,6 +85,30 @@
 							</p>
 						</div>
 						
+						<?php // Current visitors ?>
+						<div data-bind="if:widgettype.type=='currentvisitors'">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>User</th>
+										<th>IP</th>
+										<th>Client</th>
+										<th>Time on site</th>
+										<th>Referrer</th>
+									</tr>
+								</thead>
+								<tbody data-bind="foreach:visitors">
+									<tr>
+										<td data-bind="html:username"></td>
+										<td data-bind="text:ip"></td>
+										<td data-bind="text:client"></td>
+										<td data-bind="text:time"></td>
+										<td data-bind="text:referrer"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
 						<?php // Popular content ?>
 						<div data-bind="if:widgettype.type=='popularcontent'">
 							<table class="table table-striped">
