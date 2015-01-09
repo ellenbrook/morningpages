@@ -5,36 +5,103 @@
 <form action="users/edit/<?php echo $user->id; ?>" method="post">
 	<div class="row">
 		<div class="col-xs-12 col-md-9">
-			<div class="form-group">
-				<label for="user-edit-email"><?php echo __('E-mail:'); ?></label>
-				<input type="email" name="email" id="user-edit-email" data-bind="value:user.email" class="form-control" />
+			<ul class="nav nav-tabs">
+				<li class="active">
+					<a href="#infotab" data-toggle="tab">Info</a>
+				</li>
+				<li>
+					<a href="#pagestab" data-toggle="tab">Pages (<?php echo $user->pages->where('type','=','page')->count_all(); ?>)</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active" id="infotab">
+					<div class="form-group">
+						<label for="user-edit-email"><?php echo __('E-mail:'); ?></label>
+						<input type="email" name="email" id="user-edit-email" data-bind="value:user.email" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label for="user-edit-name"><?php echo __('Name:'); ?></label>
+						<input type="text" name="name" id="user-edit-name" data-bind="value:user.name" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label for="user-edit-avatar"><?php echo __('Avatar:'); ?></label>
+						<img src="" data-bind="src:user.gravatar.medium()" />
+					</div>
+					<div class="form-group">
+						<label for="user-edit-bio"><?php echo __('Bio:'); ?></label>
+						<textarea name="bio" id="user-edit-bio" data-bind="value:user.bio" class="form-control"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="user-edit-website"><?php echo __('Website:'); ?></label>
+						<input type="text" name="website" id="user-edit-website" data-bind="value:user.website" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label for="user-edit-longest_streak"><?php echo __('Longest streak:'); ?></label>
+						<input type="text" name="longest_streak" id="user-edit-longest_streak" data-bind="value:user.longest_streak" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label for="user-edit-most_words"><?php echo __('Most words:'); ?></label>
+						<input type="text" name="most_words" id="user-edit-most_words" data-bind="value:user.most_words" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label for="user-edit-all_time_words"><?php echo __('All time words:'); ?></label>
+						<input type="text" name="all_time_words" id="user-edit-all_time_words" data-bind="value:user.all_time_words" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label for="user-edit-points"><?php echo __('Points:'); ?></label>
+						<input type="text" name="points" id="user-edit-points" data-bind="value:user.points" class="form-control" />
+					</div>
+					<div class="form-group">
+						<em><?php echo __('Only fill out the below fields if you want to change the users password'); ?></em>
+					</div>
+					<div class="form-group">
+						<label for="user-edit-password"><?php echo __('Password:'); ?></label>
+						<input name="password" type="password" id="user-edit-password" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label for="user-edit-password"><?php echo __('Password confirm:'); ?></label>
+						<input name="password_confirm" type="password" id="user-edit-password-confirm" class="form-control" />
+					</div>
+				
+				</div>
+				<div class="tab-pane" id="pagestab">
+					
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>Date</th>
+								<th>Wordcount</th>
+								<th>Duration</th>
+								<th>Points</th>
+							</tr>
+						</thead>
+						<tbody>
+	<?php
+							$pages = $user->pages
+								->where('type','=','page')
+								->order_by('created', 'DESC')
+								->find_all();
+							if((bool)$pages->count())
+							{
+								foreach($pages as $page)
+								{
+									echo '<tr>';
+									echo '<td>'.$page->day.'</td>';
+									echo '<td>'.$page->wordcount.'</td>';
+									echo '<td>'.$page->duration.'</td>';
+									echo '<td>'.$page->points.'</td>';
+									echo '</tr>';
+								}
+							}
+	?>
+						</tbody>
+					</table>
+					
+				</div>	
 			</div>
-			<div class="form-group">
-				<label for="user-edit-name"><?php echo __('Name:'); ?></label>
-				<input type="text" name="name" id="user-edit-name" data-bind="value:user.name" class="form-control" />
-			</div>
-			<div class="form-group">
-				<label for="user-edit-avatar"><?php echo __('Avatar:'); ?></label>
-				<img src="" data-bind="src:user.gravatar.medium()" />
-			</div>
-			<div class="form-group">
-				<label for="user-edit-bio"><?php echo __('Bio:'); ?></label>
-				<textarea name="bio" id="user-edit-bio" data-bind="value:user.bio" class="form-control"></textarea>
-			</div>
-			<div class="form-group">
-				<em><?php echo __('Only fill out the below fields if you want to change the users password'); ?></em>
-			</div>
-			<div class="form-group">
-				<label for="user-edit-password"><?php echo __('Password:'); ?></label>
-				<input name="password" type="password" id="user-edit-password" class="form-control" />
-			</div>
-			<div class="form-group">
-				<label for="user-edit-password"><?php echo __('Password confirm:'); ?></label>
-				<input name="password_confirm" type="password" id="user-edit-password-confirm" class="form-control" />
-			</div>
+			
 		</div>
 		<div class="col-xs-12 col-md-3">
-			
 			<div class="widget">
 				<div class="widget-header">
 					<h3 class="widget-title"><?php echo __('Info'); ?></h3>
@@ -82,7 +149,7 @@
 					<div class="form-group form-inline">
 						<select class="form-control" id="edit-user-add-role-select" data-bind="options:availableRoles,optionsCaption:'Vælg...',optionsText:'name',optionsValue:'id'">
 							
-<?php
+		<?php
 							/*$roles = ORM::factory('Role')->find_all();
 							if((bool)$roles->count())
 							{
@@ -94,7 +161,7 @@
 									}
 								}
 							}*/
-?>
+		?>
 						</select>
 						<button class="btn btn-primary" data-bind="click:addRole">
 							<span class="glyphicon glyphicon-plus"></span>

@@ -12,6 +12,12 @@ define([
 		self.name = data.name;
 		self.email = data.email;
 		self.bio = data.bio;
+		self.website = data.website;
+		self.longest_streak = data.longest_streak;
+		self.current_streak = data.current_streak;
+		self.most_words = data.most_words;
+		self.all_time_words = data.all_time_words;
+		self.points = data.points;
 		self.logins = data.logins;
 		self.last_login = data.last_login;
 		self.delete = data.delete;

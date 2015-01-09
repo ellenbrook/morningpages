@@ -60,8 +60,14 @@ class Model_User extends Model_Auth_User {
 			'id' => $this->id,
 			'email' => $this->email,
 			'name' => $this->username,
+			'slug' => $this->slug,
 			'bio' => $this->bio,
 			'website' => $this->website,
+			'longest_streak' => $this->longest_streak,
+			'current_streak' => $this->current_streak,
+			'most_words' => $this->most_words,
+			'all_time_words' => $this->all_time_words,
+			'points' => $this->points(),
 			'logins' => $this->logins,
 			'gravatar' => array(
 				'mini' => $this->gravatar(32),
@@ -80,6 +86,17 @@ class Model_User extends Model_Auth_User {
 			'doingChallenge' => $doingChallenge,
 			'challengeProgress' => $challengeProgress
 		);
+	}
+	
+	public function points()
+	{
+		$points = DB::select(array(DB::expr('SUM(`points`)'),'points'))
+			->from('pages')
+			->where('type','=','page')
+			->where('user_id', '=', $this->id)
+			->execute()
+			->get('points');
+		return $points+$this->points;
 	}
 	
 	public function doing_challenge()
