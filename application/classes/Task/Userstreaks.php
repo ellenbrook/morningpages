@@ -13,31 +13,37 @@ class Task_Userstreaks extends Minion_Task {
 		{
 			foreach($users as $user)
 			{
-				$last = $user
+				$yesterday = $user
 					->pages
 					->where('type','=','page')
 					->where('day','=', site::day_slug(strtotime('-1 day',$user->timestamp())))
-					->or_where('day','=', site::day_slug($user->timestamp()))
 					->find();
-				if($last->loaded())
+				$today = $user
+					->pages
+					->where('day','=', site::day_slug($user->timestamp()))
+					->find();
+				if(!$today->loaded())
 				{
-					$day = 60 * 60 * 24;
-					if(($last->created + $day) > $user->timestamp())
+					if($yesterday->loaded())
+					{
+						$day = 60 * 60 * 24;
+						if(($yesterday->created + $day) > $user->timestamp())
+						{
+							$user->current_streak = 0;
+							$user->validation_required(false)->save();
+							
+							if($user->doing_challenge())
+							{
+								$user->add_event('Failed the 30 day challenge!');
+								$user->challenge->delete();
+							}
+						}
+					}
+					else
 					{
 						$user->current_streak = 0;
 						$user->validation_required(false)->save();
-						
-						if($user->doing_challenge())
-						{
-							$user->add_event('Failed the 30 day challenge!');
-							$user->challenge->delete();
-						}
 					}
-				}
-				else
-				{
-					$user->current_streak = 0;
-					$user->validation_required(false)->save();
 				}
 			}
 		}
