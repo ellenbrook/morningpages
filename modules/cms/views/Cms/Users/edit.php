@@ -70,6 +70,10 @@
 				</div>
 				<div class="tab-pane" id="pagestab">
 					
+					<p>
+						User's time is: <?php echo date('Y-m-d H:i:s'); ?>
+					</p>
+					
 					<table class="table table-striped table-bordered">
 						<thead>
 							<tr>
