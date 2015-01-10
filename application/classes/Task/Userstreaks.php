@@ -19,12 +19,7 @@ class Task_Userstreaks extends Minion_Task {
 				$today = site::day_slug($user->timestamp());
 				$tomorrow = site::day_slug(strtotime('+1 day', $user->timestamp()));
 				
-				$fail = false;
 				if($nextday != $today && $nextday != $tomorrow)
-				{
-					$fail = true;
-				}
-				if($fail)
 				{
 					$user->current_streak = 0;
 					$user->validation_required(false)->save();
