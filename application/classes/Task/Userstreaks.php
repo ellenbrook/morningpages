@@ -16,16 +16,11 @@ class Task_Userstreaks extends Minion_Task {
 				$last = $user->pages->find();
 				$nextday = site::day_slug(strtotime('+1 day', strtotime($last->day)));
 				
-				$yesterday = site::day_slug(strtotime('-1 day', $user->timestamp()));
 				$today = site::day_slug($user->timestamp());
 				$tomorrow = site::day_slug(strtotime('+1 day', $user->timestamp()));
 				
 				$fail = false;
-				if($last->day == $yesterday)
-				{
-					$fail = false;
-				}
-				else if($last->day != $today && $nextday != $tomorrow)
+				if($nextday != $today && $nextday != $tomorrow)
 				{
 					$fail = true;
 				}
