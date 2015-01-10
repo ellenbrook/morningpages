@@ -71,7 +71,7 @@
 				<div class="tab-pane" id="pagestab">
 					
 					<p>
-						User's time is: <?php echo date('Y-m-d H:i:s'); ?>
+						User's time is: <?php echo date('Y-m-d H:i:s', $user->timestamp()); ?>
 					</p>
 					
 					<table class="table table-striped table-bordered">
