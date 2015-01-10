@@ -13,7 +13,7 @@ class Task_Userstreaks extends Minion_Task {
 		{
 			foreach($users as $user)
 			{
-				$last = $user->pages->find();
+				$last = $user->pages->where('type','=','page')->find();
 				$nextday = site::day_slug(strtotime('+1 day', strtotime($last->day)));
 				
 				$today = site::day_slug($user->timestamp());
