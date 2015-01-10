@@ -13,36 +13,19 @@ class Task_Userstreaks extends Minion_Task {
 		{
 			foreach($users as $user)
 			{
-				$yesterday = $user
-					->pages
-					->where('type','=','page')
-					->where('day','=', site::day_slug(strtotime('-1 day',$user->timestamp())))
-					->find();
-				$today = $user
-					->pages
-					->where('day','=', site::day_slug($user->timestamp()))
-					->find();
-				if(!$today->loaded())
+				$last = $user->pages->find();
+				$nextday = site::day_slug(strtotime('+1 day', strtotime($last->day)));
+				$today = site::day_slug($user->timestamp());
+				$tomorrow = site::day_slug(strtotime('+1 day', $user->timestamp()));
+				if($last->day != $today && $nextday != $tomorrow)
 				{
-					if($yesterday->loaded())
+					$user->current_streak = 0;
+					$user->validation_required(false)->save();
+					
+					if($user->doing_challenge())
 					{
-						$day = 60 * 60 * 24;
-						if(($yesterday->created + $day) > $user->timestamp())
-						{
-							$user->current_streak = 0;
-							$user->validation_required(false)->save();
-							
-							if($user->doing_challenge())
-							{
-								$user->add_event('Failed the 30 day challenge!');
-								$user->challenge->delete();
-							}
-						}
-					}
-					else
-					{
-						$user->current_streak = 0;
-						$user->validation_required(false)->save();
+						$user->add_event('Failed the 30 day challenge!');
+						$user->challenge->delete();
 					}
 				}
 			}
