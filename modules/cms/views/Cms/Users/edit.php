@@ -91,7 +91,7 @@
 								{
 									echo '<tr>';
 									echo '<td>'.$page->day.'</td>';
-									echo '<td>'.$page->wordcount.'</td>';
+									echo '<td>'.$page->wordcount.($page->wordcount >= 750 ? ' <span class="fa fa-check" style="color:green;"></span>':'').'</td>';
 									echo '<td>'.$page->duration.'</td>';
 									echo '<td>'.$page->points.'</td>';
 									echo '</tr>';
