@@ -236,7 +236,7 @@ abstract class routes {
 				$user = ORM::factory('User')->where('slug','=',$action)->find();
 				if($user->loaded())
 				{
-					if((bool)$user->option('public'))
+					if((bool)$user->option('public') || (user::logged('admin')))
 					{
 						return array(
 							'controller' => 'Me',
