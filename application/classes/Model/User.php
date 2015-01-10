@@ -54,7 +54,7 @@ class Model_User extends Model_Auth_User {
 		$challengeProgress = 0;
 		if($doingChallenge)
 		{
-			$challengeProgress = $this->challenge->find()->progress;
+			$challengeProgress = $this->challenge->progress;
 		}
 		return array(
 			'id' => $this->id,
