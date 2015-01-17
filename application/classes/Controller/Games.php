@@ -35,7 +35,7 @@ class Controller_Games extends Controller_Project {
 			JOIN `users` AS user ON user.id = page.user_id
 			GROUP BY page.user_id
 			ORDER BY points DESC
-			LIMIT 20
+			LIMIT 10
 		")->execute()->as_array();
 		
 		seo::instance()->title("Morning Pages leaderboard");
