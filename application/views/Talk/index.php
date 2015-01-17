@@ -41,6 +41,9 @@
 					<p>
 						<?php echo $talk->user->points(); ?> point<?php echo ($talk->user->points()==1?'':'s'); ?>
 					</p>
+					<p>
+						Current streak: <?php echo $talk->user->current_streak; ?>
+					</p>
 					<div class="post-count">Posts: <?php echo $talk->user->talkreplies->count_all(); ?></div>
 				</div>
 				<div class="card-content">
