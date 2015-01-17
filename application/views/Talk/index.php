@@ -38,6 +38,9 @@
 				<div class="card-icon">
 					<?php echo HTML::image($talk->user->gravatar('100')); ?>
 					<span><?php echo $talk->username(); ?></span>
+					<p>
+						<?php echo $talk->user->points(); ?> point<?php echo ($talk->user->points()==1?'':'s'); ?>
+					</p>
 					<div class="post-count">Posts: <?php echo $talk->user->talkreplies->count_all(); ?></div>
 				</div>
 				<div class="card-content">

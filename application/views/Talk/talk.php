@@ -36,6 +36,9 @@ echo $talk->pagination($currentpage);
 						<?php echo $talk->user->username(true); ?>
 						<div class="post-count">Posts: <?php echo $talk->user->talkreplies->count_all(); ?></div>
 					</p>
+					<p>
+						<?php echo $talk->user->points(); ?> point<?php echo ($talk->user->points()==1?'':'s'); ?>
+					</p>
 					<p class="comment-detail">
 						<?php echo Date::fuzzy_span($talk->created); ?>
 					</p>
@@ -96,6 +99,9 @@ echo $talk->pagination($currentpage);
 						<?php echo HTML::image($reply->user->gravatar(100)); ?>
 						<p class="comment-author">
 							<?php echo $reply->user->username(true); ?>
+						</p>
+						<p>
+							<?php echo $reply->user->points(); ?> point<?php echo ($talk->user->points()==1?'':'s'); ?>
 						</p>
 						<p class="comment-detail">
 							<?php echo Date::fuzzy_span($reply->created); ?>
