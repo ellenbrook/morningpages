@@ -58,6 +58,7 @@
 ?>
        			</select>
        		<?php endif; ?>
+			
 <?php
 			if(!empty($user->bio))
 			{
@@ -70,6 +71,10 @@
 				echo '<p><a href="'.$user->website.'" rel="nofollow">'.$user->website.'</a></p>';
 			}
 ?>
+			<h3>Points</h3>
+			<p>
+				<?php echo $user->points(); ?>
+			</p>
 		</div>
 
 		<div class="me-stats">
