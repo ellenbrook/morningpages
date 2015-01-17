@@ -106,9 +106,6 @@ echo $talk->pagination($currentpage);
 						<p>
 							<?php echo $reply->user->points(); ?> point<?php echo ($talk->user->points()==1?'':'s'); ?>
 						</p>
-						<p>
-							Current streak: <?php echo $talk->user->current_streak; ?>
-						</p>
 						<p class="comment-detail">
 							<?php echo Date::fuzzy_span($reply->created); ?>
 						</p>
