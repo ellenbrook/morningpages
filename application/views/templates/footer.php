@@ -7,6 +7,8 @@
 				<li><a href="<?php echo URL::site('write'); ?>" title="Write">Write</a></li>
 				<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
 				<li><a href="<?php echo URL::site('contact'); ?>" title="Contact Morning Pages">Contact</a></li>
+				<li><a href="<?php echo URL::site('leaderboard'); ?>" title="Morning Pages leaderboards">Leaderboards</a></li>
+				<li><a href="<?php echo URL::site('challenge'); ?>" title="Take the 30 day writing challenge">The 30 day challenge</a></li>
 			</ul>
 			<ul>
 				<li><h3>Follow Us</h3></li>
