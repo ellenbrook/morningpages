@@ -22,7 +22,7 @@
 				foreach($options as $option)
 				{
 					echo '<tr>';
-					echo '<td>'.$option->user->link.'</td>';
+					echo '<td>'.$option->user->link().'</td>';
 					echo '<td>'.date('F jS, Y', $option->completedchallenge).'</td>';
 					echo '</tr>';
 				}
