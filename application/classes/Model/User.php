@@ -260,6 +260,16 @@ class Model_User extends Model_Auth_User {
 				$oauth->delete();
 			}
 		}
+		
+		$challenge = ORM::factory('User_Challenge')
+			->where('user_id', '=', $this->id)
+			->find();
+		if($challenge->loaded())
+		{
+			$challenge->delete();
+		}
+		
+		
 		return parent::delete();
 	}
 	
