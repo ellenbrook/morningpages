@@ -22,9 +22,11 @@ class Task_Reminders extends Minion_Task {
 		WHERE
 			opt.reminder = 1
 		AND
-			opt.next_reminder > '.strtotime('-5 minutes').'
+			opt.next_reminder > '.strtotime('-5000 minutes').'
 		AND
-			opt.next_reminder < '.strtotime('+5 minutes').';'
+			opt.next_reminder < '.strtotime('+5000 minutes').'
+		AND
+			user.email != "";'
 		);
 		$results = $query->execute()->as_array();
 		if(is_array($results))
@@ -53,7 +55,7 @@ class Task_Reminders extends Minion_Task {
 						$option = $user->option;
 						$option->last_reminder = time();
 						$option->next_reminder = $user->get_next_reminder(true);
-						$option->save();
+						//$option->save();
 					}
 				}
 			}
