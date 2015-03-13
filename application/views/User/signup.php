@@ -2,8 +2,9 @@
 	<div class="container">
 		<h2>Sign up in 10 seconds</h2>
 		<p>
-			<?php echo html::anchor(user::slug('login'),'&laquo; Already signed up?'); ?>
+			<?php echo HTML::anchor(user::slug('login'),'&laquo; Already signed up?'); ?>
 		</p>
+		
 		<?php if($errors): ?>
 			<div class="alert alert-warning">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
