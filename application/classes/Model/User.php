@@ -29,6 +29,12 @@ class Model_User extends Model_Auth_User {
 	
 	protected $_do_validation = true;
 	
+	public function fail_challenge()
+	{
+		$this->add_event('Failed the 30 day challenge!');
+		$this->challenge->delete();
+	}
+	
 	public function add_event($message)
 	{
 		$event = ORM::factory('User_Event');
