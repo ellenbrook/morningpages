@@ -22,9 +22,9 @@ class Task_Reminders extends Minion_Task {
 		WHERE
 			opt.reminder = 1
 		AND
-			opt.next_reminder > '.strtotime('-5000 minutes').'
+			opt.next_reminder > '.strtotime('-5 minutes').'
 		AND
-			opt.next_reminder < '.strtotime('+5000 minutes').'
+			opt.next_reminder < '.strtotime('+5 minutes').'
 		AND
 			user.email != "";'
 		);

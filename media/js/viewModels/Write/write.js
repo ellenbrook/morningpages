@@ -118,10 +118,15 @@ define([
 			if(e.ctrlKey && e.keyCode == 83)
 			{
 				self.autosaver.save().fail(function(){
-					site.say({
-						type:'danger',
-						message:'You must be logged in to save your page!'
-					});
+					if(!site.user.logged())
+					{
+						site.say({
+							type:'danger',
+							message:'You must be logged in to save your page!'
+						});
+					}
+				}).done(function(){
+					site.say('Saved!');
 				});
 				return false;
 			}
