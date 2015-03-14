@@ -22,7 +22,7 @@ class Task_Userstreaks extends Minion_Task {
 				$user = ORM::factory('User', arr::get($challenge, 'id'));
 				$start = arr::get($challenge, 'start');
 				$start = $user->challenge->start;
-				if($user->timestamp()-$start > (24*60*60))
+				if($user->timestamp()-$start > (24*60*60) && $user->current_streak == 0)
 				{
 					$user->fail_challenge();
 				}
