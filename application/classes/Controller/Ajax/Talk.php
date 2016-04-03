@@ -73,14 +73,14 @@ class Controller_Ajax_Talk extends Controller {
 		if($sub->loaded())
 		{
 			$sub->delete();
-			ajax::info('You will no longer recieve e-mail updates from this thread');
+			ajax::info('You will no longer receive e-mail updates from this thread');
 		}
 		else
 		{
 			$sub->talk_id = $id;
 			$sub->user_id = $user->id;
 			$sub->save();
-			ajax::success('You will now recieve e-mail updates from this thread.');
+			ajax::success('You will now receive e-mail updates from this thread.');
 		}
 		
 	}
