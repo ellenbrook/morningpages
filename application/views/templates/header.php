@@ -19,7 +19,6 @@ $isfront = routes::isFrontPage();
 				<li class="header">Navigation</li>
 				<li><a href="#about">About</a></li>
 				<li><a href="<?php echo URL::site('write'); ?>" title="Write">Write<?php echo (user::logged()?(' ('.user::get()->current_streak.')'):''); ?></a></li>
-				<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
 				
 				<li class="<?php echo (user::logged()?'hidden':''); ?>" data-bind="if:!site.user.logged(),css:{'shown':!site.user.logged()}">
 					<ul>
@@ -42,7 +41,6 @@ $isfront = routes::isFrontPage();
 			<ul>
 				<li><a href="<?php echo URL::site('about'); ?>" title="About Morning Pages">About</a></li>
 				<li><a href="<?php echo URL::site('write'); ?>" title="Write">Write<?php echo (user::logged()?(' ('.user::get()->current_streak.')'):''); ?></a></li>
-				<li><a href="<?php echo URL::site('talk'); ?>" title="Discuss Morning Pages">Talk</a></li>
 				<li class="<?php echo (user::logged()?'hidden':''); ?>" data-bind="if:!site.user.logged(),css:{'shown':site.user.logged()}">
 					<ul>
 						<li><a href="<?php echo user::url('login'); ?>" data-bind="showModal:{element:'#loginModal',done:site.doneLoggingIn}">Login</a></li>

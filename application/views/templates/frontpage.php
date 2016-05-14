@@ -86,10 +86,21 @@ echo View::factory('templates/header');
 			if((bool)$news->count())
 			{
 				echo '<ul>';
+?>
+				<li>
+					<h4>Shutting down the forum</h4>
+					<p>
+						We've decided to shut down the forum, as it was rarely used, and seems to have attracted the attention of a lot of spambots lately.
+					</p>
+					<p>
+						We invite everyone to use our <a href="https://github.com/ellenbrook/morningpages" title="Github repo for morningpages.net">Github repo</a> instead for reporting bugs, asking questions, submitting pull requests etc.
+					</p>
+				</li>
+<?php
 				foreach($news as $new)
 				{
 					echo '<li>';
-					echo '<h4>'.HTML::anchor($new->url(), $new->title, array('title'=>$new->title)).'</h4>';
+					echo '<h4>'.$new->title.'</h4>';
 					echo '<p>'.$new->excerpt().'</p>';
 					echo '</li>';
 				}
