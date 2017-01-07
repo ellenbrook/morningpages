@@ -1,8 +1,7 @@
 <div id="contact-page">
 	<h2>Contact</h2>
 	<p>
-		We encourage you to use <?php echo HTML::anchor('/talk','our messageboard', array('title'=>'Talk about Morning Pages')); ?>, or contact us 
-		through <a href="https://twitter.com/morningpagesnet">Twitter</a> or <a target="_blank" href="https://www.facebook.com/morningpages">Facebook</a>.<br />
+		We invite everyone to use our <a href="https://github.com/ellenbrook/morningpages" title="Github repo for morningpages.net">Github repo</a> for reporting bugs, asking questions, submitting pull requests etc. Alternatively, contact us through <a href="https://twitter.com/morningpagesnet">Twitter</a> or <a target="_blank" href="https://www.facebook.com/morningpages">Facebook</a>.<br />
 		We also have an <?php echo HTML::anchor('/about','about page', array('title'=>'About Morning Pages')); ?> which answers many frequently asked questions.
 	</p>
 	<p>
