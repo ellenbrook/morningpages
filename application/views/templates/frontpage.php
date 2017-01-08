@@ -121,7 +121,7 @@ echo View::factory('templates/header');
 				{
 					echo '<li>';
 					echo '<h4>'.HTML::anchor($talk->url(), $talk->title, array('title'=>$talk->title)).'</h4>';
-					echo '<p>'.$talk->excerpt().'</p>';
+					echo '<p>'.$talk->content().'</p>';
 					echo '</li>';
 				}
 				echo '</ul>';

@@ -34,8 +34,5 @@
 	<dd>Under some circumstances we can change your username upon contacting us so if it's absolutely necessary we may be able to assist you. Unfortunately you cannot change your username. This would cause unnecessary work for something so trivial. This site is mostly about writing and your username is there just so you can anonymously post on the forum or even share your profile if you  choose to have that option enabled.</dd>
 
 	<dt>I have an idea that I’d like to be implemented into Morning Pages.</dt>
-	<dd>Awesome. We're happy to hear any suggestions on how we can make Morning Pages better for everybody. If you post your suggestion in the <?php echo HTML::anchor('/talk','Feedback section of the Morning Pages Talk area', array('title'=>'Talk about Morning Pages')); ?>, we'll see it right away.</dd>
-
-	<dt>My question has not been answered.</dt>
-	<dd>If you find that your question hasn't been answered, you can head over to the <?php echo HTML::anchor('/talk','Morning Pages Talk area', array('title'=>'Talk about Morning Pages')); ?> and post your question in the Support section.</dd>
+	<dd>Awesome. We're happy to hear any suggestions on how we can make Morning Pages better for everybody. Please use our <a href="https://github.com/ellenbrook/morningpages" title="Github repo for morningpages.net">Github page</a> for reporting bugs, asking questions, submitting pull requests etc.</dd>
 </dl>
