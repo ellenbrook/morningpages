@@ -34,7 +34,7 @@ echo View::factory('templates/header');
 			<h2>Welcome to Morning Pages</h2>
 			<p>You never know when you’ll find the time. You can’t predict when the mood will strike. That’s why we’re here.</p>
 	    	<p class="cta-p"><a href="<?php echo URL::site('write'); ?>" class="cta-button">Begin Writing</a></p>
-	    	<p class="subtext">(No registration required)</p> 
+	    	<p class="subtext">(No registration required)</p>
 	    </div>
 	</div>
 </section>
@@ -51,7 +51,7 @@ echo View::factory('templates/header');
 					<h2>Write</h2>
 					<p>The idea is simple. Write three pages of stream of consciousness thought per day. Don't worry, your morning pages are always private so write anything you'd like.</p>
 				</div>
-			</li> 
+			</li>
 			<li class="bullet three-col-bullet">
 				<div class="bullet-icon bullet-icon-3">
 					<p><span class="fa fa-lightbulb-o"></span></p>
@@ -60,7 +60,7 @@ echo View::factory('templates/header');
 					<h2>Discover yourself</h2>
 					<p>You'll start to notice patterns and common topics. Use your writing as a cue make changes in your life or even as a worry-free way to blow off some steam.</p>
 				</div>
-			</li>  
+			</li>
 			<li class="bullet three-col-bullet">
 				<div class="bullet-icon bullet-icon-2">
 					<p><span class="fa fa-thumbs-up"></span></p>
@@ -72,6 +72,31 @@ echo View::factory('templates/header');
 			</li>
 		</ul>
 	</div>
+</section>
+
+<section class="news" id="frontpage-donations">
+	<h2>Morningpages is in need of your help</h2>
+	<p>
+		We're been running this site non-profit for 4 years now. But it's time for us to decide if we should move on, as both time and finances simply no longer justify us keeping it running alone.
+	</p>
+	<p>
+		So we're leaving it up to you, the community, to decide whether Morningpages will continue to exist. The server will be running until July 1st, 2018. Then we'll shut it down, with a fond memory about a great project, and a fantastic userbase.
+	</p>
+	<p>
+		We've set up a Paypal account, where anyone willing and able can donate, if they feel like it. 100% of the donations will, of course, go to the continued running of the site. But please don't feel obligated or pressured.
+	</p>
+	<p>
+		<a href="https://www.paypal.me/morningpages" title="Donate to Morningpages with Paypal">
+			<img src="<?php echo HTML::image('/media/img/donate-with-paypal.jpg'); ?>" alt="Donate with Paypal" />
+		</a>
+	</p>
+	<p>
+		We've set up a page where <a href="<?php echo URL::site('donations'); ?>" title="Morningpages donators">donators</a> can (optionally) get their contribution listed, along with a message.
+	</p>
+	<p>
+		Thanks,<br />
+		Eric and Daniel
+	</p>
 </section>
 
 <section class="news" id="frontpage-news">

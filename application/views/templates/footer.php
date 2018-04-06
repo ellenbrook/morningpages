@@ -8,6 +8,7 @@
 				<li><a href="<?php echo URL::site('contact'); ?>" title="Contact Morning Pages">Contact</a></li>
 				<li><a href="<?php echo URL::site('leaderboard'); ?>" title="Morning Pages leaderboards">Leaderboards</a></li>
 				<li><a href="<?php echo URL::site('challenge'); ?>" title="Take the 30 day writing challenge">The 30 day challenge</a></li>
+				<li><a href="<?php echo URL::site('donations'); ?>" title="Morningpages generous donators">The donators who help keep us running.</a></li>
 			</ul>
 			<ul>
 				<li><h3>Follow Us</h3></li>
@@ -50,8 +51,8 @@
 
 if(!user::logged())
 {
-    
-    
+
+
 }
 echo View::factory('modals/login');
 echo View::factory('modals/register');
