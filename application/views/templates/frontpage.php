@@ -101,63 +101,6 @@ echo View::factory('templates/header');
 	</div>		
 </section>
 
-<section class="news" id="frontpage-news">
-	<div class="container">
-		<div class="news">
-<?php
-			$news = ORM::factory('Talk')
-				->where('deleted','=',0)
-				->where('announcement','=',1)
-				->limit(3)
-				->find_all();
-			if((bool)$news->count())
-			{
-				echo '<ul>';
-?>
-				<li>
-					<h4>Shutting down the forum</h4>
-					<p>
-						We've decided to shut down the forum, as it was rarely used, and seems to have attracted the attention of a lot of spambots lately.
-					</p>
-					<p>
-						We invite everyone to use our <a href="https://github.com/ellenbrook/morningpages" title="Github repo for morningpages.net">Github repo</a> instead for reporting bugs, asking questions, submitting pull requests etc.
-					</p>
-				</li>
-<?php
-				foreach($news as $new)
-				{
-					echo '<li>';
-					echo '<h4>'.$new->title.'</h4>';
-					echo '<p>'.$new->excerpt().'</p>';
-					echo '</li>';
-				}
-				echo '</ul>';
-			}
-?>
-			<!-- <h3>Latest talks</h3>
-<?php
-			$talks = ORM::factory('Talk')
-				->where('deleted','=',0)
-				->where('announcement','=',0)
-				->limit(3)
-				->find_all();
-			if((bool)$talks->count())
-			{
-				echo '<ul>';
-				foreach($talks as $talk)
-				{
-					echo '<li>';
-					echo '<h4>'.HTML::anchor($talk->url(), $talk->title, array('title'=>$talk->title)).'</h4>';
-					echo '<p>'.$talk->content().'</p>';
-					echo '</li>';
-				}
-				echo '</ul>';
-			}
-?> -->
-		</div>
-	</div>
-</section>
-
 <?php echo View::factory('templates/footer'); ?>
 
 
