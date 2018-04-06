@@ -74,7 +74,7 @@ echo View::factory('templates/header');
 	</div>
 </section>
 
-<section class="news about" id="frontpage-donations">
+<section class="news about" id="frontpage-donations" style="padding-bottom: 5em">
 	<div class="container">
 		<h2>Morningpages is in need of your help</h2>
 		<p>
