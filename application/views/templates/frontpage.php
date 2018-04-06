@@ -74,7 +74,7 @@ echo View::factory('templates/header');
 	</div>
 </section>
 
-<section class="news" id="frontpage-donations">
+<section class="news about" id="frontpage-donations">
 	<div class="container">
 		<h2>Morningpages is in need of your help</h2>
 		<p>
@@ -88,7 +88,7 @@ echo View::factory('templates/header');
 		</p>
 		<p>
 			<a href="https://www.paypal.me/morningpages" title="Donate to Morningpages with Paypal">
-				<img src="<?php echo HTML::image('/media/img/donate-with-paypal.jpg'); ?>" alt="Donate with Paypal" />
+				<?php echo HTML::image('/media/img/donate-with-paypal.jpg'); ?>
 			</a>
 		</p>
 		<p>
