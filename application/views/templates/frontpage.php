@@ -88,7 +88,7 @@ echo View::factory('templates/header');
 		</p>
 		<p>
 			<a href="https://www.paypal.me/morningpages" title="Donate to Morningpages with Paypal">
-				<?php echo HTML::image('/media/img/donate-with-paypal.jpg'); ?>
+				<?php echo HTML::image('/media/img/donate-with-paypal.jpg', array("alt"=>"", "width"=>150)); ?>
 			</a>
 		</p>
 		<p>
