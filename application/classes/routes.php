@@ -1,11 +1,11 @@
-<?php defined('SYSPATH') or die('No direct script access.'); 
+<?php defined('SYSPATH') or die('No direct script access.');
 
 /**
  * Various site functions.
  */
 
 abstract class routes {
-	
+
 	/**
 	 * Site routes
 	 */
@@ -24,7 +24,7 @@ abstract class routes {
 		{
 			$guid = $controller;
 		}
-		
+
 		$controllerfile = ucfirst($controller);
 		$action = (isset($params['action']) ? $params['action'] : 'index');
 		//$action = ucfirst($action);
@@ -33,7 +33,7 @@ abstract class routes {
 		$slug3 = (isset($params['slug3']) ? $params['slug3'] : '');
 		$slug4 = (isset($params['slug4']) ? $params['slug4'] : '');
 		$slug5 = (isset($params['slug5']) ? $params['slug5'] : '');
-		
+
 		// Homepage
 		if($guid == 'content')
 		{
@@ -42,7 +42,7 @@ abstract class routes {
 				'action' => 'index'
 			);
 		}
-		
+
 		// Page alias
 		if($controller == 'test')
 		{
@@ -56,6 +56,13 @@ abstract class routes {
 			return array(
 				'controller' => 'Page',
 				'action' => 'contact'
+			);
+		}
+		if($controller == 'donations')
+		{
+			return array(
+				'controller' => 'Page',
+				'action' => 'donations'
 			);
 		}
 		if($controller == 'challenge')
@@ -74,7 +81,7 @@ abstract class routes {
 					'action' => 'challenge'
 				);
 			}
-			
+
 		}
 		if($controller == 'leaderboard')
 		{
@@ -142,7 +149,7 @@ abstract class routes {
 				);
 			}
 		}
-		
+
 		if($controller == 'read')
 		{
 			return array(
@@ -151,7 +158,7 @@ abstract class routes {
 				'id' => $action
 			);
 		}
-		
+
 		if($controller == 'user')
 		{
 			if($action != '')
@@ -208,7 +215,7 @@ abstract class routes {
 				);
 			}
 		}
-		
+
 		// Pages/Content
 		$content = ORM::factory('Content');
 		if(!user::logged('admin'))
@@ -219,13 +226,13 @@ abstract class routes {
 		if($content->loaded())
 		{
 			// Specific content
-			
+
 			$class = 'Content';
 			if(class_exists('Controller_'.ucfirst($content->contenttype->type)))
 			{
 				$class = ucfirst($content->contenttype->type);
 			}
-			
+
 			$action = 'default';
 			if($content->contenttypetype_id != 0)
 			{
@@ -257,7 +264,7 @@ abstract class routes {
 				}
 			}
 		}
-		
+
 		// "Static" controllers
 		$file = 'application/classes/Controller/' . $controllerfile . '.php';
 		if(file_exists($file) && method_exists('Controller_'.ucfirst($controllerfile), 'action_'.$action))
@@ -269,7 +276,7 @@ abstract class routes {
 			$return['params'] = $params;
 			return $return;
 		}
-		
+
 		// No matches. 404
 		return array(
 			'controller' => 'Errors',
@@ -277,12 +284,12 @@ abstract class routes {
 			'params' => $params
 		);
 	}
-	
+
 	public static function isFrontPage()
 	{
 		$controller = Request::current()->controller();
 		$action = Request::current()->action();
 		return $controller == 'Site' && $action == 'index';
 	}
-	
+
 }
