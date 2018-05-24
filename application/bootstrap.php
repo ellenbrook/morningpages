@@ -105,7 +105,7 @@ if (isset($_SERVER['KOHANA_ENV']))
 Kohana::init(array(
 	'base_url'   => '/',
 	'index_file' => '',
-	
+
 ));
 
 /**
@@ -133,7 +133,7 @@ Kohana::modules(array(
 	'userguide'  => MODPATH.'userguide',  // User guide and API documentation
 	'htmlpurifier'	=> MODPATH.'htmlpurifier',
 	//'markdown'		=> MODPATH.'markdown',
-	'cms'	=> MODPATH.'cms',
+	//'cms'	=> MODPATH.'cms',
 	));
 
 Cookie::$salt = Kohana::$config->load('secrets')->get('cookiesalt');
